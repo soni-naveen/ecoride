@@ -3,8 +3,22 @@ import Logo from "../../assets/Logo.png";
 import BasicMenu from "./Profilemenu";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import SearchIcon from "@mui/icons-material/Search";
+import Login from '../../pages/Login';
+import Signup from '../../pages/Signup';
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLogin , setShowLogin] = useState(false);
+  const [showSignUp ,setShowSignUp] = useState(false);
+
+  const loginPopup = () => {
+    setShowLogin(true);
+  }
+
+  const signupPopup = () => {
+    setShowSignUp(true);
+  }
+
+
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
@@ -23,11 +37,11 @@ const Header = () => {
             <>
               <button
                 className="text-white bg-dark-color py-1 px-8 rounded-full text-lg"
-                onClick={handleLogin}
+                onClick={loginPopup}
               >
                 Login
               </button>
-              <button className="text-dark-color py-0.5 px-6 text-lg border-solid border-2 border-dark-color rounded-full ">
+              <button className="text-dark-color py-0.5 px-6 text-lg border-solid border-2 border-dark-color rounded-full " onClick={signupPopup}>
                 Sign Up
               </button>
             </>
@@ -43,6 +57,8 @@ const Header = () => {
           )}
         </div>
       </div>
+      {showLogin && <Login closingModel={() => setShowLogin(false)}  onLogin={() => setIsLoggedIn(true)}/>}
+      {showSignUp && <Signup closeModel ={() => setShowSignUp(false)}/>}
     </>
   );
 };
