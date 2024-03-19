@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="mx-40">
+    <div className="mx-40 bg-light-color">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti commodi
       asperiores tenetur error labore quaerat temporibus cumque voluptas ducimus
       in pariatur amet adipisci provident, suscipit ipsam itaque ipsum dolorem

@@ -1,63 +1,157 @@
-import React,{useRef} from 'react'
-import ClearIcon from '@mui/icons-material/Clear';
-import  Button from '@mui/material/Button';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
-const Signup = ({closeModel}) => {
+import React, { useRef } from "react";
+import ClearIcon from "@mui/icons-material/Clear";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
+import Home from "./Home";
+import Input from "@mui/material/Input";
+import InputAdornment from "@mui/material/InputAdornment";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+const Signup = ({ closeModel }) => {
   const modalRef = useRef();
   const buttonRef = useRef();
   const closePage = (e) => {
-    if(modalRef.current === e.target || buttonRef.current === e.target) {
+    if (modalRef.current === e.target || buttonRef.current === e.target) {
       closeModel();
     }
-  }
+  };
+  const [showPassword1, setShowPassword1] = React.useState(false);
+  const [showPassword2, setShowPassword2] = React.useState(false);
+
+  const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
+  const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div ref={modalRef} onClick={closePage} className=' fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center w-full'>
-      <div className='flex flex-col gap-5 text-white'>
-        <button className=' place-self-end' onClick={closeModel}><ClearIcon className=' size-28'/></button>
-        <div className=' bg-cyan-800 rounded-xl px-20 py-10 flex flex-col gap-5 items-center mx-4'>
-          <h1 className=' text-3xl font-extrabold'>Sign Up</h1>
-          <Button variant='outlined' style={{color: 'white'}} className='flex gap-5'>Continue with Google <ArrowForwardIcon/></Button>
-          <hr className=' border-white w-full' />
-          <form className=' flex flex-col gap-5'>
-            <div className=' flex flex-col gap-2'>
-                <h5>Email</h5>
-                <input 
-                  type='email'
-                  placeholder='xyz@address.com'
-                  required
-                  className=' w-full px-4 py-3 text-black border-grary-300 rounded-md'
-                />
+    <>
+      <div
+        ref={modalRef}
+        onClick={closePage}
+        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center"
+      >
+        <div className="flex flex-col gap-3 text-white">
+          <button onClick={closeModel} className=" place-self-end mr-4">
+            <ClearIcon />
+          </button>
+          <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4">
+            <h1 className=" text-3xl font-bold mb-3">Sign Up</h1>
+            <Button className="gap-8"
+              sx={{
+                borderRadius: 2,
+                border: "1px solid white",
+                paddingX: 6,
+                paddingY: 1,
+                color: "white",
+                textTransform: "none",
+                fontWeight: 400,
+              }}
+            >
+              Continue with Google <ArrowForwardIcon fontSize="small" />
+            </Button>
+            <div className="flex items-center justify-between my-1">
+              <div className=" bg-white w-[120px] h-[0.5px]"></div>
+              <p className="text-sm px-5">or</p>
+              <div className=" bg-white w-[120px] h-[0.5px]"></div>
             </div>
-            <div className=' flex flex-col gap-2'>
-              <h5>Password</h5>
+            <form className=" flex flex-col gap-5">
+              <div className="flex flex-col gap-1">
+                <h6 className="text-sm">Email</h6>
                 <input
-                  type='passworrd'
-                  placeholder='Password'
+                  type="email"
+                  placeholder="xyz@address.com"
                   required
-                  className=' w-full px-4 py-3 text-black border-grary-300 rounded-md'
+                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
                 />
-            </div>
-            <div className=' flex flex-col gap-2'>
-              <h5>Confirm Password</h5>
-                <input
-                  type='passworrd'
-                  placeholder='Confirm password'
-                  required
-                  className=' w-full px-4 py-3 text-black border-grary-300 rounded-md'
+              </div>
+              <div className="flex flex-col gap-1">
+                <h6 className="text-sm">Password</h6>
+                <Input
+                  disableUnderline
+                  placeholder="password"
+                  sx={{
+                    fontSize: 15,
+                  }}
+                  className="w-full px-3 py-1.5 text-black rounded-md outline-none bg-white"
+                  type={showPassword1 ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment className="mr-2">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword1}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword1 ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
                 />
-            </div>
-          
-            <Button ref={buttonRef} variant='contained' className=' mt-4 w-full px-5 py-3 font-medium rounded-md bg-slate-400'>Sign Up</Button>
-            <div className=' flex flex-col justify-center items-center'>
-              <p>Already a Member? <Link to='/login' className=' text-blue-400' onClick={closeModel}>Log in</Link></p>
-            </div>
-            
-          </form>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h6 className="text-sm">Confirm password</h6>
+                <Input
+                  disableUnderline
+                  placeholder="confirm password"
+                  sx={{
+                    fontSize: 15,
+                  }}
+                  className="w-full px-3 py-1.5 text-black rounded-md outline-none bg-white"
+                  type={showPassword2 ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment className="mr-2">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword2}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword2 ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </div>
+              <Button className="w-1/3 place-self-center font-medium rounded-md"
+                ref={buttonRef}
+                variant="contained"
+                sx={{
+                  backgroundColor: "#d7f7f5",
+                  marginTop: 2,
+                  color: "#2a6171",
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                  fontSize: 15,
+                  "&:hover": {
+                    backgroundColor: "#d7f7f5",
+                    color: "#2a6171",
+                  },
+                }}
+                onClick={closePage}
+              >
+                Signup
+              </Button>
+              <div className="flex flex-col justify-center items-start">
+                <p className="text-xs font-normal mt-4">
+                  Not a member yet?{" "}
+                  <Link to="/login" className=" text-medium-color text-xs">
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
-
-export default Signup
+      <Home />
+    </>
+  );
+};
+export default Signup;
