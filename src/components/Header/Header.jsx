@@ -33,7 +33,7 @@ const Header = () => {
           <div>
             <button className="text-dark-color font-normal text-lg flex items-center">
               <SearchIcon className="mr-3 stroke-dark-color " />
-              Search ride
+              Search ride 
             </button>
           </div>
           <div className="navLinks flex justify-between items-center gap-6">
