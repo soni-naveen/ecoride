@@ -70,7 +70,7 @@ const Header = () => {
         </div>
       </div>
       {showLogin && (
-        <Login
+        <Login closingModel={() => setShowLogin(false)}
           onLogin={() => setIsLoggedIn(true)}
         />
       )}
