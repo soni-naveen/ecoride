@@ -10,14 +10,16 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const Signup = ({ closeModel }) => {
-  const modalRef = useRef();
-  const buttonRef = useRef();
-  const closePage = (e) => {
-    if (modalRef.current === e.target || buttonRef.current === e.target) {
-      closeModel();
-    }
-  };
+const Signup = (props) => {
+  // const closeModel = props.closeModel;
+  // console.log(props);
+  // const modalRef = useRef();
+  // const buttonRef = useRef();
+  // const closePage = (e) => {
+  //   if (modalRef.current === e.target || buttonRef.current === e.target) {
+  //     closeModel();
+  //   }
+  // };
   const [showPassword1, setShowPassword1] = React.useState(false);
   const [showPassword2, setShowPassword2] = React.useState(false);
 
@@ -31,17 +33,20 @@ const Signup = ({ closeModel }) => {
   return (
     <>
       <div
-        ref={modalRef}
-        onClick={closePage}
-        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center"
+        // ref={modalRef}
+        // onClick={closePage}
+        className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center"
       >
         <div className="flex flex-col gap-3 text-white">
-          <button onClick={closeModel} className=" place-self-end mr-4">
-            <ClearIcon />
-          </button>
+          <Link to={"/home"} className=" place-self-end mr-4">
+            <button>
+              <ClearIcon />
+            </button>
+          </Link>
           <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4">
             <h1 className=" text-3xl font-bold mb-3">Sign Up</h1>
-            <Button className="gap-8"
+            <Button
+              className="gap-8"
               sx={{
                 borderRadius: 2,
                 border: "1px solid white",
@@ -64,7 +69,7 @@ const Signup = ({ closeModel }) => {
                 <h6 className="text-sm">Email</h6>
                 <input
                   type="email"
-                  placeholder="xyz@address.com"
+                  placeholder="email"
                   required
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
                 />
@@ -119,8 +124,9 @@ const Signup = ({ closeModel }) => {
                   label="Password"
                 />
               </div>
-              <Button className="w-1/3 place-self-center font-medium rounded-md"
-                ref={buttonRef}
+              <Button
+                className="w-1/3 place-self-center font-medium rounded-md"
+                // ref={buttonRef}
                 variant="contained"
                 sx={{
                   backgroundColor: "#d7f7f5",
@@ -134,7 +140,7 @@ const Signup = ({ closeModel }) => {
                     color: "#2a6171",
                   },
                 }}
-                onClick={closePage}
+                // onClick={closePage}
               >
                 Signup
               </Button>
