@@ -4,8 +4,8 @@ import BasicMenu from "./Profilemenu";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-import Login from "../../pages/Login";
-import Signup from "../../pages/Signup";
+// import Login from "../../pages/Login";
+// import Signup from "../../pages/Signup";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,10 +19,10 @@ const Header = () => {
   const signupPopup = () => {
     setShowSignUp(true);
   };
-
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
+
   return (
     <>
       <div className="navBar bg-white sticky h-20 top-0 flex justify-between items-center px-12 ">
@@ -69,12 +69,13 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {showLogin && (
+      {/* {showLogin && (
         <Login
-          onLogin={() => setIsLoggedIn(true)}
+           onLogin={() => setIsLoggedIn(true)}
         />
-      )}
-      {showSignUp && <Signup closeModel={() => setShowSignUp(false)} />}
+      )} */}
+      {/* {showSignUp ? alert("HI") : alert("BYE")}
+      {showSignUp && <Signup closeModel={() => setShowSignUp(false)} />} */}
     </>
   );
 };
