@@ -9,6 +9,7 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import GoogleIcon from "@mui/icons-material/Google";
 
 function Login({ closingModel, onLogin }) {
   // const modalRef = useRef();
@@ -43,20 +44,22 @@ function Login({ closingModel, onLogin }) {
             </button>
           </Link>
           <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4">
-            <h1 className=" text-3xl font-bold mb-3">Login</h1>
+            <h1 className=" text-3xl font-semibold mb-5">Login</h1>
             <Button
-              className="gap-8"
+              className="gap-2 w-full"
               sx={{
-                borderRadius: 2,
+                borderRadius: 1,
                 border: "1px solid white",
                 paddingX: 6,
                 paddingY: 1,
                 color: "white",
                 textTransform: "none",
-                fontWeight: 400,
+                fontWeight: 500,
+                marginBottom: 2,
               }}
             >
-              Continue with Google <ArrowForwardIcon fontSize="small" />
+              Continue with <GoogleIcon fontSize="small" />
+              <ArrowForwardIcon fontSize="small" />
             </Button>
             <div className="flex items-center justify-between my-1">
               <div className=" bg-white w-[120px] h-[0.5px]"></div>
@@ -92,7 +95,11 @@ function Login({ closingModel, onLogin }) {
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
                       >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                        {showPassword ? (
+                          <VisibilityOff fontSize="small" />
+                        ) : (
+                          <Visibility fontSize="small" />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   }
@@ -110,15 +117,17 @@ function Login({ closingModel, onLogin }) {
                 // ref={buttonRef}
                 variant="contained"
                 sx={{
-                  backgroundColor: "#d7f7f5",
+                  backgroundColor: "#75cac3",
                   marginTop: 2,
-                  color: "#2a6171",
+                  color: "white",
                   fontWeight: 600,
                   letterSpacing: 1,
+                  borderRadius: 0.5,
+                  paddingY: 0.5,
                   fontSize: 15,
                   "&:hover": {
-                    backgroundColor: "#d7f7f5",
-                    color: "#2a6171",
+                    backgroundColor: "#75cac3",
+                    color: "white",
                   },
                 }}
                 className="w-1/3 place-self-center font-medium rounded-md"
@@ -129,7 +138,7 @@ function Login({ closingModel, onLogin }) {
               <div className=" flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
                   Not a member yet?{" "}
-                  <Link to="/signup" className=" text-medium-color text-xs">
+                  <Link to="/signup" className=" text-medium-color text-xs underline">
                     Sign up
                   </Link>
                 </p>
