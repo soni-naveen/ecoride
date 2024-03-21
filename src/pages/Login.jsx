@@ -35,7 +35,7 @@ function Login({ closingModel, onLogin }) {
       <div
         // ref={modalRef}
         // onClick={closePage}
-        className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center"
+        className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10"
       >
         <div className="flex flex-col gap-3 text-white">
           <Link to={"/home"} className=" place-self-end mr-4">

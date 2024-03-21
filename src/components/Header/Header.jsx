@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navBar bg-white sticky h-20 top-0 flex justify-between items-center px-12 ">
+      <div className="navBar bg-white sticky h-20 top-0 flex justify-between items-center px-12 z-10 ">
         <div className="logo ml-8">
           <img src={Logo} alt="Logo" className=" cursor-pointer w-1/2" />
         </div>
