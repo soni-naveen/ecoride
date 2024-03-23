@@ -1,0 +1,9 @@
+.swiper {
+  width: 50%;
+  height: 100%;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  font-weight: bolder;
+  color: #2a6171;
+}

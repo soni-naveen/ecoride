@@ -16,13 +16,14 @@
     "@mui/icons-material": "^5.15.13",
     "@mui/material": "^5.15.14",
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",
+    "npm": "^10.5.0",
     "react": "^18.2.0",
-    "react-card-slider-component": "^1.0.9",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

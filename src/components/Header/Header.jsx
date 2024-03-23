@@ -25,9 +25,9 @@ const Header = () => {
 
   return (
     <>
-      <div className="navBar bg-white sticky h-20 top-0 flex justify-between items-center px-12 z-10 ">
+      <div className="navBar bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-12 z-10 ">
         <div className="logo ml-8">
-          <img src={Logo} alt="Logo" className=" cursor-pointer w-1/2" />
+          <img src={Logo} alt="Logo" className=" cursor-pointer w-[60%]" />
         </div>
         <div className="flex gap-20 items-center">
           <div>

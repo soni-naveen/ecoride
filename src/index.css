@@ -3,7 +3,7 @@
 @tailwind utilities;
 *{
     font-family: "Roboto Slab", serif !important;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 }
 ::-webkit-scrollbar{
     display: none;
