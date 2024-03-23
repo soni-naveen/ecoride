@@ -106,7 +106,7 @@ const Home = () => {
             Get started today!
           </h1>
         </div>
-        <div className="buttons flex flex-row justify-center gap-10">
+        <div className="buttons flex flex-row justify-center gap-16">
           <Button
             variant="outlined"
             style={{
