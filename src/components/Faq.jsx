@@ -14,7 +14,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"
@@ -32,7 +32,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel2-content"
           id="panel2-header"
@@ -51,7 +51,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"
@@ -73,7 +73,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"
@@ -93,7 +93,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"
@@ -113,7 +113,7 @@ export default function AccordionUsage() {
       >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon fontSize="large" sx={{ color: "#75cac3" }} />
+            <ExpandMoreIcon fontSize="large" sx={{ color: "#07b2a4" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"

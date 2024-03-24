@@ -112,8 +112,8 @@ const Home = () => {
             style={{
               width: "220px",
               height: "60px",
-              color: "#75cac3",
-              borderColor: "#75cac3",
+              color: "#07b2a4",
+              borderColor: "#07b2a4",
               borderRadius: "30px",
               fontSize: "20px",
               textTransform: "none",
@@ -126,7 +126,7 @@ const Home = () => {
             style={{
               width: "220px",
               height: "60px",
-              backgroundColor: "#75cac3",
+              backgroundColor: "#07b2a4",
               color: "white",
               borderRadius: "30px",
               fontSize: "20px",

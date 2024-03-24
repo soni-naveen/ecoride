@@ -68,16 +68,16 @@ function Login({ closingModel, onLogin }) {
             </div>
             <form className=" flex flex-col gap-5">
               <div className=" flex flex-col gap-1">
-                <h6 className="text-sm">Email</h6>
+                <h6 className="text-sm font-light">Email</h6>
                 <input
                   type="email"
-                  placeholder="email"
+                  placeholder="Enter you email"
                   required
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
                 />
               </div>
               <div className=" flex flex-col gap-1">
-                <h6 className="text-sm">Password</h6>
+                <h6 className="text-sm font-light">Password</h6>
                 <Input
                   disableUnderline
                   placeholder="password"
@@ -117,20 +117,20 @@ function Login({ closingModel, onLogin }) {
                 // ref={buttonRef}
                 variant="contained"
                 sx={{
-                  backgroundColor: "#75cac3",
+                  backgroundColor: "#07b2a4",
                   marginTop: 2,
                   color: "white",
                   fontWeight: 600,
                   letterSpacing: 1,
-                  borderRadius: 0.5,
+                  borderRadius: 1,
                   paddingY: 0.5,
                   fontSize: 15,
                   "&:hover": {
-                    backgroundColor: "#75cac3",
+                    backgroundColor: "#07b2a4",
                     color: "white",
                   },
                 }}
-                className="w-1/3 place-self-center font-medium rounded-md"
+                className="w-[40%] place-self-center font-medium rounded-md"
                 // onClick={handleLoginClick}
               >
                 Login
