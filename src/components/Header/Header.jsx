@@ -43,7 +43,7 @@ const Header = () => {
               <>
                 <Link to="/signup">
                   <button
-                    className="text-dark-color py-0.5 px-6 text-md border-solid border-2 border-dark-color rounded-full "
+                    className="text-dark-color py-0.5 px-6 text-md border-solid border-2 hover:border-dark-color border-dark-color rounded-full "
                     onClick={signupPopup}
                   >
                     Sign Up

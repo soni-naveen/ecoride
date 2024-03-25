@@ -39,7 +39,7 @@ const Signup = (props) => {
         className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10"
       >
         <div className="flex flex-col gap-3 text-white">
-          <Link to={"/home"} className=" place-self-end mr-4">
+          <Link to={"/home"} className=" place-self-end mr-3">
             <button>
               <ClearIcon />
             </button>
@@ -135,31 +135,34 @@ const Signup = (props) => {
                   label="Password"
                 />
               </div>
-              <Button
-                className="w-[40%] place-self-center font-medium rounded-md"
-                // ref={buttonRef}
-                variant="contained"
-                sx={{
-                  backgroundColor: "#07b2a4",
-                  marginTop: 2,
-                  paddingY: 0.5,
-                  color: "white",
-                  fontWeight: 600,
-                  letterSpacing: 1,
-                  borderRadius: 1,
-                  fontSize: 15,
-                  "&:hover": {
+              <Link to="/verification" className="text-center">
+                <Button
+                  className="w-[40%] place-self-center rounded-md"
+                  // ref={buttonRef}
+                  variant="contained"
+                  sx={{
                     backgroundColor: "#07b2a4",
+                    marginTop: 3,
+                    paddingY: 0.5,
                     color: "white",
-                  },
-                }}
-                // onClick={closePage}
-              >
-                Signup
-              </Button>
+                    boxShadow: 'none',
+                    fontWeight: 600,
+                    letterSpacing: 1,
+                    borderRadius: 1,
+                    fontSize: 15,
+                    "&:hover": {
+                      backgroundColor: "#07b2a4",
+                      color: "white",
+                    },
+                  }}
+                  // onClick={closePage}
+                >
+                  Signup
+                </Button>
+              </Link>
               <div className="flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
-                  Already a member?{" "}
+                  Already a member?
                   <Link
                     to="/login"
                     className=" text-medium-color text-xs underline"

@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
 import Home from "./Home";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -38,7 +38,7 @@ function Login({ closingModel, onLogin }) {
         className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10"
       >
         <div className="flex flex-col gap-3 text-white">
-          <Link to={"/home"} className=" place-self-end mr-4">
+          <Link to={"/home"} className=" place-self-end mr-3">
             <button>
               <ClearIcon />
             </button>
@@ -122,6 +122,7 @@ function Login({ closingModel, onLogin }) {
                   color: "white",
                   fontWeight: 600,
                   letterSpacing: 1,
+                  boxShadow: "none",
                   borderRadius: 1,
                   paddingY: 0.5,
                   fontSize: 15,
@@ -138,8 +139,11 @@ function Login({ closingModel, onLogin }) {
               <div className=" flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
                   Not a member yet?{" "}
-                  <Link to="/signup" className=" text-medium-color text-xs underline">
-                    Sign up
+                  <Link
+                    to="/signup"
+                    className=" text-medium-color text-xs underline"
+                  >
+                    Sign Up
                   </Link>
                 </p>
               </div>

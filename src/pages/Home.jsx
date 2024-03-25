@@ -106,16 +106,16 @@ const Home = () => {
             Get started today!
           </h1>
         </div>
-        <div className="buttons flex flex-row justify-center gap-16">
+        <div className="buttons flex flex-row justify-center gap-14">
           <Button
             variant="outlined"
             style={{
-              width: "220px",
-              height: "60px",
+              width: "200px",
+              height: "50px",
               color: "#07b2a4",
               borderColor: "#07b2a4",
               borderRadius: "30px",
-              fontSize: "20px",
+              fontSize: "18px",
               textTransform: "none",
             }}
           >
@@ -124,12 +124,12 @@ const Home = () => {
           <Button
             varient="contained"
             style={{
-              width: "220px",
-              height: "60px",
+              width: "200px",
+              height: "50px",
               backgroundColor: "#07b2a4",
               color: "white",
               borderRadius: "30px",
-              fontSize: "20px",
+              fontSize: "18px",
               textTransform: "none",
             }}
           >
