@@ -7,6 +7,7 @@ import Stickingcards from "../components/Stickingcards.jsx";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import Map from "../components/Map.jsx";
 
 const Home = () => {
   return (
@@ -31,7 +32,17 @@ const Home = () => {
           </p>
           <div className="w-[400px] h-[420px] rounded-2xl bg-dark-color"></div>
         </div>
-        <div className="right w-[700px] h-[500px] mb-14 bg-light-color rounded-md"></div>
+        <div className="right w-[700px] h-[500px] mb-14 bg-light-color rounded-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109959.69944431937!2d76.67355169493845!3d30.542505451884296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc32344a6e2d7%3A0x81b346dee91799ca!2sChitkara%20University!5e0!3m2!1sen!2sin!4v1711375477161!5m2!1sen!2sin" 
+            width="700"
+            height="500"
+            style={{ border: 0 }}
+            allowfullscreen=''
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
 
       {/*---------- Specifications banner ---------*/}
