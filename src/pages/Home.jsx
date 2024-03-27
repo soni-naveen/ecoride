@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Banner from "../assets/Banner.png";
 import Button from "@mui/material/Button";
 import Card from "../components/Card.jsx";
@@ -7,9 +7,75 @@ import Stickingcards from "../components/Stickingcards.jsx";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import Map from "../components/Map.jsx";
+import L from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { ReactLeafletRoutingMachine } from "react-leaflet-routing-machine";
+import "leaflet/dist/leaflet.css";
 
 const Home = () => {
+  const mapRef = useRef(null);
+  const [startPosition, setStartPosition] = useState([33.539, 75.267]); // Default start position
+  const [endPosition, setEndPosition] = useState([30.362, 76.4988]); // Default end position
+  // const handleViewMap = () => {
+  //   var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+  //   L.Routing.control({
+  //     waypoints: [
+  //       L.latLng(28.238, 83.9956),
+  //       L.latLng(e.latlng.lat, e.latlng.lng),
+  //     ],
+  //   })
+  //     .on("routesfound", function (e) {
+  //       var routes = e.routes;
+  //       console.log(routes);
+
+  //       e.routes[0].coordinates.forEach(function (coord, index) {
+  //         setTimeout(function () {
+  //           marker.setLatLng([coord.lat, coord.lng]);
+  //         }, 100 * index);
+  //       });
+  //     })
+  //     .addTo(map);
+  // };
+
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = mapRef.current.leafletElement;
+
+      // Define custom icon for markers
+      const startIcon = L.icon({
+        iconUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+      });
+
+      const endIcon = L.icon({
+        iconUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+      });
+
+      // Add markers to the map
+      const startMarker = L.marker(startPosition, { icon: startIcon });
+      const endMarker = L.marker(endPosition, { icon: endIcon });
+
+      startMarker.addTo(map);
+      endMarker.addTo(map);
+
+      // Add a polyline to show the route
+
+      const polyline = L.polyline([startPosition, endPosition], {
+        color: "blue",
+      }).addTo(map);
+
+      // Fit the map bounds to show all markers and the route
+      map.fitBounds(polyline.getBounds());
+    }
+  }, [startPosition, endPosition]);
+
   return (
     <>
       {/*-------- Banner and title ---------  */}
@@ -24,24 +90,83 @@ const Home = () => {
         </div>
       </div>
 
-      {/*--------- Find ride and map section ------  */}
+      {/*--------- Find ride and MAP section ------  */}
       <div className="mapSection py-5 w-full flex justify-around items-start">
         <div className="left">
           <p className="text-dark-color ml-3 text-lg mb-3">
             Request a ride and go
           </p>
-          <div className="w-[400px] h-[420px] rounded-2xl bg-dark-color"></div>
+          <div className="w-[400px] h-[420px] flex flex-col items-center p-14 rounded-2xl bg-dark-color">
+            <form
+              action=""
+              id="form"
+              className="locations text-center flex flex-col gap-10"
+            >
+              <input
+                type="text"
+                placeholder="Starting location"
+                // onChange={(e) => {
+                //   const [lat, lng] = e.target.value.split(",").map(parseFloat);
+                //   setStartPosition([lat, lng]);
+                // }}
+                required
+                className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
+              />
+              <input
+                type="text"
+                placeholder="Destination"
+                // onChange={(e) => {
+                //   const [lat, lng] = e.target.value.split(",").map(parseFloat);
+                //   setEndPosition([lat, lng]);
+                // }}
+                required
+                className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
+              />
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#2a6171",
+                  border: "1px solid white",
+                  marginTop: 2,
+                  color: "white",
+                  fontWeight: 400,
+                  letterSpacing: 1,
+                  boxShadow: "none",
+                  borderRadius: 1,
+                  textTransform: "none",
+                  paddingY: 0.5,
+                  fontSize: 14,
+                  "&:hover": {
+                    backgroundColor: "#07b2a4",
+                    color: "white",
+                    border: "1px solid #07b2a4",
+                  },
+                }}
+                className="w-[45%] place-self-center font-medium rounded-md"
+              >
+                View on map
+              </Button>
+            </form>
+          </div>
         </div>
-        <div className="right w-[700px] h-[500px] mb-14 bg-light-color rounded-md">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109959.69944431937!2d76.67355169493845!3d30.542505451884296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc32344a6e2d7%3A0x81b346dee91799ca!2sChitkara%20University!5e0!3m2!1sen!2sin!4v1711375477161!5m2!1sen!2sin" 
-            width="700"
-            height="500"
-            style={{ border: 0 }}
-            allowfullscreen=''
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <div className="right border-2 border-medium-color w-[700px] h-[505px] mb-14 bg-light-color rounded-md z-0">
+          <MapContainer
+            center={[30.1471, 77.3412]}
+            zoom={5}
+            style={{ height: "500px", borderRadius: 8 }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              defer="true"
+            />
+            <Marker position={startPosition}>
+              <Popup>Start</Popup>
+            </Marker>
+            <Marker position={endPosition}>
+              <Popup>End</Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
 
