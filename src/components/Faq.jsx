@@ -1,14 +1,12 @@
 import * as React from "react";
 import Accordion from "@mui/material/Accordion";
-// import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import Button from "@mui/material/Button";
 
 export default function AccordionUsage() {
   return (
-    <div className=" w-[60%] m-auto">
+    <div className="w-[70%]">
       <Accordion
         sx={{ marginBottom: "30px", borderRadius: "5px", paddingY: 0.5 }}
       >
@@ -18,7 +16,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           How do I call a driver?
         </AccordionSummary>
@@ -36,7 +34,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel2-content"
           id="panel2-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           What if I need to cancel a ride?
         </AccordionSummary>
@@ -55,7 +53,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           How do I publish a ride?
         </AccordionSummary>
@@ -77,7 +75,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           How much does a ride cost?
         </AccordionSummary>
@@ -97,7 +95,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           How can I verify my account?
         </AccordionSummary>
@@ -117,7 +115,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-lg font-medium"
+          className="text-md font-medium"
         >
           Where do I report an issue on the website?
         </AccordionSummary>

@@ -11,14 +11,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
 
-function Login({ closingModel, onLogin }) {
-  // const modalRef = useRef();
-  // const buttonRef = useRef();
-  // const closePage = (e) => {
-  //   if (modalRef.current === e.target || buttonRef.current === e.target) {
-  //     closingModel();
-  //   }
-  // };
+function Login({ onLogin }) {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -26,17 +19,9 @@ function Login({ closingModel, onLogin }) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  // const handleLoginClick = () => {>
-  //   onLogin(); // Call the onLogin function passed as prop
-  // };
-
   return (
     <>
-      <div
-        // ref={modalRef}
-        // onClick={closePage}
-        className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10"
-      >
+      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
           <Link to={"/home"} className=" place-self-end mr-3">
             <button>
@@ -114,7 +99,6 @@ function Login({ closingModel, onLogin }) {
               </Link>
 
               <Button
-                // ref={buttonRef}
                 variant="contained"
                 sx={{
                   backgroundColor: "#07b2a4",
@@ -132,13 +116,12 @@ function Login({ closingModel, onLogin }) {
                   },
                 }}
                 className="w-[40%] place-self-center font-medium rounded-md"
-                // onClick={handleLoginClick}
               >
                 Login
               </Button>
               <div className=" flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
-                  Not a member yet?{" "}
+                  Not a member yet? &nbsp;
                   <Link
                     to="/signup"
                     className=" text-medium-color text-xs underline"

@@ -1,99 +1,40 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Banner from "../assets/Banner.png";
 import Button from "@mui/material/Button";
 import Card from "../components/Card.jsx";
 import AccordionUsage from "../components/Faq.jsx";
+import faqLogo from "../assets/FAQs.png";
 import Stickingcards from "../components/Stickingcards.jsx";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import PeopleIcon from "@mui/icons-material/People";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { ReactLeafletRoutingMachine } from "react-leaflet-routing-machine";
-import "leaflet/dist/leaflet.css";
+import Map from "../components/Map.jsx";
 
 const Home = () => {
-  const mapRef = useRef(null);
-  const [startPosition, setStartPosition] = useState([33.539, 75.267]); // Default start position
-  const [endPosition, setEndPosition] = useState([30.362, 76.4988]); // Default end position
-  // const handleViewMap = () => {
-  //   var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-  //   L.Routing.control({
-  //     waypoints: [
-  //       L.latLng(28.238, 83.9956),
-  //       L.latLng(e.latlng.lat, e.latlng.lng),
-  //     ],
-  //   })
-  //     .on("routesfound", function (e) {
-  //       var routes = e.routes;
-  //       console.log(routes);
-
-  //       e.routes[0].coordinates.forEach(function (coord, index) {
-  //         setTimeout(function () {
-  //           marker.setLatLng([coord.lat, coord.lng]);
-  //         }, 100 * index);
-  //       });
-  //     })
-  //     .addTo(map);
-  // };
-
-  useEffect(() => {
-    if (mapRef.current) {
-      const map = mapRef.current.leafletElement;
-
-      // Define custom icon for markers
-      const startIcon = L.icon({
-        iconUrl:
-          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-      });
-
-      const endIcon = L.icon({
-        iconUrl:
-          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-      });
-
-      // Add markers to the map
-      const startMarker = L.marker(startPosition, { icon: startIcon });
-      const endMarker = L.marker(endPosition, { icon: endIcon });
-
-      startMarker.addTo(map);
-      endMarker.addTo(map);
-
-      // Add a polyline to show the route
-
-      const polyline = L.polyline([startPosition, endPosition], {
-        color: "blue",
-      }).addTo(map);
-
-      // Fit the map bounds to show all markers and the route
-      map.fitBounds(polyline.getBounds());
-    }
-  }, [startPosition, endPosition]);
-
   return (
     <>
       {/*-------- Banner and title ---------  */}
-      <div className="h-[532px]">
+      <div className="image h-[600px]">
         <img
           src={Banner}
           alt="Sharing rides building connections"
-          className="w-screen h-auto m-auto"
+          className="w-screen"
         />
-        <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 relative top-[-370px] left-36">
+        <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[180px] left-32">
           <div className="">Sharing rides, building connections</div>
+        </div>
+        <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]">
+          Your pick of rides at low prices
         </div>
       </div>
 
       {/*--------- Find ride and MAP section ------  */}
-      <div className="mapSection py-5 w-full flex justify-around items-start">
+      <div className="mapSection h-[700px] flex justify-around gap-10 items-start mt-20">
         <div className="left">
-          <p className="text-dark-color ml-3 text-lg mb-3">
+          <p className="text-dark-color ml-3 mb-3 text-lg">
             Request a ride and go
           </p>
           <div className="w-[400px] h-[420px] flex flex-col items-center p-14 rounded-2xl bg-dark-color">
@@ -103,24 +44,18 @@ const Home = () => {
               className="locations text-center flex flex-col gap-10"
             >
               <input
+                id="start"
                 type="text"
                 placeholder="Starting location"
-                // onChange={(e) => {
-                //   const [lat, lng] = e.target.value.split(",").map(parseFloat);
-                //   setStartPosition([lat, lng]);
-                // }}
                 required
-                className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
+                className=" w-[300px] px-3 py-2 text-black rounded-md outline-none text-md"
               />
               <input
+                id="end"
                 type="text"
                 placeholder="Destination"
-                // onChange={(e) => {
-                //   const [lat, lng] = e.target.value.split(",").map(parseFloat);
-                //   setEndPosition([lat, lng]);
-                // }}
                 required
-                className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
+                className=" w-[300px] px-3 py-2 text-black rounded-md outline-none text-md"
               />
               <Button
                 variant="contained"
@@ -130,7 +65,7 @@ const Home = () => {
                   marginTop: 2,
                   color: "white",
                   fontWeight: 400,
-                  letterSpacing: 1,
+                  letterSpacing: 0,
                   boxShadow: "none",
                   borderRadius: 1,
                   textTransform: "none",
@@ -144,50 +79,43 @@ const Home = () => {
                 }}
                 className="w-[45%] place-self-center font-medium rounded-md"
               >
-                View on map
+                View full map
               </Button>
             </form>
           </div>
         </div>
-        <div className="right border-2 border-medium-color w-[700px] h-[505px] mb-14 bg-light-color rounded-md z-0">
-          <MapContainer
-            center={[30.1471, 77.3412]}
-            zoom={5}
-            style={{ height: "500px", borderRadius: 8 }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              defer="true"
-            />
-            <Marker position={startPosition}>
-              <Popup>Start</Popup>
-            </Marker>
-            <Marker position={endPosition}>
-              <Popup>End</Popup>
-            </Marker>
-          </MapContainer>
+        <div className="righ w-[800px] h-[600px] bg-light-color rounded-md z-0">
+          <Map />
         </div>
       </div>
 
       {/*---------- Specifications banner ---------*/}
       <div className="belowBanner h-[170px] w-full bg-dark-color flex justify-around items-center text-white">
-        <div className="left flex flex-col items-center">
-          <h1 className="text-5xl font-bold">150+</h1>
-          <p>Daily Users</p>
+        <div className="left flex flex-row gap-7 items-center justify-center">
+          <PeopleIcon sx={{ fontSize: 60 }} />
+          <div>
+            <h1 className="text-4xl font-semibold">150+</h1>
+            <p className="text-sm">Daily Users</p>
+          </div>
         </div>
-        <div className="middle flex flex-col items-center">
-          <h1 className="text-5xl font-bold">24/7</h1>
-          <p>Customer Support</p>
+        <div className="middle flex flex-row gap-7 items-center justify-center">
+          <SupportAgentIcon sx={{ fontSize: 60 }} />
+          <div>
+            <h1 className="text-4xl font-semibold">24/7</h1>
+            <p className="text-sm">Customer Support</p>
+          </div>
         </div>
-        <div className="right flex flex-col items-center">
-          <h1 className="text-5xl font-roboto font-bold">500+</h1>
-          <p>Verified Drivers</p>
+        <div className="right flex flex-row gap-7 items-center justify-center">
+          <VerifiedIcon sx={{ fontSize: 60 }} />
+          <div>
+            <h1 className="text-4xl font-semibold">500+</h1>
+            <p className="text-sm">Verified Drivers</p>
+          </div>
         </div>
       </div>
 
       {/*--------- 3 cards - why stick with us -------*/}
-      <div className="stickWithUs h-auto w-full p-20 mt-10 mb-16">
+      <div className="stickWithUs h-auto w-full p-20 mt-5 mb-14">
         <div className="inner flex flex-col justify-center gap-28">
           <div>
             <h1 className="ml-10 text-5xl font-semibold text-dark-color">
@@ -197,7 +125,7 @@ const Home = () => {
 
           <div className="cards flex gap-10 justify-evenly items-center">
             <Stickingcards
-              icon={<CheckCircleOutlineIcon fontSize="large" />}
+              icon={<VerifiedUserIcon fontSize="large" />}
               title="Trust who you travel with"
               content="We take the time to get to know each of our members and bus partners. We check reviews, profiles and IDs, so you know who you're travelling with and can book your ride at ease on our secure platform."
             />
@@ -216,12 +144,17 @@ const Home = () => {
       </div>
 
       {/*-------------- FAQ ------------- */}
-      <div className="faqs w-full h-auto bg-dark-color flex flex-col justify-evenly items-center gap-20">
-        <div className="heading text-white text-5xl font-semibold mt-16">
-          FAQ's
+      <div className="faqs bg-dark-color flex items-center ">
+        <div className="left w-[100%] mx-20">
+          <img src={faqLogo} alt="FAQ's" />
         </div>
-        <div className="list mb-16">
-          <AccordionUsage />
+        <div className="right flex flex-col items-center gap-10">
+          <div className="heading text-white text-5xl font-semibold mt-16">
+            FAQ's
+          </div>
+          <div className="faqs mb-16 flex justify-center">
+            <AccordionUsage />
+          </div>
         </div>
       </div>
 

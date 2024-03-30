@@ -11,16 +11,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
 
-const Signup = (props) => {
-  // const closeModel = props.closeModel;
-  // console.log(props);
-  // const modalRef = useRef();
-  // const buttonRef = useRef();
-  // const closePage = (e) => {
-  //   if (modalRef.current === e.target || buttonRef.current === e.target) {
-  //     closeModel();
-  //   }
-  // };
+const Signup = (onSignup) => {
   const [showPassword1, setShowPassword1] = React.useState(false);
   const [showPassword2, setShowPassword2] = React.useState(false);
 
@@ -33,11 +24,7 @@ const Signup = (props) => {
 
   return (
     <>
-      <div
-        // ref={modalRef}
-        // onClick={closePage}
-        className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10"
-      >
+      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
           <Link to={"/home"} className=" place-self-end mr-3">
             <button>
@@ -145,7 +132,7 @@ const Signup = (props) => {
                     marginTop: 3,
                     paddingY: 0.5,
                     color: "white",
-                    boxShadow: 'none',
+                    boxShadow: "none",
                     fontWeight: 600,
                     letterSpacing: 1,
                     borderRadius: 1,
@@ -155,14 +142,13 @@ const Signup = (props) => {
                       color: "white",
                     },
                   }}
-                  // onClick={closePage}
                 >
                   Signup
                 </Button>
               </Link>
               <div className="flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
-                  Already a member?
+                  Already a member? &nbsp;
                   <Link
                     to="/login"
                     className=" text-medium-color text-xs underline"

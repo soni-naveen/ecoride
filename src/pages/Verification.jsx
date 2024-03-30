@@ -196,7 +196,7 @@ export default function Verification() {
   const [otp, setOtp] = React.useState("");
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-10">
+      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
           <Link to={"/home"} className=" place-self-end mr-3">
             <button>

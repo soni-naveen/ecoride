@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@latest/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <script src="https://unpkg.com/leaflet@latest/dist/leaflet-src.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 100vh; width: 100vw" id="mapid"></div>
+  </body>
+  <script>
+    let mymap = L.map("mapid").setView([24.1471, 79.3412], 5);
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+    let control = L.Routing.control({
+      waypoints: [L.latLng(30.516, 76.659), L.latLng(30.7333, 76.7794)],
+      router: new L.Routing.osrmv1({
+        language: "en",
+        profile: "car",
+      }),
+      geocoder: L.Control.Geocoder.nominatim({}),
+    }).addTo(mymap);
+  </script>
+</html>
