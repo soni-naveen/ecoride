@@ -4,8 +4,6 @@ import BasicMenu from "./Profilemenu";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-// import Login from "../../pages/Login";
-// import Signup from "../../pages/Signup";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

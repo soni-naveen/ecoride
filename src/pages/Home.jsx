@@ -12,12 +12,14 @@ import PeopleIcon from "@mui/icons-material/People";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Map from "../components/Map.jsx";
+import Calender from "../components/Calender.jsx";
+import Numberinput from "../components/Numberinput.jsx";
 
 const Home = () => {
   return (
     <>
       {/*-------- Banner and title ---------  */}
-      <div className="image h-[600px]">
+      <div className="image h-[650px]">
         <img
           src={Banner}
           alt="Sharing rides building connections"
@@ -32,12 +34,12 @@ const Home = () => {
       </div>
 
       {/*--------- Find ride and MAP section ------  */}
-      <div className="mapSection h-[700px] flex justify-around gap-10 items-start mt-20">
+      <div className="mapSection h-[700px] flex justify-around items-start">
         <div className="left">
-          <p className="text-dark-color ml-3 mb-3 text-lg">
+          <p className="text-dark-color ml-3 mb-3 text-xl">
             Request a ride and go
           </p>
-          <div className="w-[400px] h-[420px] flex flex-col items-center p-14 rounded-2xl bg-dark-color">
+          <div className="w-[28rem] h-[29rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color">
             <form
               action=""
               id="form"
@@ -48,44 +50,84 @@ const Home = () => {
                 type="text"
                 placeholder="Starting location"
                 required
-                className=" w-[300px] px-3 py-2 text-black rounded-md outline-none text-md"
+                className=" w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg"
               />
               <input
                 id="end"
                 type="text"
                 placeholder="Destination"
                 required
-                className=" w-[300px] px-3 py-2 text-black rounded-md outline-none text-md"
+                className=" w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg"
               />
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#2a6171",
-                  border: "1px solid white",
-                  marginTop: 2,
-                  color: "white",
-                  fontWeight: 400,
-                  letterSpacing: 0,
-                  boxShadow: "none",
-                  borderRadius: 1,
-                  textTransform: "none",
-                  paddingY: 0.5,
-                  fontSize: 14,
-                  "&:hover": {
+              <div className="connectinglines flex flex-col items-center absolute top-[5.4rem] left-[3.6rem]">
+                <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
+                <div className="bg-medium-color h-[5.2rem] w-0.5"></div>
+                <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
+              </div>
+
+              <div className="flex justify-around items-center">
+                <Calender />
+                <Numberinput />
+              </div>
+              <div className="flex justify-around">
+                <Button
+                  variant="contained"
+                  sx={{
                     backgroundColor: "#07b2a4",
+                    marginTop: 2,
                     color: "white",
-                    border: "1px solid #07b2a4",
-                  },
-                }}
-                className="w-[45%] place-self-center font-medium rounded-md"
-              >
-                View full map
-              </Button>
+                    fontWeight: 600,
+                    letterSpacing: 1,
+                    boxShadow: "none",
+                    borderRadius: 10,
+                    textTransform: "none",
+                    paddingY: 1.5,
+                    fontSize: 17,
+                    "&:hover": {
+                      backgroundColor: "#07b2a4",
+                      color: "white",
+                    },
+                  }}
+                  className="w-[45%] place-self-center font-medium rounded-md"
+                >
+                  SEE RIDES
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#2a6171",
+                    border: "1px solid white",
+                    marginTop: 2,
+                    color: "white",
+                    fontWeight: 400,
+                    letterSpacing: 0,
+                    boxShadow: "none",
+                    borderRadius: 10,
+                    textTransform: "none",
+                    paddingY: 1.5,
+                    fontSize: 16,
+                    "&:hover": {
+                      backgroundColor: "#2a6171",
+                      color: "white",
+                      border: "1px solid white",
+                      boxShadow: "none",
+                    },
+                  }}
+                  className="w-[45%] place-self-center font-medium rounded-md"
+                >
+                  View full map
+                </Button>
+              </div>
             </form>
           </div>
         </div>
-        <div className="righ w-[800px] h-[600px] bg-light-color rounded-md z-0">
-          <Map />
+        <div className="z-0">
+          <p className="text-dark-color mb-3 text-xl">
+            ► Search on map to see full route
+          </p>
+          <div className="right w-[800px] h-[550px] bg-light-color rounded-md">
+            <Map />
+          </div>
         </div>
       </div>
 

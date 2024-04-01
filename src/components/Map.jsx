@@ -5,30 +5,34 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import L from "leaflet";
 import "leaflet-routing-machine";
 import "leaflet-control-geocoder";
+import "leaflet-contextmenu";
+import "leaflet-contextmenu/dist/leaflet.contextmenu.min.css";
 
 const Map = () => {
   useEffect(() => {
     // Initialize map
     const mymap = L.map("mapid").setView([29.1471, 79.3412], 5);
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+      attribution:
+        'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+    }).addTo(mymap);
 
     // Create routing control
     const control = L.Routing.control({
-      waypoints: [L.latLng(30.516, 76.659), L.latLng(30.7333, 76.7794)],
+      waypoints: [L.latLng(30.516, 76.659)],
       router: new L.Routing.osrmv1({
         language: "en",
         profile: "car",
       }),
       geocoder: L.Control.Geocoder.nominatim({}),
     }).addTo(mymap);
-
     // Clean up function
     return () => {
       mymap.remove();
     };
   }, []);
 
-  return <div id="mapid" style={{ height: "600px", width: "800px" }}></div>;
+  return <div id="mapid" style={{ height: "550px", width: "800px" }}></div>;
 };
 
 export default Map;

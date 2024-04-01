@@ -16,9 +16,6 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
     />
-    <script src="https://unpkg.com/leaflet@latest/dist/leaflet-src.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <style>
       ::-webkit-scrollbar {
         display: none;
@@ -28,6 +25,9 @@
   <body>
     <div style="height: 100vh; width: 100vw" id="mapid"></div>
   </body>
+  <script src="https://unpkg.com/leaflet@latest/dist/leaflet-src.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
   <script>
     let mymap = L.map("mapid").setView([24.1471, 79.3412], 5);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);

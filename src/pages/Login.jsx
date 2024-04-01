@@ -31,7 +31,7 @@ function Login({ onLogin }) {
           <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4">
             <h1 className=" text-3xl font-semibold mb-5">Login</h1>
             <Button
-              className="gap-2 w-full"
+              className="google gap-2 w-full"
               sx={{
                 borderRadius: 1,
                 border: "1px solid white",
@@ -46,13 +46,13 @@ function Login({ onLogin }) {
               Continue with <GoogleIcon fontSize="small" />
               <ArrowForwardIcon fontSize="small" />
             </Button>
-            <div className="flex items-center justify-between my-1">
+            <div className="--or-- flex items-center justify-between my-1">
               <div className=" bg-white w-[120px] h-[0.5px]"></div>
               <p className="text-sm px-5">or</p>
               <div className=" bg-white w-[120px] h-[0.5px]"></div>
             </div>
-            <form className=" flex flex-col gap-5">
-              <div className=" flex flex-col gap-1">
+            <form className="flex flex-col gap-5">
+              <div className="email flex flex-col gap-1">
                 <h6 className="text-sm font-light">Email</h6>
                 <input
                   type="email"
@@ -61,7 +61,7 @@ function Login({ onLogin }) {
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm"
                 />
               </div>
-              <div className=" flex flex-col gap-1">
+              <div className="password flex flex-col gap-1">
                 <h6 className="text-sm font-light">Password</h6>
                 <Input
                   disableUnderline
@@ -97,7 +97,6 @@ function Login({ onLogin }) {
               >
                 Forgot Password?
               </Link>
-
               <Button
                 variant="contained"
                 sx={{
@@ -119,7 +118,7 @@ function Login({ onLogin }) {
               >
                 Login
               </Button>
-              <div className=" flex flex-col justify-center items-start">
+              <div className="gotosignup flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
                   Not a member yet? &nbsp;
                   <Link
