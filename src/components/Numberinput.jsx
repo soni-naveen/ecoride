@@ -16,6 +16,12 @@ export default function Numberinput() {
       setInputQuantity(inputQuantity - 1);
     }
   };
+  const handleChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (!isNaN(value)) {
+      setInputQuantity(value);
+    }
+  };
 
   return (
     <div className="bg-white text-center h-[3.4rem] w-32 flex items-center justify-center rounded-[4px]">
@@ -26,6 +32,7 @@ export default function Numberinput() {
       />
       <input
         value={inputQuantity}
+        onChange={handleChange}
         className="text-center outline-none w-16 text-2xl font-bold caret-white"
       />
       <AddIcon

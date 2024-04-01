@@ -32,8 +32,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/*--------- Find ride and MAP section ------  */}
-      <div className="mapSection h-[700px] flex justify-around items-start">
+      <div className="mapSection h-[700px] flex flex-row justify-around items-start">
         <div className="left">
           <p className="text-dark-color ml-3 mb-3 text-xl">
             Request a ride and go
@@ -78,11 +77,11 @@ const Home = () => {
             </form>
           </div>
         </div>
-        <div className="z-0">
+        <div className="right z-0">
           <p className="text-dark-color mb-3 text-xl">
             ► Search on map to see full route
           </p>
-          <div className="right w-[800px] h-[550px] bg-light-color rounded-md">
+          <div className="right w-[800px] h-[550px]  bg-light-color rounded-md">
             <Map />
           </div>
         </div>
@@ -175,10 +174,10 @@ const Home = () => {
           </h1>
         </div>
         <div className="buttons flex flex-row justify-center gap-14">
-          <button className="w-52 border border-medium-color p-3 rounded-full text-medium-color text-lg font-semibold ">
+          <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-light-color active:duration-50">
             Find a Ride
           </button>
-          <button className="w-52 border bg-medium-color text-white border-medium-color p-3 rounded-full text-lg font-semibold ">
+          <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 ">
             Offer a Ride
           </button>
         </div>
