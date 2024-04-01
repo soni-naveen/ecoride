@@ -31,7 +31,7 @@ const Header = () => {
         </div>
         <div className="flex gap-20 items-center">
           <div>
-            <button className="text-dark-color font-normal text-lg flex items-center">
+            <button className="text-dark-color font-medium text-lg flex items-center">
               <SearchIcon className="mr-3 stroke-dark-color " />
               Search ride
             </button>
@@ -41,7 +41,7 @@ const Header = () => {
               <>
                 <Link to="/signup">
                   <button
-                    className="text-dark-color py-0.5 px-6 text-md border-solid border-2 hover:border-dark-color border-dark-color rounded-full "
+                    className="text-dark-color py-1 px-6 text-md border-2 font-medium hover:border-dark-color border-dark-color rounded-full "
                     onClick={signupPopup}
                   >
                     Sign Up
@@ -49,7 +49,7 @@ const Header = () => {
                 </Link>
                 <Link to="/login">
                   <button
-                    className="text-white bg-dark-color py-1 px-8 rounded-full text-md"
+                    className="text-white bg-dark-color border-2 border-dark-color font-medium py-1 px-8 rounded-full text-md"
                     onClick={loginPopup}
                   >
                     Login

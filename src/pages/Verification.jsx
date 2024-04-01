@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import PropTypes from "prop-types";
 import { Input as BaseInput } from "@mui/base/Input";
 import { Box, styled } from "@mui/system";
 import Home from "./Home";
-import Button from "@mui/material/Button";
 
 function OTP({ separator, length, value, onChange }) {
   const inputRefs = React.useRef(new Array(length).fill(null));
@@ -217,30 +216,10 @@ export default function Verification() {
                 />
               </Box>
               {/* <span>Entered value: {otp}</span> */}
-              <Button
-                className="w-[35%] rounded-md"
-                variant="contained"
-                sx={{
-                  backgroundColor: "#2a6171",
-                  border: "1px solid white",
-                  boxShadow: "none",
-                  marginTop: 1,
-                  paddingY: 0.5,
-                  color: "white",
-                  fontWeight: 400,
-                  letterSpacing: 1,
-                  borderRadius: 1,
-                  fontSize: 15,
-                  "&:hover": {
-                    border: "1px solid #07b2a4",
-                    backgroundColor: "#07b2a4",
-                    color: "white",
-                    fontWeight: 600,
-                  },
-                }}
-              >
-                verify
-              </Button>
+
+              <button className="w-[35%] mt-2 text-sm rounded-md bg-dark-color border border-white py-1.5 tracking-[1px] hover:bg-medium-color hover:font-semibold transition-all">
+                VERIFY
+              </button>
             </form>
           </div>
         </div>

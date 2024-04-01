@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "../assets/Banner.png";
-import Button from "@mui/material/Button";
 import Card from "../components/Card.jsx";
 import AccordionUsage from "../components/Faq.jsx";
 import faqLogo from "../assets/FAQs.png";
@@ -64,59 +63,17 @@ const Home = () => {
                 <div className="bg-medium-color h-[5.2rem] w-0.5"></div>
                 <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
               </div>
-
               <div className="flex justify-around items-center">
                 <Calender />
                 <Numberinput />
               </div>
-              <div className="flex justify-around">
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#07b2a4",
-                    marginTop: 2,
-                    color: "white",
-                    fontWeight: 600,
-                    letterSpacing: 1,
-                    boxShadow: "none",
-                    borderRadius: 10,
-                    textTransform: "none",
-                    paddingY: 1.5,
-                    fontSize: 17,
-                    "&:hover": {
-                      backgroundColor: "#07b2a4",
-                      color: "white",
-                    },
-                  }}
-                  className="w-[45%] place-self-center font-medium rounded-md"
-                >
+              <div className="mt-4 flex justify-around">
+                <button className="bg-medium-color  py-3 text-white tracking-[1px] w-[45%] py-2 font-medium rounded-full">
                   SEE RIDES
-                </Button>
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#2a6171",
-                    border: "1px solid white",
-                    marginTop: 2,
-                    color: "white",
-                    fontWeight: 400,
-                    letterSpacing: 0,
-                    boxShadow: "none",
-                    borderRadius: 10,
-                    textTransform: "none",
-                    paddingY: 1.5,
-                    fontSize: 16,
-                    "&:hover": {
-                      backgroundColor: "#2a6171",
-                      color: "white",
-                      border: "1px solid white",
-                      boxShadow: "none",
-                    },
-                  }}
-                  className="w-[45%] place-self-center font-medium rounded-md"
-                >
+                </button>
+                <div className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] py-2 font-light rounded-full hover:cursor-pointer">
                   View full map
-                </Button>
+                </div>
               </div>
             </form>
           </div>
@@ -218,34 +175,12 @@ const Home = () => {
           </h1>
         </div>
         <div className="buttons flex flex-row justify-center gap-14">
-          <Button
-            variant="outlined"
-            style={{
-              width: "200px",
-              height: "50px",
-              color: "#07b2a4",
-              borderColor: "#07b2a4",
-              borderRadius: "30px",
-              fontSize: "18px",
-              textTransform: "none",
-            }}
-          >
+          <button className="w-52 border border-medium-color p-3 rounded-full text-medium-color text-lg font-semibold ">
             Find a Ride
-          </Button>
-          <Button
-            varient="contained"
-            style={{
-              width: "200px",
-              height: "50px",
-              backgroundColor: "#07b2a4",
-              color: "white",
-              borderRadius: "30px",
-              fontSize: "18px",
-              textTransform: "none",
-            }}
-          >
+          </button>
+          <button className="w-52 border bg-medium-color text-white border-medium-color p-3 rounded-full text-lg font-semibold ">
             Offer a Ride
-          </Button>
+          </button>
         </div>
       </div>
     </>
