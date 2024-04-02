@@ -18,21 +18,21 @@ const Home = () => {
   return (
     <>
       {/*-------- Banner and title ---------  */}
-      <div className="image h-[650px]">
+      <div className="image h-[650px] ">
         <img
           src={Banner}
           alt="Sharing rides building connections"
-          className="w-screen"
+          className="w-screen xl:h-[480px]"
         />
-        <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[180px] left-32">
+        <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[180px] left-32 2xl:text-6xl lg:text-5xl lg:left-20">
           <div className="">Sharing rides, building connections</div>
         </div>
-        <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]">
+        <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px] sm:text-2xl smxl:text-xl">
           Your pick of rides at low prices
         </div>
       </div>
 
-      <div className="mapSection h-[700px] flex flex-row justify-around items-start">
+      <div className="mapSection h-[700px] flex flex-row justify-around items-start xl:flex-col  xl:items-center">
         <div className="left">
           <p className="text-dark-color ml-3 mb-3 text-xl">
             Request a ride and go
@@ -67,10 +67,10 @@ const Home = () => {
                 <Numberinput />
               </div>
               <div className="mt-4 flex justify-around">
-                <button className="bg-medium-color  py-3 text-white tracking-[1px] w-[45%] py-2 font-medium rounded-full">
+                <button className="bg-medium-color  py-3 text-white tracking-[1px] w-[45%]  font-medium rounded-full">
                   SEE RIDES
                 </button>
-                <div className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] py-2 font-light rounded-full hover:cursor-pointer">
+                <div className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer">
                   View full map
                 </div>
               </div>
@@ -81,7 +81,7 @@ const Home = () => {
           <p className="text-dark-color mb-3 text-xl">
             ► Search on map to see full route
           </p>
-          <div className="right w-[800px] h-[550px]  bg-light-color rounded-md">
+          <div className="right w-[800px] h-[550px]  bg-light-color rounded-md xl:hidden">
             <Map />
           </div>
         </div>
@@ -89,24 +89,24 @@ const Home = () => {
 
       {/*---------- Specifications banner ---------*/}
       <div className="belowBanner h-[170px] w-full bg-dark-color flex justify-around items-center text-white">
-        <div className="left flex flex-row gap-7 items-center justify-center">
+        <div className="left flex flex-row gap-7 md:flex-col md:items-start md:gap-0 ">
           <PeopleIcon sx={{ fontSize: 60 }} />
           <div>
-            <h1 className="text-4xl font-semibold">150+</h1>
+            <h1 className="text-4xl font-semibold lg:text-3xl sm:text-2xl">150+</h1>
             <p className="text-sm">Daily Users</p>
           </div>
         </div>
-        <div className="middle flex flex-row gap-7 items-center justify-center">
+        <div className="middle flex flex-row gap-7 md:flex-col md:items-start md:gap-0">
           <SupportAgentIcon sx={{ fontSize: 60 }} />
           <div>
-            <h1 className="text-4xl font-semibold">24/7</h1>
+            <h1 className="text-4xl font-semibold lg:text-3xl sm:text-2xl">24/7</h1>
             <p className="text-sm">Customer Support</p>
           </div>
         </div>
-        <div className="right flex flex-row gap-7 items-center justify-center">
+        <div className="right flex flex-row gap-7  md:flex-col md:items-start md:gap-0">
           <VerifiedIcon sx={{ fontSize: 60 }} />
           <div>
-            <h1 className="text-4xl font-semibold">500+</h1>
+            <h1 className="text-4xl font-semibold lg:text-3xl sm:text-2xl">500+</h1>
             <p className="text-sm">Verified Drivers</p>
           </div>
         </div>
@@ -121,7 +121,7 @@ const Home = () => {
             </h1>
           </div>
 
-          <div className="cards flex gap-10 justify-evenly items-center">
+          <div className="cards flex gap-10 justify-evenly items-center h-auto lg:flex-col">
             <Stickingcards
               icon={<VerifiedUserIcon fontSize="large" />}
               title="Trust who you travel with"
@@ -167,13 +167,13 @@ const Home = () => {
       </div>
 
       {/*----------- Get started today --------- */}
-      <div className="abovefooter h-72 w-full">
+      <div className="abovefooter h-auto w-full mb-10">
         <div className="heading m-16 pt-5 pl-16">
-          <h1 className="text-dark-color text-5xl font-bold">
+          <h1 className="text-dark-color text-5xl font-bold md:text-4xl">
             Get started today!
           </h1>
         </div>
-        <div className="buttons flex flex-row justify-center gap-14">
+        <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6">
           <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-light-color active:duration-50">
             Find a Ride
           </button>

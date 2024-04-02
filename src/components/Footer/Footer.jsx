@@ -12,18 +12,19 @@ const ariaLabel = { "aria-label": "description" };
 const Footer = () => {
   return (
     <div className="bg-dark-color text-center pt-16 ">
-      <div className="flex justify-around items-start text-white">
+      {/* Container Div */}
+      <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-10">
         <div className="left w-[15%]">
           <div className="heading">
             <h1 className="text-xl font-light">Follow Us</h1>
           </div>
           <div className="links flex justify-evenly mt-5 ">
-            <InstagramIcon fontSize="large" />
-            <YouTubeIcon fontSize="large" />
-            <LinkedInIcon fontSize="large" />
-            <TwitterIcon fontSize="large" />
+            <Link><InstagramIcon fontSize="large" /></Link>
+            <Link><YouTubeIcon fontSize="large" /></Link>
+            <Link><LinkedInIcon fontSize="large" /></Link>
+            <Link><TwitterIcon fontSize="large" /></Link>
           </div>
-          <div className="mt-20">
+          <div className="mt-20 lg:hidden">
             <img src={Logo} alt="EcoRide" />
           </div>
         </div>
@@ -45,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="right w-[15%] text-left">
+        <div className="right w-[15%] text-left lg:flex flex-col justify-center items-center">
           <h1 className="font-light text-lg mb-5">Stay upto date :</h1>
           {/* <form action=""> */}
             <Input

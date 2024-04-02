@@ -23,33 +23,36 @@ const Header = () => {
 
   return (
     <>
-      <div className="navBar bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-12 z-10 ">
-        <div className="logo ml-8">
+      <div className="navBar bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-12 z-10 w-full md:justify-evenly ">
+        <div className="logo ml-8 md:ml-2">
           <Link to="/">
-            <img src={Logo} alt="Logo" className=" cursor-pointer w-[60%]" />
+            <img src={Logo} alt="Logo" className=" cursor-pointer w-[200px] md:w-350px smxl:w-fit" />
           </Link>
         </div>
-        <div className="flex gap-20 items-center">
+        <div className="flex gap-20 items-center lg:gap-4">
           <div>
             <button className="text-dark-color font-medium text-lg flex items-center">
               <SearchIcon className="mr-3 stroke-dark-color " />
-              Search ride
+              <div className="lg:hidden">
+                Search ride
+              </div>
+              
             </button>
           </div>
-          <div className="navLinks flex justify-between items-center gap-6">
+          <div className="navLinks flex justify-between items-center gap-6 sm:gap-2">
             {!isLoggedIn && (
               <>
                 <Link to="/signup">
                   <button
-                    className="text-dark-color py-1 px-6 text-md border-2 font-medium hover:border-dark-color border-dark-color rounded-full "
+                    className="text-dark-color py-1 px-6 text-md border-2 font-medium hover:border-dark-color border-dark-color rounded-full md1:text-sm"
                     onClick={signupPopup}
                   >
-                    Sign Up
+                    SignUp
                   </button>
                 </Link>
                 <Link to="/login">
                   <button
-                    className="text-white bg-dark-color border-2 border-dark-color font-medium py-1 px-8 rounded-full text-md"
+                    className="text-white bg-dark-color border-2 border-dark-color font-medium py-1 px-8 rounded-full text-md md1:text-sm"
                     onClick={loginPopup}
                   >
                     Login
