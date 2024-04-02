@@ -11,7 +11,7 @@ const ariaLabel = { "aria-label": "description" };
 
 const Footer = () => {
   return (
-    <div className="bg-dark-color text-center pt-16 ">
+    <div className="bg-dark-color text-center pt-16 max-w-[1600px] m-auto ">
       {/* Container Div */}
       <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-10">
         <div className="left w-[15%]">

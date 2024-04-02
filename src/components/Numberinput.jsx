@@ -24,7 +24,8 @@ export default function Numberinput() {
   };
 
   return (
-    <div className="bg-white text-center h-[3.4rem] w-32 flex items-center justify-center rounded-[4px]">
+    <div className="bg-white text-center h-[3.4rem] w-32 flex items-center justify-center rounded-[4px]
+      smxl:h-[2.7rem] sm2xl:w-[14rem] smxl:w-[16rem] smxl:justify-around">
       <RemoveIcon
         onClick={handleDecrement}
         fontSize="small"

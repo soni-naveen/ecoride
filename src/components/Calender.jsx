@@ -8,7 +8,7 @@ export default function ResponsiveDatePickers() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        className="w-[10rem] bg-white rounded-[4px]"
+        className="w-[10rem] bg-white rounded-[4px] sm2xl:w-[14rem] smxl:w-[16rem]"
         format="DD/MM/YYYY"
         defaultValue={dayjs(new Date())}
         slotProps={{

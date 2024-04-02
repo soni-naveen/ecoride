@@ -12,7 +12,7 @@ export default {
       'xl': {'max': '1279px'},
       // => @media (max-width: 1279px) { ... }
 
-      'lg': {'max': '1023px'},
+      'lg': {'max': '1023px'}, 
       // => @media (max-width: 1023px) { ... }
 
       'md1' : {'max' : '867px'},
@@ -24,8 +24,11 @@ export default {
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
 
-      'smxl' : {'max' : '500px'},
-      // => @media (max-width : 500px) { ... }
+      'smxl' : {'max' : '480px'},
+      // => @media (max-width : 480px) { ... }
+      
+      'sm2xl' : {'max' : '350px'},
+      // => @media (max-width : 480px) { ... }
     },
     extend: {
       colors: {
