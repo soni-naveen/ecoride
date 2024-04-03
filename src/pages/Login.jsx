@@ -29,7 +29,7 @@ function Login({ onLogin }) {
           </Link>
           <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4">
             <h1 className=" text-3xl font-semibold mb-5">Login</h1>
-            <button className="gap-2 flex items-center justify-center w-full rounded-md border border-white px-6 py-2 text-white mb-2">
+            <button className="gap-2 flex items-center justify-center w-full rounded-md px-6 py-2.5 text-white mb-3 bg-[#214d5b]">
               Continue with <GoogleIcon fontSize="small" />{" "}
               <ArrowForwardIcon fontSize="small" />
             </button>

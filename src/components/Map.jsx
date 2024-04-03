@@ -32,7 +32,7 @@ const Map = () => {
     };
   }, []);
 
-  return <div id="mapid" style={{ height: "550px", width: "800px" }}></div>;
+  return <div id="mapid" className="h-[550px] w-[800px] 2xl:w-[700px]"></div>;
 };
 
 export default Map;
