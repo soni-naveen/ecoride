@@ -13,21 +13,30 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Map from "../components/Map.jsx";
 import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
+import { Animated } from "react-animated-css";
 
 const Home = () => {
   return (
     <>
       <div className="max-w-[1600px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[380px] sm:h-[480px] md1:h-[600px] lg:h-[650px] xl:h-[630px]">
+        <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[500px] md1:h-[600px] lg:h-[630px] xl:h-[650px]">
           <img
             src={Banner}
             alt="Sharing rides building connections"
             className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
           />
-          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] smxl:top-[70px] smxl:left-[25px] smxl:text-4xl smxl:leading-snug sm:top-[80px] sm:left-[40px] sm:text-5xl sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[150px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] ">
-            Sharing rides, building connections
+
+          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] smxl:top-[70px] smxl:left-[25px] smxl:text-4xl smxl:leading-snug sm:top-[80px] sm:left-[40px] sm:text-5xl sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[150px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] animate__animated animate__fadeInDown">
+            <Animated
+              animationIn="fadeInDown"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+            >
+              Sharing rides, building connections
+            </Animated>
           </div>
+
           <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px] sm:text-2xl smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:font-medium sm:text-2xl md1:text-3xl md1:leading-[70px]">
             Your pick of rides at low prices
           </div>
@@ -54,14 +63,14 @@ const Home = () => {
                   placeholder="Starting location"
                   required
                   className="w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg 
-                  sm2xl:w-[14rem] sm2xl:py-2.5 sm2xl:text-sm smxl:w-[16rem] smxl:text-base smxl:py-2"
+                  sm2xl:w-[14rem] sm2xl:py-2.5 sm2xl:text-sm smxl:w-[16rem] smxl:text-sm smxl:py-2.5"
                 />
                 <input
                   id="end"
                   type="text"
                   placeholder="Destination"
                   required
-                  className="w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg sm2xl:py-2.5 sm2xl:text-sm sm2xl:w-[14rem] smxl:w-[16rem] smxl:text-base smxl:py-2"
+                  className="w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg sm2xl:py-2.5 sm2xl:text-sm sm2xl:w-[14rem] smxl:w-[16rem] smxl:text-sm smxl:py-2.5"
                 />
                 <div className="connectinglines flex flex-col items-center absolute top-[5.4rem] left-[3.7rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
@@ -165,11 +174,11 @@ const Home = () => {
 
         {/*-------------- FAQ section ------------- */}
         <div className="faqs bg-dark-color flex items-center ">
-          <div className="left w-[100%] mx-20">
+          <div className="left min-w-[30%] w-[100%] mx-20 lg:hidden">
             <img src={faqLogo} alt="FAQ's" />
           </div>
           <div className="right flex flex-col items-center gap-10">
-            <div className="heading text-white text-5xl font-semibold mt-16">
+            <div className="heading text-white text-5xl font-semibold mt-16 sm2xl:text-2xl sm2xl:mt-10 smxl:text-3xl smxl:mt-14 md:text-4xl">
               FAQ's
             </div>
             <div className="faqs mb-16 flex justify-center">
@@ -179,9 +188,11 @@ const Home = () => {
         </div>
 
         {/*----------- Our service feedback ----------*/}
-        <div className="feedback w-full h-[600px] bg-light-color m-auto flex flex-col justify-evenly items-center">
-          <div className="heading text-5xl font-semibold mt-10">
-            <h1 className="text-dark-color">Our Service Feedback</h1>
+        <div className="feedback w-full h-[600px] bg-light-color m-auto flex flex-col justify-evenly items-center smxl:h-[500px] smxl:pb-10 md:justify-center">
+          <div className="heading font-semibold mt-14 smxl:mt-10 md:mt-0">
+            <h1 className="text-dark-color m-auto text-5xl sm2xl:text-2xl sm2xl:w-2/3 sm2xl:text-center smxl:text-3xl smxl:w-2/3 smxl:leading-normal smxl:text-center md:text-4xl">
+              Our Service Feedback
+            </h1>
           </div>
           <div className="w-full">
             <Card />
@@ -189,17 +200,17 @@ const Home = () => {
         </div>
 
         {/*----------- Get started today --------- */}
-        <div className="abovefooter h-auto w-full mb-10">
-          <div className="heading m-16 pt-5 pl-16">
-            <h1 className="text-dark-color text-5xl font-bold md:text-4xl">
-              Get started today!
+        <div className="abovefooter w-full h-72 px-36 flex flex-col justify-evenly gap-10 sm:gap-4 sm:h-80 lg:px-0 lg:items-center xl:px-28">
+          <div className="heading text-start smxl:ml-0">
+            <h1 className="text-dark-color font-semibold text-5xl sm2xl:text-2xl smxl:text-3xl md:text-4xl">
+              Get started today !
             </h1>
           </div>
-          <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6">
-            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-light-color active:duration-50">
+          <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
+            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
               Find a Ride
             </button>
-            <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 ">
+            <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">
               Offer a Ride
             </button>
           </div>

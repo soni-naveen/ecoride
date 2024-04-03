@@ -1,11 +1,49 @@
 .swiper {
   width: 50%;
-  height: 100%;
 }
 .swiper-button-next,
 .swiper-button-prev {
   font-weight: bolder;
   color: #2a6171;
+}
+@media (max-width: 1447px) {
+  .swiper {
+    width: 55%;
+  }
+}
+@media (max-width: 1279px) {
+  .swiper {
+    width: 60%;
+  }
+}
+@media (max-width: 1130px) {
+  .swiper {
+    width: 65%;
+  }
+}
+@media (max-width: 1023px) {
+  .swiper {
+    width: 75%;
+  }
+}
+@media (max-width: 900px) {
+  .swiper {
+    width: 85%;
+  }
+}
+@media (max-width: 767px) {
+  .swiper {
+    width: 93%;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    font-weight: lighter;
+  }
+}
+@media (max-width: 480px) {
+  .swiper {
+    width: 100%;
+  }
 }
 
 /* For hidding up-down arrow in input[type=number] */
