@@ -11,14 +11,14 @@ const ariaLabel = { "aria-label": "description" };
 
 const Footer = () => {
   return (
-    <div className="bg-dark-color text-center pt-16 max-w-[1600px] m-auto ">
+    <div className="bg-dark-color text-center pt-16 max-w-[1600px] m-auto lg:pt-14 ">
       {/* Container Div */}
-      <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-10">
-        <div className="left w-[15%]">
+      <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-14">
+        <div className="left w-[15%] flex flex-col items-center lg:w-full">
           <div className="heading">
-            <h1 className="text-xl font-light">Follow Us</h1>
+            <h1 className="text-xl font-light smxl:text-lg">Follow Us</h1>
           </div>
-          <div className="links flex justify-evenly mt-5 ">
+          <div className="links flex justify-evenly mt-5 gap-2 lg:gap-4">
             <Link><InstagramIcon fontSize="large" /></Link>
             <Link><YouTubeIcon fontSize="large" /></Link>
             <Link><LinkedInIcon fontSize="large" /></Link>
@@ -29,8 +29,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="center w-[15%] flex flex-col items-center ">
-          <div className="links flex flex-col gap-8 font-light items-center">
+        <div className="center w-[15%] flex flex-col items-center lg:w-full">
+          <div className="links flex flex-col gap-8 font-light items-center smxl:gap-7">
             <Link to="/">
               <h1>About Us</h1>
             </Link>
@@ -46,8 +46,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="right w-[15%] text-left lg:flex flex-col justify-center items-center">
-          <h1 className="font-light text-lg mb-5">Stay upto date :</h1>
+        <div className="right w-[15%] text-left lg:flex flex-col justify-center items-center lg:w-full">
+          <h1 className="font-light text-lg mb-5 smxl:text-base">Stay upto date :</h1>
           {/* <form action=""> */}
             <Input
               placeholder="Enter your email"
@@ -58,7 +58,7 @@ const Footer = () => {
                   style: {
                     color: "white",
                     fontWeight: 300,
-                    width: 250,
+                    width: 240,
                     fontSize: 14,
                     backgroundColor: "#265766",
                     padding: 15,
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        <p className="font-light text-white text-xs py-3">
+        <p className="font-light text-white text-xs py-5 lg:mt-10">
           Copyright © 2024. All Right Reserved
         </p>
       </div>
