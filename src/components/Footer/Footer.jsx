@@ -19,10 +19,18 @@ const Footer = () => {
             <h1 className="text-xl font-light smxl:text-lg">Follow Us</h1>
           </div>
           <div className="links flex justify-evenly mt-5 gap-2 lg:gap-4">
-            <Link><InstagramIcon fontSize="large" /></Link>
-            <Link><YouTubeIcon fontSize="large" /></Link>
-            <Link><LinkedInIcon fontSize="large" /></Link>
-            <Link><TwitterIcon fontSize="large" /></Link>
+            <Link>
+              <InstagramIcon fontSize="large" />
+            </Link>
+            <Link>
+              <YouTubeIcon fontSize="large" />
+            </Link>
+            <Link>
+              <LinkedInIcon fontSize="large" />
+            </Link>
+            <Link>
+              <TwitterIcon fontSize="large" />
+            </Link>
           </div>
           <div className="mt-20 lg:hidden">
             <img src={Logo} alt="EcoRide" />
@@ -47,34 +55,36 @@ const Footer = () => {
         </div>
 
         <div className="right w-[15%] text-left lg:flex flex-col justify-center items-center lg:w-full">
-          <h1 className="font-light text-lg mb-5 smxl:text-base">Stay upto date :</h1>
+          <h1 className="font-light text-lg mb-5 smxl:text-base">
+            Stay upto date :
+          </h1>
           {/* <form action=""> */}
-            <Input
-              placeholder="Enter your email"
-              disableUnderline
-              inputProps={
-                (ariaLabel,
-                {
-                  style: {
-                    color: "white",
-                    fontWeight: 300,
-                    width: 240,
-                    fontSize: 14,
-                    backgroundColor: "#265766",
-                    padding: 15,
-                  },
-                })
-              }
-            />
-            <button className="border py-1 px-4 border-white mt-5 ml-2 text-xs hover:bg-medium-color hover:border-medium-color transition-all rounded-sm">
-              Subscribe
-            </button>
+          <Input
+            placeholder="Enter your email"
+            disableUnderline
+            inputProps={
+              (ariaLabel,
+              {
+                style: {
+                  color: "white",
+                  fontWeight: 300,
+                  width: 240,
+                  fontSize: 14,
+                  backgroundColor: "#265766",
+                  padding: 15,
+                },
+              })
+            }
+          />
+          <button className="border py-1 px-4 border-white mt-5 ml-2 text-xs hover:bg-medium-color hover:border-medium-color transition-all rounded-sm">
+            Subscribe
+          </button>
           {/* </form> */}
         </div>
       </div>
       <div className="copyright">
         <p className="font-light text-white text-xs py-5 lg:mt-10">
-          Copyright © 2024. All Right Reserved
+          Copyright © 2024. All Rights Reserved
         </p>
       </div>
     </div>

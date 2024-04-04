@@ -1,10 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-    font-family: "Roboto Slab", serif !important;
-    letter-spacing: 0.2px;
+* {
+  font-family: "Roboto Slab", serif !important;
+  letter-spacing: 0.2px;
 }
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
+}
+.revealbu {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.revealbu.activebu {
+  transform: translateY(0);
+  opacity: 1;
 }

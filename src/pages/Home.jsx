@@ -13,6 +13,8 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Map from "../components/Map.jsx";
 import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
+import "animate.css";
+import AnimateBU from "../animations/AnimationBU.jsx";
 
 const Home = () => {
   return (
@@ -25,12 +27,11 @@ const Home = () => {
             alt="Sharing rides building connections"
             className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
           />
-
           <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] smxl:top-[70px] smxl:left-[25px] smxl:text-4xl smxl:leading-snug sm:top-[80px] sm:left-[40px] sm:text-5xl sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[150px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] animate__animated animate__fadeInDown">
             Sharing rides, building connections
           </div>
 
-          <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px] sm:text-2xl smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:font-medium md1:text-3xl md1:leading-[70px]">
+          <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]  smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
             Your pick of rides at low prices
           </div>
         </div>
@@ -44,7 +45,7 @@ const Home = () => {
             <p className="text-dark-color ml-3 mb-3 text-xl smxl:text-[1rem] smxl:ml-3">
               Request a ride and go
             </p>
-            <div className="w-[28rem] h-[29rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 sm2xl:h-[27rem] smxl:p-10">
+            <div className="w-[28rem] h-[28rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 sm2xl:h-[27rem] smxl:p-10">
               <form
                 action=""
                 id="form"
@@ -70,11 +71,11 @@ const Home = () => {
                   <div className="bg-medium-color h-[5.2rem] w-0.5 sm2xl:h-[4.5rem] smxl:h-[4.4rem]"></div>
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
                 </div>
-                <div className="flex justify-around items-center smxl:flex-col smxl:gap-8">
+                <div className="flex justify-between mt-4 items-center smxl:flex-col smxl:gap-8 smxl:mt-0">
                   <Calender />
                   <Numberinput />
                 </div>
-                <div className="mt-4 flex justify-around sm2xl:mt-0 smxl:mt-1 smxl:gap-4">
+                <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
                   <button className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
@@ -134,12 +135,13 @@ const Home = () => {
         <div className="stickWithUs h-auto w-full p-20 mt-5 mb-14 sm:p-10 sm:mb-7 sm:mt-8">
           <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-16 sm:w-4/5 md:gap-20 m-auto">
             <div>
-              <h1 className="ml-7 text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:ml-0 lg:text-center ">
+              <h1 className="ml-7 text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:ml-0 lg:text-center revealbu">
                 People stick with us because
+                <AnimateBU />
               </h1>
             </div>
 
-            <div className="cards flex gap-14 justify-evenly items-start h-auto lg:flex-col lg:items-center">
+            <div className="cards revealbu flex gap-14 justify-evenly items-start h-auto lg:flex-col lg:items-center">
               <Stickingcards
                 icon={
                   <VerifiedUserIcon sx={{ fontSize: { xs: 27, sm: 35 } }} />
@@ -174,7 +176,7 @@ const Home = () => {
             <div className="heading text-white text-5xl font-semibold mt-16 sm2xl:text-2xl sm2xl:mt-10 smxl:text-3xl smxl:mt-14 md:text-4xl">
               FAQ's
             </div>
-            <div className="faqs mb-16 flex justify-center">
+            <div className="revealbu mb-16 flex justify-center">
               <AccordionUsage />
             </div>
           </div>
