@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -21,11 +21,22 @@ const Signup = (onSignup) => {
     event.preventDefault();
   };
 
+
+  // Closing Pop on clicking outside of the popup explanation in the login page as both of them use same funcanality
+  const modelRef = useRef();
+  const button = useRef();
+
+  const closeModel = (e) => {
+    if(modelRef.current === e.target) {
+      button.current.click();
+    }
+  }
+  
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
+      <div ref={modelRef} onClick={closeModel} className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
-          <Link to={"/home"} className="place-self-end mr-4 sm2xl:place-self-center">
+          <Link to={"/home"} ref={button} className="place-self-end mr-4 sm2xl:place-self-center">
             <button>
               <ClearIcon />
             </button>
@@ -111,7 +122,7 @@ const Signup = (onSignup) => {
                   label="Password"
                 />
               </div>
-              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-semibold rounded-md sm:mt-5">
+              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-semibold sm:mt-5">
                 <Link to="/verification" className="tracking-[1px]">
                   SIGNUP
                 </Link>

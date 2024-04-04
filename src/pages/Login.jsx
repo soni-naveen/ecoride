@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
@@ -18,11 +18,23 @@ function Login({ onLogin }) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  // Redirect to home after clicking outside the model
+  // we just maintained two useRef one for container and other for the cross button as soon as the use 
+  // clicked the parent div outside the pop up window it will trigger the cross button to be clicked and the pop up window will be closed
+  const modelRef = useRef();
+  const button = useRef();
+
+  const closeModel = (e) => {
+    if(modelRef.current === e.target) {
+      button.current.click();
+    }
+  }
   return (
-    <>
-      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
+    <>      
+      <div ref={modelRef} onClick = {closeModel} className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
-          <Link to={"/home"} className=" place-self-end mr-4 sm2xl:place-self-center">
+          <Link to={"/home"} ref={button} className=" place-self-end mr-4 sm2xl:place-self-center">
             <button>
               <ClearIcon />
             </button>
@@ -84,7 +96,7 @@ function Login({ onLogin }) {
               >
                 Forgot Password?
               </Link>
-              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold rounded-md sm:mt-4">
+              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold sm:mt-4">
                 <Link to="/verification" className="tracking-[1px]">
                   LOGIN
                 </Link>

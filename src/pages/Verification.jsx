@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import PropTypes from "prop-types";
@@ -191,13 +191,23 @@ const InputElement = styled("input")(
 `
 );
 
+
+
 export default function Verification() {
   const [otp, setOtp] = React.useState("");
+  const modelRef = useRef();
+  const button = useRef();
+
+  const CloseModel = (e) => {
+    if(modelRef.current === e.target) {
+      button.current.click();
+    }
+  }
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
+      <div ref={modelRef} onClick={CloseModel} className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-10">
         <div className="flex flex-col gap-3 text-white">
-          <Link to={"/home"} className=" place-self-end mr-3">
+          <Link to={"/home"}ref={button}  className=" place-self-end mr-3">
             <button>
               <ClearIcon />
             </button>
