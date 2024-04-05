@@ -16,11 +16,10 @@ import Numberinput from "../components/Numberinput.jsx";
 import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
 
-
 const Home = () => {
   return (
     <>
-      <div className="max-w-[1600px] m-auto relative">
+      <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[500px] md1:h-[600px] lg:h-[630px] xl:h-[650px]">
           <img
@@ -80,7 +79,11 @@ const Home = () => {
                   <button className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
-                  <a href ='../fullmap.html' target="_blank" className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3">
+                  <a
+                    href="../fullmap.html"
+                    target="_blank"
+                    className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3"
+                  >
                     View <span className="smxl:hidden">full</span> map
                   </a>
                 </div>
