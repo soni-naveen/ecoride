@@ -16,6 +16,7 @@ import Numberinput from "../components/Numberinput.jsx";
 import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
 
+
 const Home = () => {
   return (
     <>
@@ -45,7 +46,7 @@ const Home = () => {
             <p className="text-dark-color ml-3 mb-3 text-xl smxl:text-[1rem] smxl:ml-3">
               Request a ride and go
             </p>
-            <div className="w-[28rem] h-[28rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 sm2xl:h-[27rem] smxl:p-10">
+            <div className="w-[28rem] h-[28rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27rem] smxl:p-10">
               <form
                 action=""
                 id="form"
@@ -79,9 +80,9 @@ const Home = () => {
                   <button className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
-                  <div className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3">
+                  <a href ='../fullmap.html' target="_blank" className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3">
                     View <span className="smxl:hidden">full</span> map
-                  </div>
+                  </a>
                 </div>
               </form>
             </div>
@@ -202,7 +203,7 @@ const Home = () => {
             </h1>
           </div>
           <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
-            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
+            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg hover:bg-[#b5e9e4] hover:border-light-color active:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
               Find a Ride
             </button>
             <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">

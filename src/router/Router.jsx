@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import Verification from "../pages/Verification";
 import Searchrides from "../pages/Searchrides";
 import Publishedrides from "../pages/Publishedrides";
+import Aboutus from "../pages/Aboutus";
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/verification" element={<Verification />} />
+      <Route path="/aboutus" element={<Aboutus />} />
     </Routes>
   );
 };

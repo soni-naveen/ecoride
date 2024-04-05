@@ -11,6 +11,7 @@ export default function ResponsiveDatePickers() {
         className="w-[10rem] bg-white rounded-[4px] sm2xl:w-[14rem] smxl:w-[16rem]"
         format="DD/MM/YYYY"
         defaultValue={dayjs(new Date())}
+        minDate={dayjs(new Date())}
         slotProps={{
           openPickerButton: {
             color: "primary",

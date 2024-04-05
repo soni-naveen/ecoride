@@ -32,7 +32,7 @@
     let mymap = L.map("mapid").setView([24.1471, 79.3412], 5);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
     let control = L.Routing.control({
-      waypoints: [L.latLng(30.516, 76.659), L.latLng(30.7333, 76.7794)],
+      waypoints: [L.latLng(30.516, 76.659)],
       router: new L.Routing.osrmv1({
         language: "en",
         profile: "car",

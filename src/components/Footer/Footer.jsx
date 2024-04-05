@@ -39,7 +39,7 @@ const Footer = () => {
 
         <div className="center w-[15%] flex flex-col items-center lg:w-full">
           <div className="links flex flex-col gap-8 font-light items-center smxl:gap-7">
-            <Link to="/">
+            <Link to="/aboutus">
               <h1>About Us</h1>
             </Link>
             <Link to="/">
