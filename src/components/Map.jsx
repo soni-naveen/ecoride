@@ -11,19 +11,25 @@ import "leaflet-contextmenu/dist/leaflet.contextmenu.min.css";
 const Map = () => {
   useEffect(() => {
     // Initialize map
-    const mymap = L.map("mapid").setView([29.1471, 79.3412], 5);
+    const mymap = L.map("mapid", { scrollWheelZoom: false }).setView(
+      [29.1471, 79.3412],
+      6
+    );
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
     }).addTo(mymap);
 
     // Create routing control
-    const control = L.Routing.control({
+    let control = L.Routing.control({
       waypoints: [L.latLng(30.516, 76.659)],
       router: new L.Routing.osrmv1({
         language: "en",
         profile: "car",
       }),
+      collapsible: true,
+      fitSelectedRoutes: true,
+      reverseWaypoints: true,
       geocoder: L.Control.Geocoder.nominatim({}),
     }).addTo(mymap);
     // Clean up function

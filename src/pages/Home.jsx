@@ -15,13 +15,15 @@ import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
 import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
+import Autocomplete from "../components/Autocomplete.jsx";
+import Autocomplete2 from "../components/Autocomplete2.jsx";
 
 const Home = () => {
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[500px] md1:h-[600px] lg:h-[630px] xl:h-[650px]">
+        <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
           <img
             src={Banner}
             alt="Sharing rides building connections"
@@ -41,34 +43,22 @@ const Home = () => {
           className="mapSection h-[700px] flex flex-row justify-around items-start md:h-[600px] md1:h-[1300px]
           xl:flex-col xl:h-[1300px] xl:items-center mb-4"
         >
-          <div className="left">
+          <div className="left mt-5">
             <p className="text-dark-color ml-3 mb-3 text-xl smxl:text-[1rem] smxl:ml-3">
               Request a ride and go
             </p>
-            <div className="w-[28rem] h-[28rem] relative flex flex-col items-center p-16 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27rem] smxl:p-10">
+            <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27rem] smxl:p-10">
               <form
-                action=""
+                action="/"
                 id="form"
                 className="locations text-center flex flex-col gap-10"
               >
-                <input
-                  id="start"
-                  type="text"
-                  placeholder="Starting location"
-                  required
-                  className="w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg 
-                  sm2xl:w-[14rem] sm2xl:py-2.5 sm2xl:text-sm smxl:w-[16rem] smxl:text-sm smxl:py-2.5"
-                />
-                <input
-                  id="end"
-                  type="text"
-                  placeholder="Destination"
-                  required
-                  className="w-[22rem] pl-8 pr-5 py-3 text-black rounded-md outline-none text-lg sm2xl:py-2.5 sm2xl:text-sm sm2xl:w-[14rem] smxl:w-[16rem] smxl:text-sm smxl:py-2.5"
-                />
-                <div className="connectinglines flex flex-col items-center absolute top-[5.4rem] left-[3.7rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
+                <Autocomplete id="starting location"></Autocomplete>
+                <Autocomplete2 id="destination"></Autocomplete2>
+
+                <div className="connectinglines flex flex-col items-center absolute top-[4.7rem] left-[3.6rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
-                  <div className="bg-medium-color h-[5.2rem] w-0.5 sm2xl:h-[4.5rem] smxl:h-[4.4rem]"></div>
+                  <div className="bg-medium-color h-[5rem] w-0.5 sm2xl:h-[4.5rem] smxl:h-[4.4rem]"></div>
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
                 </div>
                 <div className="flex justify-between mt-4 items-center smxl:flex-col smxl:gap-8 smxl:mt-0">
@@ -76,7 +66,9 @@ const Home = () => {
                   <Numberinput />
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                  <button className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
+                  <button
+                    className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3"
+                  >
                     SEE RIDES
                   </button>
                   <a
