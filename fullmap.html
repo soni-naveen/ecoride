@@ -71,6 +71,12 @@
             },
             function (error) {
               console.error("Error getting user's location:", error);
+              L.Routing.control({
+              collapsible: true,
+              fitSelectedRoutes: true,
+              reverseWaypoints: true,
+              geocoder: L.Control.Geocoder.nominatim({}),
+            }).addTo(mymap);
             }
           );
         } else {
