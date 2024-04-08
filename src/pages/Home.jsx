@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../assets/Banner.png";
-import Card from "../components/Card.jsx";
+import Slidecard from "../components/Slidecard.jsx";
 import AccordionUsage from "../components/Faq.jsx";
 import faqLogo from "../assets/FAQs.png";
 import Stickingcards from "../components/Stickingcards.jsx";
@@ -185,7 +185,7 @@ const Home = () => {
             </h1>
           </div>
           <div className="w-full">
-            <Card />
+            <Slidecard />
           </div>
         </div>
 

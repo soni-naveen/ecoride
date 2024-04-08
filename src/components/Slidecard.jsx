@@ -12,7 +12,7 @@ import "../App.css";
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-export default function Card() {
+export default function Slidecard() {
   return (
     <>
       <Swiper
@@ -24,7 +24,7 @@ export default function Card() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         pagination={{
