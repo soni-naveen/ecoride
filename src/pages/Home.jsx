@@ -15,6 +15,7 @@ import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
 import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
+import AnimateLR from "../animations/AnimationLR.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
 
@@ -66,9 +67,7 @@ const Home = () => {
                   <Numberinput />
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                  <button
-                    className="bg-medium-color py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3"
-                  >
+                  <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
                   <a
@@ -83,8 +82,8 @@ const Home = () => {
             </div>
           </div>
           <div className="right z-0">
-            <p className="text-dark-color mb-3 text-xl md:hidden">
-              ► Search on map to see full route
+            <p className=" reveallr text-dark-color mb-3 text-xl md:hidden">
+              <AnimateLR />► Search on map to see full route
             </p>
             <div className="right w-[800px] h-[550px] bg-light-color rounded-md md:hidden 2xl:w-[700px]">
               <Map />
@@ -93,14 +92,14 @@ const Home = () => {
         </div>
 
         {/*----------- Specifications banner ---------*/}
-        <div className="belowBanner h-[170px] w-full bg-dark-color flex justify-around gap-5 items-center text-white">
+        <div className="belowBanner h-[150px] w-full bg-dark-color flex justify-around gap-5 items-center text-white">
           <div className="left flex flex-row items-center gap-6 md:flex-col md:gap-1 ">
             <PeopleIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
             <div>
               <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
                 150+
               </h1>
-              <p className="text-sm text-center smxl:text-xs">Daily Users</p>
+              <p className="text-sm text-center smxl:text-xs">Daily users</p>
             </div>
           </div>
           <div className="middle flex flex-row items-center gap-6 md:flex-col md:gap-1">
@@ -110,7 +109,7 @@ const Home = () => {
                 24/7
               </h1>
               <p className="text-sm text-center smxl:text-xs">
-                Customer Support
+                Customer support
               </p>
             </div>
           </div>
@@ -121,7 +120,7 @@ const Home = () => {
                 500+
               </h1>
               <p className="text-sm text-center smxl:text-xs">
-                Verified Drivers
+                Verified profiles
               </p>
             </div>
           </div>
@@ -198,7 +197,7 @@ const Home = () => {
             </h1>
           </div>
           <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
-            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg hover:bg-[#b5e9e4] hover:border-light-color active:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
+            <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-[#b5e9e4] hover:border-light-color hover:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
               Find a Ride
             </button>
             <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">

@@ -22,7 +22,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           How do I call a driver?
         </AccordionSummary>
@@ -46,7 +46,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           {" "}
           What if I need to cancel a ride?
@@ -72,7 +72,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           {" "}
           How do I publish a ride?
@@ -101,7 +101,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           {" "}
           How much does a ride cost?
@@ -128,7 +128,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           {" "}
           How can I verify my account?
@@ -155,7 +155,7 @@ export default function AccordionUsage() {
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          className="text-base font-medium sm2xl:text-xs smxl:text-sm"
+          className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           {" "}
           Where do I report an issue on the website?

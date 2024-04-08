@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 const ariaLabel = { "aria-label": "description" };
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="bg-dark-color text-center pt-16 max-w-[1800px] m-auto lg:pt-14 ">
       {/* Container Div */}
@@ -39,17 +42,17 @@ const Footer = () => {
 
         <div className="center w-[15%] flex flex-col items-center lg:w-full">
           <div className="links flex flex-col gap-8 font-light items-center smxl:gap-7">
-            <Link to="/aboutus">
+            <Link to="/aboutus" onClick={scrollToTop}>
               <h1>About Us</h1>
             </Link>
-            <Link to="/">
+            <Link to="/helpcenter" onClick={scrollToTop}>
               <h1>Help Center</h1>
             </Link>
-            <Link to="/">
+            <Link to="/howitworks" onClick={scrollToTop}>
               <h1>How It Works</h1>
             </Link>
-            <Link to="/">
-              <h1>Contact Us</h1>
+            <Link to="/ourteam" onClick={scrollToTop}>
+              <h1>Our Team</h1>
             </Link>
           </div>
         </div>

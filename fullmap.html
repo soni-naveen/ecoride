@@ -16,6 +16,10 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-contextmenu/dist/leaflet.contextmenu.min.css"
+    />
     <style>
       ::-webkit-scrollbar {
         display: none;
@@ -24,26 +28,55 @@
   </head>
   <body>
     <div style="height: 100vh; width: 100vw" id="mapid"></div>
+
+    <script src="https://unpkg.com/leaflet@latest/dist/leaflet-src.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet-contextmenu/dist/leaflet.contextmenu.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        alert("Please turn on location and search end point");
+        // Initialize map
+        var mymap = L.map("mapid", { scrollWheelZoom: true }).setView(
+          [29.1471, 79.3412],
+          6
+        );
+        L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+          attribution:
+            'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+        }).addTo(mymap);
+
+        // Get user's current location
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              const { latitude, longitude } = position.coords;
+
+              // Set current location as the initial waypoint
+              const currentLocation = L.latLng(latitude, longitude);
+              mymap.setView(currentLocation, 12); // Set map view to current location
+
+              // Create routing control
+              let control = L.Routing.control({
+                waypoints: [currentLocation], // Set current location as the waypoint
+                router: new L.Routing.osrmv1({
+                  language: "en",
+                  profile: "car",
+                }),
+                collapsible: true,
+                fitSelectedRoutes: true,
+                reverseWaypoints: true,
+                geocoder: L.Control.Geocoder.nominatim({}),
+              }).addTo(mymap);
+            },
+            function (error) {
+              console.error("Error getting user's location:", error);
+            }
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      });
+    </script>
   </body>
-  <script src="https://unpkg.com/leaflet@latest/dist/leaflet-src.js"></script>
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-  <script>
-    let mymap = L.map("mapid", { scrollWheelZoom: false }).setView(
-      [29.1471, 79.3412],
-      6
-    );
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-    let control = L.Routing.control({
-      waypoints: [L.latLng(30.516, 76.659)],
-      router: new L.Routing.osrmv1({
-        language: "en",
-        profile: "car",
-      }),
-      collapsible: true,
-      fitSelectedRoutes: true,
-      reverseWaypoints: true,
-      geocoder: L.Control.Geocoder.nominatim({}),
-    }).addTo(mymap);
-  </script>
 </html>
