@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-14">
         <div className="left w-[15%] flex flex-col items-center lg:w-full">
           <div className="heading">
-            <h1 className="text-xl font-light smxl:text-lg">Follow Us</h1>
+            <h1 className="text-xl font-light smxl:text-lg">Join Community</h1>
           </div>
           <div className="links flex justify-evenly mt-5 gap-2 lg:gap-4">
             <Link>

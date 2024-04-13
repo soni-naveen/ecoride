@@ -18,12 +18,17 @@ import AnimateBU from "../animations/AnimationBU.jsx";
 import AnimateLR from "../animations/AnimationLR.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
+import ChatIcon from '@mui/icons-material/Chat';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
+        <div className="fixed top-[740px] right-10 z-10">
+          <Link to='/helpcenter'><ChatIcon sx={{color:"#2a6171", fontSize:"30px"}} /></Link>
+        </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
           <img
             src={Banner}
