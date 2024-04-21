@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Input as BaseInput } from "@mui/base/Input";
 import { Box, styled } from "@mui/system";
 import Home from "./Home";
-
+import Completeprofile from "./Completeprofile";
 function OTP({ separator, length, value, onChange }) {
   const inputRefs = React.useRef(new Array(length).fill(null));
 
@@ -230,7 +230,7 @@ export default function Verification() {
               {/* <span>Entered value: {otp}</span> */}
 
               <button className="w-[35%] mt-2 text-sm rounded-md bg-dark-color border border-white py-1.5 tracking-[1px] hover:bg-medium-color hover:font-semibold transition-all">
-                VERIFY
+                  VERIFY
               </button>
             </form>
           </div>

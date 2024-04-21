@@ -3,7 +3,7 @@ import React from "react";
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
     console.log(message);
-    if (message.includes("HELLO") || message.includes("hello") || message.toLowerCase().includes("hi")) {
+    if (message.toLowerCase().includes("hello") || message.toLowerCase() === "hi") {
       actions.handleHello();
     }
     else if((message.toLowerCase().includes('rides') || message.toLowerCase().includes('ride'))) {
@@ -20,6 +20,9 @@ const MessageParser = ({ children, actions }) => {
     }
     else if(message.toLowerCase().includes('payment') || message.toLowerCase().includes('money') || message.toLowerCase().includes('charges')) {
       actions.handleMoney();
+    }
+    else if(message.toLowerCase().includes('bye') ||message.toLowerCase().includes('thanks') || message.toLowerCase().includes('thank you') || message.toLowerCase().includes('ok')){
+      actions.handleBye();
     }
     else{
       actions.handleDefault();

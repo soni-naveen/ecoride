@@ -11,6 +11,7 @@ import Aboutus from "../pages/Aboutus";
 import Howitworks from "../pages/Howitworks";
 import Helpcenter from "../pages/Helpcenter";
 import Ourteam from "../pages/Ourteam";
+import Completeprofile from "../pages/Completeprofile";
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
       <Route path="/howitworks" element={<Howitworks />} />
       <Route path="/helpcenter" element={<Helpcenter />} />
       <Route path="/ourteam" element={<Ourteam />} />
+      <Route path="/completeprofile" element={<Completeprofile />} />
     </Routes>
   );
 };

@@ -48,6 +48,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   }
 
+  const handleBye = () => {
+    const botmsg = createChatBotMessage("I am happy, I was able to help. Fell free to contact me again");
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages,botmsg],
+    }));
+  }
+
   const handleDefault = () => {
     const botmsg = createChatBotMessage("Sorry!, I can't understand.");
     setState((prev) => ({
@@ -67,7 +75,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleDefault,
             handleBookRide,
             handleTime,
-            handleMoney
+            handleMoney,
+            handleBye
           },
         });
       })}
