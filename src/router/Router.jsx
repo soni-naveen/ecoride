@@ -12,6 +12,7 @@ import Howitworks from "../pages/Howitworks";
 import Helpcenter from "../pages/Helpcenter";
 import Ourteam from "../pages/Ourteam";
 import Completeprofile from "../pages/Completeprofile";
+import Searchride from "../pages/Searchride";
 
 const Router = () => {
   return (
@@ -26,6 +27,7 @@ const Router = () => {
       <Route path="/helpcenter" element={<Helpcenter />} />
       <Route path="/ourteam" element={<Ourteam />} />
       <Route path="/completeprofile" element={<Completeprofile />} />
+      <Route path="/searchride" element={<Searchride />} />
     </Routes>
   );
 };
