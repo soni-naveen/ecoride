@@ -19,21 +19,18 @@ const Footer = () => {
       <div className="flex justify-around items-start text-white xl:justify-evenly lg:flex-col lg:justify-center lg:items-center lg:gap-14">
         <div className="left w-[15%] flex flex-col items-center lg:w-full">
           <div className="heading">
-            <h1 className="text-xl font-light smxl:text-lg">Join Community</h1>
+            <h1 className="text-lg font-light md:text-base">Join Community</h1>
           </div>
-          <div className="links flex justify-evenly mt-5 gap-2 lg:gap-4">
-            <Link>
+          <div className="links flex justify-evenly mt-5 gap-4 lg:gap-4">
+            <a href="https://www.instagram.com/ecoride.in" target="_blank">
               <InstagramIcon fontSize="large" />
-            </Link>
-            <Link>
-              <YouTubeIcon fontSize="large" />
-            </Link>
-            <Link>
+            </a>
+            <a href="https://linkedin.com/company/ecoridein" target="_blank">
               <LinkedInIcon fontSize="large" />
-            </Link>
-            <Link>
+            </a>
+            <a href="https://twitter.com/ecoride_in" target="_blank">
               <TwitterIcon fontSize="large" />
-            </Link>
+            </a>
           </div>
           <div className="mt-20 lg:hidden">
             <img src={Logo} alt="EcoRide" />

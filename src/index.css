@@ -8,23 +8,3 @@
 ::-webkit-scrollbar {
   display: none;
 }
-.revealbu {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: 1s all ease;
-}
-.revealbu.activebu {
-  transform: translateY(0);
-  opacity: 1;
-}
-.reveallr {
-  position: relative;
-  transform: translateX(-200px);
-  opacity: 0;
-  transition: 1s all ease;
-}
-.reveallr.activelr {
-  transform: translateX(0px);
-  opacity: 1;
-}
