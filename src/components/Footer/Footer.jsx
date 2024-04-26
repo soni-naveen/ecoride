@@ -1,8 +1,7 @@
 import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import XIcon from '@mui/icons-material/X';
 import Input from "@mui/material/Input";
 import Logo from "../../assets/footer-logo.png";
 import { Link } from "react-router-dom";
@@ -29,7 +28,7 @@ const Footer = () => {
               <LinkedInIcon fontSize="large" />
             </a>
             <a href="https://twitter.com/ecoride_in" target="_blank">
-              <TwitterIcon fontSize="large" />
+              <XIcon fontSize="large" />
             </a>
           </div>
           <div className="mt-20 lg:hidden">

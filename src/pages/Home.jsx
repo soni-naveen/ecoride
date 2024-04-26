@@ -16,9 +16,10 @@ import Numberinput from "../components/Numberinput.jsx";
 import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
 import AnimateLR from "../animations/AnimationLR.jsx";
+import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
-import ChatIcon from "@mui/icons-material/Chat";
+import ForumIcon from "@mui/icons-material/Forum";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -26,9 +27,9 @@ const Home = () => {
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="fixed top-[740px] right-10 z-10">
+        <div className="fixed bottom-[20px] right-[20px] z-10 bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter">
-            <ChatIcon sx={{ color: "#2a6171", fontSize: "30px" }} />
+            <ForumIcon color="primary" fontSize="large" />
           </Link>
         </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
@@ -104,7 +105,7 @@ const Home = () => {
             <PeopleIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
             <div>
               <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
-                150+
+                <Counter target={150} />
               </h1>
               <p className="text-sm text-center smxl:text-xs">Daily users</p>
             </div>
@@ -124,7 +125,7 @@ const Home = () => {
             <VerifiedIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
             <div>
               <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
-                500+
+                <Counter target={500} />
               </h1>
               <p className="text-sm text-center smxl:text-xs">
                 Verified profiles

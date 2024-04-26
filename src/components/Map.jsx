@@ -30,7 +30,7 @@ const Map = () => {
           const currentLocation = L.latLng(latitude, longitude);
           mymap.setView(currentLocation, 12);
 
-          // Create routing control
+          // Create routing control 
           L.Routing.control({
             waypoints: [currentLocation], // Set current location as the waypoint
             router: new L.Routing.osrmv1({

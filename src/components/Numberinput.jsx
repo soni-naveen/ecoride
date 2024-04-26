@@ -31,17 +31,17 @@ export default function Numberinput() {
       <RemoveIcon
         onClick={handleDecrement}
         fontSize="small"
-        className="text-gray-600 border-2 border-gray-600 rounded-full"
+        className="text-gray-600 border-gray-600 rounded-full cursor-pointer"
       />
       <input
         value={inputQuantity}
         onChange={handleChange}
-        className="text-center outline-none w-16 text-2xl font-bold caret-white"
+        className="text-center border-x-2 outline-none w-16 text-2xl font-bold caret-white smxl:w-28"
       />
       <AddIcon
         onClick={handleIncrement}
         fontSize="small"
-        className="text-gray-600 border-2 border-gray-600 rounded-full"
+        className="text-gray-600 border-gray-600 rounded-full cursor-pointer"
       />
     </div>
   );
