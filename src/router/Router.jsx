@@ -5,8 +5,6 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Verification from "../pages/Verification";
-import Searchrides from "../pages/Searchrides";
-import Publishedrides from "../pages/Publishedrides";
 import Aboutus from "../pages/Aboutus";
 import Howitworks from "../pages/Howitworks";
 import Helpcenter from "../pages/Helpcenter";

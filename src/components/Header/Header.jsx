@@ -10,6 +10,10 @@ const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+
   const loginPopup = () => {
     setShowLogin(true);
   };
@@ -35,11 +39,11 @@ const Header = () => {
         </div>
         <div className="flex gap-20 items-center sm2xl:gap-0 smxl:gap-4 md:gap-5 md1:gap-10 lg:gap-14">
           <div>
-            <Link to='/searchride'>
-            <button className="text-dark-color font-medium text-lg flex items-center">
-              <SearchIcon className="mr-3 stroke-dark-color smxl:mr-0 sm:mr-0" />
-              <div className="sm:hidden md1:text-[16px]">Search ride</div>
-            </button>
+            <Link to="/searchride" onClick={handleClickPageTop}>
+              <button className="text-dark-color font-medium text-lg flex items-center">
+                <SearchIcon className="mr-3 stroke-dark-color smxl:mr-0 sm:mr-0" />
+                <div className="sm:hidden md1:text-[16px]">Search ride</div>
+              </button>
             </Link>
           </div>
           <div className="navLinks flex justify-between items-center gap-6 sm2xl:gap-0 smxl:gap-4 md1:gap-5">
@@ -75,13 +79,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* {showLogin && (
-        <Login
-           onLogin={() => setIsLoggedIn(true)}
-        />
-      )} */}
-      {/* {showSignUp ? alert("HI") : alert("BYE")}
-      {showSignUp && <Signup closeModel={() => setShowSignUp(false)} />} */}
     </>
   );
 };

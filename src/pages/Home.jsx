@@ -23,12 +23,15 @@ import ForumIcon from "@mui/icons-material/Forum";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
         <div className="fixed bottom-[20px] right-[20px] z-10 bg-light-color rounded-full color-white p-2">
-          <Link to="/helpcenter">
+          <Link to="/helpcenter" onClick={handleClickPageTop}>
             <ForumIcon color="primary" fontSize="large" />
           </Link>
         </div>

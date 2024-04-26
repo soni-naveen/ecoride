@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
 import "./Chatbot/chatbot.css";
@@ -6,7 +6,6 @@ import "./Chatbot/chatbot.css";
 import config from "./Chatbot/config";
 import MessageParser from "./Chatbot/MessageParser";
 import ActionProvider from "./Chatbot/ActionProvider";
-
 
 function Helpcenter() {
   return (
