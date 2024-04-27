@@ -30,9 +30,12 @@ const Home = () => {
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="fixed bottom-[20px] right-[20px] z-1 bg-light-color rounded-full color-white p-2">
+        <div className="fixed bottom-[20px] right-[20px] z-10 border border-blue-500 bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
-            <ForumIcon color="primary" fontSize="large" />
+            <ForumIcon
+              color="primary"
+              sx={{ fontSize: { xs: 28, sm: 35, md: 40 } }}
+            />
           </Link>
         </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
@@ -82,7 +85,7 @@ const Home = () => {
                     SEE RIDES
                   </button>
                   <a
-                    href="../fullmap.html"
+                    href="https://www.google.com/maps/"
                     target="_blank"
                     className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3"
                   >
