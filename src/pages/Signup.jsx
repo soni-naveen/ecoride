@@ -100,7 +100,7 @@ function Signup() {
               <ClearIcon />
             </button>
           </Link>
-          <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4 smxl:py-6 smxl:px-8 sm:px-14 ">
+          <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4 smxl:py-8 smxl:px-10 sm:px-14 ">
             <h1 className=" text-3xl font-semibold mb-5 sm:mb-3 smxl:text-2xl smxl:mb-1">
               Sign Up
             </h1>
@@ -185,7 +185,7 @@ function Signup() {
 
               <button
                 type="submit"
-                className="w-[55%] place-self-center rounded-sm bg-medium-color mt-7 py-1.5  text-white shadow-md font-normal sm:mt-5 sm:text-sm"
+                className="w-[55%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-normal sm:mt-5 sm:text-sm"
               >
                 <Link to="/verification">Create Account</Link>
               </button>

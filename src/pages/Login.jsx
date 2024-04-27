@@ -62,7 +62,7 @@ function Login({ onLogin }) {
               <ClearIcon />
             </button>
           </Link>
-          <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4 smxl:py-6 smxl:px-8 sm:px-14">
+          <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4 smxl:py-8 smxl:px-10 sm:px-14">
             <h1 className=" text-3xl font-semibold mb-5 sm:mb-3 smxl:text-2xl smxl:mb-1">
               Login
             </h1>
@@ -123,7 +123,7 @@ function Login({ onLogin }) {
               >
                 Forgot Password?
               </Link>
-              <button className="w-[40%] place-self-center rounded-sm bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold sm:mt-4">
+              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold sm:mt-4">
                 LOGIN
               </button>
               <div className="gotosignup flex flex-col justify-center items-start">
