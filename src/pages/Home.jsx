@@ -30,7 +30,7 @@ const Home = () => {
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="fixed bottom-[20px] right-[20px] z-10 bg-light-color rounded-full color-white p-2">
+        <div className="fixed bottom-[20px] right-[20px] z-1 bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
             <ForumIcon color="primary" fontSize="large" />
           </Link>

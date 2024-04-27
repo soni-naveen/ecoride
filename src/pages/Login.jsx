@@ -1,22 +1,36 @@
 import React, { useRef, useState } from "react";
-import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import Home from "./Home";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
+// import { useDispatch } from "react-redux"
+// import { login } from "../../../services/operations/authAPI"
 
 function Login({ onLogin }) {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const { email, password } = formData;
+
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    // dispatch(login(email, password, navigate));
   };
 
   // Redirect to home after clicking outside the model
@@ -61,56 +75,56 @@ function Login({ onLogin }) {
               <p className="text-sm px-5">or</p>
               <div className=" bg-white w-[120px] h-[0.5px] sm:w-[90px]"></div>
             </div>
-            <form className="flex flex-col gap-5">
-              <div className="email flex flex-col gap-1">
-                <h6 className="text-sm font-light">Email</h6>
+            <form
+              onSubmit={handleOnSubmit}
+              className="flex w-full flex-col gap-y-4"
+            >
+              <label className="w-full">
+                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                  Email Address <sup className="text-pink-200">*</sup>
+                </p>
                 <input
-                  type="email"
-                  placeholder="Enter you email"
                   required
-                  className="w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={handleOnChange}
+                  placeholder="Enter email address"
+                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
-              </div>
-              <div className="password flex flex-col gap-1">
-                <h6 className="text-sm font-light">Password</h6>
-                <Input
-                  disableUnderline
-                  placeholder="password"
-                  sx={{
-                    fontSize: 15,
-                  }}
-                  className="w-full px-3 py-1.5 text-black rounded-md outline-none bg-white sm:py-1"
-                  id="outlined-adornment-password"
+              </label>
+              <label className="relative">
+                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                  Password <sup className="text-pink-200">*</sup>
+                </p>
+                <input
+                  required
                   type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment className="mr-2">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword ? (
-                          <VisibilityOff fontSize="small" />
-                        ) : (
-                          <Visibility fontSize="small" />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
+                  name="password"
+                  value={password}
+                  onChange={handleOnChange}
+                  placeholder="Enter Password"
+                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
-              </div>
+                <span
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                >
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  ) : (
+                    <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  )}
+                </span>
+              </label>
               <Link
                 to="/forgotPassword"
                 className=" font-light place-self-end text-xs underline -mt-3"
               >
                 Forgot Password?
               </Link>
-              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold sm:mt-4">
-                <Link to="/verification" className="tracking-[1px]">
-                  LOGIN
-                </Link>
+              <button className="w-[40%] place-self-center rounded-sm bg-medium-color mt-5 py-1.5 text-white shadow-md font-semibold sm:mt-4">
+                LOGIN
               </button>
               <div className="gotosignup flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">

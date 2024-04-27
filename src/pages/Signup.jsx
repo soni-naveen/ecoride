@@ -1,25 +1,30 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
-import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+// import { useDispatch } from "react-redux";
+// import { toast } from "react-hot-toast";
+// import { sendOtp } from "../../../services/operations/authAPI";
+// import { setSignupData } from "../../../slices/authSlice";
 
-const Signup = (onSignup) => {
-  const [showPassword1, setShowPassword1] = React.useState(false);
-  const [showPassword2, setShowPassword2] = React.useState(false);
+function Signup() {
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
-  const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
-  const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
+  const [passAlert, setPassAlert] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const { email, password, confirmPassword } = formData;
 
   // Closing Pop on clicking outside of the popup explanation in the login page as both of them use same funcanality
 
@@ -30,6 +35,52 @@ const Signup = (onSignup) => {
     if (modelRef.current === e.target) {
       button.current.click();
     }
+  };
+
+  // Handle input fields, when some value changes
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+    // if(e.target.name === "password" && e.target.value.length<8) {
+    //   setPassAlert("Must be 8");
+    // }
+  };
+
+  // Handle Form Submission
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    //const password = {password};
+    if (password.length < 8) {
+      setPassAlert("Password must be of at least eight characters");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords Do Not Match");
+      return;
+    }
+    const signupData = {
+      ...formData,
+      accountType,
+    };
+
+    // Setting signup data to state
+    // To be used after otp verification
+    dispatch(setSignupData(signupData));
+    // Send OTP to user for verification
+    dispatch(sendOtp(formData.email, navigate));
+
+    // Reset
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    setAccountType(ACCOUNT_TYPE.STUDENT);
   };
 
   return (
@@ -62,80 +113,81 @@ const Signup = (onSignup) => {
               <p className="text-sm px-5">or</p>
               <div className=" bg-white w-[120px] h-[0.5px] sm:w-[90px]"></div>
             </div>
-            <form className=" flex flex-col gap-5">
-              <div className="email flex flex-col gap-1">
-                <h6 className="text-sm font-light">Email</h6>
+            {/* Form */}
+            <form
+              onSubmit={handleOnSubmit}
+              className="flex w-full flex-col gap-y-4"
+            >
+              <label className="w-full">
+                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                  Email Address <sup className="text-pink-200">*</sup>
+                </p>
                 <input
-                  type="email"
-                  placeholder="Enter your email"
                   required
+                  type="text"
+                  name="email"
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                  value={email}
+                  onChange={handleOnChange}
+                  placeholder="Enter email address"
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
-              </div>
-              <div className="password flex flex-col gap-1">
-                <h6 className="text-sm font-light">Password</h6>
-                <Input
-                  disableUnderline
-                  placeholder="password"
-                  required="true"
-                  sx={{
-                    fontSize: 15,
-                  }}
-                  className="w-full px-3 py-1.5 text-black rounded-md outline-none bg-white sm:py-1"
-                  type={showPassword1 ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment className="mr-2">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword1}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword1 ? (
-                          <VisibilityOff fontSize="small" />
-                        ) : (
-                          <Visibility fontSize="small" />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
+              </label>
+              <label className="relative">
+                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                  Create Password <sup className="text-pink-200">*</sup>
+                </p>
+                <input
+                  required
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={password}
+                  onChange={handleOnChange}
+                  placeholder="Enter Password"
+                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
-              </div>
-              <div className="confirm password flex flex-col gap-1">
-                <h6 className="text-sm font-light">Confirm password</h6>
-                <Input
-                  disableUnderline
-                  placeholder="confirm password"
-                  required="true"
-                  sx={{
-                    fontSize: 15,
-                  }}
-                  className="w-full px-3 py-1.5 text-black rounded-md outline-none bg-white sm:py-1"
-                  type={showPassword2 ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment className="mr-2">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword2}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword2 ? (
-                          <VisibilityOff fontSize="small" />
-                        ) : (
-                          <Visibility fontSize="small" />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
+                <span
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                >
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  ) : (
+                    <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  )}
+                </span>
+                <p className="text-pink-100 mt-1 ">{passAlert}</p>
+              </label>
+              <label className="relative">
+                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                  Confirm Password <sup className="text-pink-200">*</sup>
+                </p>
+                <input
+                  required
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleOnChange}
+                  placeholder="Confirm Password"
+                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
-              </div>
-              <button className="w-[40%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-semibold sm:mt-5">
-                <Link to="/verification" className="tracking-[1px]">
-                  SIGNUP
-                </Link>
+                <span
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                >
+                  {showConfirmPassword ? (
+                    <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  ) : (
+                    <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  )}
+                </span>
+              </label>
+
+              <button
+                type="submit"
+                className="w-[55%] place-self-center rounded-sm bg-medium-color mt-7 py-1.5  text-white shadow-md font-normal sm:mt-5 sm:text-sm"
+              >
+                <Link to="/verification">Create Account</Link>
               </button>
               <div className="flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">
@@ -155,5 +207,6 @@ const Signup = (onSignup) => {
       <Home />
     </>
   );
-};
+}
+
 export default Signup;
