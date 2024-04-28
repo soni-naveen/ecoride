@@ -6,12 +6,12 @@ import Home from "./Home";
 import GoogleIcon from "@mui/icons-material/Google";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-// import { useDispatch } from "react-redux"
-// import { login } from "../../../services/operations/authAPI"
+import { useDispatch } from "react-redux";
+import { login } from "../services/operations/AuthAPI";
 
-function Login({ onLogin }) {
+function Login() {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,7 +30,7 @@ function Login({ onLogin }) {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // dispatch(login(email, password, navigate));
+    dispatch(login(email, password, navigate));
   };
 
   // Redirect to home after clicking outside the model
@@ -118,7 +118,7 @@ function Login({ onLogin }) {
                 </span>
               </label>
               <Link
-                to="/forgotPassword"
+                to="/forgot-password"
                 className=" font-light place-self-end text-xs underline -mt-3"
               >
                 Forgot Password?

@@ -5,14 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import GoogleIcon from "@mui/icons-material/Google";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-// import { useDispatch } from "react-redux";
-// import { toast } from "react-hot-toast";
-// import { sendOtp } from "../../../services/operations/authAPI";
-// import { setSignupData } from "../../../slices/authSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
+import { sendOtp } from "../services/operations/AuthAPI";
+import { setSignupData } from "../slices/authSlice";
 
 function Signup() {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [passAlert, setPassAlert] = useState("");
   const [formData, setFormData] = useState({
@@ -51,7 +51,7 @@ function Signup() {
   // Handle Form Submission
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    //const password = {password};
+    // const password = {password};
     if (password.length < 8) {
       setPassAlert("Password must be of at least eight characters");
       return;
@@ -68,9 +68,9 @@ function Signup() {
 
     // Setting signup data to state
     // To be used after otp verification
-    // dispatch(setSignupData(signupData));
+    dispatch(setSignupData(signupData));
     // Send OTP to user for verification
-    // dispatch(sendOtp(formData.email, navigate));
+    dispatch(sendOtp(formData.email, navigate));
 
     // Reset
     setFormData({

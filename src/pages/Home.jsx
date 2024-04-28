@@ -97,7 +97,7 @@ const Home = () => {
             </div>
           </div>
           <div className="right z-0">
-            <div className=" reveallr text-dark-color mb-3 text-xl md:hidden">
+            <div className="reveallr text-dark-color mb-3 text-xl md:hidden">
               <AnimateLR />► Search on map to see full route
             </div>
             <div className="right w-[800px] h-[550px] bg-light-color rounded-md md:hidden 2xl:w-[700px]">

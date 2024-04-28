@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import "./App.css";
 // Redux
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // React Router
 import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 
@@ -19,19 +19,21 @@ import Searchride from "./pages/Searchride";
 import Home from "./pages/Home";
 import Header from "./components/Navbar/Header";
 import Error from "./pages/Error";
+import ForgotPassword from "./pages/ForgotPassword";
+import UpdatePassword from "./pages/UpdatePassword";
 
 function App() {
-  // const dispatch = useDispatch()
-  // const navigate = useNavigate()
-  // const { user } = useSelector((state) => state.profile)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.profile);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     const token = JSON.parse(localStorage.getItem("token"))
-  //     dispatch(getUserDetails(token, navigate))
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      dispatch(getUserDetails(token, navigate));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <Header />
@@ -44,6 +46,14 @@ function App() {
           element={
             <OpenRoute>
               <Login />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="forgot-password"
+          element={
+            <OpenRoute>
+              <ForgotPassword />
             </OpenRoute>
           }
         />
@@ -63,14 +73,14 @@ function App() {
             </OpenRoute>
           }
         />
-        {/* <Route
+        <Route
           path="update-password/:id"
           element={
             <OpenRoute>
               <UpdatePassword />
             </OpenRoute>
           }
-        /> */}
+        />
         {/* Private Route - for Only Logged in User */}
         {/* <Route
           element={
