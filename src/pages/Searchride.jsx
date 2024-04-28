@@ -4,6 +4,7 @@ import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 
 function Searchride() {
   return (
@@ -62,6 +63,7 @@ function Searchride() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

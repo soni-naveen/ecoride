@@ -12,7 +12,18 @@ import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { cyan } from "@mui/material/colors";
 
+// import { useRef, useState } from "react";
+// import { AiOutlineCaretDown } from "react-icons/ai";
+// import { VscDashboard, VscSignOut } from "react-icons/vsc";
+// import { useDispatch, useSelector } from "react-redux";
+// import { Link, useNavigate } from "react-router-dom";
+// import { logout } from "../../../services/operations/authAPI";
+
 export default function AccountMenu() {
+  // const { user } = useSelector((state) => state.profile);
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -21,6 +32,7 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  if (!user) return null;
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>

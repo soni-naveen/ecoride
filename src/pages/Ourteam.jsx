@@ -4,9 +4,11 @@ import one from "../assets/Team/one.jpg";
 import two from "../assets/Team/two.jpg";
 import three from "../assets/Team/three.jpg";
 import four from "../assets/Team/four.jpg";
+import Footer from "../components/Footer/Footer.jsx";
 
 function Ourteam() {
   return (
+    <>
     <div className="team-page py-5">
       <style jsx global>{`
         .team-page .team-card {
@@ -49,7 +51,7 @@ function Ourteam() {
       `}</style>
       <div className="container h-full mx-auto px-6 flex flex-col justify-center items-center gap-10 ">
         <div>
-          <h1 className=" text-5xl font-bold lg:text-4xl sm:text-3xl text-dark-color mb-8 mt-5">
+          <h1 className=" text-5xl font-bold lg:text-4xl sm:text-3xl text-dark-color mb-8 mt-10">
             Meet Our Team
           </h1>
         </div>
@@ -89,6 +91,8 @@ function Ourteam() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

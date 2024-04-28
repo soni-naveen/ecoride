@@ -7,22 +7,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
 
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
-  };
-
-  const loginPopup = () => {
-    setShowLogin(true);
-  };
-
-  const signupPopup = () => {
-    setShowSignUp(true);
-  };
-  const handleLogin = () => {
-    setIsLoggedIn(true);
   };
 
   return (
@@ -52,7 +39,6 @@ const Header = () => {
                 <Link to="/signup">
                   <button
                     className="text-dark-color py-1 px-6 text-md border-2 font-medium hover:border-dark-color border-dark-color rounded-full sm2xl:border-none smxl:border smxl:px-2.5 smxl:py-1 smxl:text-xs smxl:font-medium sm:px-3.5 md1:text-sm md1:px-4"
-                    onClick={signupPopup}
                   >
                     SignUp
                   </button>
@@ -60,7 +46,6 @@ const Header = () => {
                 <Link to="/login">
                   <button
                     className="text-white bg-dark-color border-2 border-dark-color font-medium py-[5px] px-8 rounded-full text-md sm2xl:py-[2px] smxl:px-4 smxl:text-xs smxl:font-normal smxl:py-[3px] sm:px-5 md1:text-sm md1:px-[25px]"
-                    onClick={loginPopup}
                   >
                     Login
                   </button>

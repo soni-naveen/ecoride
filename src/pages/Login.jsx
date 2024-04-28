@@ -50,7 +50,7 @@ function Login({ onLogin }) {
       <div
         ref={modelRef}
         onClick={closeModel}
-        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-10"
+        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-20"
       >
         <div className="flex flex-col gap-3 text-white">
           <Link

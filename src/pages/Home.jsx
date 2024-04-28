@@ -21,6 +21,7 @@ import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
 import ForumIcon from "@mui/icons-material/Forum";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer/Footer.jsx";
 
 const Home = () => {
   const handleClickPageTop = () => {
@@ -96,9 +97,9 @@ const Home = () => {
             </div>
           </div>
           <div className="right z-0">
-            <p className=" reveallr text-dark-color mb-3 text-xl md:hidden">
+            <div className=" reveallr text-dark-color mb-3 text-xl md:hidden">
               <AnimateLR />► Search on map to see full route
-            </p>
+            </div>
             <div className="right w-[800px] h-[550px] bg-light-color rounded-md md:hidden 2xl:w-[700px]">
               <Map />
             </div>
@@ -220,6 +221,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
