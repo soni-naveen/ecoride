@@ -51,9 +51,18 @@ function Signup() {
   // Handle Form Submission
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // const password = {password};
+    // const password = { password };
     if (password.length < 8) {
-      setPassAlert("Password must be of at least eight characters");
+      setPassAlert(
+        <div
+          style={{
+            fontSize: "12px",
+            color: "pink",
+          }}
+        >
+          Password must have at least 8 characters.
+        </div>
+      );
       return;
     }
 
@@ -63,7 +72,6 @@ function Signup() {
     }
     const signupData = {
       ...formData,
-      accountType,
     };
 
     // Setting signup data to state
@@ -78,7 +86,6 @@ function Signup() {
       password: "",
       confirmPassword: "",
     });
-    setAccountType(ACCOUNT_TYPE.STUDENT);
   };
 
   return (
@@ -185,7 +192,7 @@ function Signup() {
                 type="submit"
                 className="w-[55%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-normal sm:mt-5 sm:text-sm"
               >
-                <Link to="/verification">Create Account</Link>
+                Create Account
               </button>
               <div className="flex flex-col justify-center items-start">
                 <p className="text-xs font-normal mt-4">

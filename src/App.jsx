@@ -42,7 +42,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         {/* Open Route - for Only Non Logged in User */}
         <Route
-          path="login"
+          path="/login"
           element={
             <OpenRoute>
               <Login />
@@ -50,7 +50,7 @@ function App() {
           }
         />
         <Route
-          path="forgot-password"
+          path="/forgot-password"
           element={
             <OpenRoute>
               <ForgotPassword />
@@ -58,7 +58,7 @@ function App() {
           }
         />
         <Route
-          path="signup"
+          path="/signup"
           element={
             <OpenRoute>
               <Signup />
@@ -66,7 +66,7 @@ function App() {
           }
         />
         <Route
-          path="verification"
+          path="/verification"
           element={
             <OpenRoute>
               <Verification />

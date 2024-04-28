@@ -31,7 +31,7 @@ export function sendOtp(email, navigate) {
       }
 
       toast.success("OTP Sent Successfully");
-      navigate("/verify-email");
+      navigate("/verification");
     } catch (error) {
       console.log("SENDOTP API ERROR............", error);
       toast.error("Could Not Send OTP");
@@ -41,13 +41,7 @@ export function sendOtp(email, navigate) {
   };
 }
 
-export function signUp(
-  email,
-  password,
-  confirmPassword,
-  otp,
-  navigate
-) {
+export function signUp(email, password, confirmPassword, otp, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
