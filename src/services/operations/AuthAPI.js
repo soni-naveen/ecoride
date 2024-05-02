@@ -18,6 +18,7 @@ export function sendOtp(email, navigate) {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
+      console.log(email);
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
@@ -34,10 +35,11 @@ export function sendOtp(email, navigate) {
       navigate("/verification");
     } catch (error) {
       console.log("SENDOTP API ERROR............", error);
-      toast.error("Could Not Send OTP");
+      toast.error("Email already exist");
+    } finally {
+      dispatch(setLoading(false));
+      toast.dismiss(toastId);
     }
-    dispatch(setLoading(false));
-    toast.dismiss(toastId);
   };
 }
 
@@ -62,7 +64,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       navigate("/login");
     } catch (error) {
       console.log("SIGNUP API ERROR............", error);
-      toast.error("Signup Failed");
+      toast.error("Signup Failed!");
       navigate("/signup");
     }
     dispatch(setLoading(false));
@@ -91,11 +93,11 @@ export function login(email, password, navigate) {
       dispatch(setToken(response.data.token));
       const userImage = response.data?.user?.image
         ? response.data.user.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.email}`;
       dispatch(setUser({ ...response.data.user, image: userImage }));
 
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      navigate("/dashboard/my-profile");
+      navigate("/completeprofile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
       toast.error("Login Failed");
@@ -163,7 +165,7 @@ export function logout(navigate) {
   return (dispatch) => {
     dispatch(setToken(null));
     dispatch(setUser(null));
-    dispatch(resetCart());
+    // dispatch(resetCart());
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logged Out");

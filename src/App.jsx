@@ -15,12 +15,13 @@ import Howitworks from "./pages/Howitworks";
 import Helpcenter from "./pages/Helpcenter";
 import Ourteam from "./pages/Ourteam";
 import Completeprofile from "./pages/Completeprofile";
+import { getUserDetails } from "./services/operations/ProfileAPI";
 import Searchride from "./pages/Searchride";
 import Home from "./pages/Home";
 import Header from "./components/Navbar/Header";
-import Error from "./pages/Error";
 import ForgotPassword from "./pages/ForgotPassword";
 import UpdatePassword from "./pages/UpdatePassword";
+import Error from "./pages/Error";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,10 +40,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="home" element={<Home />} />
         {/* Open Route - for Only Non Logged in User */}
         <Route
-          path="/login"
+          path="login"
           element={
             <OpenRoute>
               <Login />
@@ -50,7 +51,7 @@ function App() {
           }
         />
         <Route
-          path="/forgot-password"
+          path="forgot-password"
           element={
             <OpenRoute>
               <ForgotPassword />
@@ -58,7 +59,7 @@ function App() {
           }
         />
         <Route
-          path="/signup"
+          path="signup"
           element={
             <OpenRoute>
               <Signup />
@@ -66,7 +67,7 @@ function App() {
           }
         />
         <Route
-          path="/verification"
+          path="verification"
           element={
             <OpenRoute>
               <Verification />
@@ -101,12 +102,12 @@ function App() {
           />
         </Route> */}
 
-        <Route path="/aboutus" element={<Aboutus />} />
-        <Route path="/howitworks" element={<Howitworks />} />
-        <Route path="/helpcenter" element={<Helpcenter />} />
-        <Route path="/ourteam" element={<Ourteam />} />
-        <Route path="/completeprofile" element={<Completeprofile />} />
-        <Route path="/searchride" element={<Searchride />} />
+        <Route path="aboutus" element={<Aboutus />} />
+        <Route path="howitworks" element={<Howitworks />} />
+        <Route path="helpcenter" element={<Helpcenter />} />
+        <Route path="ourteam" element={<Ourteam />} />
+        <Route path="completeprofile" element={<Completeprofile />} />
+        <Route path="searchride" element={<Searchride />} />
         {/* 404 Page */}
         <Route path="*" element={<Error />} />
       </Routes>

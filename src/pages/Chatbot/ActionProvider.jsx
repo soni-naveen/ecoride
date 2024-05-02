@@ -57,7 +57,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }
 
   const handleDefault = () => {
-    const botmsg = createChatBotMessage("Sorry!, I can't understand.");
+    const botmsg = createChatBotMessage("Sorry! I can't understand.");
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages,botmsg],

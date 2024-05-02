@@ -1,105 +1,79 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import LogoutIcon from "@mui/icons-material/Logout";
-import CallIcon from "@mui/icons-material/Call";
-import PolylineIcon from "@mui/icons-material/Polyline";
-import IconButton from "@mui/material/IconButton";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { cyan } from "@mui/material/colors";
-
 import { useRef, useState } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md";
+import { MdOutlineChat } from "react-icons/md";
+import { FaCarSide } from "react-icons/fa";
+import { IoHelpBuoy } from "react-icons/io5";
+import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { logout } from "../../services/operations/AuthAPI";
 
-export default function AccountMenu() {
+export default function ProfileDropdown() {
   const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  // const open = Boolean(anchorEl);
-  // const handleClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
   useOnClickOutside(ref, () => setOpen(false));
 
   if (!user) return null;
+
   return (
-    <>
+    <button className="relative" onClick={() => setOpen(true)}>
+      <div className="flex items-center gap-x-1">
+        <img
+          src={user?.image}
+          alt={`profile-${user?.firstName}`}
+          className="aspect-square w-[35px] rounded-full object-cover md:w-[30px] sm:w-[25px]"
+        />
+        <AiOutlineCaretDown className="text-sm text-dark-color" />
+      </div>
       {open && (
-        <div>
-          <Box
-            sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
-            onClick={() => setOpen(true)}
-          >
-            <IconButton
-              onClick={handleClick}
-              size="small"
-              sx={{ ml: 1 }}
-              aria-controls={open ? "account-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-            >
-              <Avatar sx={{ width: 40, height: 40, bgcolor: cyan[800] }}>
-                N
-              </Avatar>
-            </IconButton>
-          </Box>
-          <Menu
-            anchorEl={anchorEl}
-            id="account-menu"
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-          >
-            <MenuItem onClick={() => setOpen(false)} className="w-60">
-              <PersonOutlineOutlinedIcon className="mr-8 text-dark-color" />
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] bg-richblack-800"
+          ref={ref}
+        >
+          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+              <MdAccountCircle className="text-2xl" />
               Account
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={() => setOpen(false)} className="w-60">
-              <ChatOutlinedIcon className="mr-8 text-dark-color" />
+            </div>
+          </Link>
+          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+              <MdOutlineChat className="text-2xl" />
               Inbox
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={() => setOpen(false)} className="w-60">
-              <PolylineIcon className="mr-8 text-dark-color" />
-              Your Rides
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={() => setOpen(false)} className="w-60">
-              <CallIcon className="mr-8 text-dark-color" />
+            </div>
+          </Link>
+          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+              <FaCarSide className="text-2xl" />
+              Your rides
+            </div>
+          </Link>
+          <Link to="/helpcenter" onClick={() => setOpen(false)}>
+            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+              <IoHelpBuoy className="text-2xl" />
               Help Center
-            </MenuItem>
-            <Divider />
-            <MenuItem
-              className="w-60"
-              onClick={() => {
-                dispatch(logout(navigate));
-                setOpen(false);
-              }}
-            >
-              <LogoutIcon className="mr-8 text-dark-color" />
-              Logout
-            </MenuItem>
-          </Menu>
+            </div>
+          </Link>
+          <div
+            onClick={() => {
+              dispatch(logout(navigate));
+              setOpen(false);
+            }}
+            className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color"
+          >
+            <MdLogout className="text-2xl" />
+            Logout
+          </div>
         </div>
       )}
-    </>
+    </button>
   );
 }
