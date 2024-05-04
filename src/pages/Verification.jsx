@@ -39,16 +39,16 @@ function Verification() {
 
   return (
     <>
-      {loading ? (
-        <div>
-          <div className="spinner"></div>
-        </div>
-      ) : (
-        <div
-          ref={modelRef}
-          onClick={CloseModel}
-          className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-10"
-        >
+      <div
+        ref={modelRef}
+        onClick={CloseModel}
+        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-10"
+      >
+        {loading ? (
+          <div>
+            <div className="spinner"></div>
+          </div>
+        ) : (
           <div className="flex flex-col items-center justify-center gap-3 text-white">
             <Link to={"/home"} ref={button} className=" place-self-end">
               <button>
@@ -102,7 +102,7 @@ function Verification() {
                 </Link>
                 <button
                   className="flex items-center text-blue-100 gap-x-2 sm:text-[0.9rem]"
-                  onClick={() => dispatch(sendOtp(signupData.email))}
+                  onClick={() => dispatch(sendOtp(signupData.email, navigate))}
                 >
                   <RxCountdownTimer />
                   Resend it
@@ -110,8 +110,8 @@ function Verification() {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
       <Home />
     </>
   );

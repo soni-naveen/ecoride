@@ -7,10 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 
 import OpenRoute from "./components/Auth/OpenRoute";
+import PrivateRoute from "./components/Auth/PrivateRoute";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Verification from "./pages/Verification";
 import Aboutus from "./pages/Aboutus";
+import Dashboard from "./pages/Dashboard";
+import MyProfile from "./pages/MyProfile";
+import Settings from "./components/Dashboard/Settings";
 import Howitworks from "./pages/Howitworks";
 import Helpcenter from "./pages/Helpcenter";
 import Ourteam from "./pages/Ourteam";
@@ -66,14 +70,7 @@ function App() {
             </OpenRoute>
           }
         />
-        <Route
-          path="verification"
-          element={
-            <OpenRoute>
-              <Verification />
-            </OpenRoute>
-          }
-        />
+        <Route path="verification" element={<Verification />} />
         <Route
           path="update-password/:id"
           element={
@@ -83,30 +80,30 @@ function App() {
           }
         />
         {/* Private Route - for Only Logged in User */}
-        {/* <Route
+        <Route
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
         >
+          <Route path="completeprofile" element={<Completeprofile />} />
           <Route path="dashboard/myprofile" element={<MyProfile />} />
           <Route path="dashboard/settings" element={<Settings />} />
-          <Route path="dashboard/publishedride" element={<PublishedRide />} />
-          <Route path="dashboard/bookedride" element={<BookedRide />} />
-          <Route path="dashboard/inbox" element={<BookedRide />} />
-          <Route path="dashboard/ratingsgiven" element={<RatingsGiven />} />
-          <Route
-            path="dashboard/ratingsreceived"
-            element={<RatingsReceived />}
-          />
-        </Route> */}
+          {/* <Route path="dashboard/publishedride" element={<PublishedRide />} /> */}
+          {/* <Route path="dashboard/bookedride" element={<BookedRide />} /> */}
+          {/* <Route path="dashboard/inbox" element={<Inbox />} /> */}
+          {/* <Route path="dashboard/ratingsgiven" element={<RatingsGiven />} /> */}
+          {/* <Route
+              path="dashboard/ratingsreceived"
+              element={<RatingsReceived />}
+            /> */}
+        </Route>
 
         <Route path="aboutus" element={<Aboutus />} />
         <Route path="howitworks" element={<Howitworks />} />
         <Route path="helpcenter" element={<Helpcenter />} />
         <Route path="ourteam" element={<Ourteam />} />
-        <Route path="completeprofile" element={<Completeprofile />} />
         <Route path="searchride" element={<Searchride />} />
         {/* 404 Page */}
         <Route path="*" element={<Error />} />

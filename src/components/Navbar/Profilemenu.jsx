@@ -38,19 +38,19 @@ export default function ProfileDropdown() {
           className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] bg-richblack-800"
           ref={ref}
         >
-          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+          <Link to="/dashboard/myprofile" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdAccountCircle className="text-2xl" />
               Account
             </div>
           </Link>
-          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+          <Link to="/dashboard/myprofile" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdOutlineChat className="text-2xl" />
               Inbox
             </div>
           </Link>
-          <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
+          <Link to="/dashboard/myprofile" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <FaCarSide className="text-2xl" />
               Your rides

@@ -19,7 +19,7 @@ import AnimateLR from "../animations/AnimationLR.jsx";
 import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
-import ForumIcon from "@mui/icons-material/Forum";
+import { BsRobot } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 
@@ -31,11 +31,10 @@ const Home = () => {
     <>
       <div className="max-w-[1800px] m-auto relative">
         {/*------------ Image and title ------------*/}
-        <div className="fixed bottom-[20px] right-[20px] z-10 border border-blue-500 bg-light-color rounded-full color-white p-2">
+        <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
-            <ForumIcon
-              color="primary"
-              sx={{ fontSize: { xs: 28, sm: 35, md: 40 } }}
+            <BsRobot
+              className="text-3xl p-0.5 text-dark-color"
             />
           </Link>
         </div>

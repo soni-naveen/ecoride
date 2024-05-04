@@ -29,7 +29,9 @@ const Header = () => {
         <div className="flex gap-20 items-center sm2xl:gap-0 smxl:gap-4 md:gap-8 md1:gap-10 lg:gap-14">
           <div>
             <Link to="/searchride" onClick={handleClickPageTop}>
-              <button className="text-dark-color font-medium text-lg flex items-center">
+              <button
+                className="text-dark-color hover:font-bold font-medium text-lg flex items-center"
+              >
                 <SearchIcon className="mr-3 stroke-dark-color sm:mr-2" />
                 <div className="smxl:hidden md1:text-[16px]">
                   Search <span className="md:hidden"> Ride</span>
@@ -55,7 +57,7 @@ const Header = () => {
             {user && (
               <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 md:mr-3">
                 <ControlPointIcon className="mr-3 sm:mr-2" />
-                <div className="smxl:hidden md1:text-[16px]">
+                <div className="hover:font-bold font-medium smxl:hidden md1:text-[16px]">
                   Publish <span className="md:hidden">Ride</span>
                 </div>
               </button>

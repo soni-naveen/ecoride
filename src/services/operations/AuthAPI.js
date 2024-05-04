@@ -18,7 +18,6 @@ export function sendOtp(email, navigate) {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
-      console.log(email);
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
@@ -61,7 +60,10 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
         throw new Error(response.data.message);
       }
       toast.success("Signup Successful");
-      navigate("/login");
+      dispatch(setToken(response.data.token));
+      dispatch(setUser({ ...response.data.user }));
+      localStorage.setItem("token", JSON.stringify(response.data.token));
+      navigate("/completeprofile");
     } catch (error) {
       console.log("SIGNUP API ERROR............", error);
       toast.error("Signup Failed!");
@@ -93,11 +95,11 @@ export function login(email, password, navigate) {
       dispatch(setToken(response.data.token));
       const userImage = response.data?.user?.image
         ? response.data.user.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.email}`;
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.email}&chars=1`;
       dispatch(setUser({ ...response.data.user, image: userImage }));
 
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      navigate("/completeprofile");
+      navigate("/dashboard/myprofile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
       toast.error("Login Failed");

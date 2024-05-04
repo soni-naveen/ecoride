@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/api/v1"   //deployed backend base url
+const BASE_URL = "http://localhost:4000/api/v1"; //deployed backend base url
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -7,14 +7,15 @@ export const endpoints = {
   LOGIN_API: BASE_URL + "/auth/login",
   RESETPASSTOKEN_API: BASE_URL + "/auth/reset-password-token",
   RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
-}
+  COMPLETE_PROFILE_API: BASE_URL + "/auth/completeprofile",
+};
 
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
   // GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
   // GET_INSTRUCTOR_DATA_API: BASE_URL + "/profile/instructorDashboard",
-}
+};
 
 // // STUDENTS ENDPOINTS
 // export const studentEndpoints = {
@@ -63,10 +64,11 @@ export const profileEndpoints = {
 //   CONTACT_US_API: BASE_URL + "/reach/contact",
 // }
 
-// // SETTINGS PAGE API
-// export const settingsEndpoints = {
-//   UPDATE_DISPLAY_PICTURE_API: BASE_URL + "/profile/updateDisplayPicture",
-//   UPDATE_PROFILE_API: BASE_URL + "/profile/updateProfile",
-  // CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
-//   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
-// }
+// SETTINGS PAGE API
+export const settingsEndpoints = {
+  UPDATE_DISPLAY_PICTURE_API: BASE_URL + "/profile/updateDisplayPicture",
+  COMPLETE_PROFILE_API: BASE_URL + "/profile/completeProfile",
+  UPDATE_PROFILE_API: BASE_URL + "/profile/updateProfile",
+  CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
+  DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
+};
