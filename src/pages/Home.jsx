@@ -33,9 +33,7 @@ const Home = () => {
         {/*------------ Image and title ------------*/}
         <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
-            <BsRobot
-              className="text-3xl p-0.5 text-dark-color"
-            />
+            <BsRobot className="text-3xl p-0.5 text-dark-color" />
           </Link>
         </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
@@ -85,8 +83,7 @@ const Home = () => {
                     SEE RIDES
                   </button>
                   <a
-                    href="https://www.google.com/maps/"
-                    target="_blank"
+                    href="https://www.google.com/maps/dir///"
                     className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3"
                   >
                     View <span className="smxl:hidden">full</span> map

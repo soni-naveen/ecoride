@@ -21,6 +21,7 @@ import Ourteam from "./pages/Ourteam";
 import Completeprofile from "./pages/Completeprofile";
 import { getUserDetails } from "./services/operations/ProfileAPI";
 import Searchride from "./pages/Searchride";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Header from "./components/Navbar/Header";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -45,6 +46,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="home" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="aboutus" element={<Aboutus />} />
+        <Route path="howitworks" element={<Howitworks />} />
+        <Route path="helpcenter" element={<Helpcenter />} />
+        <Route path="ourteam" element={<Ourteam />} />
+        <Route path="searchride" element={<Searchride />} />
+
         {/* Open Route - for Only Non Logged in User */}
         <Route
           path="login"
@@ -99,12 +107,6 @@ function App() {
               element={<RatingsReceived />}
             /> */}
         </Route>
-
-        <Route path="aboutus" element={<Aboutus />} />
-        <Route path="howitworks" element={<Howitworks />} />
-        <Route path="helpcenter" element={<Helpcenter />} />
-        <Route path="ourteam" element={<Ourteam />} />
-        <Route path="searchride" element={<Searchride />} />
         {/* 404 Page */}
         <Route path="*" element={<Error />} />
       </Routes>

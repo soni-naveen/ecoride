@@ -150,3 +150,6 @@ details > summary::-webkit-details-marker {
     transform: scaleY(-1) rotate(-135deg);
   }
 }
+.form-style {
+  @apply rounded-md bg-white p-3 text-[16px] leading-[24px] shadow focus:outline-none;
+}

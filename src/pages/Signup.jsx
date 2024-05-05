@@ -43,29 +43,24 @@ function Signup() {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
-    // if(e.target.name === "password" && e.target.value.length<8) {
-    //   setPassAlert("Must be 8");
-    // }
-  };
-
-  // Handle Form Submission
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    // const password = { password };
-    if (password.length < 8) {
+    if (e.target.name === "password" && e.target.value.length < 8) {
       setPassAlert(
         <div
           style={{
             fontSize: "12px",
-            color: "pink",
           }}
         >
           Password must have at least 8 characters.
         </div>
       );
-      return;
+    } else {
+      setPassAlert("");
     }
+  };
 
+  // Handle Form Submission
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
     if (password !== confirmPassword) {
       toast.error("Passwords Do Not Match");
       return;
@@ -149,7 +144,7 @@ function Signup() {
                   value={password}
                   onChange={handleOnChange}
                   placeholder="Enter Password"
-                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
+                  className="w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
                   onClick={() => setShowPassword((prev) => !prev)}
@@ -161,7 +156,7 @@ function Signup() {
                     <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                   )}
                 </span>
-                <p className="text-pink-100 mt-1 ">{passAlert}</p>
+                <p className="text-yellow-200 mt-1 font-light">{passAlert}</p>
               </label>
               <label className="relative">
                 <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">

@@ -90,7 +90,7 @@ function Login() {
                   value={email}
                   onChange={handleOnChange}
                   placeholder="Enter email address"
-                  className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
+                  className="w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
               <label className="relative">
