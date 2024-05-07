@@ -24,9 +24,9 @@ function Verification() {
 
   useEffect(() => {
     // Only allow access of this route when user has filled the signup form
-    // if (!signupData) {
-    //   navigate("/signup");
-    // }
+    if (!signupData) {
+      navigate("/signup");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,7 +42,7 @@ function Verification() {
       <div
         ref={modelRef}
         onClick={CloseModel}
-        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-10"
+        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-20"
       >
         {loading ? (
           <div>
@@ -50,7 +50,7 @@ function Verification() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-3 text-white">
-            <Link to={"/home"} ref={button} className=" place-self-end">
+            <Link to={"/home"} ref={button} className=" place-self-end sm2xl:place-self-center">
               <button>
                 <ClearIcon />
               </button>

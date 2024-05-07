@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import two from "../assets/Team/two.jpg";
 import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../services/operations/AuthAPI";
-import { deleteProfile } from "../services/operations/SettingsAPI";
+import { logout } from "../../services/operations/AuthAPI";
+import { deleteProfile } from "../../services/operations/SettingsAPI";
 
 function Myprofile() {
   const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("about");
@@ -20,7 +21,7 @@ function Myprofile() {
     setActiveTab(tab);
   };
   const fullProfileVisit = () => {
-    navigate("/fullprofile");
+    navigate(`/fullprofile/${user?._id}`);
   };
   async function handleDeleteAccount() {
     try {
@@ -43,9 +44,6 @@ function Myprofile() {
     }
   }
 
-  const userName = "Naveen Soni";
-  const email = "username@gmail.com";
-  const phoneNumber = "+91 9876543210";
   return (
     <div className="container mx-auto">
       <div className="bg-white">
@@ -80,12 +78,14 @@ function Myprofile() {
                   <div onClick={fullProfileVisit}>
                     <div className="name_profile flex justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
                       <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
-                        {userName}
+                        {user?.additionalDetails?.firstName +
+                          " " +
+                          user?.additionalDetails?.lastName}
                       </h1>
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
-                          src={two}
-                          alt="N"
+                          src={user?.image}
+                          // alt={`profile-${user?.additionalDetails?.firstName}`}
                           className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
@@ -122,13 +122,13 @@ function Myprofile() {
                       <p className="mr-2">
                         <FaCheckCircle className="text-xl" />
                       </p>
-                      <p>{email}</p>
+                      <p>{user?.email}</p>
                     </div>
                     <div className="flex items-center text-medium-color">
                       <p className="mr-2">
                         <FaCheckCircle className="text-xl" />
                       </p>
-                      <p>{phoneNumber}</p>
+                      <p>{user?.additionalDetails?.contactNumber}</p>
                     </div>
                   </div>
                 </div>
@@ -180,9 +180,12 @@ function Myprofile() {
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
-                  <button onClick={() => {
+                  <button
+                    onClick={() => {
                       navigate("/dashboard/changePassword");
-                    }} className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                    }}
+                    className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
+                  >
                     <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Change Password</h1>
                       <GrNext className=" font-bold text-dark-color" />

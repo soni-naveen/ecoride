@@ -44,7 +44,7 @@ export function updateDisplayPicture(token, formData) {
   };
 }
 
-export function completeProfile(token, formData) {
+export function completeProfile(token, formData, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
@@ -61,11 +61,10 @@ export function completeProfile(token, formData) {
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-      const userImage = `https://api.dicebear.com/5.x/initials/svg?seed=${formData.firstName}&chars=1`;
-      dispatch(
-        setUser({ ...response.data.updatedUserDetails, image: userImage })
-      );
+      dispatch(setUser({ ...response.data.updatedUserDetails }));
+
       toast.success("Profile Completed Successfully");
+      navigate("/dashboard/myprofile");
     } catch (error) {
       console.log("UPDATE_PROFILE_API API ERROR............", error);
       toast.error("Could Not Update Profile");
@@ -88,7 +87,7 @@ export function updateProfile(token, formData) {
       }
       const userImage = response.data.updatedUserDetails.image
         ? response.data.updatedUserDetails.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`;
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName}&chars=1`;
       dispatch(
         setUser({ ...response.data.updatedUserDetails, image: userImage })
       );

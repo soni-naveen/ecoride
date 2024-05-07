@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { changePassword } from "../../../services/operations/SettingsAPI";
-import Myprofile from "../../../pages/MyProfile";
+import Myprofile from "../MyProfile";
 
 function ChangePassword() {
   const { token } = useSelector((state) => state.auth);

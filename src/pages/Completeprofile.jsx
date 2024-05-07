@@ -27,8 +27,7 @@ function Completeprofile() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(completeProfile(token, formData));
-    navigate("/dashboard/myprofile");
+    dispatch(completeProfile(token, formData, navigate));
   };
 
   return (
@@ -85,7 +84,9 @@ function Completeprofile() {
               <input
                 required
                 type="date"
+                id="validDate"
                 name="dateOfBirth"
+                max="2010-01-01"
                 value={dateOfBirth}
                 onChange={handleOnChange}
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
@@ -123,7 +124,7 @@ function Completeprofile() {
                 pattern="[7-9]{1}[0-9]{9}"
                 value={contactNumber}
                 onChange={handleOnChange}
-                placeholder="987654321"
+                placeholder="9876543210"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>

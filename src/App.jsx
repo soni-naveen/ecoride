@@ -13,7 +13,7 @@ import Signup from "./pages/Signup";
 import Verification from "./pages/Verification";
 import Aboutus from "./pages/Aboutus";
 import Dashboard from "./pages/Dashboard";
-import MyProfile from "./pages/MyProfile";
+import MyProfile from "./components/Dashboard/MyProfile";
 import Howitworks from "./pages/Howitworks";
 import Helpcenter from "./pages/Helpcenter";
 import Ourteam from "./pages/Ourteam";
@@ -54,6 +54,7 @@ function App() {
         <Route path="helpcenter" element={<Helpcenter />} />
         <Route path="ourteam" element={<Ourteam />} />
         <Route path="searchride" element={<Searchride />} />
+        <Route path="fullprofile/:id" element={<Fullprofile />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
@@ -99,7 +100,6 @@ function App() {
         >
           <Route path="completeprofile" element={<Completeprofile />} />
           <Route path="dashboard/myprofile" element={<MyProfile />} />
-          <Route path="fullprofile" element={<Fullprofile />} />
           <Route path="dashboard/editProfile" element={<EditProfile />} />
           <Route
             path="/dashboard/changePassword"
