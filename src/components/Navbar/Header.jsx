@@ -32,7 +32,7 @@ const Header = () => {
               <button
                 className="text-dark-color hover:font-bold font-medium text-lg flex items-center"
               >
-                <SearchIcon className="mr-3 stroke-dark-color sm:mr-2" />
+                <SearchIcon className="mr-3 stroke-dark-color sm:mr-3 sm2xl:mr-5" />
                 <div className="smxl:hidden md1:text-[16px]">
                   Search <span className="md:hidden"> Ride</span>
                 </div>

@@ -1,27 +1,57 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import two from "../assets/Team/two.jpg";
 import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { HiOutlineMail } from "react-icons/hi";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaCarRear } from "react-icons/fa6";
+import { FaCheckCircle } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../services/operations/AuthAPI";
+import { deleteProfile } from "../services/operations/SettingsAPI";
+
 function Myprofile() {
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("about");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+  const fullProfileVisit = () => {
+    navigate("/fullprofile");
+  };
+  async function handleDeleteAccount() {
+    try {
+      const confirmDelete = await Swal.fire({
+        title: "Are You Sure?",
+        text: "Deleting your account is a permanent action.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Confirm",
+        focusCancel: true, // Set the default focus to Cancel button
+      });
+
+      if (confirmDelete.isConfirmed) {
+        dispatch(deleteProfile(token, navigate));
+      }
+    } catch (error) {
+      console.log("ERROR MESSAGE - ", error.message);
+    }
+  }
 
   const userName = "Naveen Soni";
   const email = "username@gmail.com";
   const phoneNumber = "+91 9876543210";
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto">
       <div className="bg-white">
-        <div className="flex justify-center border-b border-gray-200">
+        <div className="flex justify-center border-b shadow border-gray-200">
           <div
-            className={`text-lg font-semibold cursor-pointer  p-5 w-[250px] text-center ${
+            className={`text-lg font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "about"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -30,9 +60,9 @@ function Myprofile() {
           >
             About you
           </div>
-          <div className="inline-block border-r-2 border-solid border-medium-color h-[30px] ml-32 mr-32 mt-5 md1:ml-16 md1:mr-16 sm:ml-5 sm:mr-5"></div>
+          <div className="inline-block border-r-2 border-solid border-medium-color h-[30px] mx-24 mt-4 mb-2 md1:mx-16 sm:mx-8 sm:mb-1 smxl:mx-3"></div>
           <div
-            className={`text-xl font-semibold cursor-pointer  p-5 w-[250px] text-center ${
+            className={`text-xl font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "account"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -42,136 +72,145 @@ function Myprofile() {
             Account
           </div>
         </div>
-        <div className="px-6 py-4">
+        <div>
           {activeTab === "about" && (
-            <div className=" min-h-screen sm:text-sm">
-              <div className="max-w-xl mx-auto p-6 mt-8">
+            <div className="min-h-auto sm:text-sm">
+              <div className="max-w-[700px] mx-auto p-6 mt-3">
                 <div className="flex mb-4 flex-col">
-                  <button>
-                    <div className="name_profile flex justify-between sm:gap-4">
-                      <h1 className="text-2xl font-bold text-dark-color">
+                  <div onClick={fullProfileVisit}>
+                    <div className="name_profile flex justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
+                      <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
                         {userName}
                       </h1>
-                      <div className="flex justify-center items-center gap-5">
+                      <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={two}
                           alt="N"
-                          width={60}
-                          height={60}
-                          className="rounded-full"
+                          className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8"
                         />
-                        <GrNext className=" font-bold text-dark-color" />
+                        <GrNext className="text-2xl text-dark-color smxl:text-xl" />
                       </div>
                     </div>
-                  </button>
-
-                  <button className="bg-light-color text-white px-4 py-2 rounded w-1/2">
-                    <div className="flex gap-5 sm:gap-2 smxl:gap-2 smxl:text-[10pxpx]">
-                      <FaRegEdit className="mt-1 text-dark-color sm:mt-0 " />
-                      <span className="text-dark-color sm:text-sm smxl:text-[8px]">
+                  </div>
+                  <button
+                    onClick={() => {
+                      navigate("/dashboard/editProfile");
+                    }}
+                    className="bg-light-color hover:bg-[#c8edea] ml-10 mt-2 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:w-40 sm:ml-5"
+                  >
+                    <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
+                      <FaRegEdit className="text-dark-color" />
+                      <p className="text-dark-color sm:text-sm smxl:text-[11px]">
                         Edit Your Details
-                      </span>
+                      </p>
                     </div>
                   </button>
                 </div>
                 <hr />
-                <div className="mb-6">
-                  <h2 className="text-lg font-semibold mb-2 text-dark-color mt-5">
+                <div className="px-10 py-5 sm:px-5 smxl:px-2">
+                  <h2 className="text-lg font-semibold text-dark-color py-3 mb-3">
                     Verify your profile
                   </h2>
-                  <div className=" p-4 rounded-lg">
-                    <div className="flex items-center mb-2 text-medium-color">
-                      <span className="mr-2">
-                        <IoAddCircleOutline />
-                      </span>
-                      <span>Verify your Govt. ID</span>
-                    </div>
-                    <div className="flex items-center mb-2 text-medium-color">
-                      <span className="mr-2">
-                        <HiOutlineMail />
-                      </span>
-                      <span>{email}</span>
+                  <div className="p-2 flex flex-col gap-7 rounded-lg">
+                    <div className="flex items-center text-dark-color hover:cursor-pointer">
+                      <p className="mr-2">
+                        <IoAddCircleOutline className="text-[22px]" />
+                      </p>
+                      <p>Verify your Govt. ID</p>
                     </div>
                     <div className="flex items-center text-medium-color">
-                      <span className="mr-2">
-                        <FaPhoneAlt />
-                      </span>
-                      <span>{phoneNumber}</span>
+                      <p className="mr-2">
+                        <FaCheckCircle className="text-xl" />
+                      </p>
+                      <p>{email}</p>
+                    </div>
+                    <div className="flex items-center text-medium-color">
+                      <p className="mr-2">
+                        <FaCheckCircle className="text-xl" />
+                      </p>
+                      <p>{phoneNumber}</p>
                     </div>
                   </div>
                 </div>
                 <hr className=" bg-dark-color" />
-                <div>
-                  <h2 className="text-lg font-semibold mb-2 mt-5 text-dark-color">
+                <div className="px-10 py-5 sm:px-5 smxl:px-2">
+                  <h2 className="text-lg font-semibold py-3 mb-3 text-dark-color">
                     About you
                   </h2>
-                  <div className="flex items-center mb-2 text-dark-color">
-                    <span className="mr-2">
-                      <IoAddCircleOutline className=" text-xl" />
-                    </span>
-                    <button className="bg-light-color text-dark-color px-4 py-2 rounded">
-                      Add bio
-                    </button>
-                  </div>
-                  <div className="flex items-center text-dark-color">
-                    <span className="mr-2">
-                      <FaCarRear />
-                    </span>
-                    <button className="bg-light-color text-dark-color px-4 py-2 rounded">
-                      Add vehicle
-                    </button>
+                  <div className="p-2 flex flex-col gap-7 rounded-lg">
+                    <div className="flex items-center text-dark-color hover:cursor-pointer">
+                      <p className="mr-2">
+                        <IoAddCircleOutline className="text-[22px]" />
+                      </p>
+                      <p>Add bio</p>
+                    </div>
+                    <div className="flex items-center text-dark-color hover:cursor-pointer">
+                      <p className="mr-2">
+                        <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
+                      </p>
+                      <p>Add vehicle</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           )}
           {activeTab === "account" && (
-            <div className=" min-h-screen">
-              <div className="max-w-xl mx-auto p-6 mt-8">
-                <div className="rating flex flex-col gap-5">
-                  <button className="w-full">
-                    <div className="flex justify-between">
-                      <h1 className="text-bold">Rating Recived</h1>
+            <div className=" min-h-auto">
+              <div className="max-w-[700px] mx-auto py-10">
+                <div className="rating flex flex-col gap-1">
+                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                    <div className="flex items-center rounded-md justify-between">
+                      <h1 className="text-bold">Rating Received</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
-                  <button className="w-full">
-                    <div className="flex justify-between">
+                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                    <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Rating Given</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
                 </div>
                 <hr className="mt-5" />
-                <div className="details_changing flex flex-col gap-5 mt-5">
-                  <button className="w-full">
-                    <div className="flex justify-between">
+                <div className="details_changing flex flex-col gap-1 mt-5">
+                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                    <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Add/Change Profile Photo</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
-                  <button className="w-full">
-                    <div className="flex justify-between">
+                  <button onClick={() => {
+                      navigate("/dashboard/changePassword");
+                    }} className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                    <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Change Password</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
-                  <button className="w-full">
-                    <div className="flex justify-between">
-                      <h1 className="text-bold">Help Center</h1>
-                      <GrNext className=" font-bold text-dark-color" />
-                    </div>
-                  </button>
+                  <Link to="/helpcenter">
+                    <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                      <div className="flex items-center rounded-md justify-between">
+                        <h1 className="text-bold">Help Center</h1>
+                        <GrNext className=" font-bold text-dark-color" />
+                      </div>
+                    </button>
+                  </Link>
                 </div>
                 <hr className="mt-5" />
-                <div className="logout_deleteaccount flex flex-col gap-5 mt-5">
+                <div className="logout_deleteaccount flex flex-col gap-1 mt-5">
                   <button>
-                    <div className="flex w-full">
+                    <div
+                      onClick={() => {
+                        dispatch(logout(navigate));
+                      }}
+                      className="flex hover:bg-gray-100 rounded-md w-full p-5 smxl:p-3 sm:p-4"
+                    >
                       <h1 className="text-bold text-medium-color">Logout</h1>
                     </div>
                   </button>
-                  <button>
-                    <div className="flex w-full">
+                  <button onClick={handleDeleteAccount}>
+                    <div className="flex hover:bg-gray-100 rounded-md w-full p-5 smxl:p-3 sm:p-4">
                       <h1 className="text-bold text-rose-700">
                         Delete My Account
                       </h1>

@@ -14,7 +14,6 @@ import Verification from "./pages/Verification";
 import Aboutus from "./pages/Aboutus";
 import Dashboard from "./pages/Dashboard";
 import MyProfile from "./pages/MyProfile";
-import Settings from "./components/Dashboard/Settings";
 import Howitworks from "./pages/Howitworks";
 import Helpcenter from "./pages/Helpcenter";
 import Ourteam from "./pages/Ourteam";
@@ -27,6 +26,9 @@ import Header from "./components/Navbar/Header";
 import ForgotPassword from "./pages/ForgotPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 import Error from "./pages/Error";
+import Fullprofile from "./pages/Fullprofile";
+import EditProfile from "./components/Dashboard/Settings/EditProfile";
+import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
 
 function App() {
   const dispatch = useDispatch();
@@ -97,7 +99,13 @@ function App() {
         >
           <Route path="completeprofile" element={<Completeprofile />} />
           <Route path="dashboard/myprofile" element={<MyProfile />} />
-          <Route path="dashboard/settings" element={<Settings />} />
+          <Route path="fullprofile" element={<Fullprofile />} />
+          <Route path="dashboard/editProfile" element={<EditProfile />} />
+          <Route
+            path="/dashboard/changePassword"
+            element={<ChangePassword />}
+          />
+
           {/* <Route path="dashboard/publishedride" element={<PublishedRide />} /> */}
           {/* <Route path="dashboard/bookedride" element={<BookedRide />} /> */}
           {/* <Route path="dashboard/inbox" element={<Inbox />} /> */}

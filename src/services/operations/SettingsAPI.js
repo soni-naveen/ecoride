@@ -101,7 +101,7 @@ export function updateProfile(token, formData) {
   };
 }
 
-export async function changePassword(token, formData) {
+export async function changePassword(token, formData, navigate) {
   const toastId = toast.loading("Loading...");
   try {
     const response = await apiConnector("POST", CHANGE_PASSWORD_API, formData, {
@@ -113,6 +113,7 @@ export async function changePassword(token, formData) {
       throw new Error(response.data.message);
     }
     toast.success("Password Changed Successfully");
+    navigate("/dashboard/myprofile");
   } catch (error) {
     console.log("CHANGE_PASSWORD_API API ERROR............", error);
     toast.error(error.response.data.message);

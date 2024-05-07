@@ -1,38 +1,28 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import Home from "./Home";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { changePassword } from "../../../services/operations/SettingsAPI";
+import Myprofile from "../../../pages/MyProfile";
 
-import { resetPassword } from "../services/operations/AuthAPI";
-
-function UpdatePassword() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const location = useLocation();
+function ChangePassword() {
+  const { token } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.auth);
-  const [formData, setFormData] = useState({
-    password: "",
-    confirmPassword: "",
-  });
+  const navigate = useNavigate();
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { register, handleSubmit } = useForm();
 
-  const { password, confirmPassword } = formData;
-
-  const handleOnChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    const token = location.pathname.split("/").at(-1);
-    dispatch(resetPassword(password, confirmPassword, token, navigate));
+  const submitPasswordForm = async (data) => {
+    // console.log("password Data - ", data)
+    try {
+      await changePassword(token, data, navigate);
+    } catch (error) {
+      console.log("ERROR MESSAGE - ", error.message);
+    }
   };
 
   const modelRef = useRef();
@@ -56,7 +46,7 @@ function UpdatePassword() {
         ) : (
           <div className="text-white flex flex-col">
             <Link
-              to={"/home"}
+              to={"/dashboard/myprofile"}
               ref={button}
               className="place-self-end mb-4 sm2xl:place-self-center"
             >
@@ -66,30 +56,30 @@ function UpdatePassword() {
             </Link>
             <div className="w-[450px] bg-dark-color p-12 rounded-xl sm:w-[400px] sm:p-11 smxl:w-[330px] smxl:p-9 sm2xl:p-8 sm2xl:w-[300px]">
               <h1 className="text-[1.875rem] font-semibold text-white mb-5 leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
-                Choose new password
+                Change your password
               </h1>
-              <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px] sm2xl:text-sm">
-                Enter your new password and you're all set.
+              <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px]">
+                First enter your old password.
               </p>
-              <form onSubmit={handleOnSubmit}>
+              <form onSubmit={handleSubmit(submitPasswordForm)}>
                 <label className="relative">
                   <p className="mb-1 font-medium text-[0.875rem] leading-[1.375rem] text-white sm2xl:text-xs">
-                    New Password <sup className="text-pink-200">*</sup>
+                    Old Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
                     required
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    value={password}
-                    onChange={handleOnChange}
+                    type={showOldPassword ? "text" : "password"}
+                    name="oldPassword"
+                    id="oldPassword"
                     placeholder="Enter Password"
+                    {...register("oldPassword", { required: true })}
                     className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
-                    onClick={() => setShowPassword((prev) => !prev)}
+                    onClick={() => setShowOldPassword((prev) => !prev)}
                     className="absolute right-3 top-[38px] z-[10] cursor-pointer sm2xl:top-[30px] sm:top-[35px]"
                   >
-                    {showPassword ? (
+                    {showOldPassword ? (
                       <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
                     ) : (
                       <AiOutlineEye fontSize={24} fill="#AFB2BF" />
@@ -98,43 +88,42 @@ function UpdatePassword() {
                 </label>
                 <label className="relative mt-3 block">
                   <p className="mb-1 font-medium text-[0.875rem] leading-[1.375rem] text-white sm2xl:text-xs">
-                    Confirm New Password <sup className="text-pink-200">*</sup>
+                    Enter New Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
                     required
-                    type={showConfirmPassword ? "text" : "password"}
-                    name="confirmPassword"
-                    value={confirmPassword}
-                    onChange={handleOnChange}
+                    type={showNewPassword ? "text" : "password"}
+                    name="newPassword"
+                    id="newPassword"
                     placeholder="Confirm Password"
+                    {...register("newPassword", { required: true })}
                     className="w-full mb-5 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
-                    onClick={() => setShowConfirmPassword((prev) => !prev)}
-                    className="absolute right-3 top-[38px] z-[10] cursor-pointer sm2xl:top-[30px] sm:top-[35px]"
+                    onClick={() => setShowNewPassword((prev) => !prev)}
+                    className="absolute right-3 top-[38px] z-[10] cursor-pointer sm:top-[35px]"
                   >
-                    {showConfirmPassword ? (
+                    {showNewPassword ? (
                       <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
                     ) : (
                       <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                     )}
                   </span>
                 </label>
-
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-[8px] bg-medium-color text-white py-[10px] px-[12px] font-medium text-richblack-900 sm:py-[8px] sm2xl:text-sm"
+                  className="mt-6 w-full rounded-[8px] bg-medium-color text-white py-[10px] px-[12px] font-medium sm:py-[8px] sm2xl:text-sm"
                 >
-                  Reset Password
+                  Change Password
                 </button>
               </form>
             </div>
           </div>
         )}
       </div>
-      <Home />
+      <Myprofile />
     </>
   );
 }
 
-export default UpdatePassword;
+export default ChangePassword;
