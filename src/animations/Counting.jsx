@@ -26,7 +26,7 @@ const Counter = ({ target }) => {
   }, [isVisible]);
 
   const startAnimation = () => {
-    const increment = target / 100;
+    const increment = target / 150;
     const updateCounter = () => {
       setCount((prevCount) => {
         const nextCount = prevCount + increment;

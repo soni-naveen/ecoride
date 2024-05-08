@@ -26,7 +26,7 @@ export default function Numberinput() {
   return (
     <div
       className="bg-white text-center h-[2.4rem] w-[9.5rem] flex items-center justify-evenly rounded-[4px]
-    sm2xl:w-[13rem] smxl:h-[2.4rem] smxl:w-[16rem] smxl:justify-evenly"
+    sm2xl:w-[14rem] smxl:h-[2.4rem] smxl:w-[16rem] smxl:justify-evenly"
     >
       <RemoveIcon
         onClick={handleDecrement}

@@ -47,7 +47,7 @@ function Myprofile() {
   return (
     <div className="container mx-auto">
       <div className="bg-white">
-        <div className="flex justify-center border-b shadow border-gray-200">
+        <div className="mt-7 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
           <div
             className={`text-lg font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "about"

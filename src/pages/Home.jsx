@@ -57,34 +57,40 @@ const Home = () => {
           xl:flex-col xl:h-[1300px] xl:items-center mb-4"
         >
           <div className="left mt-5">
-            <p className="text-dark-color ml-3 mb-3 text-xl smxl:text-[1rem] smxl:ml-3">
+            <p className="text-dark-color ml-3 mb-2 text-xl smxl:text-[1rem] smxl:ml-3">
               Request a ride and go
             </p>
-            <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27rem] smxl:p-10">
+            <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10">
               <form
                 action="/"
                 id="form"
-                className="locations text-center flex flex-col gap-10"
+                className="locations text-center flex flex-col gap-10 smxl:gap-8"
               >
                 <Autocomplete id="starting location"></Autocomplete>
                 <Autocomplete2 id="destination"></Autocomplete2>
 
                 <div className="connectinglines flex flex-col items-center absolute top-[4.7rem] left-[3.6rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
-                  <div className="bg-medium-color h-[5rem] w-0.5 sm2xl:h-[4.5rem] smxl:h-[4.4rem]"></div>
+                  <div className="bg-medium-color h-[4.8rem] w-0.5 smxl:h-[4rem]"></div>
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
                 </div>
-                <div className="flex justify-between mt-4 items-center smxl:flex-col smxl:gap-8 smxl:mt-0">
-                  <Calender />
-                  <Numberinput />
+                <div className="flex justify-between items-center smxl:flex-col smxl:gap-5 smxl:mt-0">
+                  <div className="flex flex-col items-start text-xs">
+                    <p className="text-white mb-1 ml-1">Date :</p>
+                    <Calender />
+                  </div>
+                  <div className="flex flex-col items-start text-xs">
+                    <p className="text-white mb-1 ml-1">No. of seats :</p>
+                    <Numberinput />
+                  </div>
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                  <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs sm2xl:py-2 smxl:text-sm smxl:py-3">
+                  <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
                   <a
                     href="https://www.google.com/maps/dir///"
-                    className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal sm2xl:py-2 smxl:text-sm smxl:py-3"
+                    className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal smxl:text-sm smxl:py-3"
                   >
                     View <span className="smxl:hidden">full</span> map
                   </a>

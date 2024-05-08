@@ -29,6 +29,7 @@ import Error from "./pages/Error";
 import Fullprofile from "./pages/Fullprofile";
 import EditProfile from "./components/Dashboard/Settings/EditProfile";
 import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
+import PublishRide from "./components/Dashboard/PublishRide";
 
 function App() {
   const dispatch = useDispatch();
@@ -100,13 +101,13 @@ function App() {
         >
           <Route path="completeprofile" element={<Completeprofile />} />
           <Route path="dashboard/myprofile" element={<MyProfile />} />
+          <Route path="dashboard/publishride" element={<PublishRide />} />
           <Route path="dashboard/editProfile" element={<EditProfile />} />
           <Route
             path="/dashboard/changePassword"
             element={<ChangePassword />}
           />
 
-          {/* <Route path="dashboard/publishedride" element={<PublishedRide />} /> */}
           {/* <Route path="dashboard/bookedride" element={<BookedRide />} /> */}
           {/* <Route path="dashboard/inbox" element={<Inbox />} /> */}
           {/* <Route path="dashboard/ratingsgiven" element={<RatingsGiven />} /> */}
