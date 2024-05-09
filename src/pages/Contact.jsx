@@ -44,7 +44,7 @@ const Contact = () => {
   }, [reset, isSubmitSuccessful]);
   return (
     <div>
-      <div className="mx-auto bg-light-color py-10 flex justify-center">
+      <div className="mx-auto bg-light-color py-2 flex justify-center sm:py-5">
         <div className="rounded-xl p-10 flex gap-5 flex-col items-center sm2xl:p-2 sm:p-4">
           <h1 className="text-4xl leading-10 font-semibold text-dark-color sm:text-[32px] sm2xl:text-2xl">
             Feedback & Queries
@@ -54,7 +54,7 @@ const Contact = () => {
             We're here to Listen! Please fill out this form
           </p>
 
-          <div className="my-10">
+          <div className="my-5">
             <form
               className="flex flex-col gap-7 sm2xl:w-[250px]"
               onSubmit={handleSubmit(submitContactForm)}

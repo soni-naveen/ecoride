@@ -50,8 +50,7 @@ function Searchride() {
                   SEE RIDES
                 </button>
                 <a
-                  href="../fullmap.html"
-                  target="_blank"
+                  href="https://www.google.com/maps/dir///"
                   className="bg-dark-color border py-3 text-white tracking-[1px] w-[45%] font-light rounded-full hover:cursor-pointer sm2xl:text-xs sm2xl:tracking-normal smxl:text-sm smxl:py-3"
                 >
                   View <span className="smxl:hidden">full</span> map

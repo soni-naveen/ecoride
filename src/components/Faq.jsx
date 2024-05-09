@@ -161,8 +161,8 @@ export default function AccordionUsage() {
           Where do I report an issue on the website?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
-          If you encounter any issues or have questions, please contact our team
-          through the "Help Center".
+          If you encounter any issues or have questions, please feel contact our team
+          through the "Contact Us" page.
         </AccordionDetails>
       </Accordion>
     </div>

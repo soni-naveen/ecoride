@@ -30,7 +30,9 @@ const Home = () => {
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
-        {/*------------ Image and title ------------*/}
+        {/* ********************************************************************************************************
+                                              Image and Title
+        ******************************************************************************************************** */}
         <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
             <BsRobot className="text-3xl p-0.5 text-dark-color" />
@@ -51,7 +53,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*---------- Search and map section --------*/}
+        {/* ********************************************************************************************************
+                                            Search and Map Section
+        ******************************************************************************************************** */}
         <div
           className="mapSection h-[700px] flex flex-row justify-around items-start md:h-[600px] md1:h-[1300px]
           xl:flex-col xl:h-[1300px] xl:items-center mb-4"
@@ -108,7 +112,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*----------- Specifications banner ---------*/}
+        {/* ********************************************************************************************************
+                                             Specifications Banner
+        ******************************************************************************************************** */}
         <div className="belowBanner h-[150px] w-full bg-dark-color flex justify-around gap-5 items-center text-white">
           <div className="left flex flex-row items-center gap-6 md:flex-col md:gap-1 ">
             <PeopleIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
@@ -143,7 +149,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*---------- 3 cards - why stick with us -------*/}
+        {/* ********************************************************************************************************
+                                           3 Cards - Why Stick With Us
+        ******************************************************************************************************** */}
         <div className="stickWithUs h-auto w-full p-20 mt-5 mb-14 sm:p-10 sm:mb-7 sm:mt-8">
           <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-16 sm:w-4/5 md:gap-20 m-auto">
             <div>
@@ -179,7 +187,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*-------------- FAQ section ------------- */}
+        {/* ********************************************************************************************************
+                                                 FAQ Section
+        ******************************************************************************************************** */}
         <div className="faqs bg-dark-color flex items-center ">
           <div className="left min-w-[30%] w-[100%] mx-20 lg:hidden">
             <img src={faqLogo} alt="FAQ's" />
@@ -194,7 +204,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*----------- Our service feedback ----------*/}
+        {/* ********************************************************************************************************
+                                              Our Service Feedback
+        ******************************************************************************************************** */}
         <div className="feedback w-full h-[600px] bg-light-color m-auto flex flex-col justify-evenly items-center smxl:h-[500px] smxl:pb-10 md:justify-center">
           <div className="heading font-semibold mt-14 smxl:mt-10 md:mt-0">
             <h1 className="text-dark-color m-auto text-5xl sm2xl:text-2xl sm2xl:w-2/3 sm2xl:text-center smxl:text-3xl smxl:w-2/3 smxl:leading-normal smxl:text-center md:text-4xl">
@@ -206,7 +218,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/*----------- Get started today --------- */}
+        {/* ********************************************************************************************************
+                                                Get Started Today 
+        ******************************************************************************************************** */}
         <div className="abovefooter w-full h-72 px-36 flex flex-col justify-evenly gap-10 sm:gap-4 sm:h-80 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
             <h1 className="text-dark-color font-semibold text-5xl sm2xl:text-2xl smxl:text-3xl md:text-4xl">
@@ -219,12 +233,15 @@ const Home = () => {
                 Find a Ride
               </button>
             </Link>
-            <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">
-              Offer a Ride
-            </button>
+            <Link to="/dashboard/publishride">
+              <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">
+                Offer a Ride
+              </button>
+            </Link>
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

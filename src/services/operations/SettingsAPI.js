@@ -63,8 +63,8 @@ export function completeProfile(token, formData, navigate) {
       }
       dispatch(setUser({ ...response.data.updatedUserDetails }));
 
-      toast.success("Profile Completed Successfully");
-      navigate("/dashboard/myprofile");
+      toast.success("Account Created Successfully");
+      navigate("/home");
     } catch (error) {
       console.log("UPDATE_PROFILE_API API ERROR............", error);
       toast.error("Could Not Update Profile");

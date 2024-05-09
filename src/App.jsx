@@ -49,7 +49,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="aboutus" element={<Aboutus />} />
         <Route path="howitworks" element={<Howitworks />} />
         <Route path="helpcenter" element={<Helpcenter />} />
