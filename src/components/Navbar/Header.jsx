@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
-  const { user } = useSelector((state) => state.profile);
 
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
@@ -52,7 +51,7 @@ const Header = () => {
                 </button>
               </Link>
             )}
-            {user && (
+            {token !== null && (
               <Link to="/dashboard/publishride">
                 <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 md:mr-3">
                   <ControlPointIcon className="mr-3 sm:mr-2" />

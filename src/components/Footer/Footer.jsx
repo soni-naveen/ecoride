@@ -102,7 +102,7 @@ const Footer = () => {
               pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#24515f] border-gray-400 border outline-none p-3.5 rounded-sm w-[250px] text-sm"
+              className="bg-[#24515f] border-gray-400 border outline-none p-3.5 rounded-sm w-[240px] text-sm"
             />
             <input
               type="submit"

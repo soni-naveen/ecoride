@@ -27,7 +27,7 @@ function Myprofile() {
     try {
       const confirmDelete = await Swal.fire({
         title: "Are You Sure?",
-        text: "Deleting your account is a permanent action.",
+        text: "DELETE your account is a permanent action.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",
@@ -94,14 +94,14 @@ function Myprofile() {
                   </div>
                   <button
                     onClick={() => {
-                      navigate("/dashboard/editProfile");
+                      navigate("/dashboard/updateProfile");
                     }}
                     className="bg-light-color hover:bg-[#c8edea] ml-10 mt-2 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:w-40 sm:ml-5"
                   >
                     <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
                       <FaRegEdit className="text-dark-color" />
                       <p className="text-dark-color sm:text-sm smxl:text-[11px]">
-                        Edit Your Details
+                        Edit your details
                       </p>
                     </div>
                   </button>

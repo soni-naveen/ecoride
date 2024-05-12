@@ -74,7 +74,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
   };
 }
 
-export function login(email, password, navigate) {
+export function login(email, password) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));

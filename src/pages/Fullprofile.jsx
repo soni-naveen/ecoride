@@ -107,8 +107,8 @@ function Fullprofile() {
           <div className="flex items-center">
             {user?.additionalDetails?.govtId === null ? (
               <div className="flex items-center mb-3">
-                <FaCircleMinus className="text-lg text-red-400 mr-2 smxl:text-sm" />
-                <span className="text-red-400 w-fit smxl:text-sm">
+                <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
+                <span className="text-dark-color w-fit smxl:text-sm">
                   Non-verified govt.Id
                 </span>
               </div>
@@ -130,7 +130,7 @@ function Fullprofile() {
           <div className="flex items-center">
             <FaCheckCircle className="text-lg text-medium-color mr-2 smxl:text-sm" />
             <span className="text-medium-color smxl:text-sm">
-              Confirmed phone number
+              Confirmed contact number
             </span>
           </div>
         </div>

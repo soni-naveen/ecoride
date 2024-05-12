@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import Home from "./Home";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { login } from "../services/operations/AuthAPI";
 
 function Login() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
@@ -30,7 +29,7 @@ function Login() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password, navigate));
+    dispatch(login(email, password));
   };
 
   // Redirect to home after clicking outside the model

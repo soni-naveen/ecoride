@@ -102,7 +102,7 @@ function App() {
           <Route path="completeprofile" element={<Completeprofile />} />
           <Route path="dashboard/myprofile" element={<MyProfile />} />
           <Route path="dashboard/publishride" element={<PublishRide />} />
-          <Route path="dashboard/editProfile" element={<EditProfile />} />
+          <Route path="dashboard/updateProfile" element={<EditProfile />} />
           <Route
             path="/dashboard/changePassword"
             element={<ChangePassword />}

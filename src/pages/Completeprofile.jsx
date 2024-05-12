@@ -108,6 +108,7 @@ function Completeprofile() {
                 <option value="Select">--- Select ---</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div className="contactnumber flex flex-col gap-1.5">
