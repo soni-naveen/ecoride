@@ -32,10 +32,6 @@ function Editdetails() {
     setEditField(field);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   const handleOnChange = (e, field) => {
     switch (field) {
       case "first name":
@@ -158,7 +154,6 @@ function Editdetails() {
         </div>
         <Modal
           isOpen={isModalOpen}
-          handleClose={handleCloseModal}
           handleSave={handleOnSubmit}
           handleChange={handleOnChange}
           fieldName={editField}

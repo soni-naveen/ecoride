@@ -3,7 +3,6 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 function Modal({
   isOpen,
-  handleClose,
   handleSave,
   handleChange,
   fieldName,
@@ -24,12 +23,6 @@ function Modal({
               <p className="text-xl font-normal text-white sm2xl:text-sm smxl:text-lg">
                 What's your {fieldName}?
               </p>
-              {/* <button
-                className="close text-3xl -mt-16 -mr-7 text-white font-normal leading-none smxl:text-2xl sm2xl:-mr-4 sm2xl:-mt-14"
-                onClick={handleClose}
-              >
-                <ClearIcon />
-              </button> */}
             </div>
             <form onSubmit={(e) => handleSave(e, fieldName)}>
               <input
