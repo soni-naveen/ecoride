@@ -12,6 +12,7 @@ function Editdetails() {
   const { token } = useSelector((state) => state.auth);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const [firstName, setFirstName] = useState(
     user?.additionalDetails?.firstName || ""
   );

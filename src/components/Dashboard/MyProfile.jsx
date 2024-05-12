@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
+import { LuPencilLine } from "react-icons/lu";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../services/operations/AuthAPI";
-import { deleteProfile } from "../../services/operations/SettingsAPI";
+import {
+  deleteProfile,
+  myProfileAbout,
+} from "../../services/operations/SettingsAPI";
+import Modal from "./Settings/Modal";
 
 function Myprofile() {
   const { token } = useSelector((state) => state.auth);
@@ -23,6 +28,46 @@ function Myprofile() {
   const fullProfileVisit = () => {
     navigate(`/fullprofile/${user?._id}`);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [about, setAbout] = useState(user?.additionalDetails?.about || "");
+
+  const [vehicle, setVehicle] = useState(
+    user?.additionalDetails?.vehicle || ""
+  );
+
+  const [editField, setEditField] = useState("");
+
+  const handleEditClick = (field) => {
+    setIsModalOpen(true);
+    setEditField(field);
+  };
+
+  const handleOnChange = (e, field) => {
+    switch (field) {
+      case "about":
+        setAbout(e.target.value);
+        break;
+      case "vehicle":
+        setVehicle(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleOnSubmit = (e, field) => {
+    e.preventDefault();
+    const updatedData = {
+      about,
+      vehicle,
+    };
+    dispatch(myProfileAbout(token, updatedData));
+    setIsModalOpen(false);
+    setEditField(field);
+  };
+
   async function handleDeleteAccount() {
     try {
       const confirmDelete = await Swal.fire({
@@ -73,7 +118,7 @@ function Myprofile() {
         <div>
           {activeTab === "about" && (
             <div className="min-h-auto sm:text-sm">
-              <div className="max-w-[700px] mx-auto p-6 mt-3">
+              <div className="max-w-[700px] mx-auto p-6 mt-3 sm:p-5 sm2xl:p-3">
                 <div className="flex mb-4 flex-col">
                   <div onClick={fullProfileVisit}>
                     <div className="name_profile flex justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
@@ -85,7 +130,7 @@ function Myprofile() {
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.image}
-                          // alt={`profile-${user?.additionalDetails?.firstName}`}
+                          alt={user?.additionalDetails?.firstName.slice(0, 1)}
                           className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
@@ -116,7 +161,13 @@ function Myprofile() {
                       <p className="mr-2">
                         <IoAddCircleOutline className="text-[22px]" />
                       </p>
-                      <p>Verify your Govt. ID</p>
+                      <p
+                        onClick={() => {
+                          alert("Coming soon...");
+                        }}
+                      >
+                        Verify your Govt. ID
+                      </p>
                     </div>
                     <div className="flex items-center text-medium-color">
                       <p className="mr-2">
@@ -138,18 +189,46 @@ function Myprofile() {
                     About you
                   </h2>
                   <div className="p-2 flex flex-col gap-7 rounded-lg">
-                    <div className="flex items-center text-dark-color hover:cursor-pointer">
-                      <p className="mr-2">
-                        <IoAddCircleOutline className="text-[22px]" />
+                    <button
+                      onClick={() => handleEditClick("about")}
+                      className="flex items-center text-dark-color hover:cursor-pointer"
+                    >
+                      <p className="mr-3">
+                        {user?.additionalDetails?.about === "" ? (
+                          <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
+                        ) : (
+                          <LuPencilLine className="text-xl text-medium-color" />
+                        )}
                       </p>
-                      <p>Add bio</p>
-                    </div>
-                    <div className="flex items-center text-dark-color hover:cursor-pointer">
-                      <p className="mr-2">
-                        <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
+
+                      {user?.additionalDetails?.about === "" ? (
+                        "Add bio"
+                      ) : (
+                        <p className="text-medium-color text-left flex items-center gap-2">
+                          {user?.additionalDetails?.about}
+                        </p>
+                      )}
+                    </button>
+                    <button
+                      onClick={() => handleEditClick("vehicle")}
+                      className="flex items-center text-dark-color hover:cursor-pointer"
+                    >
+                      <p className="mr-3">
+                        {user?.additionalDetails?.vehicle === "" ? (
+                          <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
+                        ) : (
+                          <LuPencilLine className="text-xl text-medium-color" />
+                        )}
                       </p>
-                      <p>Add vehicle</p>
-                    </div>
+
+                      {user?.additionalDetails?.vehicle === "" ? (
+                        "Add vehicle details"
+                      ) : (
+                        <p className="text-medium-color text-left flex items-center gap-2">
+                          {user?.additionalDetails?.vehicle}
+                        </p>
+                      )}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -159,13 +238,23 @@ function Myprofile() {
             <div className=" min-h-auto">
               <div className="max-w-[700px] mx-auto py-10">
                 <div className="rating flex flex-col gap-1">
-                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                  <button
+                    onClick={() => {
+                      alert("Coming soon...");
+                    }}
+                    className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
+                  >
                     <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Rating Received</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
-                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                  <button
+                    onClick={() => {
+                      alert("Coming soon...");
+                    }}
+                    className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
+                  >
                     <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Rating Given</h1>
                       <GrNext className=" font-bold text-dark-color" />
@@ -174,7 +263,12 @@ function Myprofile() {
                 </div>
                 <hr className="mt-5" />
                 <div className="details_changing flex flex-col gap-1 mt-5">
-                  <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                  <button
+                    onClick={() => {
+                      alert("Coming soon...");
+                    }}
+                    className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
+                  >
                     <div className="flex items-center rounded-md justify-between">
                       <h1 className="text-bold">Add/Change Profile Photo</h1>
                       <GrNext className=" font-bold text-dark-color" />
@@ -224,6 +318,19 @@ function Myprofile() {
             </div>
           )}
         </div>
+        <Modal
+          isOpen={isModalOpen}
+          handleSave={handleOnSubmit}
+          handleChange={handleOnChange}
+          fieldName={editField}
+          fieldValue={
+            editField === "about"
+              ? about
+              : editField === "vehicle"
+              ? vehicle
+              : ""
+          }
+        />
       </div>
     </div>
   );

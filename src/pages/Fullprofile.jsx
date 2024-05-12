@@ -78,7 +78,9 @@ function Fullprofile() {
                 " " +
                 user?.additionalDetails?.lastName}
             </h2>
-            <p className="text-medium-color smxl:text-sm">{age} y/o - {user?.additionalDetails?.gender}</p>
+            <p className="text-medium-color smxl:text-sm">
+              {age} y/o - {user?.additionalDetails?.gender}
+            </p>
           </div>
           <div className="image">
             <img
@@ -140,16 +142,16 @@ function Fullprofile() {
             About {user?.additionalDetails?.firstName}
           </h3>
           <div className="flex items-center mb-3 smxl:text-sm">
-            <FaRocketchat className="text-dark-color mr-2 text-lg" />
-            <span className="text-dark-color">
+            <FaRocketchat className="text-medium-color mr-2 text-lg" />
+            <span className="text-medium-color">
               {user?.additionalDetails?.about === null
                 ? "No bio"
                 : user?.additionalDetails?.about}
             </span>
           </div>
           <div className="flex items-center smxl:text-sm">
-            <FaCar className="text-dark-color mr-2 text-lg" />
-            <span className="text-dark-color">
+            <FaCar className="text-medium-color mr-2 text-lg" />
+            <span className="text-medium-color">
               {user?.additionalDetails?.vehicle === null
                 ? "No vehicle details"
                 : user?.additionalDetails?.vehicle}

@@ -9,6 +9,7 @@ const {
   UPDATE_DISPLAY_PICTURE_API,
   COMPLETE_PROFILE_API,
   UPDATE_PROFILE_API,
+  ABOUT_PROFILE_UPDATE_API,
   CHANGE_PASSWORD_API,
   DELETE_PROFILE_API,
 } = settingsEndpoints;
@@ -56,7 +57,7 @@ export function completeProfile(token, formData, navigate) {
           Authorization: `Bearer ${token}`,
         }
       );
-      console.log("UPDATE_PROFILE_API API RESPONSE............", response);
+      console.log("COMPLETE_PROFILE_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -66,7 +67,37 @@ export function completeProfile(token, formData, navigate) {
       toast.success("Account Created Successfully");
       navigate("/home");
     } catch (error) {
-      console.log("UPDATE_PROFILE_API API ERROR............", error);
+      console.log("COMPLETE_PROFILE_API API ERROR............", error);
+      toast.error("Could Not Update Profile");
+    }
+    toast.dismiss(toastId);
+  };
+}
+
+export function myProfileAbout(token, formData) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const response = await apiConnector(
+        "PUT",
+        ABOUT_PROFILE_UPDATE_API,
+        formData,
+        {
+          Authorization: `Bearer ${token}`,
+        }
+      );
+      console.log(
+        "ABOUT_PROFILE_UPDATE_API API RESPONSE............",
+        response
+      );
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+      dispatch(setUser({ ...response.data.updatedUserDetails }));
+      toast.success("Profile Updated Successfully");
+    } catch (error) {
+      console.log("ABOUT_PROFILE_UPDATE_API API ERROR............", error);
       toast.error("Could Not Update Profile");
     }
     toast.dismiss(toastId);
@@ -85,9 +116,7 @@ export function updateProfile(token, formData) {
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-      dispatch(
-        setUser({ ...response.data.updatedUserDetails })
-      );
+      dispatch(setUser({ ...response.data.updatedUserDetails }));
       toast.success("Profile Updated Successfully");
     } catch (error) {
       console.log("UPDATE_PROFILE_API API ERROR............", error);

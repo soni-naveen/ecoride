@@ -1,14 +1,12 @@
 import React from "react";
-import ClearIcon from "@mui/icons-material/Clear";
 
-function Modal({
-  isOpen,
-  handleSave,
-  handleChange,
-  fieldName,
-  fieldValue,
-}) {
-  const inputType = fieldName === "date of birth" ? "date" : "text";
+function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
+  const inputType =
+    fieldName === "date of birth"
+      ? "date"
+      : fieldName === "contact number"
+      ? "number"
+      : "text";
   return (
     <div
       className={`modal ${
@@ -27,6 +25,7 @@ function Modal({
             <form onSubmit={(e) => handleSave(e, fieldName)}>
               <input
                 required
+                maxLength={100}
                 type={inputType}
                 value={fieldValue}
                 onChange={(e) => handleChange(e, fieldName)}
