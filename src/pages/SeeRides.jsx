@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Seeridecard from "../components/SeeRidesCard";
 import { BsFilterSquareFill } from "react-icons/bs";
+import two from "../assets/Team/two.jpg";
+import one from "../assets/Team/one.jpg";
+import three from "../assets/Team/three.jpg";
+import four from "../assets/Team/four.jpg";
 
 function Seerides() {
   const [selectedSortOption, setSelectedSortOption] = useState("");
@@ -226,43 +230,47 @@ function Seerides() {
             endingTime="10:30pm"
             staringLocation="Delhi"
             endingLocation="Chandigarh"
-            price="$ 540/-"
+            price="₹ 540/-"
             driverName="Naveen Soni"
             rating="4.8"
             driverFirstName="Naveen"
+            image={two}
           />
           <Seeridecard
-            startingTime="05:30am"
-            duration="4h50m"
-            endingTime="10:30pm"
-            staringLocation="Delhi"
-            endingLocation="Chandigarh"
-            price="$ 540/-"
-            driverName="Naveen Soni"
-            rating="4.8"
-            driverFirstName="Naveen"
+            startingTime="07:30am"
+            duration="2h10m"
+            endingTime="9:40pm"
+            staringLocation="Chitkara University"
+            endingLocation="Meerut"
+            price="₹ 300/-"
+            driverName="Mukul Kumar"
+            rating="4.5"
+            driverFirstName="Mukul"
+            image={one}
           />
           <Seeridecard
-            startingTime="05:30am"
-            duration="4h50m"
-            endingTime="10:30pm"
-            staringLocation="Delhi"
+            startingTime="12:00pm"
+            duration="1h20m"
+            endingTime="01:20pm"
+            staringLocation="Chitkara University"
             endingLocation="Chandigarh"
-            price="$ 540/-"
-            driverName="Naveen Soni"
-            rating="4.8"
-            driverFirstName="Naveen"
+            price="₹ 150/-"
+            driverName="Manav Gupta"
+            rating="4.6"
+            driverFirstName="Manav"
+            image={four}
           />
           <Seeridecard
-            startingTime="05:30am"
-            duration="4h50m"
-            endingTime="10:30pm"
-            staringLocation="Delhi"
-            endingLocation="Chandigarh"
-            price="$ 540/-"
-            driverName="Naveen Soni"
-            rating="4.8"
-            driverFirstName="Naveen"
+            startingTime="05:30pm"
+            duration="0h30m"
+            endingTime="06:00pm"
+            staringLocation="Patiala"
+            endingLocation="Rajpura"
+            price="₹ 50/-"
+            driverName="Muskan Verma"
+            rating="4.2"
+            driverFirstName="Muskan"
+            image ={three}
           />
         </div>
       </div>

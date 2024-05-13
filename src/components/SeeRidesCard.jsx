@@ -1,6 +1,9 @@
 import React from "react";
 import { IoMdChatboxes } from "react-icons/io";
 import two from "../assets/Team/two.jpg";
+import one from "../assets/Team/one.jpg";
+import three from "../assets/Team/three.jpg";
+import four from "../assets/Team/four.jpg";
 import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 function Seeridecard(props) {
@@ -33,7 +36,7 @@ function Seeridecard(props) {
         <div className="left ml-10 flex gap-2">
           <div className="img">
             <img
-              src={two}
+              src={props.image}
               alt="naveen"
               width={40}
               height={40}
