@@ -20,7 +20,7 @@ function Publishride() {
         </h1>
       </div>
       <div className="form mt-14 sm:w-[80%] mx-auto">
-        <form action="">
+        {/* <form action=""> */}
           <div className="form_container flex flex-col items-center justify-center">
             <div className="firstLine flex gap-32 mb-10 md1:gap-20 sm:flex-col sm:gap-10">
               <div className="fromWhere flex flex-col">
@@ -138,7 +138,7 @@ function Publishride() {
               </span>
             </button>
           </div>
-        </form>
+        {/* </form> */}
       </div>
     </div>
   );

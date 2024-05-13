@@ -7,6 +7,15 @@ import "leaflet-routing-machine";
 import "leaflet-control-geocoder";
 import "leaflet-contextmenu";
 import "leaflet-contextmenu/dist/leaflet.contextmenu.min.css";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const Map = () => {
   useEffect(() => {
@@ -30,7 +39,7 @@ const Map = () => {
           const currentLocation = L.latLng(latitude, longitude);
           mymap.setView(currentLocation, 12);
 
-          // Create routing control 
+          // Create routing control
           L.Routing.control({
             waypoints: [currentLocation], // Set current location as the waypoint
             router: new L.Routing.osrmv1({

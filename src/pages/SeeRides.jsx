@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Seeridecard from "../components/SeeRidesCard";
-import { BsFilterSquareFill } from "react-icons/bs";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import two from "../assets/Team/two.jpg";
 import one from "../assets/Team/one.jpg";
 import three from "../assets/Team/three.jpg";
@@ -43,27 +43,34 @@ function Seerides() {
   return (
     <div className="min-h-screen w-full">
       {/* Header Section */}
-      <div className="header h-20 w-full flex justify-center items-center fixed top-19 bg-dark-color  sm:flex-col sm:justify-around z-10">
-        <span className="text-white mr-4">Showing results for</span>
-        <div className="resultRide w-[400px] bg-light-color flex justify-center items-center h-12 smxl:w-[300px]">
-          <span className="text-dark-color mr-2 font-bold smxl:text-sm">
-            Tomorrow :
-          </span>
-          <span className="smxl:text-sm ">
-            Delhi <span className="smxl:hidden">----</span>-&gt; Chandigarh
-          </span>
-          <span className="text-dark-color ml-2 font-bold smxl:text-sm">
-            [266Km]
-          </span>
+      <div className="header h-24 w-full flex justify-center items-center fixed top-19 bg-dark-color  sm:flex-col sm:justify-around z-5 md:flex-col sm:gap-0 gap-5 md:h-32">
+        <span className="text-white mr-4 flex md:w-full justify-evenly sm:justify-around sm2xl:text-sm">
+          Showing results for :
+          <TbAdjustmentsHorizontal className="hidden md:block text-2xl text-white mx-5 sm:ml-4 sm2xl:text-xl" />
+        </span>
+        <div className="flex items-center sm:w-[90%]">
+          <div className="resultRide w-[500px] bg-light-color flex justify-center items-center h-12 sm:w-full">
+            <span className="text-dark-color mr-2 font-bold smxl:text-sm sm2xl:text-xs">
+              Tomorrow :
+            </span>
+            <span className="smxl:text-sm sm2xl:text-xs">
+              Starting <span className="smxl:hidden">----</span>-&gt;
+              destination
+            </span>
+            <span className="text-dark-color ml-2 font-bold smxl:text-sm sm2xl:text-xs">
+              &#40;___km&#41;
+            </span>
+          </div>
         </div>
-        <BsFilterSquareFill className="text-light-color absolute top-2 right-2 text-xl hidden md:block " />
       </div>
 
       <div className="bottom flex h-screen">
-        <div className="leftSide w-1/4 fixed top-36 left-0 gap-5 flex flex-col p-4 border-r border-medium-color lg:w-[300px] md:hidden">
+        <div className="leftSide w-1/4 fixed top-[10rem] left-0 gap-5 flex flex-col p-4 border-r border-medium-color lg:w-[300px] md:hidden">
           {/* ... (remaining code for left side filters) */}
           <div className="filterHeading">
-            <h1 className="font-bold text-xl text-center text-dark-color">Add Filters</h1>
+            <h1 className="font-bold text-xl text-center text-dark-color">
+              Add Filters
+            </h1>
           </div>
           {/* Sort By section */}
           {/* Code for Sort By section */}
@@ -72,7 +79,7 @@ function Seerides() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-dark-color font-semibold">Sort By</h2>
                 <button
-                  className="text-dark-color font-semibold"
+                  className="text-dark-color font-semibold text-xs"
                   onClick={() => clearFilters("sortBy")}
                 >
                   Clear all
@@ -81,7 +88,10 @@ function Seerides() {
 
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <label htmlFor="lowestPrice" className="text-dark-color text-sm">
+                  <label
+                    htmlFor="lowestPrice"
+                    className="text-dark-color text-sm"
+                  >
                     Lowest Price
                   </label>
                   <input
@@ -95,7 +105,10 @@ function Seerides() {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <label htmlFor="shortestRide" className="text-dark-color text-sm">
+                  <label
+                    htmlFor="shortestRide"
+                    className="text-dark-color text-sm"
+                  >
                     Shortest Ride
                   </label>
                   <input
@@ -117,9 +130,11 @@ function Seerides() {
           <div className="departureTime bg-light-color w-[320px] h-[185px] p-4 2xl:w-[240px]">
             <div className="head w-full">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-dark-color font-semibold">Departure Time</h2>
+                <h2 className="text-dark-color font-semibold">
+                  Departure Time
+                </h2>
                 <button
-                  className="text-dark-color font-semibold"
+                  className="text-dark-color font-semibold text-xs"
                   onClick={() => clearFilters("departureTime")}
                 >
                   Clear all
@@ -128,7 +143,10 @@ function Seerides() {
 
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <label htmlFor="before6am" className="text-dark-color text-sm">
+                  <label
+                    htmlFor="before6am"
+                    className="text-dark-color text-sm"
+                  >
                     Before 6:00am
                   </label>
                   <input
@@ -142,7 +160,10 @@ function Seerides() {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <label htmlFor="6amTo12pm" className="text-dark-color text-sm">
+                  <label
+                    htmlFor="6amTo12pm"
+                    className="text-dark-color text-sm"
+                  >
                     6:00am-12:00pm
                   </label>
                   <input
@@ -156,7 +177,10 @@ function Seerides() {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <label htmlFor="12pmTo6pm" className="text-dark-color text-sm">
+                  <label
+                    htmlFor="12pmTo6pm"
+                    className="text-dark-color text-sm"
+                  >
                     12:01pm-6:00pm
                   </label>
                   <input
@@ -191,9 +215,11 @@ function Seerides() {
           <div className="trustSafety bg-light-color w-[320px] h-[90px] p-4 2xl:w-[240px]">
             <div className="head w-full">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-dark-color font-semibold">Trust And Safety</h2>
+                <h2 className="text-dark-color font-semibold">
+                  Trust And Safety
+                </h2>
                 <button
-                  className="text-dark-color font-semibold"
+                  className="text-dark-color font-semibold text-xs"
                   onClick={() => clearFilters("trustAndSafety")}
                 >
                   Clear all
@@ -201,7 +227,10 @@ function Seerides() {
               </div>
 
               <div className="flex items-center justify-between">
-                <label htmlFor="verifiedProfile" className="text-dark-color text-sm">
+                <label
+                  htmlFor="verifiedProfile"
+                  className="text-dark-color text-sm"
+                >
                   Verified Profiles
                 </label>
                 <input
@@ -222,7 +251,7 @@ function Seerides() {
           </div>
         </div>
 
-        <div className="rightSide w-3/4 mt-36 h-fit flex flex-col items-center ml-36 overflow-y-auto md:w-[800px] md:ml-[-200px] ">
+        <div className="rightSide w-3/4 mt-36 h-fit flex flex-col items-center ml-36 overflow-y-auto md:w-[800px] md:ml-[-200px] -z-10 ">
           {/* Ride cards will be rendered here */}
           <Seeridecard
             startingTime="05:30am"
@@ -270,7 +299,7 @@ function Seerides() {
             driverName="Muskan Verma"
             rating="4.2"
             driverFirstName="Muskan"
-            image ={three}
+            image={three}
           />
         </div>
       </div>

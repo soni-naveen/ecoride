@@ -1,11 +1,8 @@
 import React from "react";
 import { IoMdChatboxes } from "react-icons/io";
-import two from "../assets/Team/two.jpg";
-import one from "../assets/Team/one.jpg";
-import three from "../assets/Team/three.jpg";
-import four from "../assets/Team/four.jpg";
 import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
+
 function Seeridecard(props) {
   return (
     <div className="rideCard flex flex-col justify-between bg-white p-4 rounded-xl shadow-lg mb-4 w-full  max-w-xl h-48 ml-48 lg:max-w-lg md1:max-w-md smxl:max-w-xs z-0">

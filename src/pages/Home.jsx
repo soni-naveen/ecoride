@@ -20,17 +20,18 @@ import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
 import { BsRobot } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 
 const Home = () => {
+  const navigate = useNavigate();
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                               Image and Title
         ******************************************************************************************************** */}
         <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2">
@@ -53,7 +54,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                             Search and Map Section
         ******************************************************************************************************** */}
         <div
@@ -89,7 +90,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                  <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
+                  <button
+                    onClick={() => navigate("/seeRides")}
+                    className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3"
+                  >
                     SEE RIDES
                   </button>
                   <a
@@ -113,9 +117,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                              Specifications Banner
-        ******************************************************************************************************** */}
+        *******************************************************************************************************/}
         <div className="belowBanner h-[150px] w-full bg-dark-color flex justify-around gap-5 items-center text-white">
           <div className="left flex flex-row items-center gap-6 md:flex-col md:gap-1 ">
             <PeopleIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
@@ -150,7 +154,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                            3 Cards - Why Stick With Us
         ******************************************************************************************************** */}
         <div className="stickWithUs h-auto w-full p-20 mt-5 mb-14 sm:p-10 sm:mb-7 sm:mt-8">
@@ -188,7 +192,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                                  FAQ Section
         ******************************************************************************************************** */}
         <div className="faqs bg-dark-color flex items-center ">
@@ -205,7 +209,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                               Our Service Feedback
         ******************************************************************************************************** */}
         <div className="feedback w-full h-[600px] bg-light-color m-auto flex flex-col justify-evenly items-center smxl:h-[500px] smxl:pb-10 md:justify-center">
@@ -219,7 +223,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ********************************************************************************************************
+        {/* *******************************************************************************************************
                                                 Get Started Today 
         ******************************************************************************************************** */}
         <div className="abovefooter w-full h-72 px-36 flex flex-col justify-evenly gap-10 sm:gap-4 sm:h-80 lg:px-0 lg:items-center xl:px-28">

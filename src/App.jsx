@@ -36,7 +36,6 @@ import SeeRides from "./pages/SeeRides";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.profile);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -50,19 +49,19 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="home" element={<Home />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="aboutus" element={<Aboutus />} />
-        <Route path="howitworks" element={<Howitworks />} />
-        <Route path="helpcenter" element={<Helpcenter />} />
-        <Route path="ourteam" element={<Ourteam />} />
-        <Route path="searchride" element={<Searchride />} />
-        <Route path="fullprofile/:profileId" element={<Fullprofile />} />
-        <Route path="seeRides" element={<SeeRides />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/howitworks" element={<Howitworks />} />
+        <Route path="/helpcenter" element={<Helpcenter />} />
+        <Route path="/ourteam" element={<Ourteam />} />
+        <Route path="/searchride" element={<Searchride />} />
+        <Route path="/fullprofile/:profileId" element={<Fullprofile />} />
+        <Route path="/seeRides" element={<SeeRides />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
-          path="login"
+          path="/login"
           element={
             <OpenRoute>
               <Login />
@@ -70,7 +69,7 @@ function App() {
           }
         />
         <Route
-          path="forgot-password"
+          path="/forgot-password"
           element={
             <OpenRoute>
               <ForgotPassword />
@@ -78,16 +77,16 @@ function App() {
           }
         />
         <Route
-          path="signup"
+          path="/signup"
           element={
             <OpenRoute>
               <Signup />
             </OpenRoute>
           }
         />
-        <Route path="verification" element={<Verification />} />
+        <Route path="/verification" element={<Verification />} />
         <Route
-          path="update-password/:id"
+          path="/update-password/:id"
           element={
             <OpenRoute>
               <UpdatePassword />
@@ -102,12 +101,12 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="completeprofile" element={<Completeprofile />} />
-          <Route path="dashboard/myprofile" element={<MyProfile />} />
-          <Route path="dashboard/publishride" element={<PublishRide />} />
-          <Route path="dashboard/updateProfile" element={<EditProfile />} />
+          <Route path="/completeprofile" element={<Completeprofile />} />
+          <Route path="/dashboard/myprofile" element={<MyProfile />} />
+          <Route path="/dashboard/publishride" element={<PublishRide />} />
+          <Route path="/dashboard/updateProfile" element={<EditProfile />} />
           <Route
-            path="dashboard/updatePhoto"
+            path="/dashboard/updatePhoto"
             element={<ChangeProfilePicture />}
           />
           <Route
