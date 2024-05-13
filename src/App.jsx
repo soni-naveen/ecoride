@@ -49,7 +49,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="aboutus" element={<Aboutus />} />
