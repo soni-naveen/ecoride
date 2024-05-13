@@ -1,5 +1,6 @@
 //BACKEND BASE URL
-const BASE_URL = "http://localhost:4000/api/v1";
+
+const BASE_URL = import.meta.env.VITE_REACT_BASE_URL;
 
 // AUTH ENDPOINTS
 export const endpoints = {
