@@ -50,7 +50,7 @@ function Verification() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-3 text-white">
-            <Link to={"/home"} ref={button} className=" place-self-end sm2xl:place-self-center">
+            <Link to={"/"} ref={button} className=" place-self-end sm2xl:place-self-center">
               <button>
                 <ClearIcon />
               </button>

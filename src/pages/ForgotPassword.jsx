@@ -37,7 +37,7 @@ function ForgotPassword() {
         ) : (
           <div className="text-white flex flex-col">
             <Link
-              to={"/home"}
+              to={"/"}
               ref={button}
               className="place-self-end mb-4 sm2xl:place-self-center"
             >

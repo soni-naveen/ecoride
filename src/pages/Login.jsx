@@ -53,7 +53,7 @@ function Login() {
       >
         <div className="flex flex-col gap-3 text-white">
           <Link
-            to={"/home"}
+            to={"/"}
             ref={button}
             className=" place-self-end mr-4 sm2xl:place-self-center"
           >
