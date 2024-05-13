@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:4000/api/v1"; //deployed backend base url
+//BACKEND BASE URL
+const BASE_URL = "http://localhost:4000/api/v1";
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -12,7 +13,7 @@ export const endpoints = {
 
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
-  GET_FULL_PROFILE_API: BASE_URL + "/profile/fullprofile/:id",
+  GET_FULL_PROFILE_API: BASE_URL + "/profile/fullprofile/:profileId",
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
   // GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
 };

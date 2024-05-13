@@ -28,8 +28,10 @@ import UpdatePassword from "./pages/UpdatePassword";
 import Error from "./pages/Error";
 import Fullprofile from "./pages/Fullprofile";
 import EditProfile from "./components/Dashboard/Settings/EditProfile";
+import ChangeProfilePicture from "./components/Dashboard/Settings/ChangeProfilePicture";
 import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
 import PublishRide from "./components/Dashboard/PublishRide";
+import SeeRides from "./pages/SeeRides";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,7 +57,8 @@ function App() {
         <Route path="helpcenter" element={<Helpcenter />} />
         <Route path="ourteam" element={<Ourteam />} />
         <Route path="searchride" element={<Searchride />} />
-        <Route path="fullprofile/:id" element={<Fullprofile />} />
+        <Route path="fullprofile/:profileId" element={<Fullprofile />} />
+        <Route path="seeRides" element={<SeeRides />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
@@ -103,6 +106,10 @@ function App() {
           <Route path="dashboard/myprofile" element={<MyProfile />} />
           <Route path="dashboard/publishride" element={<PublishRide />} />
           <Route path="dashboard/updateProfile" element={<EditProfile />} />
+          <Route
+            path="dashboard/updatePhoto"
+            element={<ChangeProfilePicture />}
+          />
           <Route
             path="/dashboard/changePassword"
             element={<ChangePassword />}

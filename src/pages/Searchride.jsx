@@ -5,8 +5,10 @@ import Numberinput from "../components/Numberinput.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Autocomplete2 from "../components/Autocomplete2.jsx";
 import Footer from "../components/Footer/Footer.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Searchride() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="absolute h-[350px] w-full bg-light-color"></div>
@@ -46,7 +48,7 @@ function Searchride() {
 
               {/* See rides and map button */}
               <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
+                <button onClick={()=>navigate("/seeRides")} className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
                   SEE RIDES
                 </button>
                 <a

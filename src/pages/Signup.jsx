@@ -104,7 +104,12 @@ function Signup() {
             <h1 className=" text-3xl font-semibold mb-5 sm:mb-3 smxl:text-2xl smxl:mb-1">
               Sign Up
             </h1>
-            <button className="gap-2 flex items-center justify-center w-full rounded-md px-6 py-2.5 text-white mb-3 bg-[#225260] hover:bg-[#214d5b] sm:w-[250px] sm:mb-1">
+            <button
+              onClick={() => {
+                alert("Coming soon...");
+              }}
+              className="gap-2 flex items-center justify-center w-full rounded-md px-6 py-2.5 text-white mb-3 bg-[#225260] hover:bg-[#214d5b] sm:w-[250px] sm:mb-1"
+            >
               Continue with <GoogleIcon fontSize="small" />{" "}
               <ArrowForwardIcon fontSize="small" />
             </button>

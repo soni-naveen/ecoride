@@ -5,6 +5,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { LuPencilLine } from "react-icons/lu";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
+import { IoCameraOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../services/operations/AuthAPI";
@@ -12,6 +13,7 @@ import {
   deleteProfile,
   myProfileAbout,
 } from "../../services/operations/SettingsAPI";
+import { getFullProfile } from "../../services/operations/ProfileAPI";
 import Modal from "./Settings/Modal";
 
 function Myprofile() {
@@ -25,8 +27,10 @@ function Myprofile() {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+
   const fullProfileVisit = () => {
-    navigate(`/fullprofile/${user?._id}`);
+    getFullProfile(user?.additionalDetails?.profileId);
+    navigate(`/fullprofile/${user?.additionalDetails?.profileId}`);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,7 +50,7 @@ function Myprofile() {
 
   const handleOnChange = (e, field) => {
     switch (field) {
-      case "about":
+      case "bio":
         setAbout(e.target.value);
         break;
       case "vehicle":
@@ -130,26 +134,41 @@ function Myprofile() {
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.image}
-                          alt={user?.additionalDetails?.firstName.slice(0, 1)}
-                          className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8"
+                          alt={user?.additionalDetails?.firstName}
+                          className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
                       </div>
                     </div>
                   </div>
-                  <button
-                    onClick={() => {
-                      navigate("/dashboard/updateProfile");
-                    }}
-                    className="bg-light-color hover:bg-[#c8edea] ml-10 mt-2 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:w-40 sm:ml-5"
-                  >
-                    <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
-                      <FaRegEdit className="text-dark-color" />
-                      <p className="text-dark-color sm:text-sm smxl:text-[11px]">
-                        Edit your details
-                      </p>
-                    </div>
-                  </button>
+                  <div className="flex">
+                    <button
+                      onClick={() => {
+                        navigate("/dashboard/updateProfile");
+                      }}
+                      className="bg-light-color hover:bg-[#c8edea] ml-10 mt-2 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:w-40 sm:ml-5"
+                    >
+                      <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
+                        <FaRegEdit className="text-dark-color" />
+                        <p className="text-dark-color sm:text-sm smxl:text-[11px]">
+                          Edit your details
+                        </p>
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => {
+                        navigate("/dashboard/updatePhoto");
+                      }}
+                      className="bg-light-color hover:bg-[#c8edea] ml-5 mt-2 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm2xl:ml-3 sm:w-24"
+                    >
+                      <div className="flex justify-center items-center gap-2 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
+                        <IoCameraOutline className="text-dark-color text-xl sm:text-lg smxl:text-base" />
+                        <p className="text-dark-color sm:text-sm smxl:text-[11px]">
+                          Edit pic
+                        </p>
+                      </div>
+                    </button>
+                  </div>
                 </div>
                 <hr />
                 <div className="px-10 py-5 sm:px-5 smxl:px-2">
@@ -190,7 +209,7 @@ function Myprofile() {
                   </h2>
                   <div className="p-2 flex flex-col gap-7 rounded-lg">
                     <button
-                      onClick={() => handleEditClick("about")}
+                      onClick={() => handleEditClick("bio")}
                       className="flex items-center text-dark-color hover:cursor-pointer"
                     >
                       <p className="mr-3">
@@ -236,7 +255,7 @@ function Myprofile() {
           )}
           {activeTab === "account" && (
             <div className=" min-h-auto">
-              <div className="max-w-[700px] mx-auto py-10">
+              <div className="max-w-[700px] mx-auto py-10 p-4">
                 <div className="rating flex flex-col gap-1">
                   <button
                     onClick={() => {
@@ -265,12 +284,12 @@ function Myprofile() {
                 <div className="details_changing flex flex-col gap-1 mt-5">
                   <button
                     onClick={() => {
-                      alert("Coming soon...");
+                      navigate("/dashboard/updatePhoto");
                     }}
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
                     <div className="flex items-center rounded-md justify-between">
-                      <h1 className="text-bold">Add/Change Profile Photo</h1>
+                      <h1 className="text-bold">Change Profile Photo</h1>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
@@ -324,11 +343,7 @@ function Myprofile() {
           handleChange={handleOnChange}
           fieldName={editField}
           fieldValue={
-            editField === "about"
-              ? about
-              : editField === "vehicle"
-              ? vehicle
-              : ""
+            editField === "bio" ? about : editField === "vehicle" ? vehicle : ""
           }
         />
       </div>

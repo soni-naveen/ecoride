@@ -17,9 +17,11 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
         <div className="modal-overlay absolute w-full h-full bg-black bg-opacity-85"></div>
         <div className="modal-container bg-dark-color w-96 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto smxl:w-80 sm2xl:w-64">
           <div className="modal-content py-10 text-left px-10 sm2xl:px-7">
-            <div className="flex justify-between items-center pb-3">
+            <div className="flex justify-between items-center pb-5">
               <p className="text-xl font-normal text-white sm2xl:text-sm smxl:text-lg">
-                What's your {fieldName}?
+                {fieldName === "vehicle"
+                  ? "Add your vehicle model and number *"
+                  : `What's your ${fieldName}?`}
               </p>
             </div>
             <form onSubmit={(e) => handleSave(e, fieldName)}>
@@ -29,7 +31,7 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
                 type={inputType}
                 value={fieldValue}
                 onChange={(e) => handleChange(e, fieldName)}
-                className="w-full px-3 py-2 outline-none rounded smxl:text-sm sm2xl:py-1.5"
+                className="w-full p-3 outline-none rounded smxl:text-sm sm2xl:py-1.5"
               />
               <div className="flex justify-center pt-8">
                 <button

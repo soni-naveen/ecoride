@@ -67,20 +67,21 @@ export async function getUserEnrolledCourses(token) {
   return result;
 }
 
-export async function getFullProfile(userId) {
+export async function getFullProfile() {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("GET", GET_FULL_PROFILE_API);
 
-      console.log("GET_FULL_PROFILE_API RESPONSE............", response);
+      console.log(
+        "GET_FULL_PROFILE_API RESPONSE............",
+        response,
+      );
 
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-
-      dispatch(setUser({ ...response.data.userId }));
     } catch (error) {
       console.log("GET_FULL_PROFILE_API ERROR............", error);
       toast.error("Can NOT get user profile!");
