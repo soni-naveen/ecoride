@@ -66,7 +66,7 @@ function Fullprofile() {
   }
 
   return (
-    <div className="flex flex-col items-center mx-auto p-4 bg-white mt-10 w-full sm2xl:mt-5">
+    <div className="flex flex-col items-center mx-auto p-4 bg-white mt-5 w-full sm2xl:mt-5">
       <div>
         <IoMdArrowRoundBack
           onClick={() => navigate(-1)}

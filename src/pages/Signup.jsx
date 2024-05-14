@@ -106,7 +106,7 @@ function Signup() {
             </h1>
             <button
               onClick={() => {
-                alert("Coming soon...");
+                alert("This feature is not available yet......");
               }}
               className="gap-2 flex items-center justify-center w-full rounded-md px-6 py-2.5 text-white mb-3 bg-[#225260] hover:bg-[#214d5b] sm:w-[250px] sm:mb-1"
             >
@@ -153,7 +153,7 @@ function Signup() {
                 />
                 <span
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                  className="absolute right-3 top-[38px] z-[10] cursor-pointer sm:top-[35px]"
                 >
                   {showPassword ? (
                     <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -178,7 +178,7 @@ function Signup() {
                 />
                 <span
                   onClick={() => setShowConfirmPassword((prev) => !prev)}
-                  className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                  className="absolute right-3 top-[38px] z-[10] cursor-pointer sm:top-[35px]"
                 >
                   {showConfirmPassword ? (
                     <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />

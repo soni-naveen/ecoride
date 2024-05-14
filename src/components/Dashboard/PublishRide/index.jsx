@@ -126,7 +126,7 @@ function Publishride() {
                 </label>
                 <input
                   type="number"
-                  placeholder="Rs. 580/-"
+                  placeholder="e.g. Rs. 580/-"
                   className="pl-2 h-[2.6rem] w-[9.5rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem]  smxl:w-[16rem]"
                 />
               </div>

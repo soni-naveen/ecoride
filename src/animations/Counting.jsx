@@ -34,7 +34,7 @@ const Counter = ({ target }) => {
       });
     };
 
-    const timer = setInterval(updateCounter, 15);
+    const timer = setInterval(updateCounter, 10);
 
     return () => clearInterval(timer);
   };

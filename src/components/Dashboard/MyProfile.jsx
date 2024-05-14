@@ -182,7 +182,7 @@ function Myprofile() {
                       </p>
                       <p
                         onClick={() => {
-                          alert("Coming soon...");
+                          alert("This feature is not available yet......");
                         }}
                       >
                         Verify your Govt. ID
@@ -259,7 +259,7 @@ function Myprofile() {
                 <div className="rating flex flex-col gap-1">
                   <button
                     onClick={() => {
-                      alert("Coming soon...");
+                      alert("This feature is not available yet......");
                     }}
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
@@ -270,7 +270,7 @@ function Myprofile() {
                   </button>
                   <button
                     onClick={() => {
-                      alert("Coming soon...");
+                      alert("This feature is not available yet......");
                     }}
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >

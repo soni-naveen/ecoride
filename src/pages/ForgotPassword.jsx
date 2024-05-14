@@ -51,7 +51,7 @@ function ForgotPassword() {
               </h1>
               <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px]">
                 {!emailSent
-                  ? "We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
+                  ? "We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery."
                   : `We have sent the reset email to ${email}`}
               </p>
               <form onSubmit={handleOnSubmit}>

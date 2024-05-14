@@ -8,7 +8,6 @@ import { logout } from "./AuthAPI";
 const {
   GET_USER_DETAILS_API,
   GET_FULL_PROFILE_API,
-  GET_USER_ENROLLED_COURSES_API,
 } = profileEndpoints;
 
 export function getUserDetails(token, navigate) {
@@ -36,35 +35,6 @@ export function getUserDetails(token, navigate) {
     toast.dismiss(toastId);
     dispatch(setLoading(false));
   };
-}
-
-export async function getUserEnrolledCourses(token) {
-  const toastId = toast.loading("Loading...");
-  let result = [];
-  try {
-    const response = await apiConnector(
-      "GET",
-      GET_USER_ENROLLED_COURSES_API,
-      null,
-      {
-        Authorization: `Bearer ${token}`,
-      }
-    );
-    // console.log(
-    //   "GET_USER_ENROLLED_COURSES_API API RESPONSE............",
-    //   response
-    // )
-
-    if (!response.data.success) {
-      throw new Error(response.data.message);
-    }
-    result = response.data.data;
-  } catch (error) {
-    console.log("GET_USER_ENROLLED_COURSES_API API ERROR............", error);
-    toast.error("Could Not Get Enrolled Courses");
-  }
-  toast.dismiss(toastId);
-  return result;
 }
 
 export async function getFullProfile() {
