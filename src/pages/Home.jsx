@@ -67,7 +67,7 @@ const Home = () => {
             </p>
             <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10">
               <form
-                action="/"
+                action="/home"
                 id="form"
                 className="locations text-center flex flex-col gap-10 smxl:gap-8"
               >

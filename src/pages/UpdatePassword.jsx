@@ -31,7 +31,7 @@ function UpdatePassword() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const token = location.pathname.split("/").at(-1);
+    const token = location.pathname.split("/home").at(-1);
     dispatch(resetPassword(password, confirmPassword, token, navigate));
   };
 
@@ -56,7 +56,7 @@ function UpdatePassword() {
         ) : (
           <div className="text-white flex flex-col">
             <Link
-              to={"/"}
+              to={"/home"}
               ref={button}
               className="place-self-end mb-4 sm2xl:place-self-center"
             >
