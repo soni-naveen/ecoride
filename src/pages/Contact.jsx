@@ -46,7 +46,7 @@ const Contact = () => {
     <div>
       <div className="mx-auto bg-light-color py-2 flex justify-center sm:py-5">
         <div className="rounded-xl p-10 flex gap-5 flex-col items-center sm2xl:p-2 sm:p-4">
-          <h1 className="text-4xl leading-10 font-semibold text-dark-color sm:text-[32px] sm2xl:text-2xl">
+          <h1 className="text-4xl leading-10 font-semibold text-dark-color sm:text-[26px] smxl:text-[22px]">
             Feedback & Queries
           </h1>
           <p className="sm:text-sm sm2xl:text-xs">
