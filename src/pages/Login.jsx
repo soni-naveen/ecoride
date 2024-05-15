@@ -62,8 +62,8 @@ function Login() {
             </button>
           </Link>
           <div className=" bg-dark-color rounded-xl px-24 py-8 flex flex-col gap-5 items-center mx-4 smxl:py-8 smxl:px-10 sm:px-14">
-            <h1 className=" text-3xl font-semibold mb-5 sm:mb-3 smxl:text-2xl smxl:mb-1">
-              Login
+            <h1 className=" text-[28px] font-semibold mb-4 sm:mb-3 smxl:text-2xl smxl:mb-1">
+              Welcome Back!
             </h1>
             <button
               onClick={() => {
@@ -123,7 +123,7 @@ function Login() {
               </label>
               <Link
                 to="/forgot-password"
-                className=" font-light place-self-end text-xs underline -mt-3"
+                className=" font-light place-self-end text-xs underline -mt-2"
               >
                 Forgot Password?
               </Link>

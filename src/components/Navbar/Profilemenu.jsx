@@ -13,6 +13,7 @@ import { logout } from "../../services/operations/AuthAPI";
 
 export default function ProfileDropdown() {
   const { user } = useSelector((state) => state.profile);
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -20,14 +21,14 @@ export default function ProfileDropdown() {
 
   useOnClickOutside(ref, () => setOpen(false));
 
-  if (!user) return null;
+  if (!token) return null;
 
   return (
     <button className="relative" onClick={() => setOpen(true)}>
       <div className="flex items-center gap-x-1">
         <img
           src={user?.image}
-          alt={`profile-${user?.firstName}`}
+          alt="User Photo"
           className="aspect-square w-[35px] rounded-full object-cover md:w-[30px] sm:w-[30px]"
         />
         <AiOutlineCaretDown className="text-sm text-dark-color" />

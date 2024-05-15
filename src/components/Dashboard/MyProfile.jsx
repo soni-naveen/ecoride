@@ -134,7 +134,7 @@ function Myprofile() {
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.image}
-                          alt={user?.additionalDetails?.firstName}
+                          alt="User Photo"
                           className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
