@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
+import { FaCircleMinus } from "react-icons/fa6";
 import { LuPencilLine } from "react-icons/lu";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
@@ -134,8 +135,7 @@ function Myprofile() {
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.image}
-                          alt="User Photo"
-                          className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
+                          className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
                       </div>
@@ -195,10 +195,22 @@ function Myprofile() {
                       <p>{user?.email}</p>
                     </div>
                     <div className="flex items-center text-medium-color">
-                      <p className="mr-2">
-                        <FaCheckCircle className="text-xl" />
-                      </p>
-                      <p>{user?.additionalDetails?.contactNumber}</p>
+                      {user?.additionalDetails?.contactNumber === null ||
+                      user?.additionalDetails?.contactNumber === undefined ? (
+                        <div className="flex items-center mb-3">
+                          <FaCircleMinus className="text-xl text-dark-color mr-2" />
+                          <span className="text-dark-color w-fit smxl:text-sm">
+                            Mobile no. missing
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center mb-3">
+                          <FaCheckCircle className="text-xl text-medium-color mr-2" />
+                          <span className="text-medium-color w-fit smxl:text-sm">
+                            Confirmed phone number
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -213,14 +225,18 @@ function Myprofile() {
                       className="flex items-center text-dark-color hover:cursor-pointer"
                     >
                       <p className="mr-3">
-                        {user?.additionalDetails?.about === "" ? (
+                        {user?.additionalDetails?.about === "" ||
+                        user?.additionalDetails?.about === null ||
+                        user?.additionalDetails?.about === undefined ? (
                           <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
                         ) : (
                           <LuPencilLine className="text-xl text-medium-color" />
                         )}
                       </p>
 
-                      {user?.additionalDetails?.about === "" ? (
+                      {user?.additionalDetails?.about === "" ||
+                      user?.additionalDetails?.about === null ||
+                      user?.additionalDetails?.about === undefined ? (
                         "Add bio"
                       ) : (
                         <p className="text-medium-color text-left flex items-center gap-2">
@@ -233,14 +249,18 @@ function Myprofile() {
                       className="flex items-center text-dark-color hover:cursor-pointer"
                     >
                       <p className="mr-3">
-                        {user?.additionalDetails?.vehicle === "" ? (
+                        {user?.additionalDetails?.vehicle === "" ||
+                        user?.additionalDetails?.vehicle === null ||
+                        user?.additionalDetails?.vehicle === undefined ? (
                           <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
                         ) : (
                           <LuPencilLine className="text-xl text-medium-color" />
                         )}
                       </p>
 
-                      {user?.additionalDetails?.vehicle === "" ? (
+                      {user?.additionalDetails?.vehicle === "" ||
+                      user?.additionalDetails?.vehicle === null ||
+                      user?.additionalDetails?.vehicle === undefined ? (
                         "Add vehicle details"
                       ) : (
                         <p className="text-medium-color text-left flex items-center gap-2">

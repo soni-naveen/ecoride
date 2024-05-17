@@ -55,6 +55,7 @@ function Completeprofile() {
                 name="firstName"
                 type="text"
                 value={firstName}
+                pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
                 placeholder="e.g. Naveen"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
@@ -69,6 +70,7 @@ function Completeprofile() {
                 name="lastName"
                 type="text"
                 value={lastName}
+                pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
                 placeholder="e.g. Soni"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
@@ -105,7 +107,7 @@ function Completeprofile() {
                 placeholder="e.g. Soni"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               >
-                <option value="Select">--- Select ---</option>
+                <option value="">---- Select ----</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>

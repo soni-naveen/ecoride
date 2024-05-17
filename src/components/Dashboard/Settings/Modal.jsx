@@ -1,12 +1,17 @@
 import React from "react";
 
 function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
-  const inputType =
-    fieldName === "date of birth"
-      ? "date"
-      : fieldName === "contact number"
-      ? "number"
-      : "text";
+  const inputType = fieldName === "date of birth" ? "date" : "text";
+  const patternType =
+    fieldName === "contact number"
+      ? "[7-9]{1}[0-9]{9}"
+      : fieldName === "first name"
+      ? "^[A-Za-z]{3,16}$"
+      : fieldName === "last name"
+      ? "^[A-Za-z]{3,16}$"
+      : fieldName === "gender"
+      ? "^[A-Za-z]{3,16}$"
+      : "^[A-Za-z0-9 _+-]+$";
   return (
     <div
       className={`modal ${
@@ -30,6 +35,7 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
                 maxLength={100}
                 type={inputType}
                 value={fieldValue}
+                pattern={patternType}
                 onChange={(e) => handleChange(e, fieldName)}
                 className="w-full p-3 outline-none rounded smxl:text-sm sm2xl:py-1.5"
               />

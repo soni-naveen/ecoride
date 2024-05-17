@@ -20,50 +20,24 @@ function Fullprofile() {
   if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
-  const dateJoinedString = user?.additionalDetails?.dateJoined;
-  const dateJoined = new Date(dateJoinedString);
-  const yearJoined = dateJoined.getFullYear();
-  const monthJoined = dateJoined.getMonth();
-  let monthName = "";
 
-  switch (monthJoined) {
-    case 1:
-      monthName = "January";
-      break;
-    case 2:
-      monthName = "February";
-      break;
-    case 3:
-      monthName = "March";
-      break;
-    case 4:
-      monthName = "April";
-      break;
-    case 5:
-      monthName = "May";
-      break;
-    case 6:
-      monthName = "June";
-      break;
-    case 7:
-      monthName = "July";
-      break;
-    case 8:
-      monthName = "August";
-      break;
-    case 9:
-      monthName = "September";
-      break;
-    case 10:
-      monthName = "October";
-      break;
-    case 11:
-      monthName = "November";
-      break;
-    case 12:
-      monthName = "December";
-      break;
-  }
+  const dateJoined = new Date(user?.additionalDetails?.dateJoined);
+  const yearJoined = dateJoined.getFullYear();
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const monthName = months[dateJoined.getMonth()];
 
   return (
     <div className="flex flex-col items-center mx-auto p-4 bg-white mt-5 w-full sm2xl:mt-5">
@@ -80,14 +54,19 @@ function Fullprofile() {
                 user?.additionalDetails?.lastName}
             </h2>
             <p className="text-medium-color smxl:text-sm">
-              {age} y/o - {user?.additionalDetails?.gender}
+              {user?.additionalDetails?.dateOfBirth === null ||
+              user?.additionalDetails?.dateOfBirth === undefined ||
+              user?.additionalDetails?.dateOfBirth === ""
+                ? "-- "
+                : age}
+              y/o -&nbsp;
+              {user?.additionalDetails?.gender}
             </p>
           </div>
           <div className="image">
             <img
               src={user?.image}
-              alt={`profile-${user?.additionalDetails?.firstName}`}
-              className="rounded-full h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 object-cover"
+              className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 object-cover"
             ></img>
           </div>
         </div>
@@ -142,10 +121,22 @@ function Fullprofile() {
             </span>
           </div>
           <div className="flex items-center">
-            <FaCheckCircle className="text-lg text-medium-color mr-2 smxl:text-sm" />
-            <span className="text-medium-color smxl:text-sm">
-              Confirmed contact number
-            </span>
+            {user?.additionalDetails?.contactNumber === null ||
+            user?.additionalDetails?.contactNumber === undefined ? (
+              <div className="flex items-center mb-3">
+                <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
+                <span className="text-dark-color w-fit smxl:text-sm">
+                  Mobile no. missing
+                </span>
+              </div>
+            ) : (
+              <div className="flex items-center mb-3">
+                <FaCheckCircle className="text-lg text-medium-color mr-2 smxl:text-sm" />
+                <span className="text-medium-color w-fit smxl:text-sm">
+                  Confirmed mobile number
+                </span>
+              </div>
+            )}
           </div>
         </div>
         <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
@@ -155,7 +146,9 @@ function Fullprofile() {
           </h3>
           <div className="flex items-center mb-3 smxl:text-sm">
             <span>
-              {user?.additionalDetails?.about === "" ? (
+              {user?.additionalDetails?.about === "" ||
+              user?.additionalDetails?.about === null ||
+              user?.additionalDetails?.about === undefined ? (
                 <p className="text-dark-color flex items-center">
                   <FaRocketchat className="text-dark-color mr-2 text-lg" />
                   bio not added
@@ -171,7 +164,9 @@ function Fullprofile() {
           <div className="flex items-center smxl:text-sm">
             <span className="text-medium-color">
               <span>
-                {user?.additionalDetails?.vehicle === "" ? (
+                {user?.additionalDetails?.vehicle === "" ||
+                user?.additionalDetails?.vehicle === null ||
+                user?.additionalDetails?.vehicle === undefined ? (
                   <p className="text-dark-color flex items-center">
                     <FaCarSide className="text-dark-color mr-2 text-lg" />
                     vehicle details not added
