@@ -45,6 +45,7 @@ const MessageParser = ({ children, actions }) => {
       message.toLowerCase().includes("bye") ||
       message.toLowerCase().includes("thanks") ||
       message.toLowerCase().includes("thank you") ||
+      message.toLowerCase().includes("thankyou") ||
       message.toLowerCase().includes("ok")
     ) {
       actions.handleBye();
@@ -56,7 +57,9 @@ const MessageParser = ({ children, actions }) => {
       actions.handleContactUs();
     } else if (
       message.toLowerCase().includes("forgot password") ||
-      message.toLowerCase().includes("reset password")
+      message.toLowerCase().includes("reset password") ||
+      message.toLowerCase().includes("reset my password") ||
+      message.toLowerCase().includes("forgot my password")
     ) {
       actions.handleForgotPassword();
     } else if (

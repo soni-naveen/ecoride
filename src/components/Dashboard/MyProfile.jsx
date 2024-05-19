@@ -332,6 +332,14 @@ function Myprofile() {
                       </div>
                     </button>
                   </Link>
+                  <Link to="/contact">
+                    <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
+                      <div className="flex items-center rounded-md justify-between">
+                        <h1 className="text-bold">Report an issue</h1>
+                        <GrNext className=" font-bold text-dark-color" />
+                      </div>
+                    </button>
+                  </Link>
                 </div>
                 <hr className="mt-5" />
                 <div className="logout_deleteaccount flex flex-col gap-1 mt-5">
