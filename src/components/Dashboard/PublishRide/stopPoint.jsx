@@ -36,7 +36,7 @@ function Stoppoint() {
       </div>
       <IoMdArrowRoundBack
         onClick={() => navigate(-1)}
-        className="text-2xl m-5 ml-10 text-dark-color hover:cursor-pointer"
+        className="text-2xl m-5 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
       />
       <div className="buttonSection flex flex-col items-center gap-8 mt-10 mb-20">
         <button
@@ -53,9 +53,10 @@ function Stoppoint() {
           <div key={index} className="flex gap-2">
             <input
               type="text"
+              placeholder="Enter location"
               value={stopPoint}
               onChange={(e) => handleStopPointChange(index, e.target.value)}
-              className="w-[17rem] h-[43px] border-2 border-medium-color rounded-md px-2 sm2xl:w-[15rem]"
+              className="w-[17rem] ml-5 h-[43px] border-2 border-medium-color rounded-md px-2 smxl:w-[15rem]"
             />
             {stopPoints.length > 0 && (
               <button onClick={() => handleRemoveStopPoint(index)}>

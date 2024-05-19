@@ -68,7 +68,6 @@ function Publishride() {
               </label>
               <input
                 type="time"
-                value="07:30"
                 className="w-[17rem] h-[43px] border-2 border-medium-color rounded-md px-4 sm2xl:w-[15rem]"
               />
             </div>
