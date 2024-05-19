@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Numberinput from "../../../components/Numberinput.jsx";
-import "react-datepicker/dist/react-datepicker.css";
 import { GrFormNextLink } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
