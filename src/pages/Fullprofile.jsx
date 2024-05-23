@@ -108,7 +108,7 @@ function Fullprofile() {
               </div>
             ) : user?.additionalDetails?.govtId === "Pending" ? (
               <div className="flex items-center">
-                <RiProgress5Line className="text-[22px] text-dark-color mr-2" />
+                <RiProgress5Line className="text-[22px] text-dark-color mr-2 smxl:text-[17px]" />
                 <span className="text-dark-color w-fit smxl:text-sm">
                   Pending verification
                 </span>

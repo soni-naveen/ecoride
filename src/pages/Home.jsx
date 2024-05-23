@@ -18,6 +18,7 @@ import AnimateLR from "../animations/AnimationLR.jsx";
 import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import { BsRobot } from "react-icons/bs";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 import "animate.css";
@@ -27,6 +28,12 @@ const Home = () => {
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
   return (
     <>
       <div className="max-w-[1800px] m-auto relative">
@@ -73,10 +80,14 @@ const Home = () => {
                 <Autocomplete
                   callback={(data) => console.log("Selected option: ", data)}
                   options={{ placeholder: "Starting location" }}
+                  register={register("fromWhere")}
+                  onValueChange={(value) => setValue("fromWhere", value)}
                 />
                 <Autocomplete
                   callback={(data) => console.log("Selected option: ", data)}
                   options={{ placeholder: "Destination" }}
+                  register={register("toWhere")}
+                  onValueChange={(value) => setValue("toWhere", value)}
                 />
 
                 <div className="connectinglines flex flex-col items-center absolute top-[4.7rem] left-[3.6rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">

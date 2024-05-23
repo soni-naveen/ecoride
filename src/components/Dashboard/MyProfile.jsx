@@ -32,7 +32,7 @@ function Myprofile() {
 
   const fullProfileVisit = () => {
     getFullProfile(user?.additionalDetails?.profileId);
-    navigate(`/fullprofile/${user?.additionalDetails?.profileId}`);
+    navigate(`/fullprofile`);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);

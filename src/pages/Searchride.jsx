@@ -5,9 +5,16 @@ import Numberinput from "../components/Numberinput.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Searchride() {
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
   return (
     <>
       <div className="absolute h-[350px] w-full bg-light-color"></div>
@@ -28,10 +35,14 @@ function Searchride() {
               <Autocomplete
                 callback={(data) => console.log("Selected option: ", data)}
                 options={{ placeholder: "Starting location" }}
+                register={register("fromWhere")}
+                onValueChange={(value) => setValue("fromWhere", value)}
               />
               <Autocomplete
                 callback={(data) => console.log("Selected option: ", data)}
                 options={{ placeholder: "Destination" }}
+                register={register("toWhere")}
+                onValueChange={(value) => setValue("toWhere", value)}
               />
 
               <div className="connectinglines flex flex-col items-center absolute top-[4.6rem] left-[7.1rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem] md:left-[3.6rem]">

@@ -32,7 +32,7 @@ function Completeprofile() {
 
   return (
     <div className="fixed inset-0 h-screen bg-white z-20">
-      <div className="h-full flex justify-center items-center">
+      <div className="h-full flex justify-center mt-24">
         <div className="centerBox flex flex-col gap-10">
           <h1 className="font-bold text-3xl text-dark-color smxl:text-2xl">
             Complete Your Profile
