@@ -15,7 +15,7 @@ import {
   deleteProfile,
   myProfileAbout,
 } from "../../services/operations/SettingsAPI";
-import { getFullProfile } from "../../services/operations/ProfileAPI";
+// import { getFullProfile } from "../../services/operations/ProfileAPI";
 import Modal from "./Settings/Modal";
 
 function Myprofile() {
@@ -31,7 +31,7 @@ function Myprofile() {
   };
 
   const fullProfileVisit = () => {
-    getFullProfile(user?.additionalDetails?.profileId);
+    // getFullProfile(user?.additionalDetails?.profileId);
     navigate(`/fullprofile`);
   };
 
