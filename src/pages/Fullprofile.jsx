@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaCarSide } from "react-icons/fa";
 import { PiSteeringWheelFill } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
+import { RiProgress5Line } from "react-icons/ri";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaRocketchat } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -96,18 +97,25 @@ function Fullprofile() {
         </div>
         <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
         <div className="mb-4 mr-28 mt-5 md:mr-0">
-          <div className="flex items-center">
+          <div className="flex items-center mb-3">
             {user?.additionalDetails?.govtId === null ||
-            user?.additionalDetails?.govtId === undefined ? (
-              <div className="flex items-center mb-3">
-                <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
+            user?.additionalDetails?.govtId === "" ? (
+              <div className="flex items-center">
+                <IoAddCircleOutline className="text-[22px] text-dark-color mr-2" />
                 <span className="text-dark-color w-fit smxl:text-sm">
-                  Non-verified govt.Id
+                  Verify your Govt. ID
+                </span>
+              </div>
+            ) : user?.additionalDetails?.govtId === "Pending" ? (
+              <div className="flex items-center">
+                <RiProgress5Line className="text-[22px] text-dark-color mr-2" />
+                <span className="text-dark-color w-fit smxl:text-sm">
+                  Pending verification
                 </span>
               </div>
             ) : (
-              <div className="flex items-center mb-3">
-                <FaCheckCircle className="text-lg text-medium-color mr-2 smxl:text-sm" />
+              <div className="flex items-center">
+                <FaCheckCircle className="text-xl text-medium-color mr-2" />
                 <span className="text-medium-color w-fit smxl:text-sm">
                   Verified govt.Id
                 </span>

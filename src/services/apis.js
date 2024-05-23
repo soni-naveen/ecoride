@@ -18,6 +18,12 @@ export const profileEndpoints = {
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
 };
 
+// RIDE ENDPOINTS
+export const rideEndpoints = {
+  CREATE_RIDE_API: BASE_URL + "/ride/createRide",
+  ADD_STOP_POINT_API: BASE_URL + "/ride/addStopPoint",
+};
+
 // CONTACT-US API
 export const contactusEndpoint = {
   CONTACT_US_API: BASE_URL + "/reach/contact",
@@ -26,6 +32,7 @@ export const contactusEndpoint = {
 // SETTINGS PAGE API
 export const settingsEndpoints = {
   UPDATE_DISPLAY_PICTURE_API: BASE_URL + "/profile/updateDisplayPicture",
+  VERIFY_ID_API: BASE_URL + "/profile/verifyProfile",
   COMPLETE_PROFILE_API: BASE_URL + "/profile/completeProfile",
   UPDATE_PROFILE_API: BASE_URL + "/profile/updateProfile",
   ABOUT_PROFILE_UPDATE_API: BASE_URL + "/profile/myProfileAbout",

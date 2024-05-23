@@ -1,76 +1,125 @@
-import React, { useState } from "react";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { IoMdRemoveCircleOutline } from "react-icons/io";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+// import React, { useState } from "react";
+// import { useSelector } from "react-redux";
+// import {
+//   IoMdAddCircleOutline,
+//   IoMdRemoveCircleOutline,
+//   IoMdArrowRoundBack,
+// } from "react-icons/io";
+// import { useNavigate } from "react-router-dom";
+// import Autocomplete from "../../Autocomplete"; // Adjust the import path as necessary
+// import { useForm, Controller } from "react-hook-form";
+// import { addStopPoint } from "../../../services/operations/RideAPI";
 
-function Stoppoint() {
-  const navigate = useNavigate();
-  const [stopPoints, setStopPoints] = useState([]);
-  const [maxStopPoints] = useState(3);
+// function Stoppoint() {
+//   const navigate = useNavigate();
+//   const { token } = useSelector((state) => state.auth);
+//   const [stopPoints, setStopPoints] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const maxStopPoints = 3;
 
-  const handleAddStopPoint = () => {
-    if (stopPoints.length < maxStopPoints) {
-      setStopPoints([...stopPoints, ""]);
-    }
-  };
+//   const { register, handleSubmit, control, setValue } = useForm();
 
-  const handleRemoveStopPoint = (index) => {
-    const newStopPoints = stopPoints.filter((_, i) => i !== index);
-    setStopPoints(newStopPoints);
-  };
+//   const handleAddStopPoint = () => {
+//     if (stopPoints.length < maxStopPoints) {
+//       setStopPoints([...stopPoints, ""]);
+//     }
+//   };
 
-  const handleStopPointChange = (index, value) => {
-    const newStopPoints = [...stopPoints];
-    newStopPoints[index] = value;
-    setStopPoints(newStopPoints);
-  };
+//   const handleRemoveStopPoint = (index) => {
+//     const newStopPoints = stopPoints.filter((_, i) => i !== index);
+//     setStopPoints(newStopPoints);
+//   };
 
-  return (
-    <div className="container h-full pb-10">
-      <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
-        <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
-          Become a EcoRide Driver and save on travel costs by sharing your rides
-          with passengers.
-        </h1>
-      </div>
-      <IoMdArrowRoundBack
-        onClick={() => navigate(-1)}
-        className="text-2xl m-5 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
-      />
-      <div className="buttonSection flex flex-col items-center gap-8 mt-10 mb-20">
-        <button
-          onClick={handleAddStopPoint}
-          disabled={stopPoints.length >= maxStopPoints}
-          className="text-base text-slate-400 px-4 py-2 border border-2 flex gap-3 justify-around items-center rounded-full hover:cursor-pointer"
-        >
-          <span>
-            <IoMdAddCircleOutline className="text-slate-400 text-2xl" />
-          </span>
-          Add Stop Point
-        </button>
-        {stopPoints.map((stopPoint, index) => (
-          <div key={index} className="flex gap-2">
-            <input
-              type="text"
-              placeholder="Enter location"
-              value={stopPoint}
-              onChange={(e) => handleStopPointChange(index, e.target.value)}
-              className="w-[17rem] ml-5 h-[43px] border-2 border-medium-color rounded-md px-2 smxl:w-[15rem]"
-            />
-            {stopPoints.length > 0 && (
-              <button onClick={() => handleRemoveStopPoint(index)}>
-                <IoMdRemoveCircleOutline className="text-2xl text-dark-color" />
-              </button>
-            )}
-          </div>
-        ))}
-        <button className="bg-dark-color text-lg mt-5 text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full">
-          Publish Ride
-        </button>
-      </div>
-    </div>
-  );
-}
+//   const handleStopPointChange = (index, value) => {
+//     const newStopPoints = [...stopPoints];
+//     newStopPoints[index] = value;
+//     setStopPoints(newStopPoints);
+//   };
 
-export default Stoppoint;
+//   //handle submit
+//   const onSubmit = async (data) => {
+//     const formData = new FormData();
+//     formData.append("stopPoints", data.stopPoints);
+//     console.log(formData.append("stopPoints", data.stopPoints));
+//     setLoading(true);
+//     const result = await addStopPoint(formData, token, navigate);
+//     console.log(result);
+//     setLoading(false);
+//   };
+
+//   return (
+//     <div className="container h-full pb-10">
+//       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
+//         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
+//           Become an EcoRide Driver and save on travel costs by sharing your
+//           rides with passengers.
+//         </h1>
+//       </div>
+//       <div className="flex items-center">
+//         <IoMdArrowRoundBack
+//           onClick={() => navigate(-1)}
+//           className="text-2xl m-5 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
+//         />
+//       </div>
+//       <p className="text-center smxl:text-sm">
+//         You can add up to 3 stop points
+//       </p>
+//       <div className="buttonSection flex flex-col items-center gap-8 mt-7">
+//         <button
+//           onClick={handleAddStopPoint}
+//           disabled={stopPoints.length >= maxStopPoints}
+//           className="text-base text-slate-400 px-4 py-2 border border-2 flex gap-3 justify-around items-center rounded-full hover:cursor-pointer hover:bg-slate-100 hover:border-slate-100 duration-300"
+//         >
+//           <span>
+//             <IoMdAddCircleOutline className="text-slate-400 text-2xl" />
+//           </span>
+//           Add Stop Point
+//         </button>
+//         <form
+//           onSubmit={handleSubmit(onSubmit)}
+//           className="flex flex-col items-center"
+//         >
+//           {stopPoints.map((stopPoint, index) => (
+//             <div key={index} className="flex gap-2 mb-6">
+//               <div className="border-2 border-medium-color rounded-md relative">
+//                 <div className="h-[10px] w-[10px] bg-medium-color rounded-full absolute top-[19px] left-[10px] z-10 smxl:h-2 smxl:w-2 smxl:top-[17px] smxl:left-3"></div>
+//                 <Controller
+//                   name={`stopPoints[${index}]`}
+//                   control={control}
+//                   defaultValue={stopPoint}
+//                   render={() => (
+//                     <Autocomplete
+//                       options={{ placeholder: "Enter location" }}
+//                       callback={(data) =>
+//                         console.log("Selected option: ", data)
+//                       }
+//                       onValueChange={(value) => {
+//                         setValue(`stopPoints[${index}]`, value);
+//                         handleStopPointChange(index, value);
+//                       }}
+//                       register={register(`stopPoints`)}
+//                     />
+//                   )}
+//                 />
+//               </div>
+//               <button
+//                 type="button"
+//                 onClick={() => handleRemoveStopPoint(index)}
+//               >
+//                 <IoMdRemoveCircleOutline className="text-2xl text-dark-color" />
+//               </button>
+//             </div>
+//           ))}
+//           <button
+//             type="submit"
+//             className="bg-dark-color text-lg mt-5 text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full"
+//           >
+//             Publish Ride
+//           </button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Stoppoint;

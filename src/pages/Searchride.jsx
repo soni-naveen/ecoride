@@ -3,7 +3,6 @@ import Map from "../components/Map.jsx";
 import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
-import Autocomplete2 from "../components/Autocomplete2.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +17,7 @@ function Searchride() {
       >
         <div className="left mt-20 flex flex-col ">
           <p className="text-dark-color ml-3 mb-3 text-[1.4rem] smxl:text-[1.2rem] smxl:mb-3 smxl:ml-3 z-[2]">
-            Request a ride and go
+            Find your ride and go!
           </p>
           <div className="w-[35rem] h-[28rem] mb-10 relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10 md:w-[28rem] md:h-[27rem]">
             <form
@@ -26,8 +25,14 @@ function Searchride() {
               id="form"
               className="locations text-center flex flex-col gap-10 smxl:gap-8"
             >
-              <Autocomplete id="starting location"></Autocomplete>
-              <Autocomplete2 id="destination"></Autocomplete2>
+              <Autocomplete
+                callback={(data) => console.log("Selected option: ", data)}
+                options={{ placeholder: "Starting location" }}
+              />
+              <Autocomplete
+                callback={(data) => console.log("Selected option: ", data)}
+                options={{ placeholder: "Destination" }}
+              />
 
               <div className="connectinglines flex flex-col items-center absolute top-[4.6rem] left-[7.1rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem] md:left-[3.6rem]">
                 <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
@@ -48,7 +53,10 @@ function Searchride() {
 
               {/* See rides and map button */}
               <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                <button onClick={()=>navigate("/seeRides")} className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
+                <button
+                  onClick={() => navigate("/seeRides")}
+                  className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3"
+                >
                   SEE RIDES
                 </button>
                 <a

@@ -13,15 +13,14 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Map from "../components/Map.jsx";
 import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
-import "animate.css";
 import AnimateBU from "../animations/AnimationBU.jsx";
 import AnimateLR from "../animations/AnimationLR.jsx";
 import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
-import Autocomplete2 from "../components/Autocomplete2.jsx";
 import { BsRobot } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
+import "animate.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -63,7 +62,7 @@ const Home = () => {
         >
           <div className="left mt-5">
             <p className="text-dark-color ml-3 mb-2 text-xl smxl:text-[1rem] smxl:ml-3">
-              Request a ride and go
+              Find your ride and go!
             </p>
             <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10">
               <form
@@ -71,8 +70,14 @@ const Home = () => {
                 id="form"
                 className="locations text-center flex flex-col gap-10 smxl:gap-8"
               >
-                <Autocomplete id="starting location"></Autocomplete>
-                <Autocomplete2 id="destination"></Autocomplete2>
+                <Autocomplete
+                  callback={(data) => console.log("Selected option: ", data)}
+                  options={{ placeholder: "Starting location" }}
+                />
+                <Autocomplete
+                  callback={(data) => console.log("Selected option: ", data)}
+                  options={{ placeholder: "Destination" }}
+                />
 
                 <div className="connectinglines flex flex-col items-center absolute top-[4.7rem] left-[3.6rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>

@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
+import { RiProgress5Line } from "react-icons/ri";
 import { LuPencilLine } from "react-icons/lu";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
@@ -177,16 +178,36 @@ function Myprofile() {
                   </h2>
                   <div className="p-2 flex flex-col gap-7 rounded-lg">
                     <div className="flex items-center text-dark-color hover:cursor-pointer">
-                      <p className="mr-2">
-                        <IoAddCircleOutline className="text-[22px]" />
-                      </p>
-                      <p
+                      <div
                         onClick={() => {
-                          alert("This feature is not available yet......");
+                          navigate("/dashboard/verifyProfile");
                         }}
+                        className="flex items-center text-medium-color"
                       >
-                        Verify your Govt. ID
-                      </p>
+                        {user?.additionalDetails?.govtId === null ||
+                        user?.additionalDetails?.govtId === "" ? (
+                          <div className="flex items-center">
+                            <IoAddCircleOutline className="text-[22px] text-dark-color mr-2" />
+                            <span className="text-dark-color w-fit smxl:text-sm">
+                              Verify your Govt. ID
+                            </span>
+                          </div>
+                        ) : user?.additionalDetails?.govtId === "Pending" ? (
+                          <div className="flex items-center">
+                            <RiProgress5Line className="text-[22px] text-dark-color mr-2" />
+                            <span className="text-dark-color w-fit smxl:text-sm">
+                              Pending verification
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center">
+                            <FaCheckCircle className="text-xl text-medium-color mr-2" />
+                            <span className="text-medium-color w-fit smxl:text-sm">
+                              Verified govt.Id
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <div className="flex items-center text-medium-color">
                       <p className="mr-2">

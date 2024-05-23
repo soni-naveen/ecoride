@@ -37,14 +37,6 @@
   visibility: visible;
 }
 
-/* Hide default styling of details/summary */
-details > summary {
-  list-style: none;
-}
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
 /* https://10015.io/tools/css-loader-generator */
 .spinner {
   width: 56px;

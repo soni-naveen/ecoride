@@ -79,6 +79,10 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 } */
+.autocomplete-container {
+  position: relative;
+}
+
 .geoapify-autocomplete-input {
   outline: none;
   padding: 0.75rem 2rem;
@@ -114,7 +118,7 @@ input::-webkit-inner-spin-button {
 }
 
 .geoapify-autocomplete-items div {
-  padding: 5px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 
@@ -123,12 +127,14 @@ input::-webkit-inner-spin-button {
 }
 
 .geoapify-autocomplete-items .active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(161, 43, 43, 0.1);
 }
 
 .geoapify-autocomplete-item {
   display: flex;
   flex-direction: row;
+  text-align: start;
+  font-size: 15px;
   align-items: center;
 }
 

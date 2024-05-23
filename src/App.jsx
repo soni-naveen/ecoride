@@ -29,9 +29,10 @@ import Error from "./pages/Error";
 import Fullprofile from "./pages/Fullprofile";
 import EditProfile from "./components/Dashboard/Settings/EditProfile";
 import ChangeProfilePicture from "./components/Dashboard/Settings/ChangeProfilePicture";
+import VerifyProfile from "./components/Dashboard/Settings/VerifyProfile";
 import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
 import PublishRide from "./components/Dashboard/PublishRide/index";
-import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
+// import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 
 function App() {
@@ -105,8 +106,9 @@ function App() {
           <Route path="/completeprofile" element={<Completeprofile />} />
           <Route path="/dashboard/myprofile" element={<MyProfile />} />
           <Route path="/dashboard/publishride" element={<PublishRide />} />
-          <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} />
+          {/* <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} /> */}
           <Route path="/dashboard/updateProfile" element={<EditProfile />} />
+          <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
           <Route
             path="/dashboard/updatePhoto"
             element={<ChangeProfilePicture />}
