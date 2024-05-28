@@ -3,8 +3,12 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link } from "react-router-dom";
 
 export default function AccordionUsage() {
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   return (
     <div className="w-[75%] smxl:w-[85%] sm:w-[80%]">
       <Accordion
@@ -27,7 +31,7 @@ export default function AccordionUsage() {
           How do I call a driver?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
-          You can message the driver on clicking "contact" then chatting with
+          You can message the driver on clicking "Contact" then chatting with
           them to get their phone number.
         </AccordionDetails>
       </Accordion>
@@ -48,13 +52,20 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          {" "}
           What if I need to cancel a ride?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           We understand that plans can change. Both drivers and passengers have
-          the option to cancel rides (in "Your rides" on profile), but please do
-          so as early as possible to minimize inconvenience to other users.
+          the option to cancel rides {" ( "}
+          <Link
+            to="/dashboard/yourRides"
+            className="underline"
+            onClick={handleClickPageTop}
+          >
+            Your rides
+          </Link>
+          {" ) "}, but please do so as early as possible to minimize
+          inconvenience to other users.
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -74,13 +85,19 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          {" "}
           How do I publish a ride?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           Offering a ride on EcoRide is easy. To publish your ride login to your
-          account (signup in case you don't have account). Click on "Publish a
-          ride" on top of website. Indicate from where , to where , the date ,
+          account (signup in case you don't have account). Click on{" "}
+          <Link
+            to="/dashboard/publishride"
+            className="underline"
+            onClick={handleClickPageTop}
+          >
+            Publish ride
+          </Link>{" "}
+          on top of website. Indicate from where , to where , the date ,
           departure time, how many passengers you can take, journey time, and
           the price per seat. Click on proceed to add stop points, if no stop
           point tap "Publish ride" and you're done!
@@ -103,7 +120,6 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          {" "}
           How much does a ride cost?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
@@ -130,14 +146,20 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          {" "}
           How can I verify my account?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
-          Go to "Account". Under "Verify your profile" click on "Verify your
-          govt. id" then you have three choices to verify - driving license or
-          aadhar card or PAN card. Upload front and back side of your document.
-          Within 24 hours, your document will be verified.
+          Go to{" "}
+          <Link
+            to="/dashboard/myprofile"
+            className="underline"
+            onClick={handleClickPageTop}
+          >
+            Account
+          </Link>{" "}
+          , Under "Verify your profile" click on "Verify your govt. id" then you
+          can upload any govt. document like driving license, aadhar card, PAN
+          card, etc. Within 24 hours, your document will be verified.
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -157,12 +179,19 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          {" "}
           Where do I report an issue on the website?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
-          If you encounter any issues or have questions, please feel contact our team
-          through the "Contact Us" page.
+          If you encounter any issues or have questions, please feel free to
+          contact our team through the{" "}
+          <Link
+            to="/contact"
+            className="underline"
+            onClick={handleClickPageTop}
+          >
+            Contact Us
+          </Link>{" "}
+          page.
         </AccordionDetails>
       </Accordion>
     </div>

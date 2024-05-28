@@ -5,7 +5,6 @@ import { PiSteeringWheelFill } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
 import { RiProgress5Line } from "react-icons/ri";
 import { FaCircleMinus } from "react-icons/fa6";
-import { IoAddCircleOutline } from "react-icons/io5";
 import { FaRocketchat } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -102,21 +101,21 @@ function Fullprofile() {
             {user?.additionalDetails?.govtId === null ||
             user?.additionalDetails?.govtId === "" ? (
               <div className="flex items-center">
-                <IoAddCircleOutline className="text-[22px] text-dark-color mr-2" />
+                <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
                 <span className="text-dark-color w-fit smxl:text-sm">
-                  Verify your Govt. ID
+                  Non-verified
                 </span>
               </div>
             ) : user?.additionalDetails?.govtId === "Pending" ? (
               <div className="flex items-center">
-                <RiProgress5Line className="text-[22px] text-dark-color mr-2 smxl:text-[17px]" />
+                <RiProgress5Line className="text-[21px] text-dark-color mr-2 smxl:text-[16px]" />
                 <span className="text-dark-color w-fit smxl:text-sm">
                   Pending verification
                 </span>
               </div>
             ) : (
               <div className="flex items-center">
-                <FaCheckCircle className="text-xl text-medium-color mr-2" />
+                <FaCheckCircle className="text-lg text-medium-color mr-2 smxl:text-sm" />
                 <span className="text-medium-color w-fit smxl:text-sm">
                   Verified govt.Id
                 </span>

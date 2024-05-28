@@ -32,6 +32,8 @@ import ChangeProfilePicture from "./components/Dashboard/Settings/ChangeProfileP
 import VerifyProfile from "./components/Dashboard/Settings/VerifyProfile";
 import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
 import PublishRide from "./components/Dashboard/PublishRide/index";
+import Inbox from "./components/Dashboard/Inbox";
+import YourRides from "./components/Dashboard/YourRides";
 // import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 
@@ -109,6 +111,7 @@ function App() {
           {/* <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} /> */}
           <Route path="/dashboard/updateProfile" element={<EditProfile />} />
           <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
+          <Route path="/dashboard/yourRides" element={<YourRides />} />
           <Route
             path="/dashboard/updatePhoto"
             element={<ChangeProfilePicture />}
@@ -119,7 +122,7 @@ function App() {
           />
 
           {/* <Route path="dashboard/bookedride" element={<BookedRide />} /> */}
-          {/* <Route path="dashboard/inbox" element={<Inbox />} /> */}
+          <Route path="dashboard/inbox" element={<Inbox />} />
           {/* <Route path="dashboard/ratingsgiven" element={<RatingsGiven />} /> */}
           {/* <Route
               path="dashboard/ratingsreceived"

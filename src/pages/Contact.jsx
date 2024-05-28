@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { apiConnector } from "../services/apiConnector";
+import { useSelector } from "react-redux";
 import { contactusEndpoint } from "../services/apis";
 import Footer from "../components/Footer/Footer";
 
 const Contact = () => {
+  const { user } = useSelector((state) => state.profile);
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -50,7 +52,6 @@ const Contact = () => {
             Feedback & Queries
           </h1>
           <p className="sm:text-sm sm2xl:text-xs">
-            {" "}
             We're here to Listen! Please fill out this form
           </p>
 
@@ -60,7 +61,7 @@ const Contact = () => {
               onSubmit={handleSubmit(submitContactForm)}
             >
               <div className="flex gap-5 sm:flex-col">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1">
                   <label htmlFor="firstname" className="text-[14px]">
                     First Name
                   </label>
@@ -68,6 +69,7 @@ const Contact = () => {
                     type="text"
                     name="firstname"
                     id="firstname"
+                    defaultValue={user?.additionalDetails?.firstName}
                     placeholder="Enter first name"
                     className="form-style"
                     {...register("firstname", { required: true })}
@@ -78,7 +80,7 @@ const Contact = () => {
                     </span>
                   )}
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1">
                   <label htmlFor="lastname" className="text-[14px]">
                     Last Name
                   </label>
@@ -86,6 +88,7 @@ const Contact = () => {
                     type="text"
                     name="lastname"
                     id="lastname"
+                    defaultValue={user?.additionalDetails?.lastName}
                     placeholder="Enter last name"
                     className="form-style"
                     {...register("lastname")}
@@ -93,7 +96,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="email" className="text-[14px]">
                   Email Address
                 </label>
@@ -101,6 +104,7 @@ const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
+                  defaultValue={user?.email}
                   placeholder="Enter email address"
                   className="form-style"
                   {...register("email", { required: true })}
@@ -112,7 +116,7 @@ const Contact = () => {
                 )}
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="message" className="text-[14px]">
                   Message
                 </label>
@@ -122,7 +126,7 @@ const Contact = () => {
                   cols="30"
                   rows="7"
                   placeholder="Enter your message here"
-                  className="form-style"
+                  className="form-style resize-none"
                   {...register("message", { required: true })}
                 />
                 {errors.message && (

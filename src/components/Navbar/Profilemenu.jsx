@@ -44,13 +44,13 @@ export default function ProfileDropdown() {
               Profile
             </div>
           </Link>
-          <Link to="/home" onClick={() => setOpen(false)}>
+          <Link to="dashboard/inbox" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdOutlineChat className="text-2xl" />
               Inbox
             </div>
           </Link>
-          <Link to="/home" onClick={() => setOpen(false)}>
+          <Link to="dashboard/yourRides" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <FaCarSide className="text-2xl" />
               Your rides

@@ -4,8 +4,9 @@ const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
     console.log(message);
     if (
-      message.toLowerCase().includes("hello") ||
-      message.toLowerCase() === "hi"
+      message.toLowerCase().startsWith("hello") ||
+      message.toLowerCase().startsWith("hi") ||
+      message.toLowerCase().startsWith("hlo")
     ) {
       actions.handleHello();
     } else if (

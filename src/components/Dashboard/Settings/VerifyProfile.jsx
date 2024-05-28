@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { verifyProfile } from "../../../services/operations/SettingsAPI";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import idcard from "../../../assets/idcard.png"
 
 export default function verifyYourProfile() {
   const { token } = useSelector((state) => state.auth);
@@ -71,10 +72,9 @@ export default function verifyYourProfile() {
         <div className="flex flex-col items-center gap-y-10">
           <img
             src={
-              previewSource ||
-              "https://iconape.com/wp-content/files/iy/369858/svg/id-logo-icon-png-svg.png"
+              previewSource || idcard
             }
-            className="rounded-md mx-auto h-40 w-40 sm:h-20 sm:w-20 smxl:w-16 smxl:h-16 object-contain"
+            className="rounded-md mx-auto h-40 w-40 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-contain"
           />
           <div className="space-y-2">
             <p className="text-center mb-5">Upload your Govt. Id</p>

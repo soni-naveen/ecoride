@@ -98,6 +98,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botmsg],
     }));
   };
+  
   const handleForgotPassword = () => {
     const botmsg = createChatBotMessage(
       "You can reset your password by just clicking on 'forgot password' on login page."
@@ -107,6 +108,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botmsg],
     }));
   };
+
   const handleSeeYourRides = () => {
     const botmsg = createChatBotMessage(
       "This feature is not available yet...."
