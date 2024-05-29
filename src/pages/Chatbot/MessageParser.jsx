@@ -34,6 +34,11 @@ const MessageParser = ({ children, actions }) => {
       message.toLowerCase().includes("offer a ride")
     ) {
       actions.handleOfferRide();
+    } else if (
+      message.toLowerCase().includes("stop point") ||
+      message.toLowerCase().includes("add stop points")
+    ) {
+      actions.handleStopPoint();
     } else if (message.toLowerCase().includes("time")) {
       actions.handleTime();
     } else if (
@@ -74,6 +79,13 @@ const MessageParser = ({ children, actions }) => {
       message.toLowerCase().includes("my rides")
     ) {
       actions.handleSeeYourRides();
+    } else if (
+      message.toLowerCase().includes("delete account") ||
+      message.toLowerCase().includes("delete my account") ||
+      message.toLowerCase().includes("delete my profile") ||
+      message.toLowerCase().includes("delete profile")
+    ) {
+      actions.handleDeleteAccount();
     } else {
       actions.handleDefault();
     }

@@ -61,7 +61,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleBye = () => {
     const botmsg = createChatBotMessage(
-      "I am happy, I was able to help. Fell free to contact me again"
+      "I am happy, I was able to help. Fell free to contact me again."
     );
     setState((prev) => ({
       ...prev,
@@ -72,6 +72,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleOfferRide = () => {
     const botmsg = createChatBotMessage(
       "Just fill the details of your ride on 'Publish Ride' page to publish your ride."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
+  const handleStopPoint = () => {
+    const botmsg = createChatBotMessage(
+      "Stop points are the locations that lie between your starting location and final destination."
     );
     setState((prev) => ({
       ...prev,
@@ -98,7 +108,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botmsg],
     }));
   };
-  
+
   const handleForgotPassword = () => {
     const botmsg = createChatBotMessage(
       "You can reset your password by just clicking on 'forgot password' on login page."
@@ -109,6 +119,17 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+  const handleDeleteAccount = () => {
+    const botmsg = createChatBotMessage(
+      "Go to Profile, under the Account tab, you find the 'Delete your Account' option."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
+  //------> need to change!
   const handleSeeYourRides = () => {
     const botmsg = createChatBotMessage(
       "This feature is not available yet...."
@@ -137,16 +158,18 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleHello,
             handleRides,
             handlePrice,
-            handleDefault,
             handleBookRide,
             handleOfferRide,
+            handleStopPoint,
             handleTime,
             handleMoney,
             handleChangePassword,
             handleForgotPassword,
+            handleDeleteAccount,
             handleSeeYourRides,
-            handleBye,
             handleContactUs,
+            handleBye,
+            handleDefault,
           },
         });
       })}

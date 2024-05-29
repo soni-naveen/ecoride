@@ -19,12 +19,12 @@ function Searchride() {
     <>
       <div className="absolute h-[350px] w-full bg-light-color"></div>
       <div
-        className="mapSection flex flex-col justify-center items-center gap-10 h-auto
-          xl:flex-col xl:items-center mb-4"
+        className="mapSection flex flex-col justify-center items-center gap-10 mb-4 h-auto
+          md:gap-1 md:mb-1 xl:flex-col xl:items-center"
       >
         <div className="left mt-20 flex flex-col ">
           <p className="text-dark-color ml-3 mb-3 text-[1.4rem] smxl:text-[1.2rem] smxl:mb-3 smxl:ml-3 z-[2]">
-            Find your ride and go anywhere, any time!
+            Find your ride and go!
           </p>
           <div className="w-[35rem] h-[28rem] mb-10 relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10 md:w-[28rem] md:h-[27rem]">
             <form

@@ -100,7 +100,7 @@ export default function AccordionUsage() {
           on top of website. Indicate from where , to where , the date ,
           departure time, how many passengers you can take, journey time, and
           the price per seat. Click on proceed to add stop points, if no stop
-          point tap "Publish ride" and you're done!
+          point tap "Publish" and you're done!
         </AccordionDetails>
       </Accordion>
       <Accordion

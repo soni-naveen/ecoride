@@ -6,15 +6,14 @@ import "./Chatbot/chatbot.css";
 import config from "./Chatbot/config";
 import MessageParser from "./Chatbot/MessageParser";
 import ActionProvider from "./Chatbot/ActionProvider";
-import Footer from "../components/Footer/Footer";
 
 function Helpcenter() {
   return (
     <>
-      <div className="min-h-[calc(100vh-3.3rem)] flex flex-col justify-center gap-10 items-center bg-slate-200">
+      <div className="min-h-[calc(100vh-4.3rem)] flex flex-col justify-center gap-7 items-center bg-slate-200">
         <div>
-          <h1 className="font-semibold text-lg text-dark-color md:text-sm smxl:text-xs">
-            Chat With Confidence! We have got you covered
+          <h1 className="font-semibold text-lg text-center text-dark-color md:text-sm sm2xl:text-xs">
+            Chat With Confidence! We have got you covered.
           </h1>
         </div>
         <div>
@@ -25,7 +24,6 @@ function Helpcenter() {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

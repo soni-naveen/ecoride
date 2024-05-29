@@ -34,7 +34,7 @@ import ChangePassword from "./components/Dashboard/Settings/ChangePassword";
 import PublishRide from "./components/Dashboard/PublishRide/index";
 import Inbox from "./components/Dashboard/Inbox";
 import YourRides from "./components/Dashboard/YourRides";
-// import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
+import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 
 function App() {
@@ -108,7 +108,7 @@ function App() {
           <Route path="/completeprofile" element={<Completeprofile />} />
           <Route path="/dashboard/myprofile" element={<MyProfile />} />
           <Route path="/dashboard/publishride" element={<PublishRide />} />
-          {/* <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} /> */}
+          <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} />
           <Route path="/dashboard/updateProfile" element={<EditProfile />} />
           <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
           <Route path="/dashboard/yourRides" element={<YourRides />} />

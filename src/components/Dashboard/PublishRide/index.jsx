@@ -3,6 +3,7 @@ import Numberinput from "../../../components/Numberinput.jsx";
 import Autocomplete from "../../../components/Autocomplete.jsx";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { GrFormNextLink } from "react-icons/gr";
 import { useForm } from "react-hook-form";
 import { createRide } from "../../../services/operations/RideAPI.js";
 
@@ -193,11 +194,10 @@ export default function Publishride() {
               disabled={loading}
               className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full"
             >
-              {/* Proceed
+              Proceed
               <span>
                 <GrFormNextLink className="text-3xl" />
-              </span> */}
-              Publish Ride
+              </span>
             </button>
           </div>
         </form>
