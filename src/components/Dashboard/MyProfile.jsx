@@ -26,6 +26,13 @@ function Myprofile() {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("about");
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [about, setAbout] = useState(user?.additionalDetails?.about || "");
+  const [vehicle, setVehicle] = useState(
+    user?.additionalDetails?.vehicle || ""
+  );
+  const [editField, setEditField] = useState("");
+
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
@@ -34,16 +41,6 @@ function Myprofile() {
     // getFullProfile(user?.additionalDetails?.profileId);
     navigate(`/fullprofile`);
   };
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [about, setAbout] = useState(user?.additionalDetails?.about || "");
-
-  const [vehicle, setVehicle] = useState(
-    user?.additionalDetails?.vehicle || ""
-  );
-
-  const [editField, setEditField] = useState("");
 
   const handleEditClick = (field) => {
     setIsModalOpen(true);

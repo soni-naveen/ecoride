@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function Inbox() {
   return (
-    <div className='text-center mt-10 text-slate-400 text-xl smxl:text-base sm2xl:text-sm'>New notifications will appear here!</div>
-  )
+    <>
+      <h1 className="text-dark-color text-center text-3xl mt-7 mb-5 font-semibold">Inbox</h1>
+      <hr />
+      <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+        New notifications will appear here!
+      </div>
+    </>
+  );
 }

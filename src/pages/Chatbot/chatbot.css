@@ -68,6 +68,9 @@
   .react-chatbot-kit-chat-bot-message {
     font-size: small;
   }
+  .react-chatbot-kit-user-chat-message {
+    font-size: small;
+  }
 }
 
 @media (max-width: 400px) {

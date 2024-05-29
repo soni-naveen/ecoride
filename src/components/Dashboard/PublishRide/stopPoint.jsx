@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   IoMdAddCircleOutline,
   IoMdRemoveCircleOutline,
@@ -12,6 +12,7 @@ import { addStopPoint } from "../../../services/operations/RideAPI";
 
 export default function Stoppoint() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const [stopPoints, setStopPoints] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -48,7 +49,7 @@ export default function Stoppoint() {
     });
 
     setLoading(true);
-    const result = await addStopPoint(formData, token, navigate);
+    dispatch(addStopPoint(formData, token, navigate));
     setLoading(false);
   };
 
@@ -102,6 +103,7 @@ export default function Stoppoint() {
                         handleStopPointChange(index, value);
                       }}
                       register={register(`stopPoint${index + 1}`)}
+                      value={stopPoint}
                     />
                   )}
                 />

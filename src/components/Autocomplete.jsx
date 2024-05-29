@@ -1,24 +1,12 @@
-// import React from "react";
-// import {
-//   GeoapifyGeocoderAutocomplete,
-//   GeoapifyContext,
-// } from "@geoapify/react-geocoder-autocomplete";
-
-// const API_KEY = "afa901301d814d4bade02390df862287";
-
-// export default function Autocomplete({ placeholder, register, onValueChange }) {
-//   return (
-//     <div>
-//       <GeoapifyContext apiKey={API_KEY}>
-//         <GeoapifyGeocoderAutocomplete placeholder={placeholder} />
-//       </GeoapifyContext>
-//     </div>
-//   );
-// }
-
 import React, { useState, useEffect, useRef } from "react";
 
-const Autocomplete = ({ callback, options, register, onValueChange }) => {
+const Autocomplete = ({
+  callback,
+  options,
+  register,
+  onValueChange,
+  value,
+}) => {
   const [inputValue, setInputValue] = useState("");
   const [currentItems, setCurrentItems] = useState([]);
   const [focusedItemIndex, setFocusedItemIndex] = useState(-1);
@@ -26,6 +14,10 @@ const Autocomplete = ({ callback, options, register, onValueChange }) => {
   const inputRef = useRef(null);
   const clearButtonRef = useRef(null);
   let currentPromiseReject = useRef(null);
+
+  useEffect(() => {
+    setInputValue(value || "");
+  }, [value]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {

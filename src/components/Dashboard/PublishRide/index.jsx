@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Numberinput from "../../../components/Numberinput.jsx";
 import Autocomplete from "../../../components/Autocomplete.jsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { GrFormNextLink } from "react-icons/gr";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,7 @@ import { createRide } from "../../../services/operations/RideAPI.js";
 
 export default function Publishride() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const [minDate, setMinDate] = useState("");
@@ -35,17 +36,17 @@ export default function Publishride() {
     formData.append("fromWhere", data.fromWhere);
     formData.append("toWhere", data.toWhere);
     formData.append("date", data.date);
-    formData.append("time", data.time);
+    formData.append("leavingTime", data.leavingTime);
     formData.append("price", data.price);
     formData.append("noOfSeats", data.noOfSeats);
-    formData.append("journeyTime", data.journeyTime);
+    formData.append("reachingTime", data.reachingTime);
     setLoading(true);
-    const result = await createRide(formData, token, navigate);
+    dispatch(createRide(formData, token, navigate));
     setLoading(false);
   };
 
   return (
-    <div className="container h-full pb-10">
+    <div className="container h-full mb-24">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
           Become a EcoRide Driver and save on travel costs by sharing your rides
@@ -61,7 +62,7 @@ export default function Publishride() {
                   htmlFor="FromWhere"
                   className=" text-dark-color text-sm mb-1"
                 >
-                  From where
+                  From where :
                 </label>
                 <div className="border-2 border-medium-color rounded-md relative">
                   <div className="h-[10px] w-[10px] bg-medium-color rounded-full absolute top-[19px] left-[10px] z-10  smxl:h-2 smxl:w-2 smxl:top-[17px] smxl:left-3"></div>
@@ -78,7 +79,7 @@ export default function Publishride() {
                   htmlFor="toWhere"
                   className="text-sm text-dark-color mb-1"
                 >
-                  To where
+                  To where :
                 </label>
                 <div className="border-2 border-medium-color rounded-md relative">
                   <div className="h-[10px] w-[10px] bg-medium-color rounded-full absolute top-[19px] left-[10px] z-10  smxl:h-2 smxl:w-2 smxl:top-[17px] smxl:left-3"></div>
@@ -91,7 +92,7 @@ export default function Publishride() {
                 </div>
               </div>
             </div>
-            <div className="secondLine flex items-center gap-16 mb-12 md:flex-col md1:gap-10">
+            <div className="secondLine flex items-center gap-16 mb-12 md1:flex-col md1:gap-10">
               <div className="date flex flex-col">
                 <label htmlFor="Date" className="text-sm mb-1 text-dark-color">
                   When are you going :
@@ -101,7 +102,7 @@ export default function Publishride() {
                   type="date"
                   {...register("date", { required: true })}
                   min={minDate}
-                  className="border border-2 border-medium-color rounded-md w-[16rem] h-[45px] px-4 bg-white rounded-[4px] sm2xl:w-[14rem]"
+                  className="border border-2 border-medium-color rounded-md w-[16rem] h-[48px] px-4 bg-white rounded-[4px] sm2xl:w-[14rem] smxl:w-[16rem] md1:w-[22rem]"
                 />
                 {errors.date && (
                   <span className="ml-1 text-xs tracking-wide text-red-400">
@@ -109,20 +110,39 @@ export default function Publishride() {
                   </span>
                 )}
               </div>
-              <div className="departureTime flex flex-col">
+              <div className="leavingTime flex flex-col">
                 <label
-                  htmlFor="departureTime"
+                  htmlFor="leavingTime"
                   className="text-sm text-dark-color mb-1"
                 >
                   Leaving time :
                 </label>
                 <input
-                  id="time"
+                  id="leavingTime"
                   type="time"
-                  {...register("time", { required: true })}
-                  className="w-[16rem] h-[45px] border-2 border-medium-color rounded-md px-4 sm2xl:w-[14rem]"
+                  {...register("leavingTime", { required: true })}
+                  className="w-[12rem] h-[48px] border-2 border-medium-color rounded-md px-4 sm2xl:w-[14rem]  smxl:w-[16rem] md1:w-[22rem]"
                 />
-                {errors.time && (
+                {errors.leavingTime && (
+                  <span className="ml-1 text-xs tracking-wide text-red-400">
+                    Required!
+                  </span>
+                )}
+              </div>
+              <div className="reachingTime flex flex-col">
+                <label
+                  htmlFor="reachingTime"
+                  className="mb-1 text-sm text-dark-color"
+                >
+                  Reaching time :
+                </label>
+                <input
+                  id="reachingTime"
+                  type="time"
+                  {...register("reachingTime", { required: true })}
+                  className="h-[48px] w-[12rem] border-medium-color border-2 rounded-md px-4 sm2xl:w-[14rem] smxl:w-[16rem] md1:w-[22rem]"
+                />
+                {errors.reachingTime && (
                   <span className="ml-1 text-xs tracking-wide text-red-400">
                     Required!
                   </span>
@@ -135,7 +155,7 @@ export default function Publishride() {
                   htmlFor="NumberOfSeates"
                   className="mb-1 text-sm text-dark-color"
                 >
-                  No. of seats
+                  No. of seats :
                 </label>
                 <div className="border border-2 border-medium-color rounded-md">
                   <Numberinput
@@ -146,42 +166,25 @@ export default function Publishride() {
                   />
                 </div>
               </div>
-              <div className="journeyTime flex flex-col">
-                <label
-                  htmlFor="journeyTime"
-                  className="mb-1 text-sm text-dark-color"
-                >
-                  Journey Time
-                </label>
-                <input
-                  id="journeyTime"
-                  type="text"
-                  placeholder="e.g. 4h 22m"
-                  {...register("journeyTime", { required: true })}
-                  className="px-2 h-[42px] w-[9.5rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem] smxl:w-[16rem]"
-                />
-                {errors.journeyTime && (
-                  <span className="ml-1 text-xs tracking-wide text-red-400">
-                    Required!
-                  </span>
-                )}
-              </div>
+
               <div className="pricePerSeat flex flex-col">
                 <label
                   htmlFor="PricePerSeat"
                   className="mb-1 text-sm text-dark-color"
                 >
-                  Price of 1 Seat
+                  Price of 1 Seat :
                 </label>
                 <input
                   id="price"
                   type="number"
-                  placeholder="e.g. Rs. 580/-"
+                  min="0"
+                  max="5000"
+                  placeholder="In Rupees"
                   {...register("price", {
                     required: true,
                     valueAsNumber: true,
                   })}
-                  className="px-2 h-[42px] w-[9.5rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem]  smxl:w-[16rem]"
+                  className="px-2 h-[42px] w-[12rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem]  smxl:w-[16rem] md1:w-[12rem]"
                 />
                 {errors.price && (
                   <span className="ml-1 text-xs tracking-wide text-red-400">
