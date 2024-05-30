@@ -38,7 +38,7 @@ export default function Stoppoint() {
   };
 
   //handle submit
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     const formData = new FormData();
     // formData.append("stopPoint1", data.stopPoint1 || "");
     // formData.append("stopPoint2", data.stopPoint2 || "");
@@ -57,8 +57,8 @@ export default function Stoppoint() {
     <div className="container h-full pb-10">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
-          Become an EcoRide Driver and save on travel costs by sharing your
-          rides with passengers.
+          Adding stop locations allows you to attract more passengers on the
+          route you travel.
         </h1>
       </div>
       <div className="flex items-center">

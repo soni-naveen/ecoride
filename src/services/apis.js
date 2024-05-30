@@ -22,6 +22,7 @@ export const profileEndpoints = {
 export const rideEndpoints = {
   CREATE_RIDE_API: BASE_URL + "/ride/createRide",
   ADD_STOP_POINT_API: BASE_URL + "/ride/addStopPoint",
+  DELETE_RIDE_API : BASE_URL + "/ride/deleteRide"
 };
 
 // CONTACT-US API

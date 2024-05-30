@@ -3,7 +3,7 @@ import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { rideEndpoints } from "../apis";
 
-const { CREATE_RIDE_API, ADD_STOP_POINT_API } = rideEndpoints;
+const { CREATE_RIDE_API, ADD_STOP_POINT_API, DELETE_RIDE_API } = rideEndpoints;
 
 // create ride
 export function createRide(data, token, navigate) {
@@ -34,7 +34,7 @@ export function addStopPoint(data, token, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
-      const response = await apiConnector("POST", ADD_STOP_POINT_API, data, {
+      const response = await apiConnector("PUT", ADD_STOP_POINT_API, data, {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       });
@@ -47,6 +47,30 @@ export function addStopPoint(data, token, navigate) {
       navigate("/dashboard/yourRides");
     } catch (error) {
       console.log("ADD_STOP_POINT_API API ERROR............", error);
+      toast.error(error.message);
+    }
+    toast.dismiss(toastId);
+  };
+}
+
+//add stop points to ride
+export function deleteRide(token, navigate) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const response = await apiConnector("PUT", DELETE_RIDE_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+      console.log("DELETE_RIDE API RESPONSE............", response);
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+      dispatch(setUser({ ...response.data.updatedRideDetails }));
+      toast.success("Ride Deleted Successfully");
+      navigate("/dashboard/yourRides");
+    } catch (error) {
+      console.log("DELETE_RIDE_API API ERROR............", error);
       toast.error(error.message);
     }
     toast.dismiss(toastId);
