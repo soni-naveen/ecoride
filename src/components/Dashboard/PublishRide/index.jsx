@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
 import Numberinput from "../../../components/Numberinput.jsx";
 import Autocomplete from "../../../components/Autocomplete.jsx";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,6 +12,8 @@ export default function Publishride() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
+
   const [loading, setLoading] = useState(false);
   const [minDate, setMinDate] = useState("");
 
@@ -37,12 +40,20 @@ export default function Publishride() {
     formData.append("toWhere", data.toWhere);
     formData.append("date", data.date);
     formData.append("leavingTime", data.leavingTime);
-    formData.append("price", data.price);
-    formData.append("noOfSeats", data.noOfSeats);
     formData.append("reachingTime", data.reachingTime);
+    formData.append("noOfSeats", data.noOfSeats);
+    formData.append("price", data.price);
     setLoading(true);
-    dispatch(createRide(formData, token, navigate));
-    setLoading(false);
+
+    if (
+      user?.ridePublished?.fromWhere !== "" &&
+      user?.ridePublished?.toWhere !== ""
+    ) {
+      toast.error("Before Publishing a New Ride,\n Delete the old one.");
+    } else {
+      dispatch(createRide(formData, token, navigate));
+      setLoading(false);
+    }
   };
 
   return (
@@ -195,7 +206,7 @@ export default function Publishride() {
             </div>
             <button
               disabled={loading}
-              className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full"
+              className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer"
             >
               Proceed
               <span>

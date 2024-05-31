@@ -89,9 +89,9 @@ export default function YourRides() {
                               {user?.ridePublished?.reachingTime}
                             </h1>
                           </div>
-                          <div className="divider py-1">
+                          <div className="divider py-2 sm:py-1">
                             <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
-                            <div className="line bg-medium-color h-24 w-0.5 ml-[4px] sm:h-16"></div>
+                            <div className="line bg-medium-color h-24 w-0.5 ml-[4px] sm:h-[75px]"></div>
                             <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
                           </div>
                           <div className="destination text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48">
@@ -110,7 +110,7 @@ export default function YourRides() {
                           </h1>
                           <button
                             onClick={handleDeleteRide}
-                            className="flex items-center bg-light-color text-sm text-dark-color font-semibold px-3 py-1.5 rounded-sm hover:bg-[#b5e9e4] duration-200 cursor-pointer sm:text-[10px] sm:py-0.5 sm:px-2"
+                            className="flex items-center bg-red-200 text-sm text-black font-semibold px-3 py-1.5 rounded-sm hover:bg-red-300 duration-200 cursor-pointer sm:text-[10px] sm:py-0.5 sm:px-2"
                           >
                             <RiDeleteBin6Line className="mr-2 sm:mr-1" />
                             Delete

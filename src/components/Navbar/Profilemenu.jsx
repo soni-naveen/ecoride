@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
-import { MdOutlineChat } from "react-icons/md";
+import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
 import { FaCarSide } from "react-icons/fa";
 import { IoHelpBuoy } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
@@ -46,7 +46,7 @@ export default function ProfileDropdown() {
           </Link>
           <Link to="dashboard/inbox" onClick={() => setOpen(false)}>
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
-              <MdOutlineChat className="text-2xl" />
+              <MdOutlineMarkUnreadChatAlt className="text-2xl" />
               Inbox
             </div>
           </Link>

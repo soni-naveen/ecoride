@@ -6,7 +6,7 @@ const Aboutus = () => {
   return (
     <>
       <div className="bg-white py-16 mb-10 sm:py-10 lg:py-16">
-        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-16 md1:grid-cols-1 lg:grid-cols-2">
             <div className="order-2 md1:order-1">
               <h2 className="text-3xl font-extrabold text-dark-color sm:text-3xl lg:text-4xl">

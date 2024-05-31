@@ -9,6 +9,9 @@ import { useForm } from "react-hook-form";
 
 function Searchride() {
   const navigate = useNavigate();
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const {
     register,
     handleSubmit,
@@ -16,8 +19,8 @@ function Searchride() {
     setValue,
   } = useForm();
   return (
-    <>
-      <div className="absolute h-[350px] w-full bg-light-color"></div>
+    <div className="max-w-[1800px] mx-auto">
+      <div className="absolute h-[350px] w-full max-w-[1800px] bg-light-color"></div>
       <div
         className="mapSection flex flex-col justify-center items-center gap-10 mb-4 h-auto
           md:gap-1 md:mb-1 xl:flex-col xl:items-center"
@@ -65,7 +68,10 @@ function Searchride() {
               {/* See rides and map button */}
               <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
                 <button
-                  onClick={() => navigate("/seeRides")}
+                  onClick={() => {
+                    navigate("/seeRides");
+                    handleClickPageTop();
+                  }}
                   className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3"
                 >
                   SEE RIDES
@@ -91,7 +97,7 @@ function Searchride() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

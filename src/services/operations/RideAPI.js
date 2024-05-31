@@ -19,7 +19,6 @@ export function createRide(data, token, navigate) {
         throw new Error("Could Not Add Ride Details");
       }
       dispatch(setUser({ ...response.data.newRide }));
-      toast.success("Ride Created Add Stop Points");
       navigate("addStopPoint");
     } catch (error) {
       console.log("CREATE RIDE API ERROR............", error);

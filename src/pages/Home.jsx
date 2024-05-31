@@ -36,7 +36,7 @@ const Home = () => {
   } = useForm();
   return (
     <>
-      <div className="max-w-[1800px] m-auto relative">
+      <div className="max-w-[1800px] mx-auto relative">
         {/* *******************************************************************************************************
                                               Image and Title
         ******************************************************************************************************** */}
@@ -107,7 +107,10 @@ const Home = () => {
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
                   <button
-                    onClick={() => navigate("/seeRides")}
+                    onClick={() => {
+                      navigate("/seeRides");
+                      handleClickPageTop();
+                    }}
                     className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3"
                   >
                     SEE RIDES

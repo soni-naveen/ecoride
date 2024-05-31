@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navBar max-w-[1800px] m-auto bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-8 z-10 w-full smxl:pl-0 sm:h-[60px] smxl:pr-3 sm:pr-4 sm:px-0 md:pl-0 md:pr-4 md1:pl-0 md1:pr-4 lg:pl-2 lg:pr-6">
+      <div className="navBar max-w-[1800px] m-auto bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-8 z-20 w-full smxl:pl-0 sm:h-[60px] smxl:pr-3 sm:pr-4 sm:px-0 md:pl-0 md:pr-4 md1:pl-0 md1:pr-4 lg:pl-2 lg:pr-6">
         <div className="logo smxl:ml-0 md:ml-2 md1:ml-6">
           <Link to="/" onClick={handleClickPageTop}>
             <img
@@ -25,7 +25,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="flex gap-20 items-center sm2xl:gap-0 smxl:gap-4 md:gap-8 md1:gap-10 lg:gap-14">
+        <div className="flex gap-16 items-center sm2xl:gap-0 smxl:gap-4 md:gap-8 md1:gap-10 lg:gap-14">
           <div>
             <Link to="/searchride" onClick={handleClickPageTop}>
               <button className="text-dark-color hover:font-bold font-medium text-lg flex items-center">
