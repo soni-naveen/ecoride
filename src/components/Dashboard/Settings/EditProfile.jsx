@@ -81,7 +81,7 @@ function Editdetails() {
             Personal Details
           </h1>
         </div>
-        <div className="editable w-[400px] flex flex-col gap-12 mt-12 sm:w-[300px] sm:mx-auto sm2xl:w-[250px]">
+        <div className="editable w-[400px] flex flex-col gap-12 mt-12 sm:w-[300px] sm:mx-auto sm:gap-9 sm2xl:w-[250px]">
           <div className="firstname flex items-center justify-between">
             <div className="name">
               <h1 className="text-dark-color font-medium">First name</h1>

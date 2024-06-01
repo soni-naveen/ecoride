@@ -1,5 +1,5 @@
 import React from "react";
-import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { PiChatsFill } from "react-icons/pi";
 import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
@@ -10,9 +10,9 @@ function Seeridecard() {
 
   return (
     <>
-      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit p-6 z-0 sm:p-5 sm2xl:p-3">
+      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit p-6 z-0 sm:p-5 smxl:px-3">
         <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
-          <div className="time flex gap-4 sm2xl:gap-3">
+          <div className="time flex gap-4 smxl:gap-3">
             <div className="timeContainer flex flex-col justify-between items-center">
               <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                 {user?.ridePublished?.leavingTime}
@@ -40,15 +40,13 @@ function Seeridecard() {
               <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
               {user?.ridePublished?.price}/-
             </h1>
-            <button
-              className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7"
-            >
+            <button className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7">
               Book
             </button>
           </div>
         </div>
         <div className="DriverDetails mt-7 border-t pt-4 flex items-center justify-between smxl:mt-5 sm2xl:justify-around">
-          <div className="left ml-10 flex items-center gap-2 sm:ml-5 sm2xl:ml-2">
+          <div className="left ml-10 flex items-center gap-3 sm:ml-5 smxl:gap-2 sm2xl:ml-2">
             <div className="img">
               <img
                 src={user?.image}
@@ -63,9 +61,15 @@ function Seeridecard() {
                 <div className="name text-dark-color sm:text-sm smxl:text-xs">
                   {user?.additionalDetails?.lastName}
                 </div>
-                <div>
-                  <MdVerified className="text-medium-color text-lg sm:text-base smxl:text-sm" />
-                </div>
+                {user?.additionalDetails?.govtId === null ||
+                user?.additionalDetails?.govtId === "" ||
+                user?.additionalDetails?.govtId === "Pending" ? (
+                  <div></div>
+                ) : (
+                  <div>
+                    <MdVerified className="text-medium-color text-lg sm:text-base smxl:text-sm" />
+                  </div>
+                )}
               </div>
               <div className="rating flex items-center gap-2">
                 <div className="star">
@@ -80,9 +84,11 @@ function Seeridecard() {
           <div className="right">
             <button className="flex justify-evenly items-center border rounded-full gap-2 px-3 py-1 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
               <div className="icon">
-                <HiOutlineChatBubbleLeftRight className="text-slate-500 text-base sm:text-xs" />
+                <PiChatsFill className="text-slate-500 text-base sm:text-xs" />
               </div>
-              <div className="name text-sm text-slate-500 sm:text-[10px]">Contact</div>
+              <div className="name text-sm text-slate-500 sm:text-[10px]">
+                Contact
+              </div>
             </button>
           </div>
         </div>

@@ -97,8 +97,8 @@ export default function AccordionUsage() {
           >
             Publish ride
           </Link>{" "}
-          on top of website. Indicate from where , to where , the date ,
-          departure time, how many passengers you can take, journey time, and
+          on top of website. Indicate from where , to where , date ,
+          leaving time, reaching time, how many passengers you can take, and
           the price per seat. Click on proceed to add stop points, if no stop
           point tap "Publish" and you're done!
         </AccordionDetails>

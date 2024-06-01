@@ -14,7 +14,7 @@ const {
   DELETE_PROFILE_API,
 } = settingsEndpoints;
 
-export function verifyProfile(token, formData) {
+export function verifyProfile(token, formData, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
@@ -27,8 +27,9 @@ export function verifyProfile(token, formData) {
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
+      dispatch(setUser(response.data.updatedProfile));
+      navigate("/dashboard/myprofile");
       toast.success("Govt. Id Uploaded Successfully");
-      dispatch(setUser(response.data.data));
     } catch (error) {
       console.log("VERIFY_ID_API API ERROR............", error);
       toast.error("Couldn't upload your Govt.Id");
@@ -37,7 +38,7 @@ export function verifyProfile(token, formData) {
   };
 }
 
-export function updateDisplayPicture(token, formData) {
+export function updateDisplayPicture(token, formData, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
@@ -58,8 +59,9 @@ export function updateDisplayPicture(token, formData) {
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-      toast.success("Profile Picture Updated");
       dispatch(setUser(response.data.data));
+      navigate("/dashboard/myprofile");
+      toast.success("Profile Picture Updated");
     } catch (error) {
       console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error);
       toast.error("Could not update profile picture");

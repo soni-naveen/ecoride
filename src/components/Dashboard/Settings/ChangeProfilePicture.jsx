@@ -45,7 +45,7 @@ export default function ChangeProfilePicture() {
       const formData = new FormData();
       formData.append("displayPicture", imageFile);
       // console.log("formdata", formData)
-      dispatch(updateDisplayPicture(token, formData)).then(() => {
+      dispatch(updateDisplayPicture(token, formData, navigate)).then(() => {
         setLoading(false);
       });
     } catch (error) {
@@ -93,7 +93,10 @@ export default function ChangeProfilePicture() {
               >
                 Select
               </button>
-              <button className="flex items-center gap-2 bg-dark-color rounded-full px-4 text-white" onClick={handleFileUpload}>
+              <button
+                className="flex items-center gap-2 bg-dark-color rounded-full px-4 text-white"
+                onClick={handleFileUpload}
+              >
                 {!loading && <FiUpload className="text-lg" />}
                 {loading ? "Uploading..." : "Upload"}
               </button>

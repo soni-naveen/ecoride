@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { verifyProfile } from "../../../services/operations/SettingsAPI";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import idcard from "../../../assets/idcard.png"
+import idcard from "../../../assets/idcard.png";
 
 export default function verifyYourProfile() {
   const { token } = useSelector((state) => state.auth);
@@ -44,7 +44,7 @@ export default function verifyYourProfile() {
       setLoading(true);
       const formData = new FormData();
       formData.append("verifyProfile", imageFile);
-      dispatch(verifyProfile(token, formData)).then(() => {
+      dispatch(verifyProfile(token, formData, navigate)).then(() => {
         setLoading(false);
       });
     } catch (error) {
@@ -71,9 +71,7 @@ export default function verifyYourProfile() {
       <div className="mt-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">
           <img
-            src={
-              previewSource || idcard
-            }
+            src={previewSource || idcard}
             className="rounded-md mx-auto h-40 w-40 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-contain"
           />
           <div className="space-y-2">

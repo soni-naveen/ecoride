@@ -1,23 +1,22 @@
 import React, { useState } from "react";
-import Seeridecard from "../components/SeeRidesCard";
-import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Seeridecard from "../components/SeeRidesCard";
+import RideFilter from "../components/RideFilter";
 
 function Seerides() {
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.profile);
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
   const [departureTimeFilters, setDepartureTimeFilters] = useState([]);
   const [verifiedProfile, setVerifiedProfile] = useState(false);
+  const [isRideFilterVisible, setIsRideFilterVisible] = useState(false);
 
-  // Input date string
   const inputDateString = user?.ridePublished?.date;
-
-  // Parse the input date string to a Date object
   const date = new Date(inputDateString);
-
-  // Define an array of month names
   const monthNames = [
     "January",
     "February",
@@ -32,13 +31,9 @@ function Seerides() {
     "November",
     "December",
   ];
-
-  // Get the day, month, and year from the Date object
   const day = date.getDate();
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
-
-  // Construct the desired output string
   const outputDateString = `${day} ${month} ${year}`;
 
   const handleSortOptionChange = (event) => {
@@ -60,6 +55,14 @@ function Seerides() {
     setVerifiedProfile(event.target.checked);
   };
 
+  const handleFilter = () => {
+    setIsRideFilterVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsRideFilterVisible(false);
+  };
+
   const clearFilters = (filterType) => {
     if (filterType === "sortBy") {
       setSelectedSortOption("");
@@ -76,13 +79,19 @@ function Seerides() {
       <div className="header h-24 w-full max-w-[1800px] flex justify-center items-center z-10 fixed top-19 gap-5 lg:gap-3 bg-dark-color md:flex-col md:h-32 smxl:h-28 md:gap-3">
         <div className="text-white text-xl flex items-center justify-around gap-3 w-fit lg:text-lg md:justify-between md:w-[73%] sm:justify-between sm:w-[82%] md:text-[16px] smxl:text-sm">
           <span>Showing rides for :</span>
-          <div className="hidden md:flex gap-2 px-3 py-1.5 sm:py-1 rounded-full items-center bg-[#306f82]">
+          <button
+            onClick={handleFilter}
+            className="hidden md:flex gap-2 px-3 py-1.5 sm:py-1 rounded-full items-center bg-[#306f82]"
+          >
             <span className="text-sm sm:text-xs">Filter</span>{" "}
             <TbAdjustmentsHorizontal className="text-xl text-white sm:text-lg" />
-          </div>
+          </button>
         </div>
         <div className="flex justify-center gap-5 items-center md:w-[75%] sm:w-[85%]">
-          <div className="resultRide rounded-md w-fit px-10 bg-white flex justify-center items-center h-12 md:w-full lg:px-8 md:px-5 smxl:flex-col smxl:items-start sm:px-2 smxl:h-10">
+          <button
+            onClick={() => navigate("/searchride")}
+            className="resultRide rounded-md w-fit px-10 bg-white flex justify-center items-center h-12 md:w-full lg:px-8 md:px-5 smxl:flex-col smxl:items-start sm:px-2 smxl:h-10"
+          >
             <div className="mr-2 font-bold text-sm smxl:ml-2 smxl:text-xs">
               {outputDateString} :
             </div>
@@ -90,16 +99,19 @@ function Seerides() {
               <div className="max-w-48 truncate lg:max-w-32 sm2xl:max-w-24">
                 {user?.ridePublished?.fromWhere}
               </div>
-              <HiOutlineArrowLongRight className="text-2xl md:text-xl sm:text-base" />
+              <FaArrowRightLong className="text-xl md:text-xl sm:text-base" />
               <div className="max-w-48 truncate lg:max-w-32 sm2xl:max-w-24">
                 {user?.ridePublished?.toWhere}
               </div>
             </div>
-          </div>
-          <div className="hidden xl:flex md:hidden gap-2 px-3 py-2 rounded-full items-center bg-[#306f82]">
+          </button>
+          <button
+            onClick={handleFilter}
+            className="hidden xl:flex md:hidden gap-2 px-3 py-2 rounded-full items-center bg-[#306f82]"
+          >
             <span className="text-sm text-white">Filter</span>{" "}
             <TbAdjustmentsHorizontal className="text-xl text-white" />
-          </div>
+          </button>
         </div>
       </div>
 
@@ -291,7 +303,7 @@ function Seerides() {
             </div>
           </div>
 
-          <div className="rightSide mt-36 mb-14 md:mt-40 smxl:mt-36 flex flex-col gap-10 items-center">
+          <div className="rightSide mt-36 mb-14 md:mt-40 smxl:mt-36 flex flex-col gap-8 items-center">
             <Seeridecard />
             <Seeridecard />
             <Seeridecard />
@@ -302,6 +314,7 @@ function Seerides() {
           </div>
         </div>
       </div>
+      {isRideFilterVisible && <RideFilter onClose={handleClose} />}
     </div>
   );
 }
