@@ -8,7 +8,7 @@ function AnimateLR() {
       for (let i = 0; i < reveals.length; i++) {
         const windowHeight = window.innerHeight;
         const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 50;
+        const elementVisible = 30;
 
         if (elementTop < windowHeight - elementVisible) {
           reveals[i].classList.add("activelr");

@@ -23,7 +23,7 @@ export default function YourRides() {
     try {
       const confirmDelete = await Swal.fire({
         title: "Are You Sure?",
-        text: "You lost your passengers when you deleted the ride",
+        text: "You lost your passengers when you delete this ride",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",

@@ -40,7 +40,7 @@ export default function Numberinput({ register, onValueChange }) {
         value={inputQuantity}
         {...register}
         onChange={handleChange}
-        className="text-center border-x-2 outline-none w-16 text-2xl font-bold caret-white smxl:w-28"
+        className="text-center border-x-2 outline-none w-16 text-2xl font-bold caret-white smxl:w-24"
       />
       <AddIcon
         onClick={handleIncrement}

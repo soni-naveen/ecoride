@@ -28,21 +28,33 @@ const Home = () => {
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue,
-  } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
+
+  //handle submit
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("fromWhere", data.fromWhere);
+    formData.append("toWhere", data.toWhere);
+    formData.append("date", data.date);
+    formData.append("noOfSeats", data.noOfSeats);
+
+    // console.log(formData.get("fromWhere"));
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
+  };
+
   return (
     <>
       <div className="max-w-[1800px] mx-auto relative">
         {/* *******************************************************************************************************
                                               Image and Title
         ******************************************************************************************************** */}
-        <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2">
+
+        {/* Help Center */}
+        <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2 smxl:p-1.5">
           <Link to="/helpcenter" onClick={handleClickPageTop}>
-            <BsRobot className="text-3xl p-0.5 text-dark-color" />
+            <BsRobot className="text-3xl p-0.5 text-dark-color smxl:text-2xl" />
           </Link>
         </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
@@ -63,18 +75,14 @@ const Home = () => {
         {/* *******************************************************************************************************
                                             Search and Map Section
         ******************************************************************************************************** */}
-        <div
-          className="mapSection h-[700px] flex flex-row justify-around items-start md:h-[600px] md1:h-[1300px]
-          xl:flex-col xl:h-[1300px] xl:items-center mb-4"
-        >
+        <div className="mapSection h-[670px] flex flex-row justify-around items-start md:h-[600px] xl:flex-col xl:h-[1250px] xl:items-center mb-4">
           <div className="left mt-5">
-            <p className="text-dark-color ml-3 mb-2 text-xl smxl:text-[1rem] smxl:ml-3">
+            <p className="text-dark-color font-medium ml-3 mb-3 text-xl smxl:text-[1rem] smxl:ml-3">
               Find your ride and go!
             </p>
-            <div className="w-[28rem] h-[27rem] relative flex flex-col items-center p-14 rounded-2xl bg-dark-color sm2xl:w-[17rem] sm2xl:h-[27rem] smxl:w-[20rem] sm2xl:p-10 smxl:h-[27.5rem] smxl:p-10">
+            <div className="relative flex gap-20 items-center p-12 rounded-xl bg-dark-color xl:gap-16 lg:p-12 smxl:p-9 sm2xl:p-7">
               <form
-                action="/home"
-                id="form"
+                onSubmit={handleSubmit(onSubmit)}
                 className="locations text-center flex flex-col gap-10 smxl:gap-8"
               >
                 <Autocomplete
@@ -90,29 +98,31 @@ const Home = () => {
                   onValueChange={(value) => setValue("toWhere", value)}
                 />
 
-                <div className="connectinglines flex flex-col items-center absolute top-[4.7rem] left-[3.6rem] sm2xl:top-[3.5rem] sm2xl:left-[2.2rem] smxl:left-[2.7rem] smxl:top-[3.5rem]">
+                <div className="connectinglines flex flex-col items-center absolute top-[4.25rem] left-[3.7rem] sm2xl:top-[2.8rem] sm2xl:left-[2.4rem] smxl:left-[2.9rem] smxl:top-[3.3rem] lg:left-[3.7rem] lg:top-[4.2rem]">
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
-                  <div className="bg-medium-color h-[4.8rem] w-0.5 smxl:h-[4rem]"></div>
+                  <div className="bg-medium-color h-[4.7rem] w-0.5 smxl:h-[3.9rem]"></div>
                   <div className="bg-medium-color h-2.5 w-2.5 rounded-lg"></div>
                 </div>
                 <div className="flex justify-between items-center smxl:flex-col smxl:gap-5 smxl:mt-0">
                   <div className="flex flex-col items-start text-xs">
-                    <p className="text-white mb-1 ml-1">Date :</p>
-                    <Calender />
+                    <p className="text-white mb-1 ml-1">Select Date :</p>
+                    <Calender
+                      register={register}
+                      onValueChange={(value) => setValue("date", value)}
+                    />
                   </div>
                   <div className="flex flex-col items-start text-xs">
                     <p className="text-white mb-1 ml-1">No. of seats :</p>
-                    <Numberinput />
+                    <Numberinput
+                      register={register("noOfSeats", {
+                        valueAsNumber: true,
+                      })}
+                      onValueChange={(value) => setValue("noOfSeats", value)}
+                    />
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between sm2xl:mt-0 smxl:mt-1">
-                  <button
-                    onClick={() => {
-                      navigate("/seeRides");
-                      handleClickPageTop();
-                    }}
-                    className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3"
-                  >
+                  <button className="bg-medium-color active:bg-[#05a195] py-3 text-white tracking-[1px] w-[45%] font-medium rounded-full sm2xl:text-xs smxl:text-sm smxl:py-3">
                     SEE RIDES
                   </button>
                   <a
@@ -139,34 +149,36 @@ const Home = () => {
         {/* *******************************************************************************************************
                                              Specifications Banner
         *******************************************************************************************************/}
-        <div className="belowBanner h-[150px] w-full bg-dark-color flex justify-around gap-5 items-center text-white">
-          <div className="left flex flex-row items-center gap-6 md:flex-col md:gap-1 ">
-            <PeopleIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
+        <div className="belowBanner h-[150px] w-full bg-dark-color flex justify-around gap-5 items-center text-white sm:h-[130px]">
+          <div className="left flex flex-row items-center gap-4 md:flex-col md:gap-1 ">
+            <PeopleIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
+              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 <Counter target={150} />
               </h1>
-              <p className="text-sm text-center smxl:text-xs">Daily users</p>
+              <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
+                Daily users
+              </p>
             </div>
           </div>
-          <div className="middle flex flex-row items-center gap-6 md:flex-col md:gap-1">
-            <SupportAgentIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
+          <div className="middle flex flex-row items-center gap-4 md:flex-col md:gap-1">
+            <SupportAgentIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
+              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 24/7
               </h1>
-              <p className="text-sm text-center smxl:text-xs">
+              <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
                 Customer support
               </p>
             </div>
           </div>
-          <div className="right flex flex-row items-center gap-6  md:flex-col md:gap-1">
-            <VerifiedIcon sx={{ fontSize: { xs: 35, sm: 50 } }} />
+          <div className="right flex flex-row items-center gap-4  md:flex-col md:gap-1">
+            <VerifiedIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-4xl font-semibold  text-center smxl:text-2xl sm:text-3xl">
+              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 <Counter target={500} />
               </h1>
-              <p className="text-sm text-center smxl:text-xs">
+              <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
                 Verified profiles
               </p>
             </div>
@@ -176,10 +188,10 @@ const Home = () => {
         {/* *******************************************************************************************************
                                            3 Cards - Why Stick With Us
         ******************************************************************************************************** */}
-        <div className="stickWithUs h-auto w-full p-20 mt-5 mb-14 sm:p-10 sm:mb-7 sm:mt-8">
-          <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-16 sm:w-4/5 md:gap-20 m-auto">
+        <div className="stickWithUs h-auto w-full p-20 my-10 sm:p-10 sm:mb-7 smxl:mt-5 md1:p-14">
+          <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-12 sm:w-4/5 md1:gap-20 m-auto">
             <div>
-              <h1 className="ml-7 text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:ml-0 lg:text-center revealbu">
+              <h1 className="text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:text-center revealbu">
                 People stick with us because
                 <AnimateBU />
               </h1>
@@ -215,11 +227,11 @@ const Home = () => {
                                                  FAQ Section
         ******************************************************************************************************** */}
         <div className="faqs bg-dark-color flex items-center ">
-          <div className="left min-w-[30%] w-[100%] mx-20 lg:hidden">
+          <div className="left min-w-[30%] w-[100%] max-w-1 mx-20 lg:hidden">
             <img src={faqLogo} alt="FAQ's" />
           </div>
           <div className="right flex flex-col items-center gap-10">
-            <div className="heading text-white text-5xl font-semibold mt-16 sm2xl:text-2xl sm2xl:mt-10 smxl:text-3xl smxl:mt-14 md:text-4xl">
+            <div className="heading text-white text-5xl font-semibold mt-16 sm2xl:mt-10 smxl:text-2xl smxl:mt-14 md1:text-4xl">
               FAQ's
             </div>
             <div className="revealbu mb-16 flex justify-center">
@@ -233,7 +245,7 @@ const Home = () => {
         ******************************************************************************************************** */}
         <div className="feedback w-full h-[600px] bg-light-color m-auto flex flex-col justify-evenly items-center smxl:h-[500px] smxl:pb-10 md:justify-center">
           <div className="heading font-semibold mt-14 smxl:mt-10 md:mt-0">
-            <h1 className="text-dark-color m-auto text-5xl sm2xl:text-2xl sm2xl:w-2/3 sm2xl:text-center smxl:text-3xl smxl:w-2/3 smxl:leading-normal smxl:text-center md:text-4xl">
+            <h1 className="text-dark-color m-auto text-5xl sm2xl:w-2/3 sm2xl:text-center smxl:text-2xl smxl:w-2/3 smxl:leading-normal smxl:text-center md1:text-4xl">
               Our Service Feedback
             </h1>
           </div>
@@ -245,9 +257,9 @@ const Home = () => {
         {/* *******************************************************************************************************
                                                 Get Started Today 
         ******************************************************************************************************** */}
-        <div className="abovefooter w-full h-72 px-36 flex flex-col justify-evenly gap-10 sm:gap-4 sm:h-80 lg:px-0 lg:items-center xl:px-28">
+        <div className="abovefooter w-full py-16 px-36 flex flex-col justify-evenly gap-16 sm:gap-12 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
-            <h1 className="text-dark-color font-semibold text-5xl sm2xl:text-2xl smxl:text-3xl md:text-4xl">
+            <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl">
               Get started today !
             </h1>
           </div>
@@ -266,6 +278,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/******************************************* Footer ***********************************************/}
       <Footer />
     </>
   );

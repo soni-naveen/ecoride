@@ -10,7 +10,7 @@ export default function AccordionUsage() {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
   return (
-    <div className="w-[75%] smxl:w-[85%] sm:w-[80%]">
+    <div className="w-[70%] smxl:w-[85%] sm:w-[80%]">
       <Accordion
         sx={{
           marginBottom: "30px",
