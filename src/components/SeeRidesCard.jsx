@@ -63,7 +63,8 @@ function Seeridecard() {
                 </div>
                 {user?.additionalDetails?.govtId === null ||
                 user?.additionalDetails?.govtId === "" ||
-                user?.additionalDetails?.govtId === "Pending" ? (
+                user?.additionalDetails?.govtId === "Pending" ||
+                user?.additionalDetails?.govtId === undefined ? (
                   <div></div>
                 ) : (
                   <div>

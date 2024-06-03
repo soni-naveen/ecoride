@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
+import { FaMinus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 
 export default function Numberinput({ register, onValueChange }) {
   const [inputQuantity, setInputQuantity] = useState(1);
@@ -31,22 +31,24 @@ export default function Numberinput({ register, onValueChange }) {
       className="bg-white text-center h-[2.4rem] w-[9.5rem] flex items-center justify-evenly rounded-[4px]
     sm2xl:w-[14rem] smxl:h-[2.4rem] smxl:w-[16rem] smxl:justify-evenly"
     >
-      <RemoveIcon
+      <div
         onClick={handleDecrement}
-        fontSize="small"
-        className="text-gray-600 border-gray-600 rounded-full cursor-pointer"
-      />
+        className="p-2.5 cursor-pointer"
+      >
+        <FaMinus className="text-gray-600 text-base border-gray-600 rounded-full" />
+      </div>
       <input
         value={inputQuantity}
         {...register}
         onChange={handleChange}
         className="text-center border-x-2 outline-none w-16 text-2xl font-bold caret-white smxl:w-24"
       />
-      <AddIcon
+      <div
         onClick={handleIncrement}
-        fontSize="small"
-        className="text-gray-600 border-gray-600 rounded-full cursor-pointer"
-      />
+        className="p-2.5 cursor-pointer"
+      >
+        <FaPlus className="text-gray-600 text-base border-gray-600 rounded-full" />
+      </div>
     </div>
   );
 }

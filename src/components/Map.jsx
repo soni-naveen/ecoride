@@ -29,42 +29,18 @@ const Map = () => {
         'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
     }).addTo(mymap);
 
-    // Get user's current location
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-
-          // Set current location as the initial waypoint
-          const currentLocation = L.latLng(latitude, longitude);
-          mymap.setView(currentLocation, 12);
-
-          // Create routing control
-          L.Routing.control({
-            waypoints: [currentLocation], // Set current location as the waypoint
-            router: new L.Routing.osrmv1({
-              language: "en",
-              profile: "car",
-            }),
-            collapsible: true,
-            fitSelectedRoutes: true,
-            reverseWaypoints: true,
-            geocoder: L.Control.Geocoder.nominatim({}),
-          }).addTo(mymap);
-        },
-        (error) => {
-          console.error("Error getting user's location:", error);
-          L.Routing.control({
-            collapsible: true,
-            fitSelectedRoutes: true,
-            reverseWaypoints: true,
-            geocoder: L.Control.Geocoder.nominatim({}),
-          }).addTo(mymap);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
+    // Create routing control
+    L.Routing.control({
+      waypoints: [],
+      router: new L.Routing.osrmv1({
+        language: "en",
+        profile: "car",
+      }),
+      collapsible: true,
+      fitSelectedRoutes: true,
+      reverseWaypoints: true,
+      geocoder: L.Control.Geocoder.nominatim({}),
+    }).addTo(mymap);
 
     // Clean up function
     return () => {
