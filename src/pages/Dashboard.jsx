@@ -7,15 +7,15 @@ function Dashboard() {
 
   if (profileLoading || authLoading) {
     return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+      <div className="grid min-h-[calc(100vh-70px)] place-items-center">
         <div className="spinner"></div>
       </div>
     );
   }
 
   return (
-    <div className="relative flex min-h-[calc(100vh-3.5rem)]">
-      <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
+    <div className="relative flex min-h-[calc(100vh-70px)]">
+      <div className="h-[calc(100vh-70px)] flex-1 overflow-auto">
         <div className="mx-auto w-11/12 max-w-[1000px] md:w-screen">
           <Outlet />
         </div>

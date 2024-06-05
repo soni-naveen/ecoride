@@ -39,13 +39,13 @@ export default function ProfileDropdown() {
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] bg-richblack-800"
+          className="absolute top-[120%] right-0 z-[1000] divide-y-[1px] divide-gray-300 overflow-hidden rounded-sm border-[1px]"
           ref={ref}
         >
           <Link
             to="/dashboard/myprofile"
             onClick={() => {
-              setOpen(false), handleClickPageTop;
+              setOpen(false), handleClickPageTop();
             }}
           >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -56,7 +56,7 @@ export default function ProfileDropdown() {
           <Link
             to="dashboard/inbox"
             onClick={() => {
-              setOpen(false), handleClickPageTop;
+              setOpen(false), handleClickPageTop();
             }}
           >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -67,7 +67,7 @@ export default function ProfileDropdown() {
           <Link
             to="dashboard/yourRides"
             onClick={() => {
-              setOpen(false), handleClickPageTop;
+              setOpen(false), handleClickPageTop();
             }}
           >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -78,7 +78,7 @@ export default function ProfileDropdown() {
           <Link
             to="/helpcenter"
             onClick={() => {
-              setOpen(false), handleClickPageTop;
+              setOpen(false), handleClickPageTop();
             }}
           >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">

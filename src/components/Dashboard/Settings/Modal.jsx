@@ -18,8 +18,8 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
         isOpen ? "show" : "hidden"
       } fixed z-10 inset-0 overflow-y-auto`}
     >
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="modal-overlay absolute w-full h-screen bg-black bg-opacity-85"></div>
+      <div className="flex items-center justify-center min-h-[calc(100vh-70px)]">
+        <div className="modal-overlay absolute w-full h-full bg-black bg-opacity-85"></div>
         <div className="modal-container bg-dark-color w-96 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto smxl:w-80 sm2xl:w-64">
           <div className="modal-content py-10 text-left px-10 sm2xl:px-7">
             <div className="flex justify-between items-center pb-5">
