@@ -120,14 +120,7 @@ function App() {
             path="/dashboard/changePassword"
             element={<ChangePassword />}
           />
-
-          {/* <Route path="dashboard/bookedride" element={<BookedRide />} /> */}
           <Route path="dashboard/inbox" element={<Inbox />} />
-          {/* <Route path="dashboard/ratingsgiven" element={<RatingsGiven />} /> */}
-          {/* <Route
-              path="dashboard/ratingsreceived"
-              element={<RatingsReceived />}
-            /> */}
         </Route>
         {/* 404 Page */}
         <Route path="*" element={<Error />} />
