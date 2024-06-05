@@ -19,6 +19,10 @@ export default function ProfileDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+
   useOnClickOutside(ref, () => setOpen(false));
 
   if (!token) return null;
@@ -38,25 +42,45 @@ export default function ProfileDropdown() {
           className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] bg-richblack-800"
           ref={ref}
         >
-          <Link to="/dashboard/myprofile" onClick={() => setOpen(false)}>
+          <Link
+            to="/dashboard/myprofile"
+            onClick={() => {
+              setOpen(false), handleClickPageTop;
+            }}
+          >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdAccountCircle className="text-2xl" />
               Profile
             </div>
           </Link>
-          <Link to="dashboard/inbox" onClick={() => setOpen(false)}>
+          <Link
+            to="dashboard/inbox"
+            onClick={() => {
+              setOpen(false), handleClickPageTop;
+            }}
+          >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdOutlineMarkUnreadChatAlt className="text-2xl" />
               Inbox
             </div>
           </Link>
-          <Link to="dashboard/yourRides" onClick={() => setOpen(false)}>
+          <Link
+            to="dashboard/yourRides"
+            onClick={() => {
+              setOpen(false), handleClickPageTop;
+            }}
+          >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <FaCarSide className="text-2xl" />
               Your rides
             </div>
           </Link>
-          <Link to="/helpcenter" onClick={() => setOpen(false)}>
+          <Link
+            to="/helpcenter"
+            onClick={() => {
+              setOpen(false), handleClickPageTop;
+            }}
+          >
             <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <IoHelpBuoy className="text-2xl" />
               Help Center

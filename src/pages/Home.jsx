@@ -19,12 +19,11 @@ import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import { BsRobot } from "react-icons/bs";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 import "animate.css";
 
 const Home = () => {
-  const navigate = useNavigate();
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
