@@ -68,6 +68,7 @@ function ChangePassword() {
                   </p>
                   <input
                     required
+                    autoComplete="off"
                     type={showOldPassword ? "text" : "password"}
                     name="oldPassword"
                     id="oldPassword"
@@ -92,6 +93,7 @@ function ChangePassword() {
                   </p>
                   <input
                     required
+                    autoComplete="off"
                     type={showNewPassword ? "text" : "password"}
                     name="newPassword"
                     id="newPassword"

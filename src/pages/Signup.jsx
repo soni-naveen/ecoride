@@ -129,6 +129,7 @@ function Signup() {
                 </p>
                 <input
                   required
+                  autoComplete="off"
                   type="text"
                   name="email"
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
@@ -144,6 +145,7 @@ function Signup() {
                 </p>
                 <input
                   required
+                  autoComplete="off"
                   type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
@@ -169,6 +171,7 @@ function Signup() {
                 </p>
                 <input
                   required
+                  autoComplete="off"
                   type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   value={confirmPassword}

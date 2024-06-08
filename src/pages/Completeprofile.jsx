@@ -52,6 +52,7 @@ function Completeprofile() {
               </label>
               <input
                 required
+                autoComplete="off"
                 name="firstName"
                 type="text"
                 value={firstName}
@@ -67,6 +68,7 @@ function Completeprofile() {
               </label>
               <input
                 required
+                autoComplete="off"
                 name="lastName"
                 type="text"
                 value={lastName}
@@ -85,6 +87,7 @@ function Completeprofile() {
               </label>
               <input
                 required
+                autoComplete="off"
                 type="date"
                 id="validDate"
                 name="dateOfBirth"
@@ -121,8 +124,9 @@ function Completeprofile() {
                 Contact number :
               </label>
               <input
-                type="text"
                 required
+                type="text"
+                autoComplete="off"
                 name="contactNumber"
                 pattern="[7-9]{1}[0-9]{9}"
                 value={contactNumber}

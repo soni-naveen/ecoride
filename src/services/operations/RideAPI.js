@@ -14,7 +14,8 @@ export function createRide(data, token, navigate) {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       });
-      console.log("CREATE RIDE API RESPONSE............", response);
+      // console.log("CREATE RIDE API RESPONSE............", response);
+
       if (!response?.data?.success) {
         throw new Error("Could Not Add Ride Details");
       }
@@ -37,7 +38,8 @@ export function addStopPoint(data, token, navigate) {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       });
-      console.log("ADD_STOP_POINT_API API RESPONSE............", response);
+      // console.log("ADD_STOP_POINT_API API RESPONSE............", response);
+
       if (!response?.data?.success) {
         throw new Error("Failed to Add Stop Point");
       }
@@ -55,12 +57,12 @@ export function addStopPoint(data, token, navigate) {
 //add stop points to ride
 export function deleteRide(token, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
+    const toastId = toast.loading("Deleting...");
     try {
       const response = await apiConnector("PUT", DELETE_RIDE_API, null, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("DELETE_RIDE API RESPONSE............", response);
+      // console.log("DELETE_RIDE API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -73,5 +75,24 @@ export function deleteRide(token, navigate) {
       toast.error(error.message);
     }
     toast.dismiss(toastId);
+  };
+}
+
+//automatically delete ride
+export function deleteRideAutomatically(token) {
+  return async (dispatch) => {
+    try {
+      const response = await apiConnector("PUT", DELETE_RIDE_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+      // console.log("DELETE_RIDE API RESPONSE............", response);
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+      dispatch(setUser({ ...response.data.updatedRideDetails }));
+    } catch (error) {
+      console.log("DELETE_RIDE_API API ERROR............", error);
+    }
   };
 }

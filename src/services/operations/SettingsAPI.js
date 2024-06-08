@@ -22,7 +22,7 @@ export function verifyProfile(token, formData, navigate) {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       });
-      console.log("VERIFY_ID_API API RESPONSE............", response);
+      // console.log("VERIFY_ID_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -51,10 +51,7 @@ export function updateDisplayPicture(token, formData, navigate) {
           Authorization: `Bearer ${token}`,
         }
       );
-      console.log(
-        "UPDATE_DISPLAY_PICTURE_API API RESPONSE............",
-        response
-      );
+      // console.log("UPDATE_DISPLAY_PICTURE_API API RESPONSE.......", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -82,7 +79,7 @@ export function completeProfile(token, formData, navigate) {
           Authorization: `Bearer ${token}`,
         }
       );
-      console.log("COMPLETE_PROFILE_API API RESPONSE............", response);
+      // console.log("COMPLETE_PROFILE_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -111,10 +108,7 @@ export function myProfileAbout(token, formData) {
           Authorization: `Bearer ${token}`,
         }
       );
-      console.log(
-        "ABOUT_PROFILE_UPDATE_API API RESPONSE............",
-        response
-      );
+      // console.log("ABOUT_PROFILE_UPDATE_API API RESPONSE..........", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -136,7 +130,7 @@ export function updateProfile(token, formData) {
       const response = await apiConnector("PUT", UPDATE_PROFILE_API, formData, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("UPDATE_PROFILE_API API RESPONSE............", response);
+      // console.log("UPDATE_PROFILE_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -157,7 +151,7 @@ export async function changePassword(token, formData, navigate) {
     const response = await apiConnector("POST", CHANGE_PASSWORD_API, formData, {
       Authorization: `Bearer ${token}`,
     });
-    console.log("CHANGE_PASSWORD_API API RESPONSE............", response);
+    // console.log("CHANGE_PASSWORD_API API RESPONSE............", response);
 
     if (!response.data.success) {
       throw new Error(response.data.message);
@@ -178,7 +172,7 @@ export function deleteProfile(token, navigate) {
       const response = await apiConnector("DELETE", DELETE_PROFILE_API, null, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("DELETE_PROFILE_API API RESPONSE............", response);
+      // console.log("DELETE_PROFILE_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);

@@ -67,6 +67,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    autoComplete="off"
                     name="firstname"
                     id="firstname"
                     defaultValue={user?.additionalDetails?.firstName}
@@ -86,6 +87,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    autoComplete="off"
                     name="lastname"
                     id="lastname"
                     defaultValue={user?.additionalDetails?.lastName}
@@ -101,6 +103,7 @@ const Contact = () => {
                   Email Address
                 </label>
                 <input
+                  autoComplete="off"
                   type="email"
                   name="email"
                   id="email"

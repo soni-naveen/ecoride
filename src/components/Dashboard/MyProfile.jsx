@@ -88,6 +88,8 @@ function Myprofile() {
 
   return (
     <div className="container mx-auto">
+
+      {/*================ HEADER TAB ================= */}
       <div className="bg-white">
         <div className="mt-2 flex justify-center border-b shadow border-gray-200">
           <div
@@ -113,17 +115,25 @@ function Myprofile() {
           </div>
         </div>
         <div>
+
+          {/*====================== ABOUT TAB START ====================== */}
           {activeTab === "about" && (
             <div className="min-h-auto sm:text-sm">
               <div className="max-w-[700px] mx-auto p-6 mt-3 sm:p-5 sm2xl:p-3">
                 <div className="flex mb-5 flex-col">
+
+                  {/*======= VIEW FULL PROFILE ======== */}
                   <button onClick={() => navigate(`/profile/${user?._id}`)}>
                     <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
+
+                      {/*======= NAME ======== */}
                       <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
                         {user?.additionalDetails?.firstName +
                           " " +
                           user?.additionalDetails?.lastName}
                       </h1>
+
+                      {/*======= IMAGE ======== */}
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.image}
@@ -133,12 +143,14 @@ function Myprofile() {
                       </div>
                     </div>
                   </button>
+
+                  {/*======= EDIT PROFILE ======== */}
                   <div className="flex gap-5 sm2xl:gap-4">
                     <button
                       onClick={() => {
                         navigate("/dashboard/updateProfile");
                       }}
-                      className="bg-light-color hover:bg-[#c8edea] ml-10 mt-3 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:mt-5 sm:w-40 sm:ml-5"
+                      className="bg-light-color hover:bg-[#aff4ed] ml-10 mt-3 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:mt-5 sm:w-40 sm:ml-5"
                     >
                       <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[12px]">
                         <FaRegEdit className="text-dark-color" />
@@ -151,7 +163,7 @@ function Myprofile() {
                       onClick={() => {
                         navigate("/dashboard/updatePhoto");
                       }}
-                      className="bg-light-color hover:bg-[#c8edea] mt-3 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm:mt-5 sm:w-24"
+                      className="bg-light-color hover:bg-[#aff4ed] mt-3 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm:mt-5 sm:w-24"
                     >
                       <div className="flex justify-center items-center gap-2 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
                         <IoCameraOutline className="text-dark-color text-xl sm:text-lg smxl:text-base" />
@@ -164,10 +176,14 @@ function Myprofile() {
                 </div>
                 <hr />
                 <div className="px-10 py-2 sm:px-5 smxl:px-2">
+
+                  {/*======= VERIFY YOUR PROFILE ======== */}
                   <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
                     Verify your profile
                   </h2>
                   <div className="flex flex-col gap-6 rounded-lg">
+
+                    {/*======= GOVT.ID ======== */}
                     <div className="flex items-center text-dark-color hover:cursor-pointer">
                       <div
                         onClick={() => {
@@ -200,12 +216,16 @@ function Myprofile() {
                         )}
                       </div>
                     </div>
+
+                    {/*======= MAIL ======== */}
                     <div className="flex items-center text-medium-color">
                       <p className="mr-2">
                         <FaCheckCircle className="text-xl" />
                       </p>
                       <p>{user?.email}</p>
                     </div>
+
+                    {/*======= MOBILE NUMBER ======== */}
                     <div className="flex items-center text-medium-color">
                       {user?.additionalDetails?.contactNumber === null ||
                       user?.additionalDetails?.contactNumber === undefined ? (
@@ -219,7 +239,7 @@ function Myprofile() {
                         <div className="flex items-center mb-3">
                           <FaCheckCircle className="text-xl text-medium-color mr-2" />
                           <span className="text-medium-color w-fit smxl:text-sm">
-                            Confirmed phone number
+                            {user?.additionalDetails?.contactNumber}
                           </span>
                         </div>
                       )}
@@ -227,11 +247,15 @@ function Myprofile() {
                   </div>
                 </div>
                 <hr className="" />
+
+                {/*=========== ABOUT YOU ============= */}
                 <div className="px-10 py-2 sm:px-5 smxl:px-2">
                   <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
                     About you
                   </h2>
                   <div className="flex flex-col gap-6 rounded-lg">
+
+                    {/*======= ADD BIO ======== */}
                     <button
                       onClick={() => handleEditClick("bio")}
                       className="flex items-center text-dark-color hover:cursor-pointer"
@@ -256,6 +280,8 @@ function Myprofile() {
                         </p>
                       )}
                     </button>
+
+                    {/*======= ADD VEHICLE ======== */}
                     <button
                       onClick={() => handleEditClick("vehicle")}
                       className="flex items-center text-dark-color hover:cursor-pointer"
@@ -285,10 +311,14 @@ function Myprofile() {
               </div>
             </div>
           )}
+
+          {/*====================== ACCOUNT TAB START ====================== */}
           {activeTab === "account" && (
             <div className=" min-h-auto">
               <div className="max-w-[700px] mx-auto py-10 p-4">
                 <div className="rating flex flex-col gap-1">
+
+                  {/*======= RATING RECEIVED ======== */}
                   <button
                     onClick={() => {
                       alert("This feature is not available yet......");
@@ -300,6 +330,8 @@ function Myprofile() {
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
+
+                  {/*======= RATING GIVEN ======== */}
                   <button
                     onClick={() => {
                       alert("This feature is not available yet......");
@@ -314,6 +346,8 @@ function Myprofile() {
                 </div>
                 <hr className="mt-5" />
                 <div className="details_changing flex flex-col gap-1 mt-5">
+
+                  {/*======= CHANGE PROFILE PHOTO ======== */}
                   <button
                     onClick={() => {
                       navigate("/dashboard/updatePhoto");
@@ -325,6 +359,8 @@ function Myprofile() {
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
+
+                  {/*======= CHANGE PASSWORD ======== */}
                   <button
                     onClick={() => {
                       navigate("/dashboard/changePassword");
@@ -336,6 +372,8 @@ function Myprofile() {
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
+
+                  {/*======= HELP CENTER ======== */}
                   <Link to="/helpcenter">
                     <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
                       <div className="flex items-center rounded-md justify-between">
@@ -344,6 +382,8 @@ function Myprofile() {
                       </div>
                     </button>
                   </Link>
+
+                  {/*======= CONTACT US ======== */}
                   <Link to="/contact">
                     <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
                       <div className="flex items-center rounded-md justify-between">
@@ -355,6 +395,8 @@ function Myprofile() {
                 </div>
                 <hr className="mt-5" />
                 <div className="logout_deleteaccount flex flex-col gap-1 mt-5">
+
+                  {/*======= LOGOUT ======== */}
                   <button>
                     <div
                       onClick={() => {
@@ -365,8 +407,10 @@ function Myprofile() {
                       <h1 className="text-bold text-medium-color">Logout</h1>
                     </div>
                   </button>
+
+                  {/*======= DELETE MY ACCOUNT ======== */}
                   <button onClick={handleDeleteAccount}>
-                    <div className="flex hover:bg-gray-100 rounded-md w-full p-5 smxl:p-3 sm:p-4">
+                    <div className="flex hover:bg-red-100 rounded-md w-full p-5 smxl:p-3 sm:p-4">
                       <h1 className="text-bold text-rose-700">
                         Delete My Account
                       </h1>
@@ -377,6 +421,8 @@ function Myprofile() {
             </div>
           )}
         </div>
+
+        {/*======= MODAL ======== */}
         <Modal
           isOpen={isModalOpen}
           handleSave={handleOnSubmit}

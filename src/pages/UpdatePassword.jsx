@@ -78,6 +78,7 @@ function UpdatePassword() {
                   </p>
                   <input
                     required
+                    autoComplete="off"
                     type={showPassword ? "text" : "password"}
                     name="password"
                     value={password}
@@ -102,6 +103,7 @@ function UpdatePassword() {
                   </p>
                   <input
                     required
+                    autoComplete="off"
                     type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     value={confirmPassword}

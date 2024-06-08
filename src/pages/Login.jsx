@@ -89,6 +89,7 @@ function Login() {
                 </p>
                 <input
                   required
+                  autoComplete="off"
                   type="text"
                   name="email"
                   value={email}
@@ -103,6 +104,7 @@ function Login() {
                 </p>
                 <input
                   required
+                  autoComplete="off"
                   type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}

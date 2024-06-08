@@ -32,6 +32,7 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
             <form onSubmit={(e) => handleSave(e, fieldName)}>
               <input
                 required
+                autoComplete="off"
                 maxLength={100}
                 type={inputType}
                 value={fieldValue}

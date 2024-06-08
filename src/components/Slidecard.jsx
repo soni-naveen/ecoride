@@ -32,13 +32,13 @@ export default function Slidecard() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper pb-14 pt-10 flex items-center justify-center md1:pt-10 md:pb-14 md:pt-10 smxl:pt-7 smxl:pb-12"
+        className="mySwiper pb-14 pt-10 flex items-center justify-center smxl:pt-7 smxl:pb-12"
       >
         <SwiperSlide>
           <div className="flex justify-center">
-            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md:p-8 md:h-[220px] md:w-[400px]">
+            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md:text-sm">
+                <h1 className="sm:text-xs md1:text-sm">
                   "Using Ecoride has saved me both time and money. The
                   convenience of carpooling with like-minded individuals has
                   made my commute enjoyable. Great initiative!"
@@ -53,9 +53,9 @@ export default function Slidecard() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center">
-            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md:p-8 md:h-[220px] md:w-[400px]">
+            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md:text-sm">
+                <h1 className="sm:text-xs md1:text-sm">
                   "I love the concept of Ecoride how it promotes environmental
                   friendly transportation options. The app is intuitive, and the
                   drivers I've ridden with have been courteous & punctual."
@@ -70,9 +70,9 @@ export default function Slidecard() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center">
-            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md:p-8 md:h-[220px] md:w-[400px]">
+            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md:text-sm">
+                <h1 className="sm:text-xs md1:text-sm">
                   "Ecoride is not just a carpooling webapp, it's a community. I've
                   met some fantastic people through carpooling & I appreciate
                   ecoride's efforts to promote a sense of unity among its consumers."
@@ -87,9 +87,9 @@ export default function Slidecard() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center">
-            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md:p-8 md:h-[220px] md:w-[400px]">
+            <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md:text-sm">
+                <h1 className="sm:text-xs md1:text-sm">
                   "I'm impressed by how seamless the experience has been. The
                   app matches me with compatible drivers and passengers
                   effortlessly, making my commute stress-free."

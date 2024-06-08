@@ -17,7 +17,7 @@ export default function Calender({ register, onValueChange }) {
         defaultValue={dayjs(new Date())}
         format="DD-MM-YYYY"
         minDate={dayjs(new Date())}
-        onChange={handleDateChange}
+        onChange={(date) => handleDateChange(date)}
         slotProps={{
           openPickerButton: {
             color: "primary",

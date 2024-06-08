@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import copy from "copy-to-clipboard";
 import { FaStar } from "react-icons/fa";
-import { FaCarSide } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 import { PiSteeringWheelFill } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
+import { IoIosShareAlt } from "react-icons/io";
 import { RiProgress5Line } from "react-icons/ri";
 import { FaCircleMinus } from "react-icons/fa6";
-import { FaRocketchat } from "react-icons/fa";
+import { BsChatDotsFill } from "react-icons/bs";
+import { FaCarSide } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate, useParams } from "react-router-dom";
 import { getFullProfile } from "../services/operations/ProfileAPI";
@@ -53,15 +56,33 @@ function Fullprofile() {
   ];
   const monthName = months[dateJoined.getMonth()];
 
+  const handleShare = () => {
+    copy(window.location.href);
+    toast.success("Link copied to clipboard");
+    setTimeout(() => {
+      window.open(`whatsapp://send?text=${window.location.href}`);
+    }, 1000);
+  };
+
   return (
     <div>
       {user ? (
-        <div className="flex flex-col items-center mx-auto p-4 bg-white mt-5 w-full sm2xl:mt-5">
+        <div className="flex flex-col items-center mx-auto bg-white mt-5 w-full sm2xl:mt-5">
           <div>
-            <IoMdArrowRoundBack
-              onClick={() => navigate(-1)}
-              className="text-2xl mb-5 text-dark-color hover:cursor-pointer"
-            />
+            <div className="flex justify-between items-center mb-5 h-16 border-b">
+              <div>
+                <IoMdArrowRoundBack
+                  onClick={() => navigate(-1)}
+                  className="text-2xl text-dark-color hover:cursor-pointer"
+                />
+              </div>
+              <button
+                onClick={handleShare}
+                className="flex text-dark-color gap-1 bg-light-color rounded-md px-2 py-1 sm:text-sm"
+              >
+                <IoIosShareAlt className="text-2xl sm:text-xl" /> Share
+              </button>
+            </div>
             <div className="flex items-center justify-between mb-4 gap-60 sm2xl:gap-16 smxl:gap-24 sm:gap-32 md1:gap-48">
               <div>
                 <h2 className="text-2xl font-semibold text-dark-color sm:text-xl">
@@ -175,12 +196,12 @@ function Fullprofile() {
                   user?.additionalDetails?.about === null ||
                   user?.additionalDetails?.about === undefined ? (
                     <p className="text-dark-color flex items-center">
-                      <FaRocketchat className="text-dark-color mr-2 text-lg" />
+                      <BsChatDotsFill className="text-dark-color mr-2" />
                       bio not added
                     </p>
                   ) : (
                     <p className="text-medium-color flex items-center">
-                      <FaRocketchat className="text-medium-color mr-2 text-lg" />
+                      <BsChatDotsFill className="text-medium-color mr-2" />
                       {user?.additionalDetails?.about}
                     </p>
                   )}

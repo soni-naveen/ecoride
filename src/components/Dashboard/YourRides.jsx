@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { deleteRide } from "../../services/operations/RideAPI";
+import {
+  deleteRide,
+  deleteRideAutomatically,
+} from "../../services/operations/RideAPI";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -14,6 +18,27 @@ export default function YourRides() {
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("published");
+
+  const inputDateString = user?.ridePublished?.date;
+  const date = new Date(inputDateString);
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const day = date.getDate();
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const outputDateString = `${day} ${month} ${year}`;
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -40,12 +65,30 @@ export default function YourRides() {
     }
   }
 
+  useEffect(() => {
+    const checkAndDeleteRide = () => {
+      const currDate = dayjs().format("YYYY-MM-DD");
+      const currTime = dayjs().format("HH:mm");
+
+      const rideDate = user?.ridePublished?.date;
+      const rideTime = user?.ridePublished?.leavingTime;
+
+      if (rideDate === currDate && rideTime === currTime) {
+        dispatch(deleteRideAutomatically(token));
+      }
+    };
+
+    const intervalId = setInterval(checkAndDeleteRide, 30000);
+
+    return () => clearInterval(intervalId);
+  }, [dispatch, token, user?.ridePublished]);
+
   return (
     <div className="container mx-auto">
       <div className="bg-white">
         <div className="mt-7 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
-          <div
-            className={`text-lg font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+          <button
+            className={`text-lg font-semibold p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "booked"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -53,10 +96,10 @@ export default function YourRides() {
             onClick={() => handleTabClick("booked")}
           >
             Booked
-          </div>
+          </button>
           <div className="inline-block border-r-2 border-solid border-medium-color h-[30px] mx-24 mt-4 mb-2 md1:mx-16 sm:mx-8 sm:mb-1 smxl:mx-3"></div>
-          <div
-            className={`text-xl font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+          <button
+            className={`text-xl font-semibold p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "published"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -64,7 +107,7 @@ export default function YourRides() {
             onClick={() => handleTabClick("published")}
           >
             Published
-          </div>
+          </button>
         </div>
         <div>
           {activeTab === "booked" && (
@@ -77,9 +120,9 @@ export default function YourRides() {
               {user?.ridePublished?.fromWhere !== "" &&
               user?.ridePublished?.toWhere !== "" ? (
                 <div>
-                  <div className="mt-5 flex items-center justify-evenly border-b md1:flex-col md1:gap-7">
+                  <div className="flex items-center justify-evenly mt-3 border-b md1:flex-col md1:gap-7">
                     <div className="rideCard flex flex-col justify-between bg-white rounded-md w-fit py-10 px-5 z-0 sm:py-5">
-                      <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
+                      <div className="flex justify-between gap-10 mb-7 sm:gap-5 smxl:flex-col smxl:gap-7">
                         <div className="time flex gap-4">
                           <div className="timeContainer flex flex-col justify-between items-center">
                             <h1 className="font-bold text-dark-color sm:text-xs">
@@ -110,12 +153,54 @@ export default function YourRides() {
                           </h1>
                           <button
                             onClick={handleDeleteRide}
-                            className="flex items-center bg-red-200 text-sm text-black font-semibold px-3 py-1.5 rounded-sm hover:bg-red-300 duration-200 cursor-pointer sm:text-[10px] sm:py-0.5 sm:px-2"
+                            className="flex items-center text-sm border border-red-400 text-red-500 font-medium px-3 py-1.5 rounded-sm duration-200 hover:bg-red-100 hover:border-red-100 sm:text-[10px] sm:py-0.5 sm:px-2"
                           >
                             <RiDeleteBin6Line className="mr-2 sm:mr-1" />
                             Delete
                           </button>
                         </div>
+                      </div>
+                      <div className="RideDetails max-w-[500px] text-sm sm:text-xs">
+                        <h1 className="text-lg font-medium underline text-medium-color sm:text-sm">
+                          Ride details
+                        </h1>
+                        <div className="mt-2">
+                          <span className="font-medium">Date : </span>
+                          {outputDateString}
+                        </div>
+                        <div>
+                          <span className="font-medium">Seats :</span>{" "}
+                          {user?.ridePublished?.noOfSeats}
+                        </div>
+                        {user?.ridePublished?.stopPoint1 === "" &&
+                        user?.ridePublished?.stopPoint2 === "" &&
+                        user?.ridePublished?.stopPoint1 === "" ? (
+                          <div>
+                            <div className="font-semibold">Stop Points :</div>
+                            <div>No stop point added!</div>
+                          </div>
+                        ) : (
+                          <div>
+                            <span className="font-semibold">Stop Points :</span>{" "}
+                            <div>
+                              {user?.ridePublished?.stopPoint1 !== "" ? (
+                                <div>{user?.ridePublished?.stopPoint1}</div>
+                              ) : (
+                                <div></div>
+                              )}
+                              {user?.ridePublished?.stopPoint2 !== "" ? (
+                                <div>{user?.ridePublished?.stopPoint2} </div>
+                              ) : (
+                                <div></div>
+                              )}
+                              {user?.ridePublished?.stopPoint3 !== "" ? (
+                                <div>{user?.ridePublished?.stopPoint3} </div>
+                              ) : (
+                                <div></div>
+                              )}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

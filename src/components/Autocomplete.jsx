@@ -142,6 +142,7 @@ const Autocomplete = ({
       <input
         required
         ref={inputRef}
+        autoComplete="off"
         type="text"
         placeholder={options.placeholder}
         value={inputValue}

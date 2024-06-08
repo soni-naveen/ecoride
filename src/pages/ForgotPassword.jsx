@@ -62,6 +62,7 @@ function ForgotPassword() {
                     </p>
                     <input
                       required
+                      autoComplete="off"
                       type="email"
                       name="email"
                       value={email}

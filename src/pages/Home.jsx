@@ -37,10 +37,10 @@ const Home = () => {
     formData.append("date", data.date);
     formData.append("noOfSeats", data.noOfSeats);
 
-    // console.log(formData.get("fromWhere"));
-    // for (const [key, value] of formData.entries()) {
-    //   console.log(`${key}: ${value}`);
-    // }
+    console.log(formData.get("fromWhere"));
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
   };
 
   return (
@@ -230,7 +230,7 @@ const Home = () => {
             <img src={faqLogo} alt="FAQ's" />
           </div>
           <div className="right flex flex-col items-center gap-10">
-            <div className="heading text-white text-5xl font-semibold mt-10 smxl:text-2xl md1:text-4xl">
+            <div className="heading text-white text-5xl font-semibold mt-10 smxl:text-2xl md1:text-4xl sm:text-3xl sm:mt-7">
               FAQ's
             </div>
             <div className="revealbu mb-8 flex justify-center">
@@ -242,9 +242,9 @@ const Home = () => {
         {/* *******************************************************************************************************
                                               Our Service Feedback
         ******************************************************************************************************** */}
-        <div className="feedback w-full h-[500px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[360px] smxl:h-[350px] sm:h-[370px] md:h-[420px] md:justify-center md1:h-[460px]">
+        <div className="feedback w-full h-[500px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[360px] smxl:h-[370px] sm:h-[400px] md:justify-center md1:h-[430px]">
           <div className="heading font-semibold mt-10 smxl:mt-5 md:mt-0">
-            <h1 className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 md:mt-10 md1:text-4xl">
+            <h1 className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 sm:text-3xl md:mt-10 md1:text-4xl">
               Our Service Feedback
             </h1>
           </div>
@@ -258,7 +258,7 @@ const Home = () => {
         ******************************************************************************************************** */}
         <div className="abovefooter w-full py-16 px-36 flex flex-col justify-evenly gap-16 sm:gap-12 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
-            <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl">
+            <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl sm:text-3xl">
               Get started today !
             </h1>
           </div>

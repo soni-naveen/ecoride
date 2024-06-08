@@ -39,7 +39,7 @@ export const getFullProfile = async (userId) => {
     const response = await apiConnector("POST", FULL_PROFILE_API, {
       userId,
     });
-    // console.log("FULL_PROFILE_API API RESPONSE............", response);
+    // console.log("FULL_PROFILE_API API RESPONSE............", response); 
 
     if (!response.data.success) {
       throw new Error(response.data.message);
