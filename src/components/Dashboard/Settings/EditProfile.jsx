@@ -72,7 +72,7 @@ function Editdetails() {
   return (
     <div className="container flex justify-center items-center">
       <div className="innerBox flex flex-col justify-center items-center">
-        <div className="heading w-[400px] items-center mt-12 flex justify-start gap-24 sm:w-[300px] sm:gap-14 sm2xl:w-[250px] sm2xl:gap-10">
+        <div className="heading w-[400px] items-center mt-12 flex justify-start gap-24 sm:w-[300px] sm:gap-12 sm2xl:w-[250px] sm2xl:gap-10">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}
             className="text-2xl text-dark-color hover:cursor-pointer sm:text-[22px] sm2xl:text-xl"
@@ -90,7 +90,7 @@ function Editdetails() {
             <div className="edit">
               <button
                 onClick={() => handleEditClick("first name")}
-                className="bg-dark-color w-16 rounded-full text-sm py-0.5 text-white"
+                className="bg-dark-color px-7 py-1 rounded-full text-sm py-0.5 text-white sm:text-xs sm:px-6"
               >
                 Edit
               </button>
@@ -104,7 +104,7 @@ function Editdetails() {
             <div className="edit">
               <button
                 onClick={() => handleEditClick("last name")}
-                className="bg-dark-color w-16 rounded-full text-sm py-0.5 text-white"
+                className="bg-dark-color px-7 py-1 rounded-full text-sm py-0.5 text-white sm:text-xs sm:px-6"
               >
                 Edit
               </button>
@@ -118,7 +118,7 @@ function Editdetails() {
             <div className="edit">
               <button
                 onClick={() => handleEditClick("date of birth")}
-                className="bg-dark-color w-16 rounded-full text-sm py-0.5 text-white"
+                className="bg-dark-color px-7 py-1 rounded-full text-sm py-0.5 text-white sm:text-xs sm:px-6"
               >
                 Edit
               </button>
@@ -132,7 +132,7 @@ function Editdetails() {
             <div className="edit">
               <button
                 onClick={() => handleEditClick("gender")}
-                className="bg-dark-color w-16 rounded-full text-sm py-0.5 text-white"
+                className="bg-dark-color px-7 py-1 rounded-full text-sm py-0.5 text-white sm:text-xs sm:px-6"
               >
                 Edit
               </button>
@@ -146,7 +146,7 @@ function Editdetails() {
             <div className="edit">
               <button
                 onClick={() => handleEditClick("contact number")}
-                className="bg-dark-color w-16 rounded-full text-sm py-0.5 text-white"
+                className="bg-dark-color px-7 py-1 rounded-full text-sm py-0.5 text-white sm:text-xs sm:px-6"
               >
                 Edit
               </button>

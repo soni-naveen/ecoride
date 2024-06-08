@@ -1,5 +1,4 @@
 //BACKEND BASE URL
-
 const BASE_URL = import.meta.env.VITE_REACT_BASE_URL;
 
 // AUTH ENDPOINTS
@@ -14,7 +13,7 @@ export const endpoints = {
 
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
-  GET_FULL_PROFILE_API: BASE_URL + "/profile/fullprofile/:profileId",
+  FULL_PROFILE_API: BASE_URL + "/profile/fullProfile",
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
 };
 
@@ -22,7 +21,7 @@ export const profileEndpoints = {
 export const rideEndpoints = {
   CREATE_RIDE_API: BASE_URL + "/ride/createRide",
   ADD_STOP_POINT_API: BASE_URL + "/ride/addStopPoint",
-  DELETE_RIDE_API : BASE_URL + "/ride/deleteRide"
+  DELETE_RIDE_API: BASE_URL + "/ride/deleteRide",
 };
 
 // CONTACT-US API

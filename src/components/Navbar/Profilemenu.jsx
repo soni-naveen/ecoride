@@ -39,7 +39,7 @@ export default function ProfileDropdown() {
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[120%] right-0 z-[1000] divide-y-[1px] divide-gray-300 overflow-hidden rounded-sm border-[1px]"
+          className="absolute top-[120%] right-0 z-[1000] divide-gray-300 overflow-hidden rounded-sm border-[1px]"
           ref={ref}
         >
           <Link
@@ -48,7 +48,7 @@ export default function ProfileDropdown() {
               setOpen(false), handleClickPageTop();
             }}
           >
-            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+            <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdAccountCircle className="text-2xl" />
               Profile
             </div>
@@ -59,7 +59,7 @@ export default function ProfileDropdown() {
               setOpen(false), handleClickPageTop();
             }}
           >
-            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+            <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <MdOutlineMarkUnreadChatAlt className="text-2xl" />
               Inbox
             </div>
@@ -70,7 +70,7 @@ export default function ProfileDropdown() {
               setOpen(false), handleClickPageTop();
             }}
           >
-            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+            <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <FaCarSide className="text-2xl" />
               Your rides
             </div>
@@ -81,7 +81,7 @@ export default function ProfileDropdown() {
               setOpen(false), handleClickPageTop();
             }}
           >
-            <div className="flex w-[200px] bg-white items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+            <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
               <IoHelpBuoy className="text-2xl" />
               Help Center
             </div>

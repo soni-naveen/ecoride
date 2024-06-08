@@ -15,7 +15,7 @@ const Counter = ({ target }) => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
 
     if (counterRef.current) {

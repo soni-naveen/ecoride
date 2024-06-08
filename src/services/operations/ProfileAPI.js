@@ -5,10 +5,7 @@ import { apiConnector } from "../apiConnector";
 import { profileEndpoints } from "../apis";
 import { logout } from "./AuthAPI";
 
-const {
-  GET_USER_DETAILS_API,
-  GET_FULL_PROFILE_API,
-} = profileEndpoints;
+const { GET_USER_DETAILS_API, FULL_PROFILE_API } = profileEndpoints;
 
 export function getUserDetails(token, navigate) {
   return async (dispatch) => {
@@ -18,7 +15,7 @@ export function getUserDetails(token, navigate) {
       const response = await apiConnector("GET", GET_USER_DETAILS_API, null, {
         Authorization: `Bearer ${token}`,
       });
-      //console.log("GET_USER_DETAILS API RESPONSE............", response)
+      // console.log("GET_USER_DETAILS API RESPONSE............", response)
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -30,33 +27,27 @@ export function getUserDetails(token, navigate) {
     } catch (error) {
       dispatch(logout(navigate));
       console.log("GET_USER_DETAILS API ERROR............", error);
-      toast.error("Could not get user details");
     }
     toast.dismiss(toastId);
     dispatch(setLoading(false));
   };
 }
 
-export async function getFullProfile() {
-  return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
-    dispatch(setLoading(true));
-    try {
-      const response = await apiConnector("GET", GET_FULL_PROFILE_API);
+export const getFullProfile = async (userId) => {
+  let result = null;
+  try {
+    const response = await apiConnector("POST", FULL_PROFILE_API, {
+      userId,
+    });
+    // console.log("FULL_PROFILE_API API RESPONSE............", response);
 
-      console.log(
-        "GET_FULL_PROFILE_API RESPONSE............",
-        response,
-      );
-
-      if (!response.data.success) {
-        throw new Error(response.data.message);
-      }
-    } catch (error) {
-      console.log("GET_FULL_PROFILE_API ERROR............", error);
-      toast.error("Can NOT get user profile!");
+    if (!response.data.success) {
+      throw new Error(response.data.message);
     }
-    dispatch(setLoading(false));
-    toast.dismiss(toastId);
-  };
-}
+    result = response.data;
+  } catch (error) {
+    console.log("FULL_PROFILE_API API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};

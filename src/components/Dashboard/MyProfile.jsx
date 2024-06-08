@@ -11,12 +11,11 @@ import { IoCameraOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../services/operations/AuthAPI";
+import Modal from "./Settings/Modal";
 import {
   deleteProfile,
   myProfileAbout,
 } from "../../services/operations/SettingsAPI";
-// import { getFullProfile } from "../../services/operations/ProfileAPI";
-import Modal from "./Settings/Modal";
 
 function Myprofile() {
   const { token } = useSelector((state) => state.auth);
@@ -24,22 +23,17 @@ function Myprofile() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [activeTab, setActiveTab] = useState("about");
 
+  const [activeTab, setActiveTab] = useState("about");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editField, setEditField] = useState("");
   const [about, setAbout] = useState(user?.additionalDetails?.about || "");
   const [vehicle, setVehicle] = useState(
     user?.additionalDetails?.vehicle || ""
   );
-  const [editField, setEditField] = useState("");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-  };
-
-  const fullProfileVisit = () => {
-    // getFullProfile(user?.additionalDetails?.profileId);
-    navigate(`/fullprofile`);
   };
 
   const handleEditClick = (field) => {
@@ -95,7 +89,7 @@ function Myprofile() {
   return (
     <div className="container mx-auto">
       <div className="bg-white">
-        <div className="mt-7 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
+        <div className="mt-2 flex justify-center border-b shadow border-gray-200">
           <div
             className={`text-lg font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "about"
@@ -122,9 +116,9 @@ function Myprofile() {
           {activeTab === "about" && (
             <div className="min-h-auto sm:text-sm">
               <div className="max-w-[700px] mx-auto p-6 mt-3 sm:p-5 sm2xl:p-3">
-                <div className="flex mb-4 flex-col">
-                  <div onClick={fullProfileVisit}>
-                    <div className="name_profile flex justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
+                <div className="flex mb-5 flex-col">
+                  <button onClick={() => navigate(`/profile/${user?._id}`)}>
+                    <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
                       <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
                         {user?.additionalDetails?.firstName +
                           " " +
@@ -138,15 +132,15 @@ function Myprofile() {
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
                       </div>
                     </div>
-                  </div>
-                  <div className="flex">
+                  </button>
+                  <div className="flex gap-5 sm2xl:gap-4">
                     <button
                       onClick={() => {
                         navigate("/dashboard/updateProfile");
                       }}
-                      className="bg-light-color hover:bg-[#c8edea] ml-10 mt-2 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:w-40 sm:ml-5"
+                      className="bg-light-color hover:bg-[#c8edea] ml-10 mt-3 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:mt-5 sm:w-40 sm:ml-5"
                     >
-                      <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
+                      <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[12px]">
                         <FaRegEdit className="text-dark-color" />
                         <p className="text-dark-color sm:text-sm smxl:text-[11px]">
                           Edit your details
@@ -157,7 +151,7 @@ function Myprofile() {
                       onClick={() => {
                         navigate("/dashboard/updatePhoto");
                       }}
-                      className="bg-light-color hover:bg-[#c8edea] ml-5 mt-2 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm2xl:ml-3 sm:w-24"
+                      className="bg-light-color hover:bg-[#c8edea] mt-3 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm:mt-5 sm:w-24"
                     >
                       <div className="flex justify-center items-center gap-2 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
                         <IoCameraOutline className="text-dark-color text-xl sm:text-lg smxl:text-base" />
@@ -169,11 +163,11 @@ function Myprofile() {
                   </div>
                 </div>
                 <hr />
-                <div className="px-10 py-5 sm:px-5 smxl:px-2">
-                  <h2 className="text-lg font-semibold text-dark-color py-3 mb-3">
+                <div className="px-10 py-2 sm:px-5 smxl:px-2">
+                  <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
                     Verify your profile
                   </h2>
-                  <div className="p-2 flex flex-col gap-7 rounded-lg">
+                  <div className="flex flex-col gap-6 rounded-lg">
                     <div className="flex items-center text-dark-color hover:cursor-pointer">
                       <div
                         onClick={() => {
@@ -232,12 +226,12 @@ function Myprofile() {
                     </div>
                   </div>
                 </div>
-                <hr className=" bg-dark-color" />
-                <div className="px-10 py-5 sm:px-5 smxl:px-2">
-                  <h2 className="text-lg font-semibold py-3 mb-3 text-dark-color">
+                <hr className="" />
+                <div className="px-10 py-2 sm:px-5 smxl:px-2">
+                  <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
                     About you
                   </h2>
-                  <div className="p-2 flex flex-col gap-7 rounded-lg">
+                  <div className="flex flex-col gap-6 rounded-lg">
                     <button
                       onClick={() => handleEditClick("bio")}
                       className="flex items-center text-dark-color hover:cursor-pointer"

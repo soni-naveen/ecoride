@@ -46,7 +46,6 @@ function App() {
       const token = JSON.parse(localStorage.getItem("token"));
       dispatch(getUserDetails(token, navigate));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -60,7 +59,7 @@ function App() {
         <Route path="/helpcenter" element={<Helpcenter />} />
         <Route path="/ourteam" element={<Ourteam />} />
         <Route path="/searchride" element={<Searchride />} />
-        <Route path="/fullprofile" element={<Fullprofile />} />
+        <Route path="/profile/:userId" element={<Fullprofile />} />
         <Route path="/seeRides" element={<SeeRides />} />
 
         {/* Open Route - for Only Non Logged in User */}
@@ -108,7 +107,10 @@ function App() {
           <Route path="/completeprofile" element={<Completeprofile />} />
           <Route path="/dashboard/myprofile" element={<MyProfile />} />
           <Route path="/dashboard/publishride" element={<PublishRide />} />
-          <Route path="/dashboard/publishride/addStopPoint" element={<AddStopPoint />} />
+          <Route
+            path="/dashboard/publishride/addStopPoint"
+            element={<AddStopPoint />}
+          />
           <Route path="/dashboard/updateProfile" element={<EditProfile />} />
           <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
           <Route path="/dashboard/yourRides" element={<YourRides />} />
