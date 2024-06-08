@@ -208,7 +208,7 @@ export default function YourRides() {
                     <h1 className="text-dark-color text-center underline text-xl mt-7 mb-5 font-semibold sm:text-lg">
                       Passengers
                     </h1>
-                    <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                    <div className="text-center mt-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
                       No passengers yet
                     </div>
                   </div>
