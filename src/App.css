@@ -44,6 +44,11 @@
 }
 @media (max-width: 480px) {
   .swiper {
+    width: 97%;
+  }
+}
+@media (max-width: 370px) {
+  .swiper {
     width: 100%;
   }
 }

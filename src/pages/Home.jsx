@@ -230,10 +230,10 @@ const Home = () => {
             <img src={faqLogo} alt="FAQ's" />
           </div>
           <div className="right flex flex-col items-center gap-10">
-            <div className="heading text-white text-5xl font-semibold mt-16 sm2xl:mt-10 smxl:text-2xl smxl:mt-14 md1:text-4xl">
+            <div className="heading text-white text-5xl font-semibold mt-10 smxl:text-2xl md1:text-4xl">
               FAQ's
             </div>
-            <div className="revealbu mb-16 flex justify-center">
+            <div className="revealbu mb-8 flex justify-center">
               <AccordionUsage />
             </div>
           </div>
@@ -242,9 +242,9 @@ const Home = () => {
         {/* *******************************************************************************************************
                                               Our Service Feedback
         ******************************************************************************************************** */}
-        <div className="feedback w-full h-[550px] bg-light-color m-auto flex flex-col justify-evenly items-center smxl:h-[500px] smxl:pb-10 md:justify-center">
-          <div className="heading font-semibold mt-10 smxl:mt-10 md:mt-0">
-            <h1 className="text-dark-color m-auto text-5xl sm2xl:w-2/3 sm2xl:text-center smxl:text-2xl smxl:w-2/3 smxl:leading-normal smxl:text-center md1:text-4xl">
+        <div className="feedback w-full h-[500px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[360px] smxl:h-[350px] sm:h-[370px] md:h-[420px] md:justify-center md1:h-[460px]">
+          <div className="heading font-semibold mt-10 smxl:mt-5 md:mt-0">
+            <h1 className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 md:mt-10 md1:text-4xl">
               Our Service Feedback
             </h1>
           </div>

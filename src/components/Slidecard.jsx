@@ -32,7 +32,7 @@ export default function Slidecard() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[22rem] pt-10 pb-5 flex items-center justify-center sm2xl:pt-[50px] smxl:mt-[-30px] sm:pt-20 md:pt-16"
+        className="mySwiper pb-14 pt-10 flex items-center justify-center md1:pt-10 md:pb-14 md:pt-10 smxl:pt-7 smxl:pb-12"
       >
         <SwiperSlide>
           <div className="flex justify-center">
@@ -75,7 +75,7 @@ export default function Slidecard() {
                 <h1 className="sm:text-xs md:text-sm">
                   "Ecoride is not just a carpooling webapp, it's a community. I've
                   met some fantastic people through carpooling & I appreciate
-                  the effort Ecoride puts into fostering a sense of camaraderie among users."
+                  ecoride's efforts to promote a sense of unity among its consumers."
                 </h1>
               </div>
               <div className="author">
