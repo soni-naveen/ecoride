@@ -88,7 +88,7 @@ function Signup() {
       <div
         ref={modelRef}
         onClick={closeModel}
-        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-20"
+        className="fixed inset-0 overflow-auto bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-50"
       >
         <div className="flex flex-col gap-3 text-white">
           <Link

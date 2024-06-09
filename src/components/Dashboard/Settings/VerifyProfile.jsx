@@ -68,7 +68,7 @@ export default function verifyYourProfile() {
           Upload your govt. ID, & within 24 hrs, your profile will be verified.
         </h1>
       </div>
-      <div className="mt-16 flex items-center justify-center rounded-md">
+      <div className="my-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">
           <img
             src={previewSource || idcard}

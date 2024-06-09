@@ -69,7 +69,7 @@ export default function ChangeProfilePicture() {
           Don't wear sunglasses, look straight ahead and make sure you're alone
         </h1>
       </div>
-      <div className="mt-16 flex items-center justify-center rounded-md">
+      <div className="my-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">
           <img
             src={previewSource || user?.image}

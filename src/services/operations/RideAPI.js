@@ -3,7 +3,12 @@ import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { rideEndpoints } from "../apis";
 
-const { CREATE_RIDE_API, ADD_STOP_POINT_API, DELETE_RIDE_API } = rideEndpoints;
+const {
+  CREATE_RIDE_API,
+  ADD_STOP_POINT_API,
+  DELETE_RIDE_API,
+  AUTO_DELETE_RIDE_API,
+} = rideEndpoints;
 
 // create ride
 export function createRide(data, token, navigate) {
@@ -82,17 +87,17 @@ export function deleteRide(token, navigate) {
 export function deleteRideAutomatically(token) {
   return async (dispatch) => {
     try {
-      const response = await apiConnector("PUT", DELETE_RIDE_API, null, {
+      const response = await apiConnector("PUT", AUTO_DELETE_RIDE_API, null, {
         Authorization: `Bearer ${token}`,
       });
-      // console.log("DELETE_RIDE API RESPONSE............", response);
+      // console.log("AUTO_DELETE_RIDE API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
       dispatch(setUser({ ...response.data.updatedRideDetails }));
     } catch (error) {
-      console.log("DELETE_RIDE_API API ERROR............", error);
+      console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
     }
   };
 }

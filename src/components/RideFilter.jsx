@@ -36,7 +36,7 @@ export default function RideFilter({ onClose }) {
     }
   };
   return (
-    <div className="xl:flex hidden fixed inset-0 z-20 flex justify-center items-center bg-black bg-opacity-80">
+    <div className="xl:flex hidden fixed overflow-auto inset-0 z-50 pt-16 flex justify-center items-center bg-black bg-opacity-80">
       <div className="bg-dark-color p-5 rounded-md">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-xl">Filters</h2>

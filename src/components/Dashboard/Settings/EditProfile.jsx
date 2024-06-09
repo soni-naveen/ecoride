@@ -71,7 +71,7 @@ function Editdetails() {
 
   return (
     <div className="container flex justify-center items-center">
-      <div className="innerBox flex flex-col justify-center items-center">
+      <div className="innerBox flex flex-col mb-10 justify-center items-center">
         <div className="heading w-[400px] items-center mt-12 flex justify-start gap-24 sm:w-[300px] sm:gap-12 sm2xl:w-[250px] sm2xl:gap-10">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}

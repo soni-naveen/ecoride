@@ -10,9 +10,9 @@ function Seeridecard() {
 
   return (
     <>
-      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit p-6 z-0 sm:p-5 smxl:px-3">
+      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit px-6 pt-6 pb-3 z-0 sm:px-5 sm:pt-5 sm:pb-2 smxl:px-3.5 sm:pb-3">
         <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
-          <div className="time flex gap-4 smxl:gap-3">
+          <div className="time flex gap-4 smxl:gap-2.5">
             <div className="timeContainer flex flex-col justify-between items-center">
               <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                 {user?.ridePublished?.leavingTime}
@@ -45,8 +45,8 @@ function Seeridecard() {
             </button>
           </div>
         </div>
-        <div className="DriverDetails mt-7 border-t pt-4 flex items-center justify-between smxl:mt-5 sm2xl:justify-around">
-          <div className="left ml-10 flex items-center gap-3 sm:ml-5 smxl:gap-2 sm2xl:ml-2">
+        <div className="DriverDetails mt-7 border-t pt-3 flex items-center justify-between smxl:mt-5 sm2xl:justify-around">
+          <div className="left ml-10 flex items-center gap-3 sm:ml-5 smxl:gap-2 sm2xl:ml-0">
             <div className="img">
               <img
                 src={user?.image}
@@ -82,7 +82,7 @@ function Seeridecard() {
               </div>
             </div>
           </div>
-          <div className="right">
+          <div className="right mr-2 sm2xl:mr-0">
             <button className="flex justify-evenly items-center border rounded-full gap-2 px-3 py-1 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
               <div className="icon">
                 <PiChatsFill className="text-slate-500 text-base sm:text-xs" />

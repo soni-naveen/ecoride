@@ -160,6 +160,8 @@ export default function YourRides() {
                           </button>
                         </div>
                       </div>
+                      
+                      {/*================ RIDE DETAILS ===================  */}
                       <div className="RideDetails max-w-[500px] text-sm sm:text-xs">
                         <h1 className="text-lg font-medium underline text-medium-color sm:text-sm">
                           Ride details
@@ -208,7 +210,7 @@ export default function YourRides() {
                     <h1 className="text-dark-color text-center underline text-xl mt-7 mb-5 font-semibold sm:text-lg">
                       Passengers
                     </h1>
-                    <div className="text-center mt-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                    <div className="text-center my-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
                       No passengers yet
                     </div>
                   </div>

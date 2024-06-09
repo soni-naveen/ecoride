@@ -67,7 +67,7 @@ function Fullprofile() {
   return (
     <div>
       {user ? (
-        <div className="flex flex-col items-center mx-auto bg-white mt-5 w-full sm2xl:mt-5">
+        <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full">
           <div>
             <div className="flex justify-between items-center mb-5 h-16 border-b">
               <div>

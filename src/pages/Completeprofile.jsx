@@ -31,8 +31,8 @@ function Completeprofile() {
   };
 
   return (
-    <div className="fixed inset-0 h-screen bg-white z-20">
-      <div className="h-full flex justify-center mt-14">
+    <div className="fixed overflow-auto inset-0 h-full bg-white z-20">
+      <div className="flex justify-center my-14">
         <div className="centerBox flex flex-col gap-10">
           <h1 className="font-bold text-3xl text-dark-color smxl:text-2xl">
             Complete Your Profile
@@ -135,7 +135,7 @@ function Completeprofile() {
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
-            <button className="bg-dark-color w-[250px] py-2.5 mt-4 rounded-full text-white smxl:py-2 smxl:w-[220px]">
+            <button className="bg-dark-color w-[250px] py-2.5 my-4 rounded-full text-white smxl:py-2 smxl:w-[220px]">
               Save and Proceed
             </button>
           </form>
