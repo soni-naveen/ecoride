@@ -19,11 +19,12 @@ import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import { BsRobot } from "react-icons/bs";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 import "animate.css";
 
 const Home = () => {
+  const navigate = useNavigate();
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
@@ -37,10 +38,14 @@ const Home = () => {
     formData.append("date", data.date);
     formData.append("noOfSeats", data.noOfSeats);
 
-    console.log(formData.get("fromWhere"));
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    navigate(
+      `/search?st=${data.fromWhere}&dt=${data.toWhere}&date=${data.date}&seats=${data.noOfSeats}`
+    );
+
+    // console.log(formData.get("fromWhere"));
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
   };
 
   return (

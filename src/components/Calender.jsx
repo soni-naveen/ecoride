@@ -15,9 +15,11 @@ export default function Calender({ register, onValueChange }) {
       <DatePicker
         className="w-[10rem] bg-white rounded-[4px] sm2xl:w-[14rem] smxl:w-[16rem]"
         defaultValue={dayjs(new Date())}
-        format="DD-MM-YYYY"
+        format="YYYY-MM-DD"
         minDate={dayjs(new Date())}
-        onChange={(date) => handleDateChange(date)}
+        onChange={(date) => {
+          handleDateChange(date);
+        }}
         slotProps={{
           openPickerButton: {
             color: "primary",

@@ -315,7 +315,7 @@ function Myprofile() {
           {/*====================== ACCOUNT TAB START ====================== */}
           {activeTab === "account" && (
             <div className=" min-h-auto">
-              <div className="max-w-[700px] mx-auto py-10 p-4">
+              <div className="max-w-[700px] mx-auto p-4">
                 <div className="rating flex flex-col gap-1">
 
                   {/*======= RATING RECEIVED ======== */}

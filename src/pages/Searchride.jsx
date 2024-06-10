@@ -10,9 +10,6 @@ import carpooling from "../assets/Carpooling.jpg";
 
 function Searchride() {
   const navigate = useNavigate();
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
   const { register, handleSubmit, setValue } = useForm();
 
   //handle submit
@@ -23,10 +20,14 @@ function Searchride() {
     formData.append("date", data.date);
     formData.append("noOfSeats", data.noOfSeats);
 
-    console.log(formData.get("fromWhere"));
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    navigate(
+      `/search?st=${data.fromWhere}&dt=${data.toWhere}&date=${data.date}&seats=${data.noOfSeats}`
+    );
+
+    // console.log(formData.get("fromWhere"));
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
   };
 
   return (
@@ -97,7 +98,11 @@ function Searchride() {
                 </a>
               </div>
             </form>
-            <img src={carpooling} alt="Carpooling" className="h-[380px] w-[470px] object-contain bg-white rounded-md xl:w-[400px] lg:hidden" />
+            <img
+              src={carpooling}
+              alt="Carpooling"
+              className="h-[380px] w-[470px] object-contain bg-white rounded-md xl:w-[400px] lg:hidden"
+            />
           </div>
         </div>
         <div className="right z-0 mb-10">

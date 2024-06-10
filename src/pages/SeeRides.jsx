@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -8,15 +7,46 @@ import RideFilter from "../components/RideFilter";
 
 function Seerides() {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.profile);
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const st = urlParams.get("st");
+  const dt = urlParams.get("dt");
+  const date = urlParams.get("date");
+  const seats = urlParams.get("seats");
+
+  // Function to validate date format
+  const isValidDate = (dateString) => {
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!regex.test(dateString)) {
+      return false;
+    }
+    const dateObj = new Date(dateString);
+    return dateObj instanceof Date && !isNaN(dateObj);
+  };
+
+  useEffect(() => {
+    if (
+      st == null ||
+      dt == null ||
+      date == null ||
+      seats == null ||
+      st.trim() == "" ||
+      dt.trim() == "" ||
+      date == "" ||
+      seats.trim() == "" ||
+      !isValidDate(date)
+    ) {
+      navigate("/searchride");
+    }
+  });
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
   const [departureTimeFilters, setDepartureTimeFilters] = useState([]);
   const [verifiedProfile, setVerifiedProfile] = useState(false);
   const [isRideFilterVisible, setIsRideFilterVisible] = useState(false);
 
-  const inputDateString = user?.ridePublished?.date;
-  const date = new Date(inputDateString);
+  const inputDateString = date;
+  const newDate = new Date(inputDateString);
   const monthNames = [
     "January",
     "February",
@@ -31,9 +61,9 @@ function Seerides() {
     "November",
     "December",
   ];
-  const day = date.getDate();
-  const month = monthNames[date.getMonth()];
-  const year = date.getFullYear();
+  const day = newDate.getDate();
+  const month = monthNames[newDate.getMonth()];
+  const year = newDate.getFullYear();
   const outputDateString = `${day} ${month} ${year}`;
 
   const handleSortOptionChange = (event) => {
@@ -97,11 +127,11 @@ function Seerides() {
             </div>
             <div className="flex items-center text-sm gap-2 smxl:ml-2 smxl:gap-1 smxl:text-xs">
               <div className="max-w-48 truncate lg:max-w-32 sm2xl:max-w-24">
-                {user?.ridePublished?.fromWhere}
+                {st}
               </div>
               <FaArrowRightLong className="text-xl md:text-xl sm:text-base" />
               <div className="max-w-48 truncate lg:max-w-32 sm2xl:max-w-24">
-                {user?.ridePublished?.toWhere}
+                {dt}
               </div>
             </div>
           </button>
@@ -304,13 +334,13 @@ function Seerides() {
           </div>
 
           <div className="rightSide mt-36 mb-14 md:mt-40 smxl:mt-36 flex flex-col gap-8 items-center">
-            <Seeridecard />
-            <Seeridecard />
-            <Seeridecard />
-            <Seeridecard />
-            <Seeridecard />
-            <Seeridecard />
-            <Seeridecard />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
+            <Seeridecard st={st} dt={dt} />
           </div>
         </div>
       </div>

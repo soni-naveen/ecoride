@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
-function Seeridecard() {
+function Seeridecard({ st, dt }) {
   const { user } = useSelector((state) => state.profile);
 
   return (
@@ -27,12 +27,8 @@ function Seeridecard() {
               <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
             </div>
             <div className="destination text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48 sm2xl:text-[10px]">
-              <h1 className="text-dark-color">
-                {user?.ridePublished?.fromWhere}
-              </h1>
-              <h1 className="text-dark-color">
-                {user?.ridePublished?.toWhere}
-              </h1>
+              <h1 className="text-dark-color">{st}</h1>
+              <h1 className="text-dark-color">{dt}</h1>
             </div>
           </div>
           <div className="price items-center flex flex-col justify-between smxl:flex-row smxl:justify-around">
