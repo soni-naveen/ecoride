@@ -45,13 +45,13 @@ function Signup() {
     }));
     if (e.target.name === "password" && e.target.value.length < 8) {
       setPassAlert(
-        <div
+        <p
           style={{
             fontSize: "12px",
           }}
         >
           Password must have at least 8 characters.
-        </div>
+        </p>
       );
     } else {
       setPassAlert("");
@@ -124,9 +124,9 @@ function Signup() {
               className="flex w-full flex-col gap-y-4"
             >
               <label className="w-full">
-                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                <div className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
                   Email Address <sup className="text-pink-200">*</sup>
-                </p>
+                </div>
                 <input
                   required
                   autoComplete="off"
@@ -140,9 +140,9 @@ function Signup() {
                 />
               </label>
               <label className="relative">
-                <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
+                <div className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
                   Create Password <sup className="text-pink-200">*</sup>
-                </p>
+                </div>
                 <input
                   required
                   autoComplete="off"

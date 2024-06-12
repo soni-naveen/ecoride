@@ -67,7 +67,7 @@ function Fullprofile() {
   return (
     <div>
       {user ? (
-        <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full">
+        <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full smxl:w-3/4">
           <div>
             <div className="flex justify-between items-center mb-5 h-16 border-b">
               <div>
@@ -83,7 +83,7 @@ function Fullprofile() {
                 <IoIosShareAlt className="text-2xl sm:text-xl" /> Share
               </button>
             </div>
-            <div className="flex items-center justify-between mb-4 gap-60 sm2xl:gap-16 smxl:gap-24 sm:gap-32 md1:gap-48">
+            <div className="flex items-center justify-between mb-4 gap-60 sm2xl:gap-10 smxl:gap-24 sm:gap-32 md1:gap-48">
               <div>
                 <h2 className="text-2xl font-semibold text-dark-color sm:text-xl">
                   {user?.additionalDetails?.firstName +
@@ -100,14 +100,14 @@ function Fullprofile() {
                   {user?.additionalDetails?.gender}
                 </p>
               </div>
-              <div className="image">
+              <div className="image mr-2">
                 <img
                   src={user?.image}
                   className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 object-cover"
                 ></img>
               </div>
             </div>
-            <div className="mb-4 items-start md:mr-0">
+            <div className="mb-4 items-start">
               <div className="flex items-center mb-3">
                 <FaStar className="text-dark-color mr-3 text-lg smxl:text-sm" />
                 <span className="text-dark-color w-fit smxl:text-sm">
@@ -134,7 +134,7 @@ function Fullprofile() {
               </div>
             </div>
             <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
-            <div className="mb-4 mt-5 md:mr-0">
+            <div className="mb-4 mt-5">
               <div className="flex items-center mb-3">
                 {user?.additionalDetails?.govtId === null ||
                 user?.additionalDetails?.govtId === "" ? (
@@ -185,23 +185,23 @@ function Fullprofile() {
                 )}
               </div>
             </div>
-            <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
-            <div className="mb-5 mt-5 md:mr-0">
+            <div className="border-b-4 w-full border-light-color"></div>
+            <div className="mb-5 mt-5 smxl:w-11/12">
               <h3 className="text-lg font-semibold mb-3 text-dark-color smxl:text-base">
                 About {user?.additionalDetails?.firstName}
               </h3>
               <div className="flex items-center mb-3 smxl:text-sm">
                 <span>
-                  {user?.additionalDetails?.about === "" ||
+                  {user?.additionalDetails?.about?.trim() === "" ||
                   user?.additionalDetails?.about === null ||
                   user?.additionalDetails?.about === undefined ? (
                     <p className="text-dark-color flex items-center">
-                      <BsChatDotsFill className="text-dark-color mr-2" />
+                      <BsChatDotsFill className="text-dark-color mr-2 text-lg" />
                       bio not added
                     </p>
                   ) : (
                     <p className="text-medium-color flex items-center">
-                      <BsChatDotsFill className="text-medium-color mr-2" />
+                      <BsChatDotsFill className="text-medium-color mr-2 text-lg" />
                       {user?.additionalDetails?.about}
                     </p>
                   )}
@@ -210,7 +210,7 @@ function Fullprofile() {
               <div className="flex items-center smxl:text-sm">
                 <span className="text-medium-color">
                   <span>
-                    {user?.additionalDetails?.vehicle === "" ||
+                    {user?.additionalDetails?.vehicle?.trim() === "" ||
                     user?.additionalDetails?.vehicle === null ||
                     user?.additionalDetails?.vehicle === undefined ? (
                       <p className="text-dark-color flex items-center">

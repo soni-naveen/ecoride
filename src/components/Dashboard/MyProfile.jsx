@@ -5,7 +5,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 import { RiProgress5Line } from "react-icons/ri";
 import { LuPencilLine } from "react-icons/lu";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { MdAddCircleOutline } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoCameraOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
@@ -88,7 +88,6 @@ function Myprofile() {
 
   return (
     <div className="container mx-auto">
-
       {/*================ HEADER TAB ================= */}
       <div className="bg-white">
         <div className="mt-2 flex justify-center border-b shadow border-gray-200">
@@ -115,17 +114,14 @@ function Myprofile() {
           </div>
         </div>
         <div>
-
           {/*====================== ABOUT TAB START ====================== */}
           {activeTab === "about" && (
             <div className="min-h-auto sm:text-sm">
               <div className="max-w-[700px] mx-auto p-6 mt-3 sm:p-5 sm2xl:p-3">
                 <div className="flex mb-5 flex-col">
-
                   {/*======= VIEW FULL PROFILE ======== */}
                   <button onClick={() => navigate(`/profile/${user?._id}`)}>
                     <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
-
                       {/*======= NAME ======== */}
                       <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
                         {user?.additionalDetails?.firstName +
@@ -176,13 +172,11 @@ function Myprofile() {
                 </div>
                 <hr />
                 <div className="px-10 py-2 sm:px-5 smxl:px-2">
-
                   {/*======= VERIFY YOUR PROFILE ======== */}
-                  <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
+                  <h2 className="text-lg font-semibold text-dark-color smxl:text-base py-4 mb-2">
                     Verify your profile
                   </h2>
                   <div className="flex flex-col gap-6 rounded-lg">
-
                     {/*======= GOVT.ID ======== */}
                     <div className="flex items-center text-dark-color hover:cursor-pointer">
                       <div
@@ -194,21 +188,21 @@ function Myprofile() {
                         {user?.additionalDetails?.govtId === null ||
                         user?.additionalDetails?.govtId === "" ? (
                           <div className="flex items-center">
-                            <IoAddCircleOutline className="text-[22px] text-dark-color mr-2" />
+                            <MdAddCircleOutline className="text-xl text-dark-color smxl:text-base mr-2" />
                             <span className="text-dark-color w-fit smxl:text-sm">
                               Verify your Govt. ID
                             </span>
                           </div>
                         ) : user?.additionalDetails?.govtId === "Pending" ? (
                           <div className="flex items-center">
-                            <RiProgress5Line className="text-[22px] text-dark-color mr-2" />
+                            <RiProgress5Line className="text-xl text-dark-color mr-2 smxl:text-sm" />
                             <span className="text-dark-color w-fit smxl:text-sm">
                               Pending verification
                             </span>
                           </div>
                         ) : (
                           <div className="flex items-center">
-                            <FaCheckCircle className="text-xl text-medium-color mr-2" />
+                            <FaCheckCircle className="text-xl text-medium-color mr-2 smxl:text-sm" />
                             <span className="text-medium-color w-fit smxl:text-sm">
                               Verified govt.Id
                             </span>
@@ -220,7 +214,7 @@ function Myprofile() {
                     {/*======= MAIL ======== */}
                     <div className="flex items-center text-medium-color">
                       <p className="mr-2">
-                        <FaCheckCircle className="text-xl" />
+                        <FaCheckCircle className="text-xl smxl:text-sm" />
                       </p>
                       <p>{user?.email}</p>
                     </div>
@@ -230,14 +224,14 @@ function Myprofile() {
                       {user?.additionalDetails?.contactNumber === null ||
                       user?.additionalDetails?.contactNumber === undefined ? (
                         <div className="flex items-center mb-3">
-                          <FaCircleMinus className="text-xl text-dark-color mr-2" />
+                          <FaCircleMinus className="text-xl text-dark-color mr-2 smxl:text-sm" />
                           <span className="text-dark-color w-fit smxl:text-sm">
                             Mobile no. missing
                           </span>
                         </div>
                       ) : (
                         <div className="flex items-center mb-3">
-                          <FaCheckCircle className="text-xl text-medium-color mr-2" />
+                          <FaCheckCircle className="text-xl text-medium-color mr-2 smxl:text-sm" />
                           <span className="text-medium-color w-fit smxl:text-sm">
                             {user?.additionalDetails?.contactNumber}
                           </span>
@@ -250,34 +244,27 @@ function Myprofile() {
 
                 {/*=========== ABOUT YOU ============= */}
                 <div className="px-10 py-2 sm:px-5 smxl:px-2">
-                  <h2 className="text-lg font-semibold text-dark-color py-4 mb-2">
+                  <h2 className="text-lg font-semibold text-dark-color py-4 mb-2 smxl:text-base">
                     About you
                   </h2>
                   <div className="flex flex-col gap-6 rounded-lg">
-
                     {/*======= ADD BIO ======== */}
                     <button
                       onClick={() => handleEditClick("bio")}
                       className="flex items-center text-dark-color hover:cursor-pointer"
                     >
-                      <p className="mr-3">
-                        {user?.additionalDetails?.about === "" ||
-                        user?.additionalDetails?.about === null ||
-                        user?.additionalDetails?.about === undefined ? (
-                          <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
-                        ) : (
-                          <LuPencilLine className="text-xl text-medium-color" />
-                        )}
-                      </p>
-
-                      {user?.additionalDetails?.about === "" ||
+                      {user?.additionalDetails?.about?.trim() === "" ||
                       user?.additionalDetails?.about === null ||
                       user?.additionalDetails?.about === undefined ? (
-                        "Add bio"
+                        <div className="flex items-center gap-2">
+                          <MdAddCircleOutline className="text-xl hover:cursor-pointer smxl:text-base" />
+                          <span>Add bio</span>
+                        </div>
                       ) : (
-                        <p className="text-medium-color text-left flex items-center gap-2">
-                          {user?.additionalDetails?.about}
-                        </p>
+                        <div className="flex items-center text-start gap-2 text-medium-color">
+                          <LuPencilLine className="text-xl smxl:text-sm" />
+                          <span>{user?.additionalDetails?.about}</span>
+                        </div>
                       )}
                     </button>
 
@@ -286,24 +273,18 @@ function Myprofile() {
                       onClick={() => handleEditClick("vehicle")}
                       className="flex items-center text-dark-color hover:cursor-pointer"
                     >
-                      <p className="mr-3">
-                        {user?.additionalDetails?.vehicle === "" ||
-                        user?.additionalDetails?.vehicle === null ||
-                        user?.additionalDetails?.vehicle === undefined ? (
-                          <IoAddCircleOutline className="text-[22px] hover:cursor-pointer" />
-                        ) : (
-                          <LuPencilLine className="text-xl text-medium-color" />
-                        )}
-                      </p>
-
-                      {user?.additionalDetails?.vehicle === "" ||
+                      {user?.additionalDetails?.vehicle?.trim() === "" ||
                       user?.additionalDetails?.vehicle === null ||
                       user?.additionalDetails?.vehicle === undefined ? (
-                        "Add vehicle details"
+                        <div className="flex items-center gap-2">
+                          <MdAddCircleOutline className="text-xl hover:cursor-pointer smxl:text-base" />
+                          <span>Add vehicle details</span>
+                        </div>
                       ) : (
-                        <p className="text-medium-color text-left flex items-center gap-2">
-                          {user?.additionalDetails?.vehicle}
-                        </p>
+                        <div className="flex items-center text-start gap-2 text-medium-color">
+                          <LuPencilLine className="text-xl smxl:text-sm" />
+                          <span>{user?.additionalDetails?.vehicle}</span>
+                        </div>
                       )}
                     </button>
                   </div>
@@ -317,7 +298,6 @@ function Myprofile() {
             <div className=" min-h-auto">
               <div className="max-w-[700px] mx-auto p-4">
                 <div className="rating flex flex-col gap-1">
-
                   {/*======= RATING RECEIVED ======== */}
                   <button
                     onClick={() => {
@@ -346,7 +326,6 @@ function Myprofile() {
                 </div>
                 <hr className="mt-5" />
                 <div className="details_changing flex flex-col gap-1 mt-5">
-
                   {/*======= CHANGE PROFILE PHOTO ======== */}
                   <button
                     onClick={() => {
@@ -395,7 +374,6 @@ function Myprofile() {
                 </div>
                 <hr className="mt-5" />
                 <div className="logout_deleteaccount flex flex-col gap-1 mt-5">
-
                   {/*======= LOGOUT ======== */}
                   <button>
                     <div

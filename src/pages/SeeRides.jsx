@@ -327,7 +327,12 @@ function Seerides() {
               </div>
             </div>
             <div className="div flex justify-center items-center">
-              <button className="bg-dark-color text-white w-1/2 py-2 rounded-full mt-3">
+              <button
+                onClick={() => {
+                  alert("This feature is not available yet...");
+                }}
+                className="bg-dark-color text-white w-1/2 py-2 rounded-full mt-3"
+              >
                 Apply
               </button>
             </div>

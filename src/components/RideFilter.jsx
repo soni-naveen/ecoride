@@ -219,7 +219,7 @@ export default function RideFilter({ onClose }) {
             </div>
           </div>
           <div className="div flex justify-center items-center">
-            <button className="border border-white mt-7 text-white w-1/2 py-1.5 rounded-full">
+            <button onClick={()=>{alert("This feature is not available yet...")}} className="border border-white mt-7 text-white w-1/2 py-1.5 rounded-full">
               Apply
             </button>
           </div>
