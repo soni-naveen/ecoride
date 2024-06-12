@@ -33,13 +33,13 @@ export function getUserDetails(token, navigate) {
   };
 }
 
-export const getFullProfile = async (userId) => {
+export const getFullProfile = async (userId, navigate) => {
   let result = null;
   try {
     const response = await apiConnector("POST", FULL_PROFILE_API, {
       userId,
     });
-    // console.log("FULL_PROFILE_API API RESPONSE............", response); 
+    // console.log("FULL_PROFILE_API API RESPONSE............", response);
 
     if (!response.data.success) {
       throw new Error(response.data.message);
@@ -48,6 +48,7 @@ export const getFullProfile = async (userId) => {
   } catch (error) {
     console.log("FULL_PROFILE_API API ERROR............", error);
     result = error.response.data;
+    navigate("/error");
   }
   return result;
 };

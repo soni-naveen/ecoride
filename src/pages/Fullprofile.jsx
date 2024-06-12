@@ -22,7 +22,7 @@ function Fullprofile() {
   useEffect(() => {
     (async () => {
       try {
-        const profile = await getFullProfile(userId);
+        const profile = await getFullProfile(userId, navigate);
         setUser(profile.data);
       } catch (error) {
         console.error("Could not fetch User Profile", error);

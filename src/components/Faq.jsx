@@ -179,7 +179,7 @@ export default function AccordionUsage() {
           id="panel1-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
-          Where do I report an issue on the website?
+          Where do I report an issue?
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           If you encounter any issues or have questions, please feel free to

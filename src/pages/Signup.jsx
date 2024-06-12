@@ -15,6 +15,7 @@ function Signup() {
   const dispatch = useDispatch();
 
   const [passAlert, setPassAlert] = useState("");
+  const [confirmAlert, setConfirmAlert] = useState("");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -43,7 +44,14 @@ function Signup() {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
-    if (e.target.name === "password" && e.target.value.length < 8) {
+  };
+
+  const handleOnChange1 = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+    if (e.target.value.length < 8) {
       setPassAlert(
         <p
           style={{
@@ -58,11 +66,34 @@ function Signup() {
     }
   };
 
+  const handleOnChange2 = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+    if (e.target.value !== password) {
+      setConfirmAlert(
+        <p
+          style={{
+            fontSize: "12px",
+          }}
+        >
+          Password does not match.
+        </p>
+      );
+    } else {
+      setConfirmAlert("");
+    }
+  };
+
   // Handle Form Submission
   const handleOnSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error("Passwords Do Not Match");
+      toast.error("Passwords does not match");
+      return;
+    } else if (password.length < 8) {
+      toast.error("Password length atleast 8");
       return;
     }
     const signupData = {
@@ -149,7 +180,7 @@ function Signup() {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
-                  onChange={handleOnChange}
+                  onChange={handleOnChange1}
                   placeholder="Enter Password"
                   className="w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
@@ -175,7 +206,7 @@ function Signup() {
                   type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   value={confirmPassword}
-                  onChange={handleOnChange}
+                  onChange={handleOnChange2}
                   placeholder="Confirm Password"
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
@@ -189,6 +220,9 @@ function Signup() {
                     <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                   )}
                 </span>
+                <p className="text-yellow-200 mt-1 font-light">
+                  {confirmAlert}
+                </p>
               </label>
 
               <button

@@ -114,10 +114,10 @@ function Myprofile() {
           </div>
         </div>
         <div>
-          {/*====================== ABOUT TAB START ====================== */}
+          {/*====================== ABOUT TAB ====================== */}
           {activeTab === "about" && (
             <div className="min-h-auto sm:text-sm">
-              <div className="max-w-[700px] mx-auto p-6 mt-3 sm:p-5 sm2xl:p-3">
+              <div className="max-w-[700px] mx-auto p-6 sm:p-5 sm:mt-2 sm2xl:p-3">
                 <div className="flex mb-5 flex-col">
                   {/*======= VIEW FULL PROFILE ======== */}
                   <button onClick={() => navigate(`/profile/${user?._id}`)}>
@@ -293,10 +293,10 @@ function Myprofile() {
             </div>
           )}
 
-          {/*====================== ACCOUNT TAB START ====================== */}
+          {/*====================== ACCOUNT TAB ====================== */}
           {activeTab === "account" && (
             <div className=" min-h-auto">
-              <div className="max-w-[700px] mx-auto p-4">
+              <div className="max-w-[700px] mx-auto p-4 my-3 sm:mt-1">
                 <div className="rating flex flex-col gap-1">
                   {/*======= RATING RECEIVED ======== */}
                   <button
@@ -324,8 +324,8 @@ function Myprofile() {
                     </div>
                   </button>
                 </div>
-                <hr className="mt-5" />
-                <div className="details_changing flex flex-col gap-1 mt-5">
+                <hr className="mt-3" />
+                <div className="details_changing flex flex-col gap-1 mt-3">
                   {/*======= CHANGE PROFILE PHOTO ======== */}
                   <button
                     onClick={() => {
@@ -372,8 +372,8 @@ function Myprofile() {
                     </button>
                   </Link>
                 </div>
-                <hr className="mt-5" />
-                <div className="logout_deleteaccount flex flex-col gap-1 mt-5">
+                <hr className="mt-3" />
+                <div className="logout_deleteaccount flex flex-col mt-3">
                   {/*======= LOGOUT ======== */}
                   <button>
                     <div

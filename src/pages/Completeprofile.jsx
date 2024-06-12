@@ -128,7 +128,7 @@ function Completeprofile() {
                 type="text"
                 autoComplete="off"
                 name="contactNumber"
-                pattern="[7-9]{1}[0-9]{9}"
+                pattern="[6-9]{1}[0-9]{9}"
                 value={contactNumber}
                 onChange={handleOnChange}
                 placeholder="9876543210"
