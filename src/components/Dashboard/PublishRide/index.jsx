@@ -35,6 +35,14 @@ export default function Publishride() {
 
   //handle submit
   const onSubmit = async (data) => {
+    if (
+      user?.ridePublished?.fromWhere !== "" &&
+      user?.ridePublished?.toWhere !== ""
+    ) {
+      toast.error("Before publishing a new ride,\n delete the old one.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("fromWhere", data.fromWhere);
     formData.append("toWhere", data.toWhere);
@@ -45,15 +53,8 @@ export default function Publishride() {
     formData.append("price", data.price);
     setLoading(true);
 
-    if (
-      user?.ridePublished?.fromWhere !== "" &&
-      user?.ridePublished?.toWhere !== ""
-    ) {
-      toast.error("Before Publishing a New Ride,\n Delete the old one.");
-    } else {
-      dispatch(createRide(formData, token, navigate));
-      setLoading(false);
-    }
+    dispatch(createRide(formData, token, navigate));
+    setLoading(false);
   };
 
   return (

@@ -59,7 +59,7 @@ function App() {
         <Route path="/helpcenter" element={<Helpcenter />} />
         <Route path="/ourteam" element={<Ourteam />} />
         <Route path="/searchride" element={<Searchride />} />
-        <Route path="/profile/:userId" element={<Fullprofile />} />
+        <Route path="/profile/:profileId" element={<Fullprofile />} />
         <Route path="/search" element={<SeeRides />} />
 
         {/* Open Route - for Only Non Logged in User */}

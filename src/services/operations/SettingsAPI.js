@@ -51,6 +51,7 @@ export function updateDisplayPicture(token, formData, navigate) {
           Authorization: `Bearer ${token}`,
         }
       );
+      
       // console.log("UPDATE_DISPLAY_PICTURE_API API RESPONSE.......", response);
 
       if (!response.data.success) {

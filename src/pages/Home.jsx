@@ -41,6 +41,7 @@ const Home = () => {
     navigate(
       `/search?st=${data.fromWhere}&dt=${data.toWhere}&date=${data.date}&seats=${data.noOfSeats}`
     );
+    handleClickPageTop();
 
     // console.log(formData.get("fromWhere"));
     // for (const [key, value] of formData.entries()) {

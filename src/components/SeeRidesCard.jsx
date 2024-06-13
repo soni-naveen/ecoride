@@ -3,22 +3,34 @@ import { PiChatsFill } from "react-icons/pi";
 import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-function Seeridecard({ st, dt }) {
-  const { user } = useSelector((state) => state.profile);
-
+export default function Seeridecard({
+  profile,
+  fromWhere,
+  toWhere,
+  price,
+  leaving,
+  reaching,
+  firstName,
+  lastName,
+  image,
+  overallRating,
+  govtId,
+}) {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit px-6 pt-6 pb-3 z-0 sm:px-5 sm:pt-5 sm:pb-2 smxl:px-3.5 sm:pb-3">
+      <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit px-6 pt-6 pb-4 z-0 sm:px-5 sm:pt-5 sm:pb-2 smxl:px-3.5 sm:pb-3">
         <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
-          <div className="time flex gap-4 smxl:gap-2.5">
-            <div className="timeContainer flex flex-col justify-between items-center">
+          <div className="flex gap-4 smxl:gap-2.5">
+            {/*========== TIME ========== */}
+            <div className="flex flex-col justify-between items-center">
               <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
-                {user?.ridePublished?.leavingTime}
+                {leaving}
               </h1>
               <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
-                {user?.ridePublished?.reachingTime}
+                {reaching}
               </h1>
             </div>
             <div className="divider py-2 sm:py-1">
@@ -26,58 +38,75 @@ function Seeridecard({ st, dt }) {
               <div className="line bg-medium-color h-24 w-0.5 ml-[4px] sm:h-[75px]"></div>
               <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
             </div>
-            <div className="destination text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48 sm2xl:text-[10px]">
-              <h1 className="text-dark-color">{st}</h1>
-              <h1 className="text-dark-color">{dt}</h1>
+            {/*========== PLACES ========== */}
+            <div className="text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48 sm2xl:text-[10px]">
+              <h1 className="text-dark-color">{fromWhere}</h1>
+              <h1 className="text-dark-color">{toWhere}</h1>
             </div>
           </div>
+          {/*========== PRICE ========== */}
           <div className="price items-center flex flex-col justify-between smxl:flex-row smxl:justify-around">
             <h1 className="font-bold bg-light-color flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
               <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
-              {user?.ridePublished?.price}/-
+              {price}/-
             </h1>
+            {/*========== BOOK ========== */}
             <button className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7">
               Book
             </button>
           </div>
         </div>
+        {/*========== BOTTOM PART ========== */}
         <div className="DriverDetails mt-7 border-t pt-3 flex items-center justify-between smxl:mt-5 sm2xl:justify-around">
+          {/*========== LEFT PART ========== */}
           <div className="left ml-10 flex items-center gap-3 sm:ml-5 smxl:gap-2 sm2xl:ml-0">
+            {/*========== IMAGE ========== */}
             <div className="img">
               <img
-                src={user?.image}
+                src={image}
                 className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
               />
             </div>
-            <div className="name flex flex-col">
-              <div className="flex items-center gap-1">
-                <div className="name text-dark-color sm:text-sm smxl:text-xs">
-                  {user?.additionalDetails?.firstName}
-                </div>
-                <div className="name text-dark-color sm:text-sm smxl:text-xs">
-                  {user?.additionalDetails?.lastName}
-                </div>
-                {user?.additionalDetails?.govtId === null ||
-                user?.additionalDetails?.govtId === "" ||
-                user?.additionalDetails?.govtId === "Pending" ||
-                user?.additionalDetails?.govtId === undefined ? (
+            {/*========== NAME ========== */}
+            <div className="name flex flex-col gap-1 sm2xl:gap-0">
+              <button
+                onClick={() =>
+                  navigate(`/profile/${profile._id}`)
+                }
+                className="flex text-dark-color items-center gap-1 hover:underline"
+              >
+                <div className="sm:text-sm smxl:text-xs">{firstName}</div>
+                <div className="sm:text-sm smxl:text-xs">{lastName}</div>
+                {/*========== VERIFIED OR NOT ========== */}
+                {govtId === null ||
+                govtId === "" ||
+                govtId === "Pending" ||
+                govtId === undefined ? (
                   <div></div>
                 ) : (
                   <div>
-                    <MdVerified className="text-medium-color text-lg sm:text-base smxl:text-sm" />
+                    <MdVerified className="text-medium-color text-base sm:text-base smxl:text-sm" />
                   </div>
                 )}
-              </div>
-              <div className="rating flex items-center gap-2">
+              </button>
+              {/*========== RATING ========== */}
+              <div className="rating flex items-center gap-2 sm:gap-1.5 sm2xl:gap-1">
                 <div className="star">
-                  <FaStar className="text-base sm:text-sm smxl:text-xs" />
+                  <FaStar className="text-sm sm:text-xs smxl:text-[10px] sm2xl:text-[8px]" />
                 </div>
                 <div className="ratingRecived text-dark-color sm:text-sm smxl:text-xs">
-                  {user?.additionalDetails?.overallRating}
+                  {overallRating !== 0 ? (
+                    <div className="text-[10px] sm2xl:text-[8px]">
+                      No ratings yet
+                    </div>
+                  ) : (
+                    overallRating
+                  )}
                 </div>
               </div>
             </div>
           </div>
+          {/*========== RIGHT PART ========== */}
           <div className="right mr-2 sm2xl:mr-0">
             <button className="flex justify-evenly items-center border rounded-full gap-2 px-3 py-1 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
               <div className="icon">
@@ -93,5 +122,3 @@ function Seeridecard({ st, dt }) {
     </>
   );
 }
-
-export default Seeridecard;

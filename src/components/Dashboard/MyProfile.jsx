@@ -120,7 +120,7 @@ function Myprofile() {
               <div className="max-w-[700px] mx-auto p-6 sm:p-5 sm:mt-2 sm2xl:p-3">
                 <div className="flex mb-5 flex-col">
                   {/*======= VIEW FULL PROFILE ======== */}
-                  <button onClick={() => navigate(`/profile/${user?._id}`)}>
+                  <button onClick={() => navigate(`/profile/${user?.additionalDetails?._id}`)}>
                     <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
                       {/*======= NAME ======== */}
                       <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
@@ -132,7 +132,7 @@ function Myprofile() {
                       {/*======= IMAGE ======== */}
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
-                          src={user?.image}
+                          src={user?.additionalDetails?.image}
                           className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />

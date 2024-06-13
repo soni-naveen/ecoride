@@ -16,21 +16,21 @@ import { getFullProfile } from "../services/operations/ProfileAPI";
 function Fullprofile() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null);
-  const { userId } = useParams();
+  const [profile, setProfile] = useState(null);
+  const { profileId } = useParams();
 
   useEffect(() => {
     (async () => {
       try {
-        const profile = await getFullProfile(userId, navigate);
-        setUser(profile.data);
+        const fullProfile = await getFullProfile(profileId, navigate);
+        setProfile(fullProfile.data);
       } catch (error) {
         console.error("Could not fetch User Profile", error);
       }
     })();
-  }, [userId]);
+  }, [profileId]);
 
-  const birthDate = new Date(user?.additionalDetails?.dateOfBirth);
+  const birthDate = new Date(profile?.dateOfBirth);
   const today = new Date(Date.now());
   let age = today.getFullYear() - birthDate.getFullYear();
   let month = today.getMonth() - birthDate.getMonth();
@@ -38,7 +38,7 @@ function Fullprofile() {
     age--;
   }
 
-  const dateJoined = new Date(user?.additionalDetails?.dateJoined);
+  const dateJoined = new Date(profile?.dateJoined);
   const yearJoined = dateJoined.getFullYear();
   const months = [
     "January",
@@ -66,7 +66,7 @@ function Fullprofile() {
 
   return (
     <div>
-      {user ? (
+      {profile ? (
         <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full smxl:w-3/4">
           <div>
             <div className="flex justify-between items-center mb-5 h-16 border-b">
@@ -86,23 +86,21 @@ function Fullprofile() {
             <div className="flex items-center justify-between mb-4 gap-60 sm2xl:gap-10 smxl:gap-24 sm:gap-32 md1:gap-48">
               <div>
                 <h2 className="text-2xl font-semibold text-dark-color sm:text-xl">
-                  {user?.additionalDetails?.firstName +
-                    " " +
-                    user?.additionalDetails?.lastName}
+                  {profile?.firstName + " " + profile?.lastName}
                 </h2>
                 <p className="text-medium-color smxl:text-sm">
-                  {user?.additionalDetails?.dateOfBirth === null ||
-                  user?.additionalDetails?.dateOfBirth === undefined ||
-                  user?.additionalDetails?.dateOfBirth === ""
+                  {profile?.dateOfBirth === null ||
+                  profile?.dateOfBirth === undefined ||
+                  profile?.dateOfBirth === ""
                     ? "-- "
                     : age}
                   y/o -&nbsp;
-                  {user?.additionalDetails?.gender}
+                  {profile?.gender}
                 </p>
               </div>
               <div className="image mr-2">
                 <img
-                  src={user?.image}
+                  src={profile?.image}
                   className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 object-cover"
                 ></img>
               </div>
@@ -111,24 +109,20 @@ function Fullprofile() {
               <div className="flex items-center mb-3">
                 <FaStar className="text-dark-color mr-3 text-lg smxl:text-sm" />
                 <span className="text-dark-color w-fit smxl:text-sm">
-                  {user?.additionalDetails?.overallRating === 0 ? (
+                  {profile?.overallRating === 0 ? (
                     <p>No overall ratings yet</p>
                   ) : (
-                    <p>
-                      {user?.additionalDetails?.overallRating} - Overall Rating
-                    </p>
+                    <p>{profile?.overallRating} - Overall Rating</p>
                   )}
                 </span>
               </div>
               <div className="flex items-center">
                 <PiSteeringWheelFill className="text-dark-color mr-3 text-lg smxl:text-sm" />
                 <span className="text-dark-color w-fit smxl:text-sm">
-                  {user?.additionalDetails?.overallRating === 0 ? (
+                  {profile?.overallRating === 0 ? (
                     <p>No driving ratings yet</p>
                   ) : (
-                    <p>
-                      {user?.additionalDetails?.overallRating} - Driving ratings
-                    </p>
+                    <p>{profile?.overallRating} - Driving ratings</p>
                   )}
                 </span>
               </div>
@@ -136,15 +130,14 @@ function Fullprofile() {
             <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
             <div className="mb-4 mt-5">
               <div className="flex items-center mb-3">
-                {user?.additionalDetails?.govtId === null ||
-                user?.additionalDetails?.govtId === "" ? (
+                {profile?.govtId === null || profile?.govtId === "" ? (
                   <div className="flex items-center">
                     <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
                     <span className="text-dark-color w-fit smxl:text-sm">
                       Non-verified
                     </span>
                   </div>
-                ) : user?.additionalDetails?.govtId === "Pending" ? (
+                ) : profile?.govtId === "Pending" ? (
                   <div className="flex items-center">
                     <RiProgress5Line className="text-[21px] text-dark-color mr-2 smxl:text-[16px]" />
                     <span className="text-dark-color w-fit smxl:text-sm">
@@ -167,8 +160,8 @@ function Fullprofile() {
                 </span>
               </div>
               <div className="flex items-center">
-                {user?.additionalDetails?.contactNumber === null ||
-                user?.additionalDetails?.contactNumber === undefined ? (
+                {profile?.contactNumber === null ||
+                profile?.contactNumber === undefined ? (
                   <div className="flex items-center mb-3">
                     <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
                     <span className="text-dark-color w-fit smxl:text-sm">
@@ -188,13 +181,13 @@ function Fullprofile() {
             <div className="border-b-4 w-full border-light-color"></div>
             <div className="mb-5 mt-5 smxl:w-11/12">
               <h3 className="text-lg font-semibold mb-3 text-dark-color smxl:text-base">
-                About {user?.additionalDetails?.firstName}
+                About {profile?.firstName}
               </h3>
               <div className="flex items-center mb-3 smxl:text-sm">
                 <span>
-                  {user?.additionalDetails?.about?.trim() === "" ||
-                  user?.additionalDetails?.about === null ||
-                  user?.additionalDetails?.about === undefined ? (
+                  {profile?.about?.trim() === "" ||
+                  profile?.about === null ||
+                  profile?.about === undefined ? (
                     <p className="text-dark-color flex items-center">
                       <BsChatDotsFill className="text-dark-color mr-2 text-lg" />
                       bio not added
@@ -202,7 +195,7 @@ function Fullprofile() {
                   ) : (
                     <p className="text-medium-color flex items-center">
                       <BsChatDotsFill className="text-medium-color mr-2 text-lg" />
-                      {user?.additionalDetails?.about}
+                      {profile?.about}
                     </p>
                   )}
                 </span>
@@ -210,9 +203,9 @@ function Fullprofile() {
               <div className="flex items-center smxl:text-sm">
                 <span className="text-medium-color">
                   <span>
-                    {user?.additionalDetails?.vehicle?.trim() === "" ||
-                    user?.additionalDetails?.vehicle === null ||
-                    user?.additionalDetails?.vehicle === undefined ? (
+                    {profile?.vehicle?.trim() === "" ||
+                    profile?.vehicle === null ||
+                    profile?.vehicle === undefined ? (
                       <p className="text-dark-color flex items-center">
                         <FaCarSide className="text-dark-color mr-2 text-lg" />
                         vehicle details not added
@@ -220,7 +213,7 @@ function Fullprofile() {
                     ) : (
                       <p className="text-medium-color flex items-center">
                         <FaCarSide className="text-medium-color mr-2 text-lg" />
-                        {user?.additionalDetails?.vehicle}
+                        {profile?.vehicle}
                       </p>
                     )}
                   </span>
@@ -229,7 +222,7 @@ function Fullprofile() {
             </div>
             <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
             <div className="text-medium-color mt-4 smxl:text-sm">
-              {user?.additionalDetails?.noOfRidesPublished} rides published
+              {profile?.noOfRidesPublished} rides published
             </div>
             <div className="text-medium-color mt-4 smxl:text-sm">
               Member since {monthName} {yearJoined}

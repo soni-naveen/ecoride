@@ -23,6 +23,7 @@ export const rideEndpoints = {
   ADD_STOP_POINT_API: BASE_URL + "/ride/addStopPoint",
   DELETE_RIDE_API: BASE_URL + "/ride/deleteRide",
   AUTO_DELETE_RIDE_API: BASE_URL + "/ride/autoDeleteRide",
+  GET_SEARCHED_RIDES_API: BASE_URL + "/ride/getSearchedRides",
 };
 
 // CONTACT-US API

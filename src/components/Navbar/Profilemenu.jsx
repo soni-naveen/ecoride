@@ -31,7 +31,7 @@ export default function ProfileDropdown() {
     <button className="relative" onClick={() => setOpen(true)}>
       <div className="flex items-center gap-x-1">
         <img
-          src={user?.image}
+          src={user?.additionalDetails?.image}
           className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[35px] rounded-full object-cover md:w-[30px]"
         />
         <AiOutlineCaretDown className="text-sm text-dark-color" />

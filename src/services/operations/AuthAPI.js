@@ -20,16 +20,13 @@ export function sendOtp(email, navigate) {
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
-        checkUserPresent: true,
       });
-      // console.log("SENDOTP API RESPONSE............", response);
 
-      // console.log(response.data.success);
+      // console.log("SENDOTP API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-
       toast.success("OTP Sent Successfully");
       navigate("/verification");
     } catch (error) {
@@ -93,10 +90,8 @@ export function login(email, password) {
 
       toast.success("Login Successful");
       dispatch(setToken(response.data.token));
-      const userImage = response.data?.user?.image
-        ? response.data.user.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.image}&chars=1`;
-      dispatch(setUser({ ...response.data.user, image: userImage }));
+      dispatch(setUser({ ...response?.data?.user }));
+
       localStorage.setItem("token", JSON.stringify(response.data.token));
     } catch (error) {
       console.log("LOGIN API ERROR............", error);

@@ -8,6 +8,7 @@ const {
   ADD_STOP_POINT_API,
   DELETE_RIDE_API,
   AUTO_DELETE_RIDE_API,
+  GET_SEARCHED_RIDES_API,
 } = rideEndpoints;
 
 // create ride
@@ -101,3 +102,26 @@ export function deleteRideAutomatically(token) {
     }
   };
 }
+
+//get all searched rides
+export const getSearchedRides = async (st, dt, date, seats) => {
+  let result = null;
+  try {
+    const response = await apiConnector("POST", GET_SEARCHED_RIDES_API, {
+      st,
+      dt,
+      date,
+      seats,
+    });
+    // console.log("GET_SEARCHED_RIDES_API API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    result = response.data;
+  } catch (error) {
+    console.log("GET_SEARCHED_RIDES_API API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};

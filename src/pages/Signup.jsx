@@ -53,13 +53,13 @@ function Signup() {
     }));
     if (e.target.value.length < 8) {
       setPassAlert(
-        <p
+        <div
           style={{
             fontSize: "12px",
           }}
         >
           Password must have at least 8 characters.
-        </p>
+        </div>
       );
     } else {
       setPassAlert("");
@@ -73,13 +73,13 @@ function Signup() {
     }));
     if (e.target.value !== password) {
       setConfirmAlert(
-        <p
+        <div
           style={{
             fontSize: "12px",
           }}
         >
           Password does not match.
-        </p>
+        </div>
       );
     } else {
       setConfirmAlert("");
@@ -194,7 +194,7 @@ function Signup() {
                     <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                   )}
                 </span>
-                <p className="text-yellow-200 mt-1 font-light">{passAlert}</p>
+                <div className="text-yellow-200 mt-1 font-light">{passAlert}</div>
               </label>
               <label className="relative">
                 <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
@@ -220,9 +220,9 @@ function Signup() {
                     <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                   )}
                 </span>
-                <p className="text-yellow-200 mt-1 font-light">
+                <div className="text-yellow-200 mt-1 font-light">
                   {confirmAlert}
-                </p>
+                </div>
               </label>
 
               <button
