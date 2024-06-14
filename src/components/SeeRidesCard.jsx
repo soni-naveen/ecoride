@@ -6,6 +6,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export default function Seeridecard({
+  rideId,
   profile,
   fromWhere,
   toWhere,
@@ -33,15 +34,15 @@ export default function Seeridecard({
                 {reaching}
               </h1>
             </div>
-            <div className="divider py-2 sm:py-1">
+            <div className="divider py-1">
               <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
-              <div className="line bg-medium-color h-24 w-0.5 ml-[4px] sm:h-[75px]"></div>
+              <div className="line bg-medium-color min-h-24 h-[calc(100%-20px)] w-0.5 ml-[4px] sm:min-h-20"></div>
               <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
             </div>
             {/*========== PLACES ========== */}
             <div className="text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48 sm2xl:text-[10px]">
-              <h1 className="text-dark-color">{fromWhere}</h1>
-              <h1 className="text-dark-color">{toWhere}</h1>
+              <h1 className="text-dark-color font-medium">{fromWhere}</h1>
+              <h1 className="text-dark-color font-medium">{toWhere}</h1>
             </div>
           </div>
           {/*========== PRICE ========== */}
@@ -51,7 +52,10 @@ export default function Seeridecard({
               {price}/-
             </h1>
             {/*========== BOOK ========== */}
-            <button className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7">
+            <button
+              onClick={() => navigate(`/bookride/${rideId}`)}
+              className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7"
+            >
               Book
             </button>
           </div>
@@ -70,9 +74,7 @@ export default function Seeridecard({
             {/*========== NAME ========== */}
             <div className="name flex flex-col gap-1 sm2xl:gap-0">
               <button
-                onClick={() =>
-                  navigate(`/profile/${profile._id}`)
-                }
+                onClick={() => navigate(`/profile/${profile._id}`)}
                 className="flex text-dark-color items-center gap-1 hover:underline"
               >
                 <div className="sm:text-sm smxl:text-xs">{firstName}</div>
@@ -95,7 +97,7 @@ export default function Seeridecard({
                   <FaStar className="text-sm sm:text-xs smxl:text-[10px] sm2xl:text-[8px]" />
                 </div>
                 <div className="ratingRecived text-dark-color sm:text-sm smxl:text-xs">
-                  {overallRating !== 0 ? (
+                  {overallRating === 0 ? (
                     <div className="text-[10px] sm2xl:text-[8px]">
                       No ratings yet
                     </div>

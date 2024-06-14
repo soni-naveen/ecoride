@@ -36,6 +36,7 @@ import Inbox from "./components/Dashboard/Inbox";
 import YourRides from "./components/Dashboard/YourRides";
 import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
+import BookRide from "./pages/BookRide";
 
 function App() {
   const dispatch = useDispatch();
@@ -61,6 +62,7 @@ function App() {
         <Route path="/searchride" element={<Searchride />} />
         <Route path="/profile/:profileId" element={<Fullprofile />} />
         <Route path="/search" element={<SeeRides />} />
+        <Route path="/bookride/:rideId" element={<BookRide />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
@@ -113,7 +115,6 @@ function App() {
           />
           <Route path="/dashboard/updateProfile" element={<EditProfile />} />
           <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
-          <Route path="/dashboard/yourRides" element={<YourRides />} />
           <Route
             path="/dashboard/updatePhoto"
             element={<ChangeProfilePicture />}
@@ -123,6 +124,7 @@ function App() {
             element={<ChangePassword />}
           />
           <Route path="dashboard/inbox" element={<Inbox />} />
+          <Route path="/dashboard/yourRides" element={<YourRides />} />
         </Route>
         {/* 404 Page */}
         <Route path="*" element={<Error />} />

@@ -124,7 +124,7 @@ function Seerides() {
   return (
     <div className="max-w-[1800px] mx-auto">
       {/*=============== HEADER PART ==================*/}
-      <div className="header h-24 w-full max-w-[1800px] flex justify-center items-center z-10 fixed top-19 gap-5 lg:gap-3 bg-dark-color md:flex-col md:h-32 smxl:h-28 md:gap-3">
+      <div className="header h-20 w-full max-w-[1800px] flex justify-center items-center z-10 fixed top-19 gap-5 lg:gap-3 bg-dark-color md:flex-col md:gap-2 md:h-28 smxl:h-24">
         <div className="text-white text-xl flex items-center justify-around gap-3 w-fit lg:text-lg md:justify-between md:w-[73%] sm:justify-between sm:w-[82%] md:text-[16px] smxl:text-sm">
           <span>Showing rides for :</span>
           <button
@@ -182,7 +182,7 @@ function Seerides() {
         <div className="bottom w-full h-fit flex">
           <div className="flex w-[80%] justify-around 2xl:w-[85%] xl:w-full xl:justify-center lg:justify-around">
             {/*=========== LEFT SIDE ==========*/}
-            <div className="leftSide h-fit sticky left-5 top-40 overflow-scroll px-10 py-5 border-r-2 mt-24 gap-4 flex flex-col xl:hidden">
+            <div className="leftSide h-fit sticky top-36 left-5 overflow-scroll px-10 py-5 border-r-2 mt-20 gap-4 flex flex-col xl:hidden">
               <div className="filterHeading">
                 <h1 className="font-bold text-lg text-center text-dark-color">
                   Add Filters
@@ -374,10 +374,11 @@ function Seerides() {
             </div>
 
             {/*========== RIGHT SIDE ==========*/}
-            <div className="rightSide mt-36 mb-14 md:mt-40 smxl:mt-36 flex flex-col gap-8 items-center">
+            <div className="rightSide mt-28 mb-14 md:mt-36 smxl:mt-32 flex flex-col gap-8 items-center">
               {rides.map((ride) => (
                 <Seeridecard
                   key={ride._id}
+                  rideId={ride._id}
                   profile={ride.profile}
                   fromWhere={ride.fromWhere}
                   toWhere={ride.toWhere}

@@ -9,6 +9,7 @@ const {
   DELETE_RIDE_API,
   AUTO_DELETE_RIDE_API,
   GET_SEARCHED_RIDES_API,
+  GET_RIDE_DETAIL_API,
 } = rideEndpoints;
 
 // create ride
@@ -121,6 +122,25 @@ export const getSearchedRides = async (st, dt, date, seats) => {
     result = response.data;
   } catch (error) {
     console.log("GET_SEARCHED_RIDES_API API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};
+
+export const getRideDetails = async (rideId) => {
+  let result = null;
+  try {
+    const response = await apiConnector("POST", GET_RIDE_DETAIL_API, {
+      rideId,
+    });
+    // console.log("GET_RIDE_DETAIL_API API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    result = response.data;
+  } catch (error) {
+    console.log("GET_RIDE_DETAIL_API API ERROR............", error);
     result = error.response.data;
   }
   return result;

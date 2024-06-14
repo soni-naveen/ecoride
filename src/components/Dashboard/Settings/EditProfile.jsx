@@ -72,12 +72,12 @@ function Editdetails() {
   return (
     <div className="container flex justify-center items-center">
       <div className="innerBox flex flex-col mb-10 justify-center items-center">
-        <div className="heading w-[400px] items-center mt-12 flex justify-start gap-24 sm:w-[300px] sm:gap-12 sm2xl:w-[250px] sm2xl:gap-10">
+        <div className="heading w-[400px] items-center mt-12 flex sm:w-[300px] sm2xl:w-[250px]">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}
             className="text-2xl text-dark-color hover:cursor-pointer sm:text-[22px] sm2xl:text-xl"
           />
-          <h1 className="text-2xl font-medium text-dark-color sm:text-[22px] sm2xl:text-xl sm2xl:text-lg">
+          <h1 className="text-2xl font-medium w-full text-center text-dark-color sm:text-[22px] sm2xl:text-xl sm2xl:text-lg">
             Personal Details
           </h1>
         </div>

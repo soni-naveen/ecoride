@@ -48,7 +48,7 @@ export const getFullProfile = async (profileId, navigate) => {
   } catch (error) {
     console.log("FULL_PROFILE_API API ERROR............", error);
     result = error.response.data;
-    // navigate("/error");
+    navigate("/error");
   }
   return result;
 };

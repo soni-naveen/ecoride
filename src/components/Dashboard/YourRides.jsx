@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import {
   deleteRide,
@@ -84,9 +84,9 @@ export default function YourRides() {
   }, [dispatch, token, user?.ridePublished]);
 
   return (
-    <div className="container mx-auto">
-      <div className="bg-white">
-        <div className="mt-7 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
+    <div className="container mx-auto mb-10">
+      <div>
+        <div className="mt-2 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
           <button
             className={`text-lg font-semibold p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
               activeTab === "booked"
@@ -120,92 +120,88 @@ export default function YourRides() {
               {user?.ridePublished?.fromWhere !== "" &&
               user?.ridePublished?.toWhere !== "" ? (
                 <div>
-                  <div className="flex items-center justify-evenly mt-3 border-b md1:flex-col md1:gap-7">
-                    <div className="rideCard flex flex-col justify-between bg-white rounded-md w-fit py-10 px-5 z-0 sm:py-5">
-                      <div className="flex justify-between gap-10 mb-7 sm:gap-5 smxl:flex-col smxl:gap-7">
+                  {/*============== DATE =========== */}
+                  <div className="text-center mt-7 text-3xl font-bold text-dark-color sm:text-2xl sm2xl:text-xl">
+                    {outputDateString}
+                  </div>
+                  <div className="flex items-center justify-evenly">
+                    {/*============== RIDE CARD ============ */}
+                    <div className="flex flex-col max-w-[500px] justify-between bg-white rounded-md py-10 px-5 z-0 sm:py-5">
+                      <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
                         <div className="time flex gap-4">
                           <div className="timeContainer flex flex-col justify-between items-center">
-                            <h1 className="font-bold text-dark-color sm:text-xs">
+                            <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                               {user?.ridePublished?.leavingTime}
                             </h1>
-                            <h1 className="font-bold text-dark-color sm:text-xs">
+                            <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                               {user?.ridePublished?.reachingTime}
                             </h1>
                           </div>
-                          <div className="divider py-2 sm:py-1">
+                          <div className="divider py-1">
                             <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
-                            <div className="line bg-medium-color h-24 w-0.5 ml-[4px] sm:h-[75px]"></div>
+                            <div className="line bg-medium-color min-h-24 h-[calc(100%-20px)] w-0.5 ml-[4px] sm:min-h-20"></div>
                             <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
                           </div>
-                          <div className="destination text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48">
-                            <h1 className="text-dark-color">
+                          <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
+                            <h1 className="text-dark-color font-medium">
                               {user?.ridePublished?.fromWhere}
                             </h1>
-                            <h1 className="text-dark-color">
+                            <div>
+                              {user?.ridePublished?.stopPoint1 === "" &&
+                              user?.ridePublished?.stopPoint2 === "" &&
+                              user?.ridePublished?.stopPoint1 === "" ? (
+                                <div></div>
+                              ) : (
+                                <div className="text-medium-color flex flex-col gap-3">
+                                  {user?.ridePublished?.stopPoint1 !== "" ? (
+                                    <div>{user?.ridePublished?.stopPoint1}</div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {user?.ridePublished?.stopPoint2 !== "" ? (
+                                    <div>
+                                      {user?.ridePublished?.stopPoint2}{" "}
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {user?.ridePublished?.stopPoint3 !== "" ? (
+                                    <div>
+                                      {user?.ridePublished?.stopPoint3}{" "}
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                            <h1 className="text-dark-color font-medium">
                               {user?.ridePublished?.toWhere}
                             </h1>
                           </div>
                         </div>
-                        <div className="price items-center flex flex-col justify-between smxl:flex-row smxl:justify-around">
-                          <h1 className="font-bold bg-light-color flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
-                            <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
-                            {user?.ridePublished?.price}/-
-                          </h1>
-                          <button
-                            onClick={handleDeleteRide}
-                            className="flex items-center text-sm border border-red-400 text-red-500 font-medium px-3 py-1.5 rounded-sm duration-200 hover:bg-red-100 hover:border-red-100 sm:text-[10px] sm:py-0.5 sm:px-2"
-                          >
-                            <RiDeleteBin6Line className="mr-2 sm:mr-1" />
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                      
-                      {/*================ RIDE DETAILS ===================  */}
-                      <div className="RideDetails max-w-[500px] text-sm sm:text-xs">
-                        <h1 className="text-lg font-medium underline text-medium-color sm:text-sm">
-                          Ride details
-                        </h1>
-                        <div className="mt-2">
-                          <span className="font-medium">Date : </span>
-                          {outputDateString}
-                        </div>
-                        <div>
-                          <span className="font-medium">Seats :</span>{" "}
-                          {user?.ridePublished?.noOfSeats}
-                        </div>
-                        {user?.ridePublished?.stopPoint1 === "" &&
-                        user?.ridePublished?.stopPoint2 === "" &&
-                        user?.ridePublished?.stopPoint1 === "" ? (
-                          <div>
-                            <div className="font-semibold">Stop Points :</div>
-                            <div>No stop point added!</div>
-                          </div>
-                        ) : (
-                          <div>
-                            <span className="font-semibold">Stop Points :</span>{" "}
-                            <div>
-                              {user?.ridePublished?.stopPoint1 !== "" ? (
-                                <div>{user?.ridePublished?.stopPoint1}</div>
-                              ) : (
-                                <div></div>
-                              )}
-                              {user?.ridePublished?.stopPoint2 !== "" ? (
-                                <div>{user?.ridePublished?.stopPoint2} </div>
-                              ) : (
-                                <div></div>
-                              )}
-                              {user?.ridePublished?.stopPoint3 !== "" ? (
-                                <div>{user?.ridePublished?.stopPoint3} </div>
-                              ) : (
-                                <div></div>
-                              )}
-                            </div>
-                          </div>
-                        )}
                       </div>
                     </div>
                   </div>
+                  {/*============== PRICE, SEATS, DELETE =========== */}
+                  <div className="border-y-2 py-3 mb-10 w-full max-w-[600px] mx-auto flex items-center justify-evenly gap-5">
+                    <div className="text-dark-color font-semibold text-lg sm:text-sm">
+                      Seats left : {user?.ridePublished?.noOfSeats}
+                    </div>
+                    <div className="font-bold w-fit flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
+                      <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
+                      {user?.ridePublished?.price}/-
+                    </div>
+                    <button
+                      onClick={handleDeleteRide}
+                      className="flex items-center text-sm border border-red-400 text-red-500 font-medium px-3 py-1.5 rounded-sm duration-200 hover:bg-red-100 hover:border-red-100 sm:text-[10px] sm:py-0.5 sm:px-2"
+                    >
+                      <RiDeleteBin7Fill className="mr-2 sm:mr-1" />
+                      Delete
+                    </button>
+                  </div>
+
+                  {/*============== PASSENGERS =========== */}
                   <div>
                     <h1 className="text-dark-color text-center underline text-xl mt-7 mb-5 font-semibold sm:text-lg">
                       Passengers
