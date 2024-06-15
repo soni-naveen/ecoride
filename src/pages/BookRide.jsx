@@ -137,7 +137,7 @@ function BookRide() {
               onClick={() => navigate(`/profile/${ride.profile._id}`)}
               className="w-full max-w-[600px] flex items-center justify-between rounded-md px-5 py-3 mb-2 hover:bg-gray-200 duration-200"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 smxl:gap-2">
                 {/*====== IMAGE ====== */}
                 <div className="img">
                   <img
@@ -146,7 +146,7 @@ function BookRide() {
                   />
                 </div>
                 {/*====== NAME ====== */}
-                <div className="name flex flex-col gap-1 sm2xl:gap-0">
+                <div className="name flex flex-col gap-1 smxl:gap-0">
                   <div className="flex text-dark-color items-center gap-1">
                     <div className="sm:text-sm sm2xl:text-xs">
                       {ride?.profile?.firstName}

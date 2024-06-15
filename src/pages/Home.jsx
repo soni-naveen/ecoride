@@ -262,7 +262,7 @@ const Home = () => {
         {/* *******************************************************************************************************
                                                 Get Started Today 
         ******************************************************************************************************** */}
-        <div className="abovefooter w-full py-16 px-36 flex flex-col justify-evenly gap-16 sm:gap-12 lg:px-0 lg:items-center xl:px-28">
+        <div className="abovefooter w-full py-14 px-36 flex flex-col justify-evenly gap-16 smxl:gap-10 smxl:py-10 sm:gap-12 sm:py-12 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
             <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl sm:text-3xl">
               Get started today !

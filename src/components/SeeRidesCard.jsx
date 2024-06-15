@@ -71,8 +71,8 @@ export default function Seeridecard({
                 className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
               />
             </div>
-            {/*========== NAME ========== */}
-            <div className="name flex flex-col gap-1 sm2xl:gap-0">
+            {/*========== NAME , VERIFIED OR NOT , RATING ========== */}
+            <div className="name flex flex-col gap-1 smxl:gap-0.5">
               <button
                 onClick={() => navigate(`/profile/${profile._id}`)}
                 className="flex text-dark-color items-center gap-1 hover:underline"

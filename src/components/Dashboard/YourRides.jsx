@@ -73,12 +73,12 @@ export default function YourRides() {
       const rideDate = user?.ridePublished?.date;
       const rideTime = user?.ridePublished?.leavingTime;
 
-      if (rideDate === currDate && rideTime === currTime) {
+      if (rideDate == currDate && rideTime == currTime) {
         dispatch(deleteRideAutomatically(token));
       }
     };
 
-    const intervalId = setInterval(checkAndDeleteRide, 30000);
+    const intervalId = setInterval(checkAndDeleteRide, 10000);
 
     return () => clearInterval(intervalId);
   }, [dispatch, token, user?.ridePublished]);

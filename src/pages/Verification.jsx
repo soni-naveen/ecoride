@@ -11,6 +11,7 @@ import { sendOtp, signUp } from "../services/operations/AuthAPI";
 function Verification() {
   const [otp, setOtp] = useState("");
   const { signupData, loading } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const modelRef = useRef();
@@ -27,7 +28,6 @@ function Verification() {
     if (!signupData) {
       navigate("/signup");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleVerifyAndSignup = (e) => {
