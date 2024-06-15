@@ -89,10 +89,10 @@ function Myprofile() {
   return (
     <div className="container mx-auto">
       {/*================ HEADER TAB ================= */}
-      <div className="bg-white">
-        <div className="mt-2 flex justify-center border-b shadow border-gray-200">
+      <div>
+        <div className="mt-1 flex justify-evenly items-center border-b shadow border-gray-200">
           <div
-            className={`text-lg font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "about"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -101,9 +101,9 @@ function Myprofile() {
           >
             About you
           </div>
-          <div className="inline-block border-r-2 border-solid border-medium-color h-[30px] mx-24 mt-4 mb-2 md1:mx-16 sm:mx-8 sm:mb-1 smxl:mx-3"></div>
+          <div className="py-5 border-x border-slate-200"></div>
           <div
-            className={`text-xl font-semibold cursor-pointer p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "account"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -120,10 +120,14 @@ function Myprofile() {
               <div className="max-w-[700px] mx-auto p-6 sm:p-5 sm:mt-2 sm2xl:p-3">
                 <div className="flex mb-5 flex-col">
                   {/*======= VIEW FULL PROFILE ======== */}
-                  <button onClick={() => navigate(`/profile/${user?.additionalDetails?._id}`)}>
+                  <button
+                    onClick={() =>
+                      navigate(`/profile/${user?.additionalDetails?._id}`)
+                    }
+                  >
                     <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
                       {/*======= NAME ======== */}
-                      <h1 className="text-3xl font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-xl">
+                      <h1 className="text-3xl text-start font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-lg">
                         {user?.additionalDetails?.firstName +
                           " " +
                           user?.additionalDetails?.lastName}
@@ -133,7 +137,7 @@ function Myprofile() {
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
                           src={user?.additionalDetails?.image}
-                          className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-10 sm2xl:h-8 sm2xl:w-8 object-cover"
+                          className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-12 smxl:w-12 sm2xl:h-10 sm2xl:w-10 object-cover"
                         />
                         <GrNext className="text-2xl text-dark-color smxl:text-xl" />
                       </div>

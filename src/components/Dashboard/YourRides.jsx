@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
-import { RiDeleteBin7Fill } from "react-icons/ri";
+import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import {
-  deleteRide,
-  deleteRideAutomatically,
-} from "../../services/operations/RideAPI";
+import { deleteRide } from "../../services/operations/RideAPI";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import dayjs from "dayjs";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -65,49 +61,31 @@ export default function YourRides() {
     }
   }
 
-  useEffect(() => {
-    const checkAndDeleteRide = () => {
-      const currDate = dayjs().format("YYYY-MM-DD");
-      const currTime = dayjs().format("HH:mm");
-
-      const rideDate = user?.ridePublished?.date;
-      const rideTime = user?.ridePublished?.leavingTime;
-
-      if (rideDate == currDate && rideTime == currTime) {
-        dispatch(deleteRideAutomatically(token));
-      }
-    };
-
-    const intervalId = setInterval(checkAndDeleteRide, 10000);
-
-    return () => clearInterval(intervalId);
-  }, [dispatch, token, user?.ridePublished]);
-
   return (
     <div className="container mx-auto mb-10">
       <div>
-        <div className="mt-2 flex justify-center border-b shadow border-gray-200 sm:mt-2 md:mt-5">
-          <button
-            className={`text-lg font-semibold p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+        <div className="mt-1 flex justify-evenly items-center border-b shadow border-gray-200">
+          <div
+            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "booked"
-                ? "text-dark-color border-b-2 border-b-medium-color"
+                ? "text-dark-color border-b-2  border-b-medium-color"
                 : "text-gray-500"
             }`}
             onClick={() => handleTabClick("booked")}
           >
             Booked
-          </button>
-          <div className="inline-block border-r-2 border-solid border-medium-color h-[30px] mx-24 mt-4 mb-2 md1:mx-16 sm:mx-8 sm:mb-1 smxl:mx-3"></div>
-          <button
-            className={`text-xl font-semibold p-3 w-[300px] text-center md:w-[200px] md1:w-[250px] sm:text-lg smxl:text-base ${
+          </div>
+          <div className="py-5 border-x border-slate-200"></div>
+          <div
+            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "published"
-                ? "text-dark-color border-b-2 border-b-medium-color"
+                ? "text-dark-color border-b-2  border-b-medium-color"
                 : "text-gray-500"
             }`}
             onClick={() => handleTabClick("published")}
           >
             Published
-          </button>
+          </div>
         </div>
         <div>
           {activeTab === "booked" && (
@@ -196,7 +174,7 @@ export default function YourRides() {
                       onClick={handleDeleteRide}
                       className="flex items-center text-sm border border-red-400 text-red-500 font-medium px-3 py-1.5 rounded-sm duration-200 hover:bg-red-100 hover:border-red-100 sm:text-[10px] sm:py-0.5 sm:px-2"
                     >
-                      <RiDeleteBin7Fill className="mr-2 sm:mr-1" />
+                      <AiFillDelete className="mr-2 sm:mr-1" />
                       Delete
                     </button>
                   </div>

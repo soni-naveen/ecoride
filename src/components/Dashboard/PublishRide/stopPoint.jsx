@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  IoMdAddCircleOutline,
-  IoMdRemoveCircleOutline,
-  IoMdArrowRoundBack,
-} from "react-icons/io";
+import { IoMdAddCircleOutline, IoMdArrowRoundBack } from "react-icons/io";
+import { TiDelete } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 import Autocomplete from "../../Autocomplete";
 import { useForm, Controller } from "react-hook-form";
@@ -74,7 +71,7 @@ export default function Stoppoint() {
         <button
           onClick={handleAddStopPoint}
           disabled={stopPoints.length >= maxStopPoints}
-          className="text-base text-slate-400 px-4 py-2 border border-2 flex gap-3 justify-around items-center rounded-full hover:cursor-pointer hover:bg-slate-100 hover:border-slate-100 duration-300"
+          className="text-base text-slate-400 px-4 py-2 border border-2 flex gap-3 justify-around items-center rounded-full hover:cursor-pointer hover:bg-slate-100 active:border-slate-200 active:bg-slate-200 hover:border-slate-100 duration-300"
         >
           <span>
             <IoMdAddCircleOutline className="text-slate-400 text-2xl" />
@@ -86,7 +83,7 @@ export default function Stoppoint() {
           className="flex flex-col items-center"
         >
           {stopPoints.map((stopPoint, index) => (
-            <div key={index} className="flex gap-2 mb-6">
+            <div key={index} className="flex gap-2 mb-6 ml-7">
               <div className="border-2 border-medium-color rounded-md relative">
                 <div className="h-[10px] w-[10px] bg-medium-color rounded-full absolute top-[19px] left-[10px] z-10 smxl:h-2 smxl:w-2 smxl:top-[17px] smxl:left-3"></div>
                 <Controller
@@ -112,7 +109,7 @@ export default function Stoppoint() {
                 type="button"
                 onClick={() => handleRemoveStopPoint(index)}
               >
-                <IoMdRemoveCircleOutline className="text-2xl text-dark-color" />
+                <TiDelete className="text-3xl text-red-400" />
               </button>
             </div>
           ))}

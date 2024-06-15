@@ -13,6 +13,7 @@ const Contact = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
@@ -44,14 +45,24 @@ const Contact = () => {
       });
     }
   }, [reset, isSubmitSuccessful]);
+
+  useEffect(() => {
+    if (user) {
+      setValue("firstname", user?.additionalDetails?.firstName || "");
+      setValue("lastname", user?.additionalDetails?.lastName || "");
+      setValue("email", user?.email || "");
+    }
+  }, [user, setValue]);
   return (
     <div>
       <div className="max-w-[1800px] mx-auto bg-light-color py-2 flex justify-center sm:py-5">
         <div className="rounded-xl p-10 flex gap-5 flex-col items-center sm2xl:p-2 sm:p-4">
+          {/*========== HEADING ========== */}
           <h1 className="text-4xl leading-10 font-semibold text-dark-color sm:text-[26px] smxl:text-[22px]">
             Feedback & Queries
           </h1>
-          <p className="sm:text-sm sm2xl:text-xs">
+          {/*========== SUBHEADING ========== */}
+          <p className="sm:text-sm smxl:text-xs">
             We're here to Listen! Please fill out this form
           </p>
 
@@ -61,8 +72,9 @@ const Contact = () => {
               onSubmit={handleSubmit(submitContactForm)}
             >
               <div className="flex gap-5 sm:flex-col">
+                {/*========== FIRST NAME ========== */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="firstname" className="text-[14px]">
+                  <label htmlFor="firstname" className="text-sm smxl:text-xs">
                     First Name
                   </label>
                   <input
@@ -70,19 +82,19 @@ const Contact = () => {
                     autoComplete="off"
                     name="firstname"
                     id="firstname"
-                    defaultValue={user?.additionalDetails?.firstName}
                     placeholder="Enter first name"
                     className="form-style"
                     {...register("firstname", { required: true })}
                   />
                   {errors.firstname && (
-                    <span className="-mt-1 text-[12px] text-red-400">
+                    <span className="text-xs text-red-400 smxl:text-[10px]">
                       Please enter your name !
                     </span>
                   )}
                 </div>
+                {/*========== LAST NAME ========== */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="lastname" className="text-[14px]">
+                  <label htmlFor="lastname" className="text-sm smxl:text-xs">
                     Last Name
                   </label>
                   <input
@@ -90,16 +102,15 @@ const Contact = () => {
                     autoComplete="off"
                     name="lastname"
                     id="lastname"
-                    defaultValue={user?.additionalDetails?.lastName}
                     placeholder="Enter last name"
                     className="form-style"
                     {...register("lastname")}
                   />
                 </div>
               </div>
-
+              {/*========== EMAIL ADDRESS ========== */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="email" className="text-[14px]">
+                <label htmlFor="email" className="text-sm smxl:text-xs">
                   Email Address
                 </label>
                 <input
@@ -107,20 +118,20 @@ const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
-                  defaultValue={user?.email}
                   placeholder="Enter email address"
                   className="form-style"
                   {...register("email", { required: true })}
                 />
                 {errors.email && (
-                  <span className="-mt-1 text-[12px] text-red-400">
+                  <span className="text-xs text-red-400 smxl:text-[10px]">
                     Please enter your email address !
                   </span>
                 )}
               </div>
 
+              {/*========== YOUR MESSAGE ========== */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="message" className="text-[14px]">
+                <label htmlFor="message" className="text-sm smxl:text-xs">
                   Message
                 </label>
                 <textarea
@@ -133,20 +144,20 @@ const Contact = () => {
                   {...register("message", { required: true })}
                 />
                 {errors.message && (
-                  <span className="-mt-1 text-[12px] text-red-400">
+                  <span className="text-xs text-red-400 smxl:text-[10px]">
                     Please enter your Message !
                   </span>
                 )}
               </div>
 
+              {/*========== SUBMIT BUTTON ========== */}
               <button
                 disabled={loading}
                 type="submit"
-                className={`rounded-md mt-3 bg-medium-color font-normal px-6 py-2.5 text-center text-base font-bold text-white
-         ${
-           !loading &&
-           "transition-all duration-200 hover:scale-95 hover:shadow-none"
-         }  sm:text-[16px] `}
+                className={`rounded-md bg-medium-color font-normal px-6 py-2.5 text-center text-base font-bold text-white ${
+                  !loading &&
+                  "transition-all duration-200 hover:scale-95 hover:shadow-none"
+                } sm:text-base `}
               >
                 Send Message
               </button>

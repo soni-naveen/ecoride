@@ -2,6 +2,7 @@ import React from "react";
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
 import "./Chatbot/chatbot.css";
+import Footer from "../components/Footer/Footer";
 
 import config from "./Chatbot/config";
 import MessageParser from "./Chatbot/MessageParser";
@@ -24,6 +25,7 @@ function Helpcenter() {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -143,5 +143,5 @@
   }
 }
 .form-style {
-  @apply rounded-md bg-white p-3 text-[16px] leading-[24px] shadow focus:outline-none;
+  @apply rounded-md bg-white p-3 text-base leading-[24px] shadow-md border focus:outline-none smxl:text-sm;
 }
