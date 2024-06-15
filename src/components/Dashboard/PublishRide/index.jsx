@@ -11,6 +11,9 @@ import { createRide } from "../../../services/operations/RideAPI.js";
 export default function Publishride() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
 
@@ -196,7 +199,7 @@ export default function Publishride() {
                     required: true,
                     valueAsNumber: true,
                   })}
-                  className="px-2 h-[42px] w-[12rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem]  smxl:w-[16rem] md1:w-[12rem]"
+                  className="px-2 h-[44px] w-[12rem] border-medium-color border-2 rounded-md sm2xl:w-[14rem]  smxl:w-[16rem] md1:w-[12rem]"
                 />
                 {errors.price && (
                   <span className="ml-1 text-xs tracking-wide text-red-400">
@@ -207,6 +210,7 @@ export default function Publishride() {
             </div>
             <button
               disabled={loading}
+              onClick={handleClickPageTop}
               className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer"
             >
               Proceed

@@ -89,7 +89,14 @@ function App() {
             </OpenRoute>
           }
         />
-        <Route path="/verification" element={<Verification />} />
+        <Route
+          path="/verification"
+          element={
+            <OpenRoute>
+              <Verification />
+            </OpenRoute>
+          }
+        />
         <Route
           path="/update-password/:id"
           element={
