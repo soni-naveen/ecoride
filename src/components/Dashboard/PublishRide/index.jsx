@@ -63,6 +63,7 @@ export default function Publishride() {
 
     dispatch(setPublishRideData(formDataObj));
     navigate("addStopPoint");
+    handleClickPageTop();
   };
 
   useEffect(() => {
@@ -226,10 +227,7 @@ export default function Publishride() {
                 )}
               </div>
             </div>
-            <button
-              onClick={handleClickPageTop}
-              className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer"
-            >
+            <button className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer">
               Proceed
               <span>
                 <GrFormNextLink className="text-3xl" />
