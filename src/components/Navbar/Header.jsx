@@ -37,7 +37,7 @@ const Header = () => {
           <div>
             <Link to="/searchride" onClick={handleClickPageTop}>
               <button className="text-dark-color hover:font-bold font-medium text-lg flex items-center">
-                <FaSearch className="mr-3 stroke-dark-color sm:mr-3 smxl:text-xl sm2xl:mr-1" />
+                <FaSearch className="mr-3 stroke-dark-color sm:mr-3 smxl:text-xl" />
                 <div className="smxl:hidden md1:text-[16px]">
                   Search <span className="md:hidden"> Ride</span>
                 </div>
@@ -61,7 +61,7 @@ const Header = () => {
             )}
             {token !== null && (
               <Link to="/dashboard/publishride">
-                <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 md:mr-3">
+                <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 smxl:mr-2">
                   <IoMdAddCircleOutline className="text-2xl mr-3 smxl:mr-1 smxl:text-[28px]" />
                   <div className="hover:font-bold font-medium smxl:hidden md1:text-[16px]">
                     Publish <span className="md:hidden">Ride</span>

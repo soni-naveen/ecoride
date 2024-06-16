@@ -77,8 +77,8 @@ function Fullprofile() {
       ) : (
         <div>
           {profile ? (
-            <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full smxl:w-3/4">
-              <div>
+            <div className="flex flex-col items-center mx-auto bg-white mt-2 mb-10 w-full max-w-[450px] smxl:px-10 sm2xl:px-5">
+              <div className="w-full">
                 <div className="flex justify-between items-center mb-5 h-16 border-b">
                   {/*====== BACK BUTTON ======*/}
                   <div>
@@ -97,7 +97,7 @@ function Fullprofile() {
                 </div>
 
                 {/*====== NAME , AGE, GENDER, IMAGE ======*/}
-                <div className="flex items-center justify-between mb-4 gap-56 sm2xl:gap-5 smxl:gap-12 sm:gap-32 md1:gap-48">
+                <div className="flex items-center justify-between mb-4 w-full">
                   <div>
                     <h2 className="text-2xl font-semibold text-dark-color smxl:text-xl sm2xl:text-lg">
                       {profile?.firstName + " " + profile?.lastName}
@@ -198,7 +198,7 @@ function Fullprofile() {
                 </div>
                 <div className="border-b-4 w-full border-light-color"></div>
                 {/*====== ABOUT ======*/}
-                <div className="mb-5 mt-5 smxl:w-11/12">
+                <div className="mb-5 mt-5 w-[95%]">
                   <h3 className="text-lg font-semibold mb-3 text-dark-color smxl:text-base">
                     About {profile?.firstName}
                   </h3>
@@ -208,12 +208,12 @@ function Fullprofile() {
                       profile?.about === null ||
                       profile?.about === undefined ? (
                         <p className="text-dark-color flex items-center">
-                          <BsChatDotsFill className="text-dark-color mr-2 text-lg" />
+                          <BsChatDotsFill className="text-dark-color mr-2 text-base" />
                           bio not added
                         </p>
                       ) : (
                         <p className="text-medium-color flex items-center">
-                          <BsChatDotsFill className="text-medium-color mr-2 text-lg" />
+                          <BsChatDotsFill className="text-medium-color mr-2 text-base" />
                           {profile?.about}
                         </p>
                       )}
@@ -239,7 +239,7 @@ function Fullprofile() {
                     </span>
                   </div>
                 </div>
-                <div className="bickWalaBorder border-b-4 w-full border-light-color"></div>
+                <div className="border-b-4 w-full border-light-color"></div>
                 <div className="text-medium-color mt-4 smxl:text-sm">
                   {profile?.noOfRidesPublished} rides published
                 </div>

@@ -203,9 +203,7 @@ function BookRide() {
                 </button>
                 <hr className="w-full max-w-[600px]" />
                 <div className="w-full max-w-[600px] text-sm px-5 py-3 text-medium-color flex items-center gap-2 sm:text-xs sm2xl:text-[10px]">
-                  <div>
-                    <MdOutlineWatchLater />
-                  </div>
+                  <MdOutlineWatchLater className="text-base" />
                   <div>
                     Your booking won't be confirmed until the driver approves
                     your request
@@ -225,7 +223,7 @@ function BookRide() {
               {/*============ REQUEST TO BOOK BUTTON =========== */}
               <div className="bg-light-color fixed bottom-0 w-full">
                 <button className="bg-medium-color mx-auto my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs">
-                  <MdOutlineWatchLater />
+                  <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
                   Request to Book
                 </button>
               </div>

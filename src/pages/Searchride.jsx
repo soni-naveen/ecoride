@@ -72,7 +72,7 @@ function Searchride() {
               {/* calender and number input */}
               <div className="flex justify-between items-center smxl:flex-col smxl:gap-5 smxl:mt-0">
                 <div className="flex flex-col items-start text-xs">
-                  <p className="text-white mb-1 ml-1">Select Date :</p>
+                  <p className="text-white mb-1 ml-1">Select date :</p>
                   <Calender
                     register={register}
                     onValueChange={(value) => setValue("date", value)}

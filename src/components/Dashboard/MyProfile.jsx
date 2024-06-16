@@ -150,12 +150,12 @@ function Myprofile() {
                       onClick={() => {
                         navigate("/dashboard/updateProfile");
                       }}
-                      className="bg-light-color hover:bg-[#aff4ed] ml-10 mt-3 w-48 text-white px-2 py-1 rounded smxl:w-32 smxl:ml-2 sm:mt-5 sm:w-40 sm:ml-5"
+                      className="bg-light-color hover:bg-[#aff4ed] ml-10 mt-3 text-white px-3 py-1 rounded smxl:ml-2 sm:mt-5 sm:ml-5"
                     >
-                      <div className="flex justify-center items-center gap-3 sm:gap-2 smxl:gap-2 smxl:text-[12px]">
+                      <div className="flex justify-center items-center gap-2 smxl:text-xs">
                         <FaRegEdit className="text-dark-color" />
-                        <p className="text-dark-color sm:text-sm smxl:text-[11px]">
-                          Edit your details
+                        <p className="text-dark-color sm:text-sm smxl:text-xs">
+                          Edit details
                         </p>
                       </div>
                     </button>
@@ -163,11 +163,11 @@ function Myprofile() {
                       onClick={() => {
                         navigate("/dashboard/updatePhoto");
                       }}
-                      className="bg-light-color hover:bg-[#aff4ed] mt-3 w-28 text-white px-2 py-1 rounded smxl:w-[85px] sm:mt-5 sm:w-24"
+                      className="bg-light-color hover:bg-[#aff4ed] mt-3 text-white px-3 py-1 rounded sm:mt-5"
                     >
-                      <div className="flex justify-center items-center gap-2 sm:gap-2 smxl:gap-2 smxl:text-[10px]">
-                        <IoCameraOutline className="text-dark-color text-xl sm:text-lg smxl:text-base" />
-                        <p className="text-dark-color sm:text-sm smxl:text-[11px]">
+                      <div className="flex justify-center items-center gap-2">
+                        <IoCameraOutline className="text-dark-color text-lg smxl:text-sm" />
+                        <p className="text-dark-color sm:text-sm smxl:text-xs">
                           Edit pic
                         </p>
                       </div>
@@ -220,7 +220,7 @@ function Myprofile() {
                       <p className="mr-2">
                         <FaCheckCircle className="text-xl smxl:text-sm" />
                       </p>
-                      <p>{user?.email}</p>
+                      <p className="truncate">{user?.email}</p>
                     </div>
 
                     {/*======= MOBILE NUMBER ======== */}

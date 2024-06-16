@@ -20,7 +20,7 @@ function Modal({ isOpen, handleSave, handleChange, fieldName, fieldValue }) {
     >
       <div className="flex items-center justify-center min-h-screen">
         <div className="modal-overlay absolute w-full min-h-screen bg-black bg-opacity-85"></div>
-        <div className="modal-container bg-dark-color w-96 mx-auto rounded-xl shadow-lg z-50  overflow-y-auto smxl:w-80 sm2xl:w-64">
+        <div className="modal-container bg-dark-color w-96 mx-auto rounded-xl shadow-lg z-50 smxl:w-80 sm2xl:w-64">
           <div className="modal-content py-10 text-left px-10 smxl:p-8 sm2xl:px-7">
             <div className="flex justify-between items-center pb-5">
               <p className="text-xl font-normal text-white sm2xl:text-sm smxl:text-lg">
