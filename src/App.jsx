@@ -63,6 +63,7 @@ function App() {
         <Route path="/profile/:profileId" element={<Fullprofile />} />
         <Route path="/search" element={<SeeRides />} />
         <Route path="/bookride/:rideId" element={<BookRide />} />
+        <Route path="/verification" element={<Verification />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
@@ -86,14 +87,6 @@ function App() {
           element={
             <OpenRoute>
               <Signup />
-            </OpenRoute>
-          }
-        />
-        <Route
-          path="/verification"
-          element={
-            <OpenRoute>
-              <Verification />
             </OpenRoute>
           }
         />

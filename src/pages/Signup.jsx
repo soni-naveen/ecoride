@@ -149,11 +149,11 @@ function Signup() {
               <p className="text-sm px-5">or</p>
               <div className=" bg-white w-[120px] h-[0.5px] sm:w-[90px]"></div>
             </div>
-            {/* Form */}
             <form
               onSubmit={handleOnSubmit}
               className="flex w-full flex-col gap-y-4"
             >
+              {/*============ EMAIL ========== */}
               <label className="w-full">
                 <div className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
                   Email Address <sup className="text-pink-200">*</sup>
@@ -170,6 +170,7 @@ function Signup() {
                   className=" w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
+              {/*============ PASSWORD ========== */}
               <label className="relative">
                 <div className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
                   Create Password <sup className="text-pink-200">*</sup>
@@ -194,8 +195,11 @@ function Signup() {
                     <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                   )}
                 </span>
-                <div className="text-yellow-200 mt-1 font-light">{passAlert}</div>
+                <div className="text-yellow-200 mt-1 font-light">
+                  {passAlert}
+                </div>
               </label>
+              {/*============ CONFIRM PASSWORD ========== */}
               <label className="relative">
                 <p className="mb-1 text-xs leading-[1.375rem] text-richblack-5">
                   Confirm Password <sup className="text-pink-200">*</sup>
@@ -225,6 +229,7 @@ function Signup() {
                 </div>
               </label>
 
+              {/*============ SUBMIT BUTTON ========== */}
               <button
                 type="submit"
                 className="w-[55%] place-self-center rounded-md bg-medium-color mt-7 py-1.5  text-white shadow-md font-normal sm:mt-5 sm:text-sm"

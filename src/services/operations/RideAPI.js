@@ -2,61 +2,42 @@ import { toast } from "react-hot-toast";
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { rideEndpoints } from "../apis";
+import { setPublishRideData, setLoading } from "../../slices/rideSlice";
 
 const {
   CREATE_RIDE_API,
-  ADD_STOP_POINT_API,
   DELETE_RIDE_API,
   GET_SEARCHED_RIDES_API,
   GET_RIDE_DETAIL_API,
 } = rideEndpoints;
 
 // create ride
-export function createRide(data, token, navigate) {
+export function createRide(publishRideData, stopPointData, token, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
+    dispatch(setLoading(true));
     try {
-      const response = await apiConnector("POST", CREATE_RIDE_API, data, {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token}`,
-      });
+      const response = await apiConnector(
+        "POST",
+        CREATE_RIDE_API,
+        { publishRideData, stopPointData },
+        {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        }
+      );
       // console.log("CREATE RIDE API RESPONSE............", response);
 
-      if (!response?.data?.success) {
+      if (!response.data.success) {
         throw new Error("Could Not Add Ride Details");
       }
-      dispatch(setUser({ ...response.data.newRide }));
-      navigate("addStopPoint");
+      dispatch(setPublishRideData(null));
+      dispatch(setUser({ ...response.data.data }));
+      navigate("/dashboard/yourRides");
     } catch (error) {
       console.log("CREATE RIDE API ERROR............", error);
       toast.error(error.message);
     }
-    toast.dismiss(toastId);
-  };
-}
-
-//add stop points to ride
-export function addStopPoint(data, token, navigate) {
-  return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
-    try {
-      const response = await apiConnector("PUT", ADD_STOP_POINT_API, data, {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token}`,
-      });
-      // console.log("ADD_STOP_POINT_API API RESPONSE............", response);
-
-      if (!response?.data?.success) {
-        throw new Error("Failed to Add Stop Point");
-      }
-      dispatch(setUser({ ...response.data.rideStopPoint }));
-      toast.success("Ride Published Successfully");
-      navigate("/dashboard/yourRides");
-    } catch (error) {
-      console.log("ADD_STOP_POINT_API API ERROR............", error);
-      toast.error(error.message);
-    }
-    toast.dismiss(toastId);
+    dispatch(setLoading(false));
   };
 }
 
@@ -82,7 +63,7 @@ export function deleteRide(token, navigate) {
     }
     toast.dismiss(toastId);
   };
-} 
+}
 
 //get all searched rides
 export const getSearchedRides = async (st, dt, date, seats) => {
@@ -107,6 +88,7 @@ export const getSearchedRides = async (st, dt, date, seats) => {
   return result;
 };
 
+//get ride details
 export const getRideDetails = async (rideId) => {
   let result = null;
   try {

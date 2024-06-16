@@ -12,6 +12,7 @@ import Error from "./Error";
 
 function BookRide() {
   const navigate = useNavigate();
+
   const [ride, setRide] = useState(null);
   const { rideId } = useParams();
 
@@ -29,6 +30,8 @@ function BookRide() {
       }
     })();
   }, [rideId]);
+
+  console.log(ride);
 
   const inputDateString = ride?.date;
   const newDate = new Date(inputDateString);
@@ -59,7 +62,9 @@ function BookRide() {
         </div>
       ) : (
         <div>
-          {ride?.fromWhere !== "" ? (
+          {ride?.fromWhere === "" || ride === undefined ? (
+            <Error />
+          ) : (
             <div>
               <div className="flex flex-col items-center pb-28 bg-slate-50">
                 <div className="text-center px-5 flex items-center w-full max-w-[600px] mt-10 text-3xl font-bold text-dark-color sm:mt-7 sm:text-2xl sm2xl:text-xl">
@@ -228,8 +233,6 @@ function BookRide() {
                 </button>
               </div>
             </div>
-          ) : (
-            <Error />
           )}
         </div>
       )}

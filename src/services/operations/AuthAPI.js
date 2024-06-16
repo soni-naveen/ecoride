@@ -58,7 +58,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       }
       toast.success("Signup Successful");
       dispatch(setToken(response.data.token));
-      dispatch(setUser({ ...response.data.user }));
+      dispatch(setUser({ ...response?.data?.user }));
       localStorage.setItem("token", JSON.stringify(response.data.token));
       navigate("/completeprofile");
     } catch (error) {
@@ -66,7 +66,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       toast.error("Signup Failed!");
       navigate("/signup");
     }
-    dispatch(setLoading(false));
+    dispatch(setLoading(false)); 
     toast.dismiss(toastId);
   };
 }

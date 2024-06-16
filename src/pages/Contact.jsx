@@ -53,6 +53,7 @@ const Contact = () => {
       setValue("email", user?.email || "");
     }
   }, [user, setValue]);
+  
   return (
     <div>
       <div className="max-w-[1800px] mx-auto bg-light-color py-2 flex justify-center sm:py-5">

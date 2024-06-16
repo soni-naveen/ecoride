@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
@@ -104,7 +104,7 @@ export default function YourRides() {
                   </div>
                   <div className="flex items-center justify-evenly">
                     {/*============== RIDE CARD ============ */}
-                    <div className="flex flex-col max-w-[500px] justify-between bg-white rounded-md py-10 px-5 z-0 sm:py-5">
+                    <div className="flex flex-col max-w-[500px] justify-between rounded-md py-10 px-5 z-0 sm:py-5">
                       <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
                         <div className="time flex gap-4">
                           <div className="timeContainer flex flex-col justify-between items-center">

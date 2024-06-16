@@ -6,18 +6,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { GrFormNextLink } from "react-icons/gr";
 import { useForm } from "react-hook-form";
-import { createRide } from "../../../services/operations/RideAPI.js";
+import { setPublishRideData } from "../../../slices/rideSlice.js";
 
 export default function Publishride() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.profile);
+
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
-  const { token } = useSelector((state) => state.auth);
-  const { user } = useSelector((state) => state.profile);
 
-  const [loading, setLoading] = useState(false);
   const [minDate, setMinDate] = useState("");
 
   useEffect(() => {
@@ -32,7 +31,8 @@ export default function Publishride() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitSuccessful },
     setValue,
   } = useForm();
 
@@ -54,11 +54,29 @@ export default function Publishride() {
     formData.append("reachingTime", data.reachingTime);
     formData.append("noOfSeats", data.noOfSeats);
     formData.append("price", data.price);
-    setLoading(true);
+    const formDataObj = {};
+    formData.forEach((value, key) => {
+      formDataObj[key] = value;
+    });
 
-    dispatch(createRide(formData, token, navigate));
-    setLoading(false);
+    // console.log(formDataObj);
+
+    dispatch(setPublishRideData(formDataObj));
+    navigate("addStopPoint");
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        fromWhere: "",
+        toWhere: "",
+        date: "",
+        leavingTime: "",
+        reachingTime: "",
+        price: "",
+      });
+    }
+  }, [reset, isSubmitSuccessful]);
 
   return (
     <div className="container h-full mb-24">
@@ -209,7 +227,6 @@ export default function Publishride() {
               </div>
             </div>
             <button
-              disabled={loading}
               onClick={handleClickPageTop}
               className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer"
             >

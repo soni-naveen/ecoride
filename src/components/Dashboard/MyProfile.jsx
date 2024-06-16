@@ -4,7 +4,7 @@ import { GrNext } from "react-icons/gr";
 import { FaRegEdit } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 import { RiProgress5Line } from "react-icons/ri";
-import { LuPencilLine } from "react-icons/lu";
+import { RiEdit2Fill } from "react-icons/ri";
 import { MdAddCircleOutline } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoCameraOutline } from "react-icons/io5";
@@ -190,7 +190,8 @@ function Myprofile() {
                         className="flex items-center text-medium-color"
                       >
                         {user?.additionalDetails?.govtId === null ||
-                        user?.additionalDetails?.govtId === "" ? (
+                        user?.additionalDetails?.govtId === "" ||
+                        user?.additionalDetails?.govtId === undefined ? (
                           <div className="flex items-center">
                             <MdAddCircleOutline className="text-xl text-dark-color smxl:text-base mr-2" />
                             <span className="text-dark-color w-fit smxl:text-sm">
@@ -266,7 +267,7 @@ function Myprofile() {
                         </div>
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
-                          <LuPencilLine className="text-xl smxl:text-sm" />
+                          <RiEdit2Fill className="text-xl smxl:text-sm" />
                           <span>{user?.additionalDetails?.about}</span>
                         </div>
                       )}
@@ -286,7 +287,7 @@ function Myprofile() {
                         </div>
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
-                          <LuPencilLine className="text-xl smxl:text-sm" />
+                          <RiEdit2Fill className="text-xl smxl:text-sm" />
                           <span>{user?.additionalDetails?.vehicle}</span>
                         </div>
                       )}
