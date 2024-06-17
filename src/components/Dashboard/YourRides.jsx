@@ -75,7 +75,8 @@ export default function YourRides() {
 
       if (rideDate != "") {
         if (rideDate <= currDate && rideTime <= currTime) {
-          return dispatch(deleteRideAutomatically(token));
+          dispatch(deleteRideAutomatically(token));
+          return;
         }
       }
     };
@@ -83,7 +84,7 @@ export default function YourRides() {
     const intervalId = setInterval(checkAndDeleteRide, 500);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [dispatch, token, user?.ridePublished]);
 
   return (
     <div className="container mx-auto mb-10">
