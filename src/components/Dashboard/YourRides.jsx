@@ -73,9 +73,10 @@ export default function YourRides() {
       const rideDate = user?.ridePublished?.date;
       const rideTime = user?.ridePublished?.reachingTime;
 
-      
-      if (rideDate <= currDate && rideTime <= currTime) {
-        return dispatch(deleteRideAutomatically(token));
+      if (rideDate != "") {
+        if (rideDate <= currDate && rideTime <= currTime) {
+          return dispatch(deleteRideAutomatically(token));
+        }
       }
     };
 

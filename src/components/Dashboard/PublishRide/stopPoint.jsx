@@ -67,7 +67,7 @@ export default function stopPoint() {
   return (
     <div>
       {loading ? (
-        <div className="grid h-full place-items-center max-w-[1000px]">
+        <div className="grid min-h-[calc(100vh-100px)] place-items-center">
           <div className="spinner"></div>
         </div>
       ) : (
