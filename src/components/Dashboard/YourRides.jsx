@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { deleteRide } from "../../services/operations/RideAPI";
+import {
+  deleteRide,
+  deleteRideAutomatically,
+} from "../../services/operations/RideAPI";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -60,6 +64,24 @@ export default function YourRides() {
       console.log("ERROR MESSAGE - ", error.message);
     }
   }
+
+  useEffect(() => {
+    const checkAndDeleteRide = () => {
+      const currDate = dayjs().format("YYYY-MM-DD");
+      const currTime = dayjs().format("HH:mm");
+
+      const rideDate = user?.ridePublished?.date;
+      const rideTime = user?.ridePublished?.reachingTime;
+
+      if (rideDate <= currDate && rideTime <= currTime) {
+        dispatch(deleteRideAutomatically(token));
+      }
+    };
+
+    const intervalId = setInterval(checkAndDeleteRide, 10000);
+
+    return () => clearInterval(intervalId);
+  }, [dispatch, token, user?.ridePublished]);
 
   return (
     <div className="container mx-auto mb-10">

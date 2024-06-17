@@ -7,6 +7,7 @@ import { setPublishRideData, setLoading } from "../../slices/rideSlice";
 const {
   CREATE_RIDE_API,
   DELETE_RIDE_API,
+  AUTO_DELETE_RIDE_API,
   GET_SEARCHED_RIDES_API,
   GET_RIDE_DETAIL_API,
 } = rideEndpoints;
@@ -62,6 +63,25 @@ export function deleteRide(token, navigate) {
       toast.error(error.message);
     }
     toast.dismiss(toastId);
+  };
+}
+
+//automatically delete ride
+export function deleteRideAutomatically(token) {
+  return async (dispatch) => {
+    try {
+      const response = await apiConnector("PUT", AUTO_DELETE_RIDE_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+      // console.log("AUTO_DELETE_RIDE API RESPONSE............", response);
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+      dispatch(setUser({ ...response.data.updatedRideDetails }));
+    } catch (error) {
+      console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
+    }
   };
 }
 
