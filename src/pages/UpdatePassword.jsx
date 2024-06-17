@@ -4,6 +4,7 @@ import Home from "./Home";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { resetPassword } from "../services/operations/AuthAPI";
 
@@ -32,6 +33,13 @@ function UpdatePassword() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const token = location.pathname.split("/").at(-1);
+    if (password.length < 8) {
+      toast.error("Password length atleast 8");
+      return;
+    } else if (password !== confirmPassword) {
+      toast.error("Password do not match");
+      return;
+    }
     dispatch(resetPassword(password, confirmPassword, token, navigate));
   };
 

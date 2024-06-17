@@ -1,25 +1,41 @@
 import React, { useState, useRef } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { changePassword } from "../../../services/operations/SettingsAPI";
 import Myprofile from "../MyProfile";
+import { toast } from "react-hot-toast";
 
 function ChangePassword() {
-  const { token } = useSelector((state) => state.auth);
-  const { loading } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const { token, loading } = useSelector((state) => state.auth);
+
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
 
-  const { register, handleSubmit } = useForm();
+  const [formData, setFormData] = useState({
+    oldPassword: "",
+    newPassword: "",
+  });
 
-  const submitPasswordForm = async (data) => {
-    // console.log("password Data - ", data)
+  const { oldPassword, newPassword } = formData;
+
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const submitPasswordForm = async (e) => {
     try {
-      await changePassword(token, data, navigate);
+      e.preventDefault();
+      if (newPassword.length < 8) {
+        toast.error("Password length atleast 8");
+        return;
+      }
+      await changePassword(token, formData, navigate);
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message);
     }
@@ -61,7 +77,7 @@ function ChangePassword() {
               <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px]">
                 First enter your old password.
               </p>
-              <form onSubmit={handleSubmit(submitPasswordForm)}>
+              <form onSubmit={submitPasswordForm}>
                 <label className="relative">
                   <p className="mb-1 font-medium text-[0.875rem] leading-[1.375rem] text-white sm2xl:text-xs">
                     Old Password <sup className="text-pink-200">*</sup>
@@ -73,7 +89,8 @@ function ChangePassword() {
                     name="oldPassword"
                     id="oldPassword"
                     placeholder="Enter Password"
-                    {...register("oldPassword", { required: true })}
+                    value={oldPassword}
+                    onChange={handleOnChange}
                     className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
@@ -98,7 +115,8 @@ function ChangePassword() {
                     name="newPassword"
                     id="newPassword"
                     placeholder="Confirm Password"
-                    {...register("newPassword", { required: true })}
+                    value={newPassword}
+                    onChange={handleOnChange}
                     className="w-full mb-5 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
