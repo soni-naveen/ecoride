@@ -55,8 +55,9 @@ function BookRide() {
 
   const checkRideTime = () => {
     const currTime = dayjs().format("HH:mm");
+    const currDate = dayjs().format("YYYY-MM-DD");
 
-    if (ride?.reachingTime <= currTime) {
+    if (ride?.reachingTime <= currTime && ride?.date <= currDate) {
       alert("This ride is already arrived!");
       return;
     }

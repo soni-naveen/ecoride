@@ -54,7 +54,7 @@ export default function Seeridecard({
             {/*========== BOOK ========== */}
             <button
               onClick={() => navigate(`/bookride/${rideId}`)}
-              className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-sm hover:bg-light-color hover:border-light-color duration-200 cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7"
+              className="flex items-center border border-dark-color text-sm text-dark-color font-medium px-6 py-1.5 rounded-md hover:bg-medium-color hover:border-medium-color hover:text-white cursor-pointer sm:text-xs sm:py-1 sm:px-4 smxl:px-7"
             >
               Book
             </button>
@@ -110,7 +110,7 @@ export default function Seeridecard({
           </div>
           {/*========== RIGHT PART ========== */}
           <div className="right mr-2 sm2xl:mr-0">
-            <button className="flex justify-evenly items-center border rounded-full gap-2 px-3 py-1 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
+            <button className="flex justify-evenly items-center rounded-full gap-2 px-3 py-1 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
               <div className="icon">
                 <PiChatsFill className="text-slate-500 text-base sm:text-xs" />
               </div>
