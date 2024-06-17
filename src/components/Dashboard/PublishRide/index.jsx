@@ -13,10 +13,6 @@ export default function Publishride() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.profile);
 
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
-
   const [minDate, setMinDate] = useState("");
 
   useEffect(() => {
@@ -62,6 +58,7 @@ export default function Publishride() {
     // console.log(formDataObj);
 
     dispatch(setPublishRideData(formDataObj));
+    navigate("addStopPoint");
   };
 
   useEffect(() => {
@@ -225,12 +222,7 @@ export default function Publishride() {
                 )}
               </div>
             </div>
-            <button
-              onClick={() => {
-                navigate("addStopPoint"), handleClickPageTop();
-              }}
-              className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer"
-            >
+            <button className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer">
               Proceed
               <span>
                 <GrFormNextLink className="text-3xl" />

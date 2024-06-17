@@ -13,6 +13,10 @@ export default function stopPoint() {
   const { token } = useSelector((state) => state.auth);
   const { publishRideData, loading } = useSelector((state) => state.ride);
 
+  const handleClickPageTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+
   const [stopPoints, setStopPoints] = useState([]);
   const maxStopPoints = 3;
 
@@ -61,13 +65,13 @@ export default function stopPoint() {
   };
 
   return (
-    <>
+    <div>
       {loading ? (
         <div className="grid min-h-[calc(100vh-70px)] place-items-center">
           <div className="spinner"></div>
         </div>
       ) : (
-        <div className="container h-full pb-10">
+        <div className="container fixed pb-10">
           <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
             <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
               Adding stop locations allows you to attract more passengers on the
@@ -77,13 +81,13 @@ export default function stopPoint() {
           <div className="flex items-center">
             <IoMdArrowRoundBack
               onClick={() => navigate(-1)}
-              className="text-2xl m-5 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
+              className="text-2xl mt-5 mb-3 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
             />
           </div>
           <p className="text-center smxl:text-sm">
             You can add up to 3 stop points
           </p>
-          <div className="buttonSection flex flex-col items-center gap-8 mt-7">
+          <div className="buttonSection flex flex-col items-center gap-8 mt-5">
             <button
               onClick={handleAddStopPoint}
               disabled={stopPoints.length >= maxStopPoints}
@@ -139,6 +143,6 @@ export default function stopPoint() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

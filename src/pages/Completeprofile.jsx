@@ -43,6 +43,7 @@ function Completeprofile() {
             action=""
             className="flex flex-col gap-7 items-center"
           >
+            {/*=============== FIRST NAME ============= */}
             <div className="firstname flex flex-col gap-1.5">
               <label
                 className="text-dark-color font-medium"
@@ -62,6 +63,7 @@ function Completeprofile() {
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
+            {/*=============== LAST NAME ============= */}
             <div className="lastname flex flex-col gap-1.5">
               <label className="text-dark-color font-medium" htmlFor="LastName">
                 Last Name :
@@ -78,6 +80,7 @@ function Completeprofile() {
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
+            {/*=============== DATE OF BIRTH ============= */}
             <div className="dateofbirth flex flex-col gap-1.5">
               <label
                 className="text-dark-color font-medium"
@@ -97,6 +100,7 @@ function Completeprofile() {
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
+            {/*=============== GENDER ============= */}
             <div className="gender flex flex-col gap-1.5">
               <label className="text-dark-color font-medium" htmlFor="gender">
                 Gender
@@ -116,6 +120,7 @@ function Completeprofile() {
                 <option value="Other">Other</option>
               </select>
             </div>
+            {/*=============== CONTACT NUMBER ============= */}
             <div className="contactnumber flex flex-col gap-1.5">
               <label
                 className="text-dark-color font-medium"
