@@ -78,7 +78,7 @@ export default function YourRides() {
       }
     };
 
-    const intervalId = setInterval(checkAndDeleteRide, 10000);
+    const intervalId = setInterval(checkAndDeleteRide, 1000);
 
     return () => clearInterval(intervalId);
   }, [dispatch, token, user?.ridePublished]);

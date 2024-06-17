@@ -9,6 +9,7 @@ import { FaStar } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Error from "./Error";
+import dayjs from "dayjs";
 
 function BookRide() {
   const navigate = useNavigate();
@@ -31,8 +32,6 @@ function BookRide() {
     })();
   }, [rideId]);
 
-  console.log(ride);
-
   const inputDateString = ride?.date;
   const newDate = new Date(inputDateString);
   const monthNames = [
@@ -53,6 +52,16 @@ function BookRide() {
   const month = monthNames[newDate.getMonth()];
   const year = newDate.getFullYear();
   const outputDateString = `${day} ${month} ${year}`;
+
+  const checkRideTime = () => {
+    const currTime = dayjs().format("HH:mm");
+
+    if (ride?.reachingTime <= currTime) {
+      alert("This ride is already arrived!");
+      return;
+    }
+    alert("Request sent!");
+  };
 
   return (
     <>
@@ -227,7 +236,10 @@ function BookRide() {
               </div>
               {/*============ REQUEST TO BOOK BUTTON =========== */}
               <div className="bg-light-color fixed bottom-0 w-full">
-                <button className="bg-medium-color mx-auto my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs">
+                <button
+                  onClick={() => checkRideTime()}
+                  className="bg-medium-color mx-auto my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs"
+                >
                   <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
                   Request to Book
                 </button>
