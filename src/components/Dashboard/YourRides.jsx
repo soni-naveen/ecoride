@@ -65,24 +65,25 @@ export default function YourRides() {
     }
   }
 
-  useEffect(() => {
-    const checkAndDeleteRide = () => {
-      const currDate = dayjs().format("YYYY-MM-DD");
-      const currTime = dayjs().format("HH:mm");
+  const checkAndDeleteRide = () => {
+    const currDate = dayjs().format("YYYY-MM-DD");
+    const currTime = dayjs().format("HH:mm");
 
-      const rideDate = user?.ridePublished?.date;
-      const rideTime = user?.ridePublished?.reachingTime;
+    const rideDate = user?.ridePublished?.date;
+    const rideTime = user?.ridePublished?.reachingTime;
 
-      if (rideDate <= currDate && rideTime <= currTime) {
-        dispatch(deleteRideAutomatically(token));
-        return;
-      }
-    };
+    if (
+      rideDate != "" &&
+      rideTime != "" &&
+      rideDate <= currDate &&
+      rideTime <= currTime
+    ) {
+      dispatch(deleteRideAutomatically(token));
+      return;
+    }
+  };
 
-    const intervalId = setInterval(checkAndDeleteRide, 500);
-
-    return () => clearInterval(intervalId);
-  }, [dispatch, token, user?.ridePublished]);
+  checkAndDeleteRide();
 
   return (
     <div className="container mx-auto mb-10">
