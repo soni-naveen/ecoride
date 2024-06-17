@@ -71,7 +71,7 @@ export default function stopPoint() {
           <div className="spinner"></div>
         </div>
       ) : (
-        <div className="container h-full mb-5">
+        <div className="container h-[calc(100vh-130px)] mb-5">
           <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
             <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
               Adding stop locations allows you to attract more passengers on the

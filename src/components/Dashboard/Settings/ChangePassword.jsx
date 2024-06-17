@@ -32,7 +32,11 @@ function ChangePassword() {
     try {
       e.preventDefault();
       if (newPassword.length < 8) {
-        toast.error("Password length atleast 8");
+        toast.error("Password length atleast 8!");
+        return;
+      }
+      if (oldPassword == newPassword) {
+        toast.error("Please enter a new password!");
         return;
       }
       await changePassword(token, formData, navigate);
