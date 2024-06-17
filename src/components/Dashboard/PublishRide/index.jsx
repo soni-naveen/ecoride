@@ -75,7 +75,7 @@ export default function Publishride() {
   }, [reset, isSubmitSuccessful]);
 
   return (
-    <div className="container h-full mb-24">
+    <div className="container h-full mb-20">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
           Become a EcoRide Driver and save on travel costs by sharing your rides
