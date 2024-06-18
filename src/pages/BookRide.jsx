@@ -8,8 +8,11 @@ import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { toast } from "react-hot-toast";
 import Error from "./Error";
 import dayjs from "dayjs";
+import Swal from "sweetalert2";
+import "animate.css";
 
 function BookRide() {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ function BookRide() {
   const { rideId } = useParams();
 
   const [loading, setLoading] = useState(true);
+  const [sentLoading, setSentLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -53,15 +57,36 @@ function BookRide() {
   const year = newDate.getFullYear();
   const outputDateString = `${day} ${month} ${year}`;
 
-  const checkRideTime = () => {
+  const checkRideSendRequest = () => {
     const currTime = dayjs().format("HH:mm");
     const currDate = dayjs().format("YYYY-MM-DD");
 
     if (ride?.reachingTime <= currTime && ride?.date <= currDate) {
-      alert("This ride is already arrived!");
+      toast.error("This ride is already arrived!");
       return;
     }
-    alert("Request sent!");
+    // dispatch(sendBookRequest(token, navigate));
+    setSentLoading(true);
+    if (!sentLoading) {
+      Swal.fire({
+        icon: "success",
+        title: "Booking request sent successfully!",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+        },
+      });
+    }
   };
 
   return (
@@ -238,11 +263,15 @@ function BookRide() {
               {/*============ REQUEST TO BOOK BUTTON =========== */}
               <div className="bg-light-color fixed bottom-0 w-full">
                 <button
-                  onClick={() => checkRideTime()}
+                  onClick={() => checkRideSendRequest()}
                   className="bg-medium-color mx-auto my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs"
                 >
-                  <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
-                  Request to Book
+                  {sentLoading ? (
+                    <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
+                  ) : (
+                    ""
+                  )}
+                  {sentLoading ? "Requested" : "Request to Book"}
                 </button>
               </div>
             </div>

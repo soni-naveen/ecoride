@@ -28,7 +28,7 @@ export default function Publishride() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     setValue,
   } = useForm();
 
@@ -61,21 +61,8 @@ export default function Publishride() {
     navigate("addStopPoint");
   };
 
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({
-        fromWhere: "",
-        toWhere: "",
-        date: "",
-        leavingTime: "",
-        reachingTime: "",
-        price: "",
-      });
-    }
-  }, [reset, isSubmitSuccessful]);
-
   return (
-    <div className="container h-full mb-20">
+    <div className="container h-full">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
           Become a EcoRide Driver and save on travel costs by sharing your rides
@@ -222,7 +209,7 @@ export default function Publishride() {
                 )}
               </div>
             </div>
-            <button className="bg-dark-color text-lg text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer">
+            <button className="bg-dark-color text-lg mb-14 text-white flex w-52 py-2 justify-center items-center gap-5 rounded-full cursor-pointer smxl:mb-20">
               Proceed
               <span>
                 <GrFormNextLink className="text-3xl" />

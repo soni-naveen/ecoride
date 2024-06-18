@@ -274,7 +274,7 @@ const Home = () => {
                 Find a Ride
               </button>
             </Link>
-            <Link to="/dashboard/publishride">
+            <Link to="/dashboard/publishride" onClick={handleClickPageTop}>
               <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">
                 Offer a Ride
               </button>

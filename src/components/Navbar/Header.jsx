@@ -54,7 +54,7 @@ const Header = () => {
             )}
             {token === null && (
               <Link to="/login">
-                <button className="text-white bg-dark-color border-2 border-dark-color font-medium py-[5px] px-8 rounded-full text-md smxl:px-4 smxl:text-xs smxl:font-normal smxl:py-[3.5px] sm:px-5 md1:text-sm md1:px-[25px]">
+                <button className="text-white bg-dark-color border-2 border-dark-color font-medium py-[5px] px-8 rounded-full text-md smxl:px-4 smxl:text-xs smxl:font-normal smxl:py-1 sm:px-5 md1:text-sm md1:px-[25px]">
                   Login
                 </button>
               </Link>

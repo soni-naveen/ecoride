@@ -85,6 +85,26 @@ export function deleteRideAutomatically(token) {
   };
 }
 
+// export function sendBookRequest(token) {
+//   return async (dispatch) => {
+//     try {
+//       const response = await apiConnector("POST", CREATE_RIDE_API, null, {
+//         "Content-Type": "multipart/form-data",
+//         Authorization: `Bearer ${token}`,
+//       });
+//       console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
+
+//       if (!response.data.success) {
+//         throw new Error("Could Not Send booking request");
+//       }
+//       dispatch(setUser({ ...response.data.data }));
+//     } catch (error) {
+//       console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
+//       result = error.response.data;
+//     }
+//   };
+// }
+
 //get all searched rides
 export const getSearchedRides = async (st, dt, date, seats) => {
   let result = null;
