@@ -201,7 +201,7 @@ export default function Publishride() {
                   htmlFor="PricePerSeat"
                   className="mb-1 text-sm text-dark-color"
                 >
-                  Price of 1 Seat :
+                  Price of 1 seat :
                 </label>
                 <input
                   id="price"

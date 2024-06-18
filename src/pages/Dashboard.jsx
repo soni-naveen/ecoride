@@ -15,7 +15,7 @@ function Dashboard() {
 
   return (
     <div className="relative flex min-h-[calc(100vh-100px)] smxl:min-h-[calc(100vh-150px)]">
-      <div className="h-[calc(100vh-100px)] flex-1 overflow-auto smxl:min-h-[calc(100vh-150px)]">
+      <div className="h-[calc(100vh-100px)] flex-1 overflow-auto smxl:h-[calc(100vh-150px)]">
         <div className="mx-auto w-11/12 max-w-[1000px] md:w-screen">
           <Outlet />
         </div>

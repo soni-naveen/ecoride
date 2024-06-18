@@ -146,18 +146,13 @@ function Fullprofile() {
                 <div className="mb-4 mt-5">
                   {/*====== GOVT.ID ======*/}
                   <div className="flex items-center mb-3">
-                    {profile?.govtId === null || profile?.govtId === "" ? (
+                    {profile?.govtId === null ||
+                    profile?.govtId === "" ||
+                    profile?.govtId === "Pending" ? (
                       <div className="flex items-center">
                         <FaCircleMinus className="text-lg text-dark-color mr-2 smxl:text-sm" />
                         <span className="text-dark-color w-fit smxl:text-sm">
                           Non-verified
-                        </span>
-                      </div>
-                    ) : profile?.govtId === "Pending" ? (
-                      <div className="flex items-center">
-                        <RiProgress5Line className="text-[21px] text-dark-color mr-2 smxl:text-[16px]" />
-                        <span className="text-dark-color w-fit smxl:text-sm">
-                          Pending verification
                         </span>
                       </div>
                     ) : (
