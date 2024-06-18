@@ -84,9 +84,7 @@ export default function stopPoint() {
               className="text-2xl mt-5 mb-3 ml-10 text-dark-color hover:cursor-pointer sm:ml-5"
             />
           </div>
-          <p className="text-center smxl:text-sm">
-            You can add up to 3 stop points
-          </p>
+          <p className="text-center smxl:text-sm">Add in sequence...(upto 3)</p>
           <div className="buttonSection flex flex-col items-center gap-8 mt-5">
             <button
               onClick={handleAddStopPoint}

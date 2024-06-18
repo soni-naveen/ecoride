@@ -209,7 +209,7 @@ function Fullprofile() {
                       profile?.about === undefined ? (
                         <p className="text-dark-color flex items-center">
                           <BsChatDotsFill className="text-dark-color mr-2 text-base" />
-                          bio not added
+                          -----
                         </p>
                       ) : (
                         <p className="text-medium-color flex items-center">
@@ -227,7 +227,7 @@ function Fullprofile() {
                         profile?.vehicle === undefined ? (
                           <p className="text-dark-color flex items-center">
                             <FaCarSide className="text-dark-color mr-2 text-lg" />
-                            vehicle details not added
+                            -----
                           </p>
                         ) : (
                           <p className="text-medium-color flex items-center">
