@@ -33,28 +33,28 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <div className="flex gap-16 items-center smxl:gap-4 md:gap-8 md1:gap-10 lg:gap-14">
+        <div className="flex gap-16 items-center smxl:gap-5 md:gap-7 md1:gap-10 lg:gap-14">
           <div>
             <Link to="/searchride" onClick={handleClickPageTop}>
-              <button className="text-dark-color hover:font-bold font-medium text-lg flex items-center">
-                <FaSearch className="mr-3 stroke-dark-color sm:mr-3 smxl:text-xl" />
-                <div className="smxl:hidden md1:text-[16px]">
+              <button className="text-dark-color hover:font-bold font-medium text-lg flex items-center sm:text-sm">
+                <FaSearch className="mr-2 stroke-dark-color md1:text-base sm:mr-1.5 smxl:text-xl" />
+                <div className="smxl:hidden md1:text-base">
                   Search <span className="md:hidden"> Ride</span>
                 </div>
               </button>
             </Link>
           </div>
-          <div className="navLinks flex justify-between items-center gap-6 smxl:gap-4 md1:gap-5">
+          <div className="navLinks flex justify-between items-center gap-6 md1:gap-5 smxl:gap-3">
             {token === null && (
               <Link to="/signup">
-                <button className="text-dark-color py-1 px-6 text-md border-2 font-medium hover:border-dark-color border-dark-color rounded-full smxl:border smxl:px-2.5 smxl:py-1 smxl:text-xs smxl:font-medium sm:px-3.5 md1:text-sm md1:px-4">
+                <button className="text-dark-color py-1 px-6 border-2 font-medium hover:border-dark-color border-dark-color rounded-full sm:px-2.5 sm:text-xs smxl:border md1:text-sm md1:px-4">
                   SignUp
                 </button>
               </Link>
             )}
             {token === null && (
               <Link to="/login">
-                <button className="text-white bg-dark-color border-2 border-dark-color font-medium py-[5px] px-8 rounded-full text-md smxl:px-4 smxl:text-xs smxl:font-normal smxl:py-1 sm:px-5 md1:text-sm md1:px-[25px]">
+                <button className="text-white bg-dark-color border-2 border-dark-color py-1 px-8 rounded-full sm:px-4 sm:text-xs sm:py-1 smxl:border md1:text-sm md1:px-[24px]">
                   Login
                 </button>
               </Link>
@@ -62,8 +62,10 @@ const Header = () => {
             {token !== null && (
               <Link to="/dashboard/publishride">
                 <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 smxl:mr-2">
-                  <IoMdAddCircleOutline className="text-2xl mr-3 smxl:mr-1 smxl:text-[28px]" />
-                  <div className="hover:font-bold font-medium smxl:hidden md1:text-[16px]">
+                  <IoMdAddCircleOutline
+                    className="text-2xl mr-2 sm:mr-1.5 md1:text-xl smxl:text-[28px]"
+                  />
+                  <div className="hover:font-bold font-medium smxl:hidden md1:text-base">
                     Publish <span className="md:hidden">Ride</span>
                   </div>
                 </button>

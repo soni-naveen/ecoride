@@ -68,11 +68,11 @@ const Home = () => {
             alt="Sharing rides building connections"
             className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
           />
-          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] smxl:top-[70px] smxl:left-[25px] smxl:text-4xl smxl:leading-snug sm:top-[80px] sm:left-[40px] sm:text-5xl sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[150px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] animate__animated animate__fadeInDown">
+          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] sm2xl:text-[35px] sm2xl:top-[80px] sm2xl:left-[25px] smxl:top-[70px] smxl:left-[30px] smxl:text-4xl smxl:leading-snug sm:top-[110px] sm:left-[40px] sm:text-[40px] sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[130px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] animate__animated animate__fadeInDown">
             Sharing rides, building connections
           </div>
 
-          <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]  smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
+          <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]   sm2xl:text-base sm2xl:leading-[45px] smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
             Your pick of rides at low prices
           </div>
         </div>

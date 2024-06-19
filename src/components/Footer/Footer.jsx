@@ -26,7 +26,7 @@ const Footer = () => {
         body: formData,
       });
       if (response.ok) {
-        console.log("Success!", response);
+        // console.log("Success!", response);
         setEmail("");
         toast.success("Subscribed Successfully");
       } else {

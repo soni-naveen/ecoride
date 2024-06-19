@@ -12,7 +12,7 @@ function Editdetails() {
   const { token } = useSelector((state) => state.auth);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const [firstName, setFirstName] = useState(
     user?.additionalDetails?.firstName || ""
   );
@@ -82,8 +82,9 @@ function Editdetails() {
           </h1>
         </div>
         <div className="editable w-[400px] flex flex-col gap-12 mt-12 sm:w-[300px] sm:mx-auto sm:gap-9 sm2xl:w-[250px]">
+          {/*================= FIRST NAME ============== */}
           <div className="firstname flex items-center justify-between">
-            <div className="name">
+            <div>
               <h1 className="text-dark-color font-medium">First name</h1>
               <h2 className="text-medium-color">{firstName}</h2>
             </div>
@@ -96,8 +97,9 @@ function Editdetails() {
               </button>
             </div>
           </div>
+          {/*================= LAST NAME ============== */}
           <div className="lastname flex items-center justify-between">
-            <div className="name">
+            <div>
               <h1 className="text-dark-color font-medium">Last name</h1>
               <h2 className="text-medium-color">{lastName}</h2>
             </div>
@@ -110,8 +112,9 @@ function Editdetails() {
               </button>
             </div>
           </div>
+          {/*================= DATE OF BIRTH ============== */}
           <div className="dateofBirth flex items-center justify-between">
-            <div className="name">
+            <div>
               <h1 className="text-dark-color font-medium">Date of birth</h1>
               <h2 className="text-medium-color">{dateOfBirth}</h2>
             </div>
@@ -124,8 +127,9 @@ function Editdetails() {
               </button>
             </div>
           </div>
+          {/*================= GENDER ============== */}
           <div className="gender flex items-center justify-between">
-            <div className="name">
+            <div>
               <h1 className="text-dark-color font-medium">Gender</h1>
               <h2 className="text-medium-color">{gender}</h2>
             </div>
@@ -138,8 +142,9 @@ function Editdetails() {
               </button>
             </div>
           </div>
+          {/*================= CONTACT NUMBER ============== */}
           <div className="contactNumber flex items-center justify-between">
-            <div className="name">
+            <div>
               <h1 className="text-dark-color font-medium">Contact number</h1>
               <h2 className="text-medium-color">{contactNumber}</h2>
             </div>
@@ -153,6 +158,7 @@ function Editdetails() {
             </div>
           </div>
         </div>
+        {/*================= MODAL ============== */}
         <Modal
           isOpen={isModalOpen}
           handleSave={handleOnSubmit}

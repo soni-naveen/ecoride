@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { getRideDetails } from "../services/operations/RideAPI";
 import { FaRupeeSign } from "react-icons/fa";
 import { GrNext } from "react-icons/gr";
@@ -13,9 +14,12 @@ import Error from "./Error";
 import dayjs from "dayjs";
 import Swal from "sweetalert2";
 import "animate.css";
+import { sendBookRequest } from "../services/operations/RideAPI";
 
 function BookRide() {
   const navigate = useNavigate();
+  const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
 
   const [ride, setRide] = useState(null);
   const { rideId } = useParams();
@@ -65,7 +69,15 @@ function BookRide() {
       toast.error("This ride is already arrived!");
       return;
     }
-    // dispatch(sendBookRequest(token, navigate));
+    if (!token || token === null || token === undefined) {
+      navigate("/login");
+      return;
+    }
+    if (ride?.profile?._id === user?.additionalDetails?._id) {
+      toast.error("You cannot book your own ride");
+      return;
+    }
+    sendBookRequest(token, rideId);
     setSentLoading(true);
     if (!sentLoading) {
       Swal.fire({
@@ -232,13 +244,14 @@ function BookRide() {
                 </button>
                 <hr className="w-full max-w-[600px]" />
                 <div className="w-full max-w-[600px] text-dark-color px-5 py-3 text-lg sm:text-sm sm2xl:text-xs">
-                  Seats available : {ride?.noOfSeats}
+                  Seats available :{" "}
+                  <span className="font-bold">{ride?.noOfSeats}</span>
                 </div>
                 <hr className="w-full max-w-[600px]" />
-                <button className="w-full max-w-[600px] px-5 py-2 my-2 rounded-md flex gap-3 text-dark-color hover:bg-gray-200 duration-200">
+                <button className="w-full max-w-[600px] px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200">
                   <PiChatsFill className="text-2xl sm:text-xl sm2xl:text-lg" />
-                  <div className="sm:text-sm sm2xl:text-xs">
-                    Contact {ride?.profile?.firstName}
+                  <div className="sm:text-sm sm2xl:text-xs text-start">
+                    Contact {ride?.profile?.firstName} for ride related question
                   </div>
                 </button>
                 <hr className="w-full max-w-[600px]" />
@@ -262,17 +275,22 @@ function BookRide() {
               </div>
               {/*============ REQUEST TO BOOK BUTTON =========== */}
               <div className="bg-light-color fixed bottom-0 w-full">
-                <button
-                  onClick={() => checkRideSendRequest()}
-                  className="bg-medium-color mx-auto my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs"
-                >
-                  {sentLoading ? (
+                {sentLoading ||
+                ride?.pendingPassengers.some(
+                  (passengerId) => passengerId === user?.additionalDetails?._id
+                ) ? (
+                  <button className="mx-auto bg-dark-color my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs">
                     <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
-                  ) : (
-                    ""
-                  )}
-                  {sentLoading ? "Requested" : "Request to Book"}
-                </button>
+                    Requested
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => checkRideSendRequest()}
+                    className="mx-auto bg-medium-color my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs"
+                  >
+                    Request to book
+                  </button>
+                )}
               </div>
             </div>
           )}

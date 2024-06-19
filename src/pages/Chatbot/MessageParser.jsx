@@ -2,7 +2,7 @@ import React from "react";
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
-    console.log(message);
+    // console.log(message);
     if (
       message.toLowerCase().startsWith("hello") ||
       message.toLowerCase().startsWith("hi") ||

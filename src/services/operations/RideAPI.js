@@ -10,6 +10,7 @@ const {
   AUTO_DELETE_RIDE_API,
   GET_SEARCHED_RIDES_API,
   GET_RIDE_DETAIL_API,
+  SEND_BOOK_REQUEST_API,
 } = rideEndpoints;
 
 // create ride
@@ -35,7 +36,7 @@ export function createRide(publishRideData, stopPointData, token, navigate) {
       dispatch(setUser({ ...response.data.data }));
       navigate("/dashboard/yourRides");
     } catch (error) {
-      console.log("CREATE RIDE API ERROR............", error);
+      // console.log("CREATE RIDE API ERROR............", error);
       toast.error(error.message);
     }
     dispatch(setLoading(false));
@@ -59,7 +60,7 @@ export function deleteRide(token, navigate) {
       toast.success("Ride Deleted Successfully");
       navigate("/dashboard/yourRides");
     } catch (error) {
-      console.log("DELETE_RIDE_API API ERROR............", error);
+      // console.log("DELETE_RIDE_API API ERROR............", error);
       toast.error(error.message);
     }
     toast.dismiss(toastId);
@@ -80,30 +81,33 @@ export function deleteRideAutomatically(token) {
       }
       dispatch(setUser({ ...response.data.updatedRideDetails }));
     } catch (error) {
-      console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
+      // console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
     }
   };
 }
 
-// export function sendBookRequest(token) {
-//   return async (dispatch) => {
-//     try {
-//       const response = await apiConnector("POST", CREATE_RIDE_API, null, {
-//         "Content-Type": "multipart/form-data",
-//         Authorization: `Bearer ${token}`,
-//       });
-//       console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
+export async function sendBookRequest(token, rideId) {
+    let result = null;
+    try {
+      const response = await apiConnector(
+        "POST",
+        SEND_BOOK_REQUEST_API,
+        { rideId },
+        {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        }
+      );
+      // console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
 
-//       if (!response.data.success) {
-//         throw new Error("Could Not Send booking request");
-//       }
-//       dispatch(setUser({ ...response.data.data }));
-//     } catch (error) {
-//       console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
-//       result = error.response.data;
-//     }
-//   };
-// }
+      if (!response.data.success) {
+        throw new Error("Could Not Send booking request");
+      }
+    } catch (error) {
+      // console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
+      result = error.response.data;
+    }
+}
 
 //get all searched rides
 export const getSearchedRides = async (st, dt, date, seats) => {
@@ -122,7 +126,7 @@ export const getSearchedRides = async (st, dt, date, seats) => {
     }
     result = response.data;
   } catch (error) {
-    console.log("GET_SEARCHED_RIDES_API API ERROR............", error);
+    // console.log("GET_SEARCHED_RIDES_API API ERROR............", error);
     result = error.response.data;
   }
   return result;
@@ -142,7 +146,7 @@ export const getRideDetails = async (rideId) => {
     }
     result = response.data;
   } catch (error) {
-    console.log("GET_RIDE_DETAIL_API API ERROR............", error);
+    // console.log("GET_RIDE_DETAIL_API API ERROR............", error);
     result = error.response.data;
   }
   return result;
