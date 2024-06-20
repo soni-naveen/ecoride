@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../assets/Banner.png";
 import Slidecard from "../components/Slidecard.jsx";
 import AccordionUsage from "../components/Faq.jsx";
@@ -19,7 +19,7 @@ import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
 import { BsRobot } from "react-icons/bs";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
 import "animate.css";
 
@@ -28,6 +28,17 @@ const Home = () => {
   const handleClickPageTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+
   const { register, handleSubmit, setValue } = useForm();
 
   //handle submit
@@ -193,7 +204,10 @@ const Home = () => {
         {/* *******************************************************************************************************
                                            3 Cards - Why Stick With Us
         ******************************************************************************************************** */}
-        <div className="stickWithUs h-auto w-full p-20 my-10 sm:p-10 sm:mb-7 smxl:mt-5 md1:p-14">
+        <div
+          id="cards"
+          className="stickWithUs h-auto w-full p-20 my-10 sm:p-10 sm:mb-7 smxl:mt-5 md1:p-14"
+        >
           <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-12 sm:w-4/5 md1:gap-20 m-auto">
             <div>
               <h1 className="text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:text-center revealbu">
@@ -231,12 +245,12 @@ const Home = () => {
         {/* *******************************************************************************************************
                                                  FAQ Section
         ******************************************************************************************************** */}
-        <div className="faqs bg-dark-color flex items-center ">
+        <div id="faq" className="faqs bg-dark-color flex items-center">
           <div className="left min-w-[30%] w-[100%] max-w-1 mx-20 lg:hidden">
             <img src={faqLogo} alt="FAQ's" />
           </div>
-          <div className="right flex flex-col items-center gap-10">
-            <div className="heading text-white text-5xl font-semibold mt-10 smxl:text-2xl md1:text-4xl sm:text-3xl sm:mt-7">
+          <div className="right flex flex-col pt-10 items-center gap-10 sm:pt-7">
+            <div className="heading text-white text-5xl font-semibold smxl:text-2xl md1:text-4xl sm:text-3xl">
               FAQ's
             </div>
             <div className="revealbu mb-8 flex justify-center">
@@ -262,7 +276,7 @@ const Home = () => {
         {/* *******************************************************************************************************
                                                 Get Started Today 
         ******************************************************************************************************** */}
-        <div className="abovefooter w-full py-14 px-36 flex flex-col justify-evenly gap-16 smxl:gap-10 smxl:py-10 sm:gap-12 sm:py-12 lg:px-0 lg:items-center xl:px-28">
+        <div className="abovefooter w-full py-16 px-36 flex flex-col justify-evenly gap-16 smxl:gap-10 smxl:py-10 sm:gap-12 sm:py-12 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
             <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl sm:text-3xl">
               Get started today !
