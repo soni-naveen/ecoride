@@ -303,7 +303,7 @@ function Myprofile() {
             <div className=" min-h-auto">
               <div className="max-w-[700px] mx-auto p-4 my-3 sm:mt-1">
                 <div className="rating flex flex-col gap-1">
-                  {/*======= RATING RECEIVED ======== */}
+                  {/*======== RATING RECEIVED ======== */}
                   <button
                     onClick={() => {
                       alert("This feature is not available yet......");

@@ -77,6 +77,7 @@ function BookRide() {
       toast.error("You cannot book your own ride");
       return;
     }
+
     sendBookRequest(token, rideId);
     setSentLoading(true);
     if (!sentLoading) {
@@ -104,7 +105,7 @@ function BookRide() {
   return (
     <>
       {loading ? (
-        <div className="grid min-h-[calc(100vh-70px)] place-items-center">
+        <div className="grid min-h-[calc(100vh-100px)] place-items-center">
           <div className="spinner"></div>
         </div>
       ) : (
@@ -277,7 +278,7 @@ function BookRide() {
               <div className="bg-light-color fixed bottom-0 w-full">
                 {sentLoading ||
                 ride?.pendingPassengers.some(
-                  (passengerId) => passengerId === user?.additionalDetails?._id
+                  (passenger) => passenger._id === user?.additionalDetails?._id
                 ) ? (
                   <button className="mx-auto bg-dark-color my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs">
                     <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />

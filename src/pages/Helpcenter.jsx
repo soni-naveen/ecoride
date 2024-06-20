@@ -11,7 +11,7 @@ import ActionProvider from "./Chatbot/ActionProvider";
 function Helpcenter() {
   return (
     <>
-      <div className="min-h-[calc(100vh-70px)] flex flex-col justify-center gap-7 py-10 items-center bg-slate-200">
+      <div className="min-h-full flex flex-col justify-center gap-7 py-10 items-center bg-slate-200">
         <div>
           <h1 className="font-semibold text-lg text-center text-dark-color md:text-sm sm2xl:text-xs">
             Chat With Confidence! We have got you covered.

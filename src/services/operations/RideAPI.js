@@ -33,7 +33,6 @@ export function createRide(publishRideData, stopPointData, token, navigate) {
         throw new Error("Could Not Add Ride Details");
       }
       dispatch(setPublishRideData(null));
-      dispatch(setUser({ ...response.data.data }));
       navigate("/dashboard/yourRides");
     } catch (error) {
       // console.log("CREATE RIDE API ERROR............", error);
@@ -86,8 +85,8 @@ export function deleteRideAutomatically(token) {
   };
 }
 
+//send request to book ride
 export async function sendBookRequest(token, rideId) {
-    let result = null;
     try {
       const response = await apiConnector(
         "POST",

@@ -126,6 +126,7 @@ function App() {
           <Route path="dashboard/inbox" element={<Inbox />} />
           <Route path="/dashboard/yourRides" element={<YourRides />} />
         </Route>
+
         {/* 404 Page */}
         <Route path="*" element={<Error />} />
       </Routes>

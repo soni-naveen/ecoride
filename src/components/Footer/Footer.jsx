@@ -44,43 +44,46 @@ const Footer = () => {
       <div className="flex justify-evenly items-start text-white flex-wrap smxl:flex-col lg:justify-center lg:items-center lg:gap-10">
         {/*======================= LEFT PART =================== */}
         <div className="left flex flex-col gap-10 items-start lg:w-full lg:items-center smxl:gap-8">
-          <div className="w-32 smxl:w-28">
+          {/*==== LOGO === */}
+          <div className="w-32">
             <img src={Logo} alt="EcoRide" />
           </div>
+          {/*====== JOIN COMMUNITY ===== */}
           <div className="flex flex-col items-start">
             <div className="heading">
-              <h1 className="font-light text-sm smxl:text-xs">
+              <h1 className="font-light text-sm">
                 Join Community
               </h1>
             </div>
-            <div className="links flex justify-evenly mt-2 gap-4 lg:gap-4">
+            <div className="links flex justify-evenly mt-2 gap-5">
               <a href="https://www.instagram.com/ecoride.in" target="_blank">
-                <FaInstagram className="text-2xl text-gray-200 hover:text-white smxl:text-xl" />
+                <FaInstagram className="text-2xl text-gray-200 hover:text-white" />
               </a>
               <a href="https://linkedin.com/company/ecoridein" target="_blank">
-                <FaLinkedin className="text-2xl text-gray-200 hover:text-white smxl:text-xl" />
+                <FaLinkedin className="text-2xl text-gray-200 hover:text-white" />
               </a>
               <a href="https://twitter.com/ecoride_in" target="_blank">
-                <FaXTwitter className="text-2xl text-gray-200 hover:text-white smxl:text-xl" />
+                <FaXTwitter className="text-2xl text-gray-200 hover:text-white" />
               </a>
             </div>
           </div>
+          {/*====== GET IN TOUCH ===== */}
           <div className="text-start lg:text-center">
-            <h1 className="font-light text-sm smxl:text-xs">
+            <h1 className="font-light text-sm">
               Get In Touch
             </h1>
             <a
               href="mailto:ecoride.in@gmail.com"
-              className="font-light pt-2 flex items-end gap-1.5 text-gray-200 text-sm smxl:text-xs hover:text-white smxl:pt-1 smxl:gap-1"
+              className="font-light pt-2 flex items-end gap-1.5 text-gray-200 text-sm hover:text-white smxl:pt-1 smxl:gap-1"
             >
-              <MdEmail className="text-base text-gray-200 mb-[1.5px] smxl:text-sm" />
+              <MdEmail className="text-base text-gray-200 mb-[1.5px]" />
               ecoride.in@gmail.com
             </a>
           </div>
         </div>
 
         {/*======================= CENTER LEFT =================== */}
-        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm smxl:text-xs">
+        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm">
           <Link to="/aboutus" onClick={scrollToTop}>
             <h1 className="hover:underline">About Us</h1>
           </Link>
@@ -96,7 +99,7 @@ const Footer = () => {
         </div>
 
         {/*======================= CENTER RIGHT =================== */}
-        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm smxl:text-xs">
+        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm">
           <Link to="/#faq" className="hover:underline">
             FAQ
           </Link>
@@ -114,7 +117,7 @@ const Footer = () => {
         {/*======================= RIGHT PART =================== */}
         <div className="right flex flex-col gap-8 lg:w-full">
           <div>
-            <h1 className="font-light text-sm text-start lg:text-center mb-3 smxl:text-xs">
+            <h1 className="font-light text-sm text-start lg:text-center mb-3">
               Stay upto date :
             </h1>
             <form

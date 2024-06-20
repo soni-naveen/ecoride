@@ -165,11 +165,11 @@ function Seerides() {
 
       {/*=============== BOTTOM PART =================*/}
       {loading ? (
-        <div className="grid min-h-[calc(100vh-70px)] place-items-center">
+        <div className="grid min-h-[calc(100vh-100px)] place-items-center">
           <div className="spinner"></div>
         </div>
       ) : rides.length === 0 ? (
-        <div className="grid min-h-[calc(100vh-70px)] place-items-center">
+        <div className="grid min-h-[calc(100vh-100px)] place-items-center">
           <div className="flex items-center flex-col text-slate-400 text-3xl sm:text-2xl smxl:text-xl sm2xl:text-base">
             <img
               src={seeridesimage}
