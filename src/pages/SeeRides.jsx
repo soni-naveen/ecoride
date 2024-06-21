@@ -175,7 +175,7 @@ function Seerides() {
               src={seeridesimage}
               className="opacity-40 max-w-xl sm:max-w-md smxl:max-w-xs sm2xl:max-w-60"
             />
-            No rides available yet!
+            No rides for this day!
           </div>
         </div>
       ) : (

@@ -92,7 +92,7 @@ function Myprofile() {
       <div>
         <div className="mt-1 flex justify-evenly items-center border-b shadow border-gray-200">
           <div
-            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
+            className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "about"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"
@@ -103,7 +103,7 @@ function Myprofile() {
           </div>
           <div className="py-5 border-x border-slate-200"></div>
           <div
-            className={`text-lg font-semibold w-full pt-4 pb-2 cursor-pointer text-center sm:text-lg smxl:text-base ${
+            className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "account"
                 ? "text-dark-color border-b-2 border-b-medium-color"
                 : "text-gray-500"

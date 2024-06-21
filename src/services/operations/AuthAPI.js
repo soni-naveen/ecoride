@@ -30,7 +30,7 @@ export function sendOtp(email, navigate) {
       toast.success("OTP Sent Successfully");
       navigate("/verification");
     } catch (error) {
-      // console.log("SENDOTP API ERROR............", error);
+      console.log("SENDOTP API ERROR............", error);
       toast.error("Email already exist");
     } finally {
       dispatch(setLoading(false));
@@ -62,7 +62,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
       navigate("/completeprofile");
     } catch (error) {
-      // console.log("SIGNUP API ERROR............", error);
+      console.log("SIGNUP API ERROR............", error);
       toast.error("Signup Failed!");
       navigate("/signup");
     }
@@ -94,7 +94,7 @@ export function login(email, password) {
 
       localStorage.setItem("token", JSON.stringify(response.data.token));
     } catch (error) {
-      // console.log("LOGIN API ERROR............", error);
+      console.log("LOGIN API ERROR............", error);
       toast.error("Login Failed");
     }
     dispatch(setLoading(false));
@@ -120,7 +120,7 @@ export function getPasswordResetToken(email, setEmailSent) {
       toast.success("Reset Email Sent");
       setEmailSent(true);
     } catch (error) {
-      // console.log("RESETPASSTOKEN ERROR............", error);
+      console.log("RESETPASSTOKEN ERROR............", error);
       toast.error("Failed To Send Reset Email");
     }
     toast.dismiss(toastId);
@@ -148,7 +148,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       toast.success("Password Reset Successfully");
       navigate("/login");
     } catch (error) {
-      // console.log("RESETPASSWORD ERROR............", error);
+      console.log("RESETPASSWORD ERROR............", error);
       toast.error("Failed To Reset Password");
     }
     toast.dismiss(toastId);

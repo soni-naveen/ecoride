@@ -27,7 +27,6 @@ export default function Publishride() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     setValue,
   } = useForm();

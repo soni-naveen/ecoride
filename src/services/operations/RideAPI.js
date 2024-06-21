@@ -33,6 +33,7 @@ export function createRide(publishRideData, stopPointData, token, navigate) {
         throw new Error("Could Not Add Ride Details");
       }
       dispatch(setPublishRideData(null));
+      dispatch(setUser({ ...response.data.data }));
       navigate("/dashboard/yourRides");
     } catch (error) {
       // console.log("CREATE RIDE API ERROR............", error);
@@ -67,7 +68,7 @@ export function deleteRide(token, navigate) {
 }
 
 //automatically delete ride
-export function deleteRideAutomatically(token) {
+export function autoDeleteRide(token) {
   return async (dispatch) => {
     try {
       const response = await apiConnector("PUT", AUTO_DELETE_RIDE_API, null, {
@@ -80,32 +81,32 @@ export function deleteRideAutomatically(token) {
       }
       dispatch(setUser({ ...response.data.updatedRideDetails }));
     } catch (error) {
-      // console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
+      console.log("AUTO_DELETE_RIDE_API API ERROR............", error);
     }
   };
 }
 
 //send request to book ride
 export async function sendBookRequest(token, rideId) {
-    try {
-      const response = await apiConnector(
-        "POST",
-        SEND_BOOK_REQUEST_API,
-        { rideId },
-        {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        }
-      );
-      // console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
-
-      if (!response.data.success) {
-        throw new Error("Could Not Send booking request");
+  try {
+    const response = await apiConnector(
+      "POST",
+      SEND_BOOK_REQUEST_API,
+      { rideId },
+      {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
       }
-    } catch (error) {
-      // console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
-      result = error.response.data;
+    );
+    // console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error("Could Not Send booking request");
     }
+  } catch (error) {
+    // console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
+    result = error.response.data;
+  }
 }
 
 //get all searched rides

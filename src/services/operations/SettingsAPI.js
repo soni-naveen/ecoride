@@ -31,7 +31,7 @@ export function verifyProfile(token, formData, navigate) {
       navigate("/dashboard/myprofile");
       toast.success("Govt. Id Uploaded Successfully");
     } catch (error) {
-      //console.log("VERIFY_ID_API API ERROR............", error);
+      console.log("VERIFY_ID_API API ERROR............", error);
       toast.error("Couldn't upload your Govt.Id");
     }
     toast.dismiss(toastId);
@@ -61,7 +61,7 @@ export function updateDisplayPicture(token, formData, navigate) {
       navigate("/dashboard/myprofile");
       toast.success("Profile Picture Updated");
     } catch (error) {
-      //console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error);
+      console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error);
       toast.error("Could not update profile picture");
     }
     toast.dismiss(toastId);
@@ -90,7 +90,7 @@ export function completeProfile(token, formData, navigate) {
       toast.success("Account Created Successfully");
       navigate("/home");
     } catch (error) {
-      //console.log("COMPLETE_PROFILE_API API ERROR............", error);
+      console.log("COMPLETE_PROFILE_API API ERROR............", error);
       toast.error("Could Not Update Profile");
     }
     toast.dismiss(toastId);
@@ -117,7 +117,7 @@ export function myProfileAbout(token, formData) {
       dispatch(setUser({ ...response.data.updatedUserDetails }));
       toast.success("Profile Updated Successfully");
     } catch (error) {
-      //console.log("ABOUT_PROFILE_UPDATE_API API ERROR............", error);
+      console.log("ABOUT_PROFILE_UPDATE_API API ERROR............", error);
       toast.error("Could Not Update Profile");
     }
     toast.dismiss(toastId);
@@ -139,7 +139,7 @@ export function updateProfile(token, formData) {
       dispatch(setUser({ ...response.data.updatedUserDetails }));
       toast.success("Profile Updated Successfully");
     } catch (error) {
-      //console.log("UPDATE_PROFILE_API API ERROR............", error);
+      console.log("UPDATE_PROFILE_API API ERROR............", error);
       toast.error("Could Not Update Profile");
     }
     toast.dismiss(toastId);
@@ -160,7 +160,7 @@ export async function changePassword(token, formData, navigate) {
     toast.success("Password Changed Successfully");
     navigate("/dashboard/myprofile");
   } catch (error) {
-    //console.log("CHANGE_PASSWORD_API API ERROR............", error);
+    console.log("CHANGE_PASSWORD_API API ERROR............", error);
     toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
@@ -181,7 +181,7 @@ export function deleteProfile(token, navigate) {
       toast.success("Profile Deleted Successfully");
       dispatch(logout(navigate));
     } catch (error) {
-      //console.log("DELETE_PROFILE_API API ERROR............", error);
+      console.log("DELETE_PROFILE_API API ERROR............", error);
       toast.error("Could Not Delete Profile");
     }
     toast.dismiss(toastId);
