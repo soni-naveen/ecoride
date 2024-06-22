@@ -59,6 +59,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       toast.success("Signup Successful");
       dispatch(setToken(response.data.token));
       dispatch(setUser({ ...response?.data?.user }));
+      
       localStorage.setItem("token", JSON.stringify(response.data.token));
       navigate("/completeprofile");
     } catch (error) {

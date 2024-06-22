@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getRideDetails } from "../services/operations/RideAPI";
 import { FaRupeeSign } from "react-icons/fa";
 import { GrNext } from "react-icons/gr";
 import { PiChatsFill } from "react-icons/pi";
@@ -14,7 +13,10 @@ import Error from "./Error";
 import dayjs from "dayjs";
 import Swal from "sweetalert2";
 import "animate.css";
-import { sendBookRequest } from "../services/operations/RideAPI";
+import {
+  getRideDetails,
+  sendBookRequest,
+} from "../services/operations/RideAPI";
 
 function BookRide() {
   const navigate = useNavigate();
