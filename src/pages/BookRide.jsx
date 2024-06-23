@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
 import { GrNext } from "react-icons/gr";
 import { PiChatsFill } from "react-icons/pi";
@@ -20,6 +20,7 @@ import {
 
 function BookRide() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
 
@@ -80,7 +81,7 @@ function BookRide() {
       return;
     }
 
-    sendBookRequest(token, rideId);
+    dispatch(sendBookRequest(token, rideId));
     setSentLoading(true);
     if (!sentLoading) {
       Swal.fire({

@@ -23,8 +23,9 @@ export const rideEndpoints = {
   DELETE_RIDE_API: BASE_URL + "/ride/deleteRide",
   AUTO_DELETE_RIDE_API: BASE_URL + "/ride/autoDeleteRide",
   GET_SEARCHED_RIDES_API: BASE_URL + "/ride/getSearchedRides",
-  GET_RIDE_DETAIL_API : BASE_URL + "/ride/getRideDetails",
-  SEND_BOOK_REQUEST_API: BASE_URL + "/ride/sendBookRequest"
+  GET_RIDE_DETAIL_API: BASE_URL + "/ride/getRideDetails",
+  SEND_BOOK_REQUEST_API: BASE_URL + "/ride/sendBookRequest",
+  CANCEL_BOOKED_RIDE_API: BASE_URL + "/ride/cancelBookedRide",
 };
 
 // CONTACT-US API

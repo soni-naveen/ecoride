@@ -11,6 +11,7 @@ const {
   GET_SEARCHED_RIDES_API,
   GET_RIDE_DETAIL_API,
   SEND_BOOK_REQUEST_API,
+  CANCEL_BOOKED_RIDE_API,
 } = rideEndpoints;
 
 // create ride
@@ -43,7 +44,7 @@ export function createRide(publishRideData, stopPointData, token, navigate) {
   };
 }
 
-//add stop points to ride
+//delete ride
 export function deleteRide(token, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Deleting...");
@@ -51,7 +52,7 @@ export function deleteRide(token, navigate) {
       const response = await apiConnector("PUT", DELETE_RIDE_API, null, {
         Authorization: `Bearer ${token}`,
       });
-      // console.log("DELETE_RIDE API RESPONSE............", response);
+      // console.log("DELETE_RIDE_API API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -61,6 +62,35 @@ export function deleteRide(token, navigate) {
       navigate("/dashboard/yourRides");
     } catch (error) {
       // console.log("DELETE_RIDE_API API ERROR............", error);
+      toast.error(error.message);
+    }
+    toast.dismiss(toastId);
+  };
+}
+
+//cancel booked ride
+export function cancelBookedRide(token, rideId, navigate) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const response = await apiConnector(
+        "PUT",
+        CANCEL_BOOKED_RIDE_API,
+        { rideId },
+        {
+          Authorization: `Bearer ${token}`,
+        }
+      );
+      // console.log("CANCEL_BOOKED_RIDE_API API RESPONSE............", response);
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+      dispatch(setUser({ ...response.data.updatedBookedRideDetails }));
+      toast.success("Ride Deleted Successfully");
+      navigate("/dashboard/yourRides");
+    } catch (error) {
+      // console.log("CANCEL_BOOKED_RIDE_API API ERROR............", error);
       toast.error(error.message);
     }
     toast.dismiss(toastId);
@@ -87,26 +117,30 @@ export function autoDeleteRide(token) {
 }
 
 //send request to book ride
-export async function sendBookRequest(token, rideId) {
-  try {
-    const response = await apiConnector(
-      "POST",
-      SEND_BOOK_REQUEST_API,
-      { rideId },
-      {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token}`,
-      }
-    );
-    // console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
+export function sendBookRequest(token, rideId) {
+  return async (dispatch) => {
+    dispatch(setLoading(true));
+    try {
+      const response = await apiConnector(
+        "POST",
+        SEND_BOOK_REQUEST_API,
+        { rideId },
+        {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        }
+      );
+      // console.log("SEND_BOOK_REQUEST_API API RESPONSE............", response);
 
-    if (!response.data.success) {
-      throw new Error("Could Not Send booking request");
+      if (!response.data.success) {
+        throw new Error("Could Not Send booking request");
+      }
+      dispatch(setUser({ ...response.data.updatedUserDetails }));
+    } catch (error) {
+      console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
     }
-  } catch (error) {
-    // console.log("SEND_BOOK_REQUEST_API API ERROR............", error);
-    result = error.response.data;
-  }
+    dispatch(setLoading(false));
+  };
 }
 
 //get all searched rides

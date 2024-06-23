@@ -9,8 +9,12 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import dayjs from "dayjs";
 import DateFormatter from "../Dateformatter";
-import { deleteRide, autoDeleteRide } from "../../services/operations/RideAPI";
-import { getRideDetails } from "../../services/operations/RideAPI";
+import {
+  deleteRide,
+  autoDeleteRide,
+  cancelBookedRide,
+  getRideDetails,
+} from "../../services/operations/RideAPI";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -27,7 +31,7 @@ export default function YourRides() {
   const [loading, setLoading] = useState(true);
   const [ride, setRide] = useState(null);
 
-  const rideId = user?.ridePublished;
+  const rideId = user?.ridePublished._id;
 
   useEffect(() => {
     (async () => {
@@ -41,6 +45,28 @@ export default function YourRides() {
       }
     })();
   }, [rideId]);
+
+  async function handleCancelBookedRide() {
+    try {
+      const confirmDelete = await Swal.fire({
+        title: "Cancel this ride?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Confirm",
+        focusCancel: true, // Set the default focus to Cancel button
+      });
+
+      if (confirmDelete.isConfirmed) {
+        dispatch(
+          cancelBookedRide(token, user?.rideBooked?.ride?._id, navigate)
+        );
+      }
+    } catch (error) {
+      console.log("ERROR MESSAGE - ", error.message);
+    }
+  }
 
   async function handleDeleteRide() {
     try {
@@ -63,25 +89,25 @@ export default function YourRides() {
     }
   }
 
-  const checkAndDeleteRide = () => {
-    const currDate = dayjs().format("YYYY-MM-DD");
-    const currTime = dayjs().format("HH:mm");
+  useEffect(() => {
+    const checkAndDeleteRide = () => {
+      const currDate = dayjs().format("YYYY-MM-DD");
+      const currTime = dayjs().format("HH:mm");
 
-    const rideDate = user?.ridePublished?.date;
-    const rideTime = user?.ridePublished?.reachingTime;
+      const rideDate = user?.ridePublished?.date;
+      const rideTime = user?.ridePublished?.reachingTime;
 
-    if (
-      rideDate != "" &&
-      rideTime != "" &&
-      rideDate <= currDate &&
-      rideTime <= currTime
-    ) {
-      dispatch(autoDeleteRide(token));
-      return;
-    }
-  };
-
-  checkAndDeleteRide();
+      if (
+        rideDate !== "" &&
+        rideTime !== "" &&
+        rideDate <= currDate &&
+        rideTime <= currTime
+      ) {
+        dispatch(autoDeleteRide(token));
+      }
+    };
+    checkAndDeleteRide();
+  }, [user, dispatch, token]);
 
   return (
     <div className="container mx-auto mb-10">
@@ -112,8 +138,14 @@ export default function YourRides() {
         <div>
           {activeTab === "booked" && (
             <div>
-              {user?.rideBooked?.ride != null ? (
-                <div>
+              {user?.rideBooked?.ride?.fromWhere === "" ||
+              user?.rideBooked?.ride?.fromWhere === null ||
+              user?.rideBooked?.ride?.fromWhere === undefined ? (
+                <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                  Ride you booked will appear here!
+                </div>
+              ) : (
+                <div className="cursor-pointer">
                   <div className="mt-7 rounded-t-sm border max-w-[600px] mx-auto sm:mt-5 sm:mx-3">
                     {/*============== DATE =========== */}
                     <div className="text-center pt-4 text-3xl font-bold text-dark-color sm:text-2xl sm2xl:text-xl">
@@ -186,7 +218,7 @@ export default function YourRides() {
                       </div>
                     </div>
                   </div>
-                  {/*============== PROFILE, STATUS, PRICE =========== */}
+                  {/*============== PROFILE, STATUS, PRICE , CANCEL =========== */}
                   <div className="border-b border-x border-slate-200 bg-slate-100 py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mb-7 sm:mx-3 sm2xl:flex-col sm2xl:gap-3">
                     <button
                       onClick={() =>
@@ -209,10 +241,14 @@ export default function YourRides() {
                       {user?.rideBooked?.ride?.price}/-
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
-                  Ride you booked will appear here!
+                  <div className="flex justify-center w-full max-w-[600px] mx-auto">
+                    <button
+                      onClick={handleCancelBookedRide}
+                      className="flex items-center text-dark-color gap-2 px-3 py-1 border border-dark-color rounded-full hover:bg-dark-color hover:text-white sm:text-sm"
+                    >
+                      <RxCross2 /> Cancel
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
