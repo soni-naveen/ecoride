@@ -66,7 +66,7 @@ export default function ProfileDropdown() {
               </div>
             </Link>
             <Link
-              to="dashboard/yourRides"
+              to="dashboard/yourRides?type=booked"
               onClick={() => {
                 setOpen(false), handleClickPageTop();
               }}

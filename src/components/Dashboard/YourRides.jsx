@@ -22,10 +22,15 @@ export default function YourRides() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [activeTab, setActiveTab] = useState("published");
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const yourRidesType = urlParams.get("type");
+
+  const [activeTab, setActiveTab] = useState(`${yourRidesType}`);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    navigate(`/dashboard/yourRides?type=${tab}`);
   };
 
   const [loading, setLoading] = useState(true);
@@ -89,6 +94,49 @@ export default function YourRides() {
     }
   }
 
+  async function handleConfirmPassenger() {
+    try {
+      try {
+        dispatch(confirmPassengerBooking(token));
+      } catch (error) {
+        console.log("ERROR MESSAGE - ", error.message);
+      }
+    } catch (error) {}
+  }
+
+  async function handleCancelConfirmedPassenger() {
+    try {
+      try {
+        const confirmDelete = await Swal.fire({
+          title: "Are You Sure?",
+          text: "You lost your passengers when you delete this ride",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Confirm",
+          focusCancel: true, // Set the default focus to Cancel button
+        });
+
+        if (confirmDelete.isConfirmed) {
+          dispatch(cancelConfirmedPassengerBooking(token));
+        }
+      } catch (error) {
+        console.log("ERROR MESSAGE - ", error.message);
+      }
+    } catch (error) {}
+  }
+
+  async function handleCancelPendingPassenger() {
+    try {
+      try {
+        dispatch(cancelPendingPassengerBooking(token));
+      } catch (error) {
+        console.log("ERROR MESSAGE - ", error.message);
+      }
+    } catch (error) {}
+  }
+
   useEffect(() => {
     const checkAndDeleteRide = () => {
       const currDate = dayjs().format("YYYY-MM-DD");
@@ -145,8 +193,13 @@ export default function YourRides() {
                   Ride you booked will appear here!
                 </div>
               ) : (
-                <div className="cursor-pointer">
-                  <div className="mt-7 rounded-t-sm border max-w-[600px] mx-auto sm:mt-5 sm:mx-3">
+                <div>
+                  <div
+                    onClick={() =>
+                      navigate(`/bookride/${user?.rideBooked?.ride?._id}`)
+                    }
+                    className="mt-7 rounded-t-sm border cursor-pointer max-w-[600px] mx-auto sm:mt-5 sm:mx-3"
+                  >
                     {/*============== DATE =========== */}
                     <div className="text-center pt-4 text-3xl font-bold text-dark-color sm:text-2xl sm2xl:text-xl">
                       <DateFormatter
@@ -355,7 +408,39 @@ export default function YourRides() {
                         <div className="spinner"></div>
                       </div>
                     ) : (
-                      <div>
+                      <div className="flex flex-col gap-5">
+                        {ride?.confirmedPassengers?.length !== 0 ? (
+                          <div className="flex flex-col gap-5">
+                            {ride?.confirmedPassengers?.map(
+                              (passenger, index) => (
+                                <div
+                                  key={index}
+                                  className="p-5 flex items-center justify-between font-normal text-sm bg-slate-100 rounded-sm sm:text-xs sm:mx-2 sm:p-3 smxl:flex-col smxl:gap-3 sm2xl:text-[10px] sm2xl:p-2"
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <IoMdCheckmark className="text-base text-medium-color sm:text-sm sm2xl:text-[10px]" />
+                                    <div className="smxl:place-self-start">
+                                      <button
+                                        onClick={() =>
+                                          navigate(`/profile/${passenger?._id}`)
+                                        }
+                                        className="text-medium-color underline font-medium"
+                                      >
+                                        {passenger?.firstName}
+                                      </button>{" "}
+                                      is now traveling with you.
+                                    </div>
+                                  </div>
+                                  <button>
+                                    <RxCross2 className="text-base text-dark-color sm:text-sm sm2xl:text-[10px]" />
+                                  </button>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        ) : (
+                          ""
+                        )}
                         {ride?.pendingPassengers?.length !== 0 ? (
                           <div className="flex flex-col gap-5">
                             {ride?.pendingPassengers?.map(
@@ -364,26 +449,32 @@ export default function YourRides() {
                                   key={index}
                                   className="p-5 flex items-center justify-between border border-slate-300 font-normal text-sm rounded-sm sm:text-xs sm:mx-2 sm:p-3 smxl:flex-col smxl:gap-3 sm2xl:text-[10px] sm2xl:p-2"
                                 >
-                                  <button
-                                    onClick={() =>
-                                      navigate(`/profile/${passenger?._id}`)
-                                    }
-                                    className="smxl:place-self-start"
-                                  >
-                                    <span className="text-medium-color underline font-medium">
+                                  <div className="smxl:place-self-start">
+                                    <button
+                                      onClick={() =>
+                                        navigate(`/profile/${passenger?._id}`)
+                                      }
+                                      className="text-medium-color underline font-medium"
+                                    >
                                       {passenger?.firstName}
-                                    </span>{" "}
+                                    </button>{" "}
                                     has requested to book your ride.
-                                  </button>
+                                  </div>
                                   {/*============= BUTTONS =========== */}
                                   <div className="flex gap-5 sm:gap-3 smxl:mr-3 smxl:place-self-end">
-                                    <button className="flex gap-1 items-center bg-dark-color text-white border border-dark-color py-1 px-2 rounded-sm smxl:py-0 sm2xl:px-1">
+                                    <button
+                                      onClick={handleConfirmPassenger}
+                                      className="flex gap-1 items-center bg-dark-color text-white border border-dark-color py-1 px-2 rounded-sm smxl:py-0 sm2xl:px-1"
+                                    >
                                       <IoMdCheckmark className="text-base sm:text-sm sm2xl:text-[10px]" />
                                       <p className="sm:text-[10px] sm2xl:text-[8px]">
                                         Confirm
                                       </p>
                                     </button>
-                                    <button className="flex gap-1 items-center text-dark-color border border-dark-color py-1 px-2 rounded-sm sm2xl:py-0 sm2xl:px-1">
+                                    <button
+                                      onClick={handleCancelPendingPassenger}
+                                      className="flex gap-1 items-center text-dark-color border border-dark-color py-1 px-2 rounded-sm sm2xl:py-0 sm2xl:px-1"
+                                    >
                                       <RxCross2 className="text-base sm:text-sm sm2xl:text-[10px]" />
                                       <p className="sm:text-[10px] sm2xl:text-[8px]">
                                         Cancel

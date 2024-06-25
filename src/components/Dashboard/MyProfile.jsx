@@ -300,9 +300,9 @@ function Myprofile() {
 
           {/*====================== ACCOUNT TAB ====================== */}
           {activeTab === "account" && (
-            <div className=" min-h-auto">
-              <div className="max-w-[700px] mx-auto p-4 my-3 sm:mt-1">
-                <div className="rating flex flex-col gap-1">
+            <div className="min-h-auto">
+              <div className="max-w-[700px] mx-auto p-4 my-3 sm:mt-1 smxl:text-sm">
+                <div className="rating flex flex-col gap-1 smxl:gap-2">
                   {/*======== RATING RECEIVED ======== */}
                   <button
                     onClick={() => {
@@ -330,7 +330,7 @@ function Myprofile() {
                   </button>
                 </div>
                 <hr className="mt-3" />
-                <div className="details_changing flex flex-col gap-1 mt-3">
+                <div className="details_changing flex flex-col gap-1 mt-3 smxl:gap-2">
                   {/*======= CHANGE PROFILE PHOTO ======== */}
                   <button
                     onClick={() => {
@@ -378,7 +378,7 @@ function Myprofile() {
                   </Link>
                 </div>
                 <hr className="mt-3" />
-                <div className="logout_deleteaccount flex flex-col mt-3">
+                <div className="logout_deleteaccount flex flex-col mt-3 smxl:gap-1">
                   {/*======= LOGOUT ======== */}
                   <button>
                     <div

@@ -18,6 +18,7 @@ const {
 export function createRide(publishRideData, stopPointData, token, navigate) {
   return async (dispatch) => {
     dispatch(setLoading(true));
+    const toastId = toast.loading("Loading...");
     try {
       const response = await apiConnector(
         "POST",
@@ -35,12 +36,14 @@ export function createRide(publishRideData, stopPointData, token, navigate) {
       }
       dispatch(setPublishRideData(null));
       dispatch(setUser({ ...response.data.data }));
-      navigate("/dashboard/yourRides");
+      toast.success("Ride Published Successfully");
+      navigate("/dashboard/yourRides?type=published");
     } catch (error) {
       // console.log("CREATE RIDE API ERROR............", error);
       toast.error(error.message);
     }
     dispatch(setLoading(false));
+    toast.dismiss(toastId);
   };
 }
 
@@ -59,7 +62,7 @@ export function deleteRide(token, navigate) {
       }
       dispatch(setUser({ ...response.data.updatedRideDetails }));
       toast.success("Ride Deleted Successfully");
-      navigate("/dashboard/yourRides");
+      navigate("/dashboard/yourRides?type=published");
     } catch (error) {
       // console.log("DELETE_RIDE_API API ERROR............", error);
       toast.error(error.message);
@@ -88,7 +91,7 @@ export function cancelBookedRide(token, rideId, navigate) {
       }
       dispatch(setUser({ ...response.data.updatedBookedRideDetails }));
       toast.success("Ride Deleted Successfully");
-      navigate("/dashboard/yourRides");
+      navigate("/dashboard/yourRides?type=booked");
     } catch (error) {
       // console.log("CANCEL_BOOKED_RIDE_API API ERROR............", error);
       toast.error(error.message);

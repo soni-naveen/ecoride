@@ -56,15 +56,7 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           We understand that plans can change. Both drivers and passengers have
-          the option to cancel rides {" ( "}
-          <Link
-            to="/dashboard/yourRides"
-            className="underline"
-            onClick={handleClickPageTop}
-          >
-            Your rides
-          </Link>
-          {" ) "}, but please do so as early as possible to minimize
+          the option to cancel/delete ride, but please do so as early as possible to minimize
           inconvenience to other users.
         </AccordionDetails>
       </Accordion>
