@@ -252,7 +252,13 @@ function BookRide() {
                   <span className="font-bold">{ride?.noOfSeats}</span>
                 </div>
                 <hr className="w-full max-w-[600px]" />
-                <button className="w-full max-w-[600px] px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200">
+                {/*============ CONTACT ========== */}
+                <button
+                  onClick={() =>
+                    alert(`Contact Number : ${ride?.profile?.contactNumber}`)
+                  }
+                  className="w-full max-w-[600px] font-semibold px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200"
+                >
                   <PiChatsFill className="text-2xl sm:text-xl sm2xl:text-lg" />
                   <div className="sm:text-sm sm2xl:text-xs text-start">
                     Contact {ride?.profile?.firstName} for ride related question

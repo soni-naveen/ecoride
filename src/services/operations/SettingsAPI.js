@@ -161,7 +161,7 @@ export async function changePassword(token, formData, navigate) {
     navigate("/dashboard/myprofile");
   } catch (error) {
     console.log("CHANGE_PASSWORD_API API ERROR............", error);
-    toast.error(error.response.data.message);
+    toast.error("Failed to Change Password");
   }
   toast.dismiss(toastId);
 }

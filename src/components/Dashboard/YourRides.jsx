@@ -14,6 +14,10 @@ import {
   autoDeleteRide,
   cancelBookedRide,
   getRideDetails,
+  getBookedRideDetails,
+  confirmBooking,
+  // cancelConfirmedBooking,
+  // cancelPendingBooking,
 } from "../../services/operations/RideAPI";
 
 export default function YourRides() {
@@ -35,21 +39,45 @@ export default function YourRides() {
 
   const [loading, setLoading] = useState(true);
   const [ride, setRide] = useState(null);
+  const [bookedRide, setBookedRide] = useState(null);
 
   const rideId = user?.ridePublished._id;
+  const bookedRideId = user?.rideBooked._id;
 
   useEffect(() => {
     (async () => {
       try {
         const rideDetails = await getRideDetails(rideId);
+        const bookedRideDetails = await getBookedRideDetails(bookedRideId);
         setRide(rideDetails.data);
+        setBookedRide(bookedRideDetails.data);
       } catch (error) {
         console.error("Could not fetch Ride Details", error);
       } finally {
         setLoading(false);
       }
     })();
-  }, [rideId]);
+  }, [rideId, bookedRideId]);
+
+  useEffect(() => {
+    const checkAndDeleteRide = () => {
+      const currDate = dayjs().format("YYYY-MM-DD");
+      const currTime = dayjs().format("HH:mm");
+
+      const rideDate = user?.ridePublished?.date;
+      const rideTime = user?.ridePublished?.reachingTime;
+
+      if (
+        rideDate !== "" &&
+        rideTime !== "" &&
+        rideDate <= currDate &&
+        rideTime <= currTime
+      ) {
+        dispatch(autoDeleteRide(token));
+      }
+    };
+    checkAndDeleteRide();
+  }, [user, dispatch, token]);
 
   async function handleCancelBookedRide() {
     try {
@@ -59,14 +87,13 @@ export default function YourRides() {
         showCancelButton: true,
         confirmButtonColor: "#d33",
         cancelButtonColor: "#3085d6",
-        confirmButtonText: "Confirm",
+        confirmButtonText: "Yes, cancel",
+        cancelButtonText: "No, go back",
         focusCancel: true, // Set the default focus to Cancel button
       });
 
       if (confirmDelete.isConfirmed) {
-        dispatch(
-          cancelBookedRide(token, user?.rideBooked?.ride?._id, navigate)
-        );
+        cancelBookedRide(token, user?.rideBooked?.ride?._id, navigate);
       }
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message);
@@ -94,68 +121,43 @@ export default function YourRides() {
     }
   }
 
-  async function handleConfirmPassenger() {
+  const handleConfirmPassenger = async (passId) => {
     try {
-      try {
-        dispatch(confirmPassengerBooking(token));
-      } catch (error) {
-        console.log("ERROR MESSAGE - ", error.message);
-      }
-    } catch (error) {}
-  }
+      const updatedRideDetails = await confirmBooking(token, passId);
+      setRide(updatedRideDetails.rideDetails);
+    } catch (error) {
+      console.error("Could not fetch Ride Details", error);
+    }
+  };
 
-  async function handleCancelConfirmedPassenger() {
-    try {
-      try {
-        const confirmDelete = await Swal.fire({
-          title: "Are You Sure?",
-          text: "You lost your passengers when you delete this ride",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#d33",
-          cancelButtonColor: "#3085d6",
-          confirmButtonText: "Confirm",
-          focusCancel: true, // Set the default focus to Cancel button
-        });
+  // async function handleCancelConfirmedPassenger() {
+  //   try {
+  //     const confirmDelete = await Swal.fire({
+  //       title: "Are You Sure?",
+  //       text: "You lost your passengers when you delete this ride",
+  //       icon: "warning",
+  //       showCancelButton: true,
+  //       confirmButtonColor: "#d33",
+  //       cancelButtonColor: "#3085d6",
+  //       confirmButtonText: "Confirm",
+  //       focusCancel: true, // Set the default focus to Cancel button
+  //     });
 
-        if (confirmDelete.isConfirmed) {
-          dispatch(cancelConfirmedPassengerBooking(token));
-        }
-      } catch (error) {
-        console.log("ERROR MESSAGE - ", error.message);
-      }
-    } catch (error) {}
-  }
+  //     if (confirmDelete.isConfirmed) {
+  //       dispatch(cancelConfirmedBooking(token));
+  //     }
+  //   } catch (error) {
+  //     console.log("ERROR MESSAGE - ", error.message);
+  //   }
+  // }
 
-  async function handleCancelPendingPassenger() {
-    try {
-      try {
-        dispatch(cancelPendingPassengerBooking(token));
-      } catch (error) {
-        console.log("ERROR MESSAGE - ", error.message);
-      }
-    } catch (error) {}
-  }
-
-  useEffect(() => {
-    const checkAndDeleteRide = () => {
-      const currDate = dayjs().format("YYYY-MM-DD");
-      const currTime = dayjs().format("HH:mm");
-
-      const rideDate = user?.ridePublished?.date;
-      const rideTime = user?.ridePublished?.reachingTime;
-
-      if (
-        rideDate !== "" &&
-        rideTime !== "" &&
-        rideDate <= currDate &&
-        rideTime <= currTime
-      ) {
-        dispatch(autoDeleteRide(token));
-      }
-    };
-    checkAndDeleteRide();
-  }, [user, dispatch, token]);
+  // async function handleCancelPendingPassenger() {
+  //   try {
+  //     dispatch(cancelPendingBooking(token));
+  //   } catch (error) {
+  //     console.log("ERROR MESSAGE - ", error.message);
+  //   }
+  // }
 
   return (
     <div className="container mx-auto mb-10">
@@ -186,122 +188,126 @@ export default function YourRides() {
         <div>
           {activeTab === "booked" && (
             <div>
-              {user?.rideBooked?.ride?.fromWhere === "" ||
-              user?.rideBooked?.ride?.fromWhere === null ||
-              user?.rideBooked?.ride?.fromWhere === undefined ? (
-                <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
-                  Ride you booked will appear here!
+              {loading ? (
+                <div className="grid min-h-[calc(100vh-100px)] place-items-center">
+                  <div className="spinner"></div>
                 </div>
               ) : (
                 <div>
-                  <div
-                    onClick={() =>
-                      navigate(`/bookride/${user?.rideBooked?.ride?._id}`)
-                    }
-                    className="mt-7 rounded-t-sm border cursor-pointer max-w-[600px] mx-auto sm:mt-5 sm:mx-3"
-                  >
-                    {/*============== DATE =========== */}
-                    <div className="text-center pt-4 text-3xl font-bold text-dark-color sm:text-2xl sm2xl:text-xl">
-                      <DateFormatter
-                        inputDateString={user?.rideBooked?.ride?.date}
-                      />
+                  {bookedRide?.ride === null ||
+                  bookedRide?.ride === undefined ? (
+                    <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                      Ride you booked will appear here!
                     </div>
-                    <div className="flex items-center justify-evenly">
-                      {/*============== RIDE CARD ============ */}
-                      <div className="flex flex-col max-w-[500px] justify-between rounded-md py-10 px-5 z-0 sm:py-5">
-                        <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
-                          <div className="time flex gap-4">
-                            <div className="timeContainer flex flex-col justify-between items-center">
-                              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
-                                {user?.rideBooked?.ride?.leavingTime}
-                              </h1>
-                              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
-                                {user?.rideBooked?.ride?.reachingTime}
-                              </h1>
-                            </div>
-                            <div className="divider py-1">
-                              <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
-                              <div className="line bg-medium-color min-h-24 h-[calc(100%-20px)] w-0.5 ml-[4px] sm:min-h-20"></div>
-                              <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
-                            </div>
-                            <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
-                              <h1 className="text-dark-color font-medium">
-                                {user?.rideBooked?.ride?.fromWhere}
-                              </h1>
-                              <div>
-                                {user?.rideBooked?.ride?.stopPoint1 === "" &&
-                                user?.rideBooked?.ride?.stopPoint2 === "" &&
-                                user?.rideBooked?.ride?.stopPoint1 === "" ? (
-                                  <div></div>
-                                ) : (
-                                  <div className="text-medium-color flex flex-col gap-3">
-                                    {user?.rideBooked?.ride?.stopPoint1 !==
-                                    "" ? (
-                                      <div>
-                                        {user?.rideBooked?.ride?.stopPoint1}
-                                      </div>
+                  ) : (
+                    <div>
+                      <div
+                        onClick={() =>
+                          navigate(`/bookride/${bookedRide?.ride?._id}`)
+                        }
+                        className="mt-7 rounded-t-sm border cursor-pointer max-w-[600px] mx-auto sm:mt-5 sm:mx-3"
+                      >
+                        {/*============== DATE =========== */}
+                        <div className="text-center pt-4 text-3xl font-bold text-dark-color sm:text-2xl sm2xl:text-xl">
+                          <DateFormatter
+                            inputDateString={bookedRide?.ride?.date}
+                          />
+                        </div>
+                        <div className="flex items-center justify-evenly">
+                          {/*============== RIDE CARD ============ */}
+                          <div className="flex flex-col max-w-[500px] justify-between rounded-md py-10 px-5 z-0 sm:py-5">
+                            <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
+                              <div className="time flex gap-4">
+                                <div className="timeContainer flex flex-col justify-between items-center">
+                                  <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                                    {bookedRide?.ride?.leavingTime}
+                                  </h1>
+                                  <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                                    {bookedRide?.ride?.reachingTime}
+                                  </h1>
+                                </div>
+                                <div className="divider py-1">
+                                  <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
+                                  <div className="line bg-medium-color min-h-24 h-[calc(100%-20px)] w-0.5 ml-[4px] sm:min-h-20"></div>
+                                  <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
+                                </div>
+                                <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
+                                  <h1 className="text-dark-color font-medium">
+                                    {bookedRide?.ride?.fromWhere}
+                                  </h1>
+                                  <div>
+                                    {bookedRide?.ride?.stopPoint1 === "" &&
+                                    bookedRide?.ride?.stopPoint2 === "" &&
+                                    bookedRide?.ride?.stopPoint1 === "" ? (
+                                      <div></div>
                                     ) : (
-                                      ""
-                                    )}
-                                    {user?.rideBooked?.ride?.stopPoint2 !==
-                                    "" ? (
-                                      <div>
-                                        {user?.rideBooked?.ride?.stopPoint2}{" "}
+                                      <div className="text-medium-color flex flex-col gap-3">
+                                        {bookedRide?.ride?.stopPoint1 !== "" ? (
+                                          <div>
+                                            {bookedRide?.ride?.stopPoint1}
+                                          </div>
+                                        ) : (
+                                          ""
+                                        )}
+                                        {bookedRide?.ride?.stopPoint2 !== "" ? (
+                                          <div>
+                                            {bookedRide?.ride?.stopPoint2}{" "}
+                                          </div>
+                                        ) : (
+                                          ""
+                                        )}
+                                        {bookedRide?.ride?.stopPoint3 !== "" ? (
+                                          <div>
+                                            {bookedRide?.ride?.stopPoint3}{" "}
+                                          </div>
+                                        ) : (
+                                          ""
+                                        )}
                                       </div>
-                                    ) : (
-                                      ""
-                                    )}
-                                    {user?.rideBooked?.ride?.stopPoint3 !==
-                                    "" ? (
-                                      <div>
-                                        {user?.rideBooked?.ride?.stopPoint3}{" "}
-                                      </div>
-                                    ) : (
-                                      ""
                                     )}
                                   </div>
-                                )}
+                                  <h1 className="text-dark-color font-medium">
+                                    {bookedRide?.ride?.toWhere}
+                                  </h1>
+                                </div>
                               </div>
-                              <h1 className="text-dark-color font-medium">
-                                {user?.rideBooked?.ride?.toWhere}
-                              </h1>
                             </div>
                           </div>
                         </div>
                       </div>
+                      {/*============== PROFILE, STATUS, PRICE , CANCEL =========== */}
+                      <div className="border-b border-x border-slate-200 bg-slate-100 py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mb-7 sm:mx-3 sm2xl:flex-col sm2xl:gap-3">
+                        <button
+                          onClick={() =>
+                            navigate(`/profile/${bookedRide?.profile?._id}`)
+                          }
+                          className="flex items-center gap-1 text-base sm:text-xs"
+                        >
+                          <img
+                            src={bookedRide?.profile?.image}
+                            alt="pic"
+                            className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[30px] rounded-full object-cover sm:w-[20px]"
+                          />
+                          <p>{bookedRide?.profile?.firstName}</p>
+                        </button>
+                        <div className="flex items-center gap-1 text-dark-color font-semibold text-lg sm:text-sm">
+                          <MdOutlineWatchLater /> {bookedRide?.rideStatus}
+                        </div>
+                        <div className="font-bold w-fit flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
+                          <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
+                          {bookedRide?.ride?.price}/-
+                        </div>
+                      </div>
+                      <div className="flex justify-center w-full max-w-[600px] mx-auto">
+                        <button
+                          onClick={handleCancelBookedRide}
+                          className="flex items-center text-red-400 gap-2 px-3 py-1 border border-red-400 rounded-full hover:bg-red-400 hover:border-red-400 hover:text-white sm:text-sm"
+                        >
+                          <RxCross2 /> Cancel
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  {/*============== PROFILE, STATUS, PRICE , CANCEL =========== */}
-                  <div className="border-b border-x border-slate-200 bg-slate-100 py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mb-7 sm:mx-3 sm2xl:flex-col sm2xl:gap-3">
-                    <button
-                      onClick={() =>
-                        navigate(`/profile/${user?.rideBooked?.profile?._id}`)
-                      }
-                      className="flex items-center gap-1 text-base sm:text-xs"
-                    >
-                      <img
-                        src={user?.rideBooked?.profile?.image}
-                        alt="pic"
-                        className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[30px] rounded-full object-cover sm:w-[20px]"
-                      />
-                      <p>{user?.rideBooked?.profile?.firstName}</p>
-                    </button>
-                    <div className="flex items-center gap-1 text-dark-color font-semibold text-lg sm:text-sm">
-                      <MdOutlineWatchLater /> {user?.rideBooked?.rideStatus}
-                    </div>
-                    <div className="font-bold w-fit flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
-                      <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
-                      {user?.rideBooked?.ride?.price}/-
-                    </div>
-                  </div>
-                  <div className="flex justify-center w-full max-w-[600px] mx-auto">
-                    <button
-                      onClick={handleCancelBookedRide}
-                      className="flex items-center text-dark-color gap-2 px-3 py-1 border border-dark-color rounded-full hover:bg-dark-color hover:text-white sm:text-sm"
-                    >
-                      <RxCross2 /> Cancel
-                    </button>
-                  </div>
+                  )}
                 </div>
               )}
             </div>
@@ -431,7 +437,9 @@ export default function YourRides() {
                                       is now traveling with you.
                                     </div>
                                   </div>
-                                  <button>
+                                  <button
+                                  // onClick={handleCancelConfirmedPassenger}
+                                  >
                                     <RxCross2 className="text-base text-dark-color sm:text-sm sm2xl:text-[10px]" />
                                   </button>
                                 </div>
@@ -463,7 +471,9 @@ export default function YourRides() {
                                   {/*============= BUTTONS =========== */}
                                   <div className="flex gap-5 sm:gap-3 smxl:mr-3 smxl:place-self-end">
                                     <button
-                                      onClick={handleConfirmPassenger}
+                                      onClick={() =>
+                                        handleConfirmPassenger(passenger._id)
+                                      }
                                       className="flex gap-1 items-center bg-dark-color text-white border border-dark-color py-1 px-2 rounded-sm smxl:py-0 sm2xl:px-1"
                                     >
                                       <IoMdCheckmark className="text-base sm:text-sm sm2xl:text-[10px]" />
@@ -472,7 +482,7 @@ export default function YourRides() {
                                       </p>
                                     </button>
                                     <button
-                                      onClick={handleCancelPendingPassenger}
+                                      // onClick={handleCancelPendingPassenger}
                                       className="flex gap-1 items-center text-dark-color border border-dark-color py-1 px-2 rounded-sm sm2xl:py-0 sm2xl:px-1"
                                     >
                                       <RxCross2 className="text-base sm:text-sm sm2xl:text-[10px]" />
@@ -486,8 +496,8 @@ export default function YourRides() {
                             )}
                           </div>
                         ) : (
-                          <div className="text-center my-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
-                            No passengers yet
+                          <div className="text-center my-3 text-slate-300 text-lg smxl:text-sm sm2xl:text-xs">
+                            New booking requests appear here
                           </div>
                         )}
                       </div>

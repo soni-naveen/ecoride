@@ -110,7 +110,10 @@ export default function Seeridecard({
           </div>
           {/*========== RIGHT PART ========== */}
           <div className="right mr-2 sm2xl:mr-0">
-            <button className="flex justify-evenly items-center rounded-full gap-2 px-3 py-1 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105">
+            <button
+              onClick={() => alert("Chat feature coming soon....")}
+              className="flex justify-evenly items-center rounded-full gap-2 px-3 py-1 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105"
+            >
               <div className="icon">
                 <PiChatsFill className="text-slate-500 text-base sm:text-xs" />
               </div>

@@ -59,7 +59,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       toast.success("Signup Successful");
       dispatch(setToken(response.data.token));
       dispatch(setUser({ ...response?.data?.user }));
-      
+
       localStorage.setItem("token", JSON.stringify(response.data.token));
       navigate("/completeprofile");
     } catch (error) {
@@ -67,7 +67,7 @@ export function signUp(email, password, confirmPassword, otp, navigate) {
       toast.error("Signup Failed!");
       navigate("/signup");
     }
-    dispatch(setLoading(false)); 
+    dispatch(setLoading(false));
     toast.dismiss(toastId);
   };
 }
@@ -122,7 +122,7 @@ export function getPasswordResetToken(email, setEmailSent) {
       setEmailSent(true);
     } catch (error) {
       console.log("RESETPASSTOKEN ERROR............", error);
-      toast.error("Failed To Send Reset Email");
+      toast.error(error.message);
     }
     toast.dismiss(toastId);
     dispatch(setLoading(false));
