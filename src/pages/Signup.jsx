@@ -51,7 +51,7 @@ function Signup() {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
-    if (e.target.value.length < 8) {
+    if (e.target.value.length >= 1 && e.target.value.length < 8) {
       setPassAlert(
         <div
           style={{

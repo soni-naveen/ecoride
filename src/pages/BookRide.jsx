@@ -8,6 +8,7 @@ import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoMdCheckmark } from "react-icons/io";
 import { toast } from "react-hot-toast";
 import Error from "./Error";
 import dayjs from "dayjs";
@@ -17,6 +18,7 @@ import {
   getRideDetails,
   sendBookRequest,
 } from "../services/operations/RideAPI";
+import DateFormatter from "../components/Dateformatter";
 
 function BookRide() {
   const navigate = useNavigate();
@@ -42,27 +44,6 @@ function BookRide() {
       }
     })();
   }, [rideId]);
-
-  const inputDateString = ride?.date;
-  const newDate = new Date(inputDateString);
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const day = newDate.getDate();
-  const month = monthNames[newDate.getMonth()];
-  const year = newDate.getFullYear();
-  const outputDateString = `${day} ${month} ${year}`;
 
   const checkRideSendRequest = () => {
     const currTime = dayjs().format("HH:mm");
@@ -123,7 +104,9 @@ function BookRide() {
                     onClick={() => navigate(-1)}
                     className="hover:cursor-pointer"
                   />
-                  <div className="text-center w-full">{outputDateString}</div>
+                  <div className="text-center w-full">
+                    <DateFormatter inputDateString={ride?.date} />
+                  </div>
                 </div>
                 <div className="flex items-center justify-evenly">
                   {/*============== RIDE CARD ============== */}
@@ -278,9 +261,24 @@ function BookRide() {
                     {" "}
                     Co-travellers
                   </h1>
-                  <p className="text-gray-300 sm:text-sm sm2xl:text-xs">
-                    Not yet!
-                  </p>
+                  {ride?.confirmedPassengers?.length === 0 ? (
+                    <p className="text-gray-300 sm:text-sm sm2xl:text-xs">
+                      Not yet!
+                    </p>
+                  ) : (
+                    ride?.confirmedPassengers.map((passenger, index) => (
+                      <button
+                        className="flex items-center justify-between text-slate-400 py-3 hover:bg-gray-100 rounded-md w-full"
+                        onClick={() => navigate(`/profile/${passenger?._id}`)}
+                        key={index}
+                      >
+                        <div className="ml-3 sm:text-sm">
+                          {passenger?.firstName} {passenger?.lastName}
+                        </div>
+                        <GrNext className="text-slate-400 mr-3 text-xl sm:text-lg sm2xl:text-base" />
+                      </button>
+                    ))
+                  )}
                 </div>
               </div>
               {/*============ REQUEST TO BOOK BUTTON =========== */}
@@ -293,6 +291,16 @@ function BookRide() {
                     <MdOutlineWatchLater className="text-lg sm:text-base sm2xl:text-sm" />
                     Requested
                   </button>
+                ) : ride?.confirmedPassengers.some(
+                    (passenger) =>
+                      passenger._id === user?.additionalDetails?._id
+                  ) ? (
+                  <div>
+                    <button className="mx-auto bg-dark-color my-4 text-lg text-white px-6 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-5 sm2xl:text-xs">
+                      <IoMdCheckmark className="text-xl sm:text-lg" />
+                      Booked
+                    </button>
+                  </div>
                 ) : (
                   <button
                     onClick={() => checkRideSendRequest()}

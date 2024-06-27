@@ -276,22 +276,38 @@ export default function YourRides() {
                         </div>
                       </div>
                       {/*============== PROFILE, STATUS, PRICE , CANCEL =========== */}
-                      <div className="border-b border-x border-slate-200 bg-slate-100 py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mb-7 sm:mx-3 sm2xl:flex-col sm2xl:gap-3">
+                      <div
+                        className={`${
+                          bookedRide?.rideStatus === "Confirmed"
+                            ? "bg-light-color"
+                            : "bg-slate-100"
+                        } border-b border-x border-slate-200 py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mb-7 sm:mx-3 sm2xl:flex-col sm2xl:gap-3`}
+                      >
                         <button
                           onClick={() =>
                             navigate(`/profile/${bookedRide?.profile?._id}`)
                           }
-                          className="flex items-center gap-1 text-base sm:text-xs"
+                          className="flex items-center gap-2 text-base sm:text-xs sm:gap-1"
                         >
                           <img
                             src={bookedRide?.profile?.image}
                             alt="pic"
-                            className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[30px] rounded-full object-cover sm:w-[20px]"
+                            className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[25px] rounded-full object-cover sm:w-[17px]"
                           />
                           <p>{bookedRide?.profile?.firstName}</p>
                         </button>
-                        <div className="flex items-center gap-1 text-dark-color font-semibold text-lg sm:text-sm">
-                          <MdOutlineWatchLater /> {bookedRide?.rideStatus}
+                        <div className="flex items-center text-dark-color font-semibold">
+                          {bookedRide?.rideStatus === "Confirmed" ? (
+                            <div className="flex items-center gap-1 text-lg sm:text-sm">
+                              <IoMdCheckmark className="text-xl sm:text-lg" />
+                              {bookedRide?.rideStatus}
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-1 text-lg sm:text-sm">
+                              <MdOutlineWatchLater />
+                              {bookedRide?.rideStatus}
+                            </div>
+                          )}
                         </div>
                         <div className="font-bold w-fit flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
                           <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
@@ -421,7 +437,7 @@ export default function YourRides() {
                               (passenger, index) => (
                                 <div
                                   key={index}
-                                  className="p-5 flex items-center justify-between font-normal text-sm bg-slate-100 rounded-sm sm:text-xs sm:mx-2 sm:p-3 smxl:flex-col smxl:gap-3 sm2xl:text-[10px] sm2xl:p-2"
+                                  className="p-5 flex items-center justify-between font-normal text-sm bg-slate-100 rounded-sm sm:text-xs sm:mx-2 sm:p-3 sm2xl:text-[10px] sm2xl:p-2"
                                 >
                                   <div className="flex items-center gap-3">
                                     <IoMdCheckmark className="text-base text-medium-color sm:text-sm sm2xl:text-[10px]" />
