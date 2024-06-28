@@ -238,13 +238,7 @@ function BookRide() {
 
                 {/*============ CONTACT ========== */}
                 <button
-                  onClick={() =>
-                    alert(
-                      "Chat feature coming soon...." +
-                        "\n" +
-                        `${ride?.profile?.firstName} contact no. : ${ride?.profile?.contactNumber}`
-                    )
-                  }
+                  onClick={() => alert("Chat feature coming soon....")}
                   className="w-full max-w-[600px] font-semibold px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200"
                 >
                   <PiChatsFill className="text-2xl sm:text-xl sm2xl:text-lg" />
