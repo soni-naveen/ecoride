@@ -6,6 +6,7 @@ import { getSearchedRides } from "../services/operations/RideAPI";
 import RideFilter from "../components/RideFilter";
 import seeridesimage from "../assets/seeridesimage.jpg";
 import Seeridecard from "../components/SeeRidesCard";
+import DateFormatter from "../components/Dateformatter";
 
 function Seerides() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ function Seerides() {
       dt == null ||
       date == null ||
       seats == null ||
+      seats == 0 ||
       st.trim() == "" ||
       dt.trim() == "" ||
       date == "" ||
@@ -62,27 +64,6 @@ function Seerides() {
   const [departureTimeFilters, setDepartureTimeFilters] = useState([]);
   const [verifiedProfile, setVerifiedProfile] = useState(false);
   const [isRideFilterVisible, setIsRideFilterVisible] = useState(false);
-
-  const inputDateString = date;
-  const newDate = new Date(inputDateString);
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const day = newDate.getDate();
-  const month = monthNames[newDate.getMonth()];
-  const year = newDate.getFullYear();
-  const outputDateString = `${day} ${month} ${year}`;
 
   const handleSortOptionChange = (event) => {
     setSelectedSortOption(event.target.value);
@@ -141,7 +122,7 @@ function Seerides() {
             className="resultRide rounded-md w-fit px-10 bg-white flex justify-center items-center h-12 md:w-full lg:px-8 md:px-5 smxl:flex-col smxl:items-start sm:px-2 smxl:h-10"
           >
             <div className="mr-2 font-bold text-sm smxl:ml-2 smxl:text-xs">
-              {outputDateString} :
+              <DateFormatter inputDateString={date} />
             </div>
             <div className="flex items-center text-sm gap-2 smxl:ml-2 smxl:gap-1 smxl:text-xs">
               <div className="max-w-48 truncate lg:max-w-32 sm2xl:max-w-24">
@@ -175,7 +156,7 @@ function Seerides() {
               src={seeridesimage}
               className="opacity-40 max-w-xl sm:max-w-md smxl:max-w-xs sm2xl:max-w-60"
             />
-            No rides for this day!
+            No rides for this search!
           </div>
         </div>
       ) : (

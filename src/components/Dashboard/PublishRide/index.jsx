@@ -37,7 +37,9 @@ export default function Publishride() {
       user?.ridePublished?.fromWhere !== "" &&
       user?.ridePublished?.toWhere !== ""
     ) {
-      toast.error("Before publishing a new ride,\n delete the old one.");
+      alert(
+        "You have a ride already published. Delete the previous ride if you wish to publish the new one."
+      );
       return;
     }
 

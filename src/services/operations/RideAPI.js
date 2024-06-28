@@ -14,8 +14,8 @@ const {
   SEND_BOOK_REQUEST_API,
   CANCEL_BOOKED_RIDE_API,
   CONFIRM_BOOKING_API,
-  CANCEL_CONFIRMED_BOOKING_API,
   CANCEL_PENDING_BOOKING_API,
+  CANCEL_CONFIRMED_BOOKING_API,
 } = rideEndpoints;
 
 // create ride
@@ -94,7 +94,7 @@ export const cancelBookedRide = async (token, rideId, navigate) => {
     }
     setTimeout(() => {
       navigate(0);
-    }, 1000);
+    }, 500);
     toast.success("Ride Cancelled Successfully");
   } catch (error) {
     // console.log("CANCEL_BOOKED_RIDE_API API ERROR............", error);
@@ -149,7 +149,7 @@ export function sendBookRequest(token, rideId) {
   };
 }
 
-//confirm the passenger booking
+//confirm the passenger booking request
 export const confirmBooking = async (token, passId) => {
   let result = null;
   try {
@@ -175,25 +175,57 @@ export const confirmBooking = async (token, passId) => {
   return result;
 };
 
-// //cancel the confirmed passenger booking
-// export function cancelConfirmedBooking(token) {
-//   return async (dispatch) => {
-//     dispatch(setLoading(true));
-//     try {
-//     } catch (error) {}
-//     dispatch(setLoading(false));
-//   };
-// }
+//cancel the passenger booking request
+export const cancelPendingBooking = async (token, passId) => {
+  let result = null;
+  try {
+    const response = await apiConnector(
+      "POST",
+      CANCEL_PENDING_BOOKING_API,
+      { passId },
+      {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      }
+    );
+    // console.log("CANCEL_PENDING_BOOKING_API RESPONSE............", response);
 
-// //cancel the pending passenger booking
-// export function cancelPendingBooking(token) {
-//   return async (dispatch) => {
-//     dispatch(setLoading(true));
-//     try {
-//     } catch (error) {}
-//     dispatch(setLoading(false));
-//   };
-// }
+    if (!response.data.success) {
+      throw new Error("Failed to cancel booking request");
+    }
+    result = response.data;
+  } catch (error) {
+    console.log("CANCEL_PENDING_BOOKING_API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};
+
+//cancel the passenger booking request
+export const cancelConfirmedBooking = async (token, passId) => {
+  let result = null;
+  try {
+    const response = await apiConnector(
+      "POST",
+      CANCEL_CONFIRMED_BOOKING_API,
+      { passId },
+      {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      }
+    );
+    // console.log("CANCEL_CONFIRMED_BOOKING_API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error("Failed to cancel confirmed booking");
+    }
+    result = response.data;
+  } catch (error) {
+    console.log("CANCEL_CONFIRMED_BOOKING_API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};
 
 //get all searched rides
 export const getSearchedRides = async (st, dt, date, seats) => {

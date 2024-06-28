@@ -28,8 +28,8 @@ export const rideEndpoints = {
   SEND_BOOK_REQUEST_API: BASE_URL + "/ride/sendBookRequest",
   CANCEL_BOOKED_RIDE_API: BASE_URL + "/ride/cancelBookedRide",
   CONFIRM_BOOKING_API: BASE_URL + "/ride/confirmBooking",
-  CANCEL_CONFIRMED_BOOKING_API: BASE_URL + "/ride/cancelConfirmedBooking",
   CANCEL_PENDING_BOOKING_API: BASE_URL + "/ride/cancelPendingBooking",
+  CANCEL_CONFIRMED_BOOKING_API: BASE_URL + "/ride/cancelConfirmedBooking",
 };
 
 // CONTACT-US API

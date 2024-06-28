@@ -235,10 +235,15 @@ function BookRide() {
                   <span className="font-bold">{ride?.noOfSeats}</span>
                 </div>
                 <hr className="w-full max-w-[600px]" />
+
                 {/*============ CONTACT ========== */}
                 <button
                   onClick={() =>
-                    alert(`Contact Number : ${ride?.profile?.contactNumber}`)
+                    alert(
+                      "Chat feature coming soon...." +
+                        "\n" +
+                        `${ride?.profile?.firstName} contact no. : ${ride?.profile?.contactNumber}`
+                    )
                   }
                   className="w-full max-w-[600px] font-semibold px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200"
                 >
@@ -256,10 +261,12 @@ function BookRide() {
                   </div>
                 </div>
                 <hr className="w-full max-w-[600px]" />
+
+                {/*============ TRAVELLERS ========== */}
                 <div className="w-full max-w-[600px] px-5">
                   <h1 className="text-dark-color py-3 font-medium sm:text-sm sm2xl:text-xs">
                     {" "}
-                    Co-travellers
+                    Travellers
                   </h1>
                   {ride?.confirmedPassengers?.length === 0 ? (
                     <p className="text-gray-300 sm:text-sm sm2xl:text-xs">
@@ -275,7 +282,7 @@ function BookRide() {
                         <div className="ml-3 sm:text-sm">
                           {passenger?.firstName} {passenger?.lastName}
                         </div>
-                        <GrNext className="text-slate-400 mr-3 text-xl sm:text-lg sm2xl:text-base" />
+                        <GrNext className="text-slate-400 mr-3 text-base sm:text-sm sm2xl:text-base" />
                       </button>
                     ))
                   )}
@@ -301,6 +308,10 @@ function BookRide() {
                       Booked
                     </button>
                   </div>
+                ) : ride?.noOfSeats === 0 ? (
+                  <button className="mx-auto bg-dark-color my-4 text-lg text-white px-7 py-3 rounded-full flex items-center gap-2 sm:text-sm sm:px-6 sm2xl:text-xs">
+                    All seats booked !
+                  </button>
                 ) : (
                   <button
                     onClick={() => checkRideSendRequest()}

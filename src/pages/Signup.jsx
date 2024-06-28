@@ -71,7 +71,7 @@ function Signup() {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
-    if (e.target.value !== password) {
+    if (e.target.value.length >= 1 && e.target.value !== password) {
       setConfirmAlert(
         <div
           style={{

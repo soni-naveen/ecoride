@@ -16,8 +16,8 @@ import {
   getRideDetails,
   getBookedRideDetails,
   confirmBooking,
-  // cancelConfirmedBooking,
-  // cancelPendingBooking,
+  cancelConfirmedBooking,
+  cancelPendingBooking,
 } from "../../services/operations/RideAPI";
 
 export default function YourRides() {
@@ -38,12 +38,14 @@ export default function YourRides() {
   };
 
   const [loading, setLoading] = useState(true);
+  const [confirmLoading, setConfirmLoading] = useState(null);
   const [ride, setRide] = useState(null);
   const [bookedRide, setBookedRide] = useState(null);
 
   const rideId = user?.ridePublished._id;
   const bookedRideId = user?.rideBooked._id;
 
+  // Fetching ride and bookedRide details 
   useEffect(() => {
     (async () => {
       try {
@@ -59,6 +61,7 @@ export default function YourRides() {
     })();
   }, [rideId, bookedRideId]);
 
+  // Checking ride time to delete automatically
   useEffect(() => {
     const checkAndDeleteRide = () => {
       const currDate = dayjs().format("YYYY-MM-DD");
@@ -79,6 +82,7 @@ export default function YourRides() {
     checkAndDeleteRide();
   }, [user, dispatch, token]);
 
+  // Cancelling the ride user booked
   async function handleCancelBookedRide() {
     try {
       const confirmDelete = await Swal.fire({
@@ -100,6 +104,7 @@ export default function YourRides() {
     }
   }
 
+  // Deleting the ride user published
   async function handleDeleteRide() {
     try {
       const confirmDelete = await Swal.fire({
@@ -121,43 +126,54 @@ export default function YourRides() {
     }
   }
 
+  // Accepting the passengers booking request
   const handleConfirmPassenger = async (passId) => {
     try {
+      setConfirmLoading(true);
       const updatedRideDetails = await confirmBooking(token, passId);
       setRide(updatedRideDetails.rideDetails);
+      setConfirmLoading(false);
     } catch (error) {
       console.error("Could not fetch Ride Details", error);
     }
   };
 
-  // async function handleCancelConfirmedPassenger() {
-  //   try {
-  //     const confirmDelete = await Swal.fire({
-  //       title: "Are You Sure?",
-  //       text: "You lost your passengers when you delete this ride",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#d33",
-  //       cancelButtonColor: "#3085d6",
-  //       confirmButtonText: "Confirm",
-  //       focusCancel: true, // Set the default focus to Cancel button
-  //     });
+  // Cancelling the passengers booking request
+  const handleCancelPendingPassenger = async (passId) => {
+    try {
+      setConfirmLoading(true);
+      const updatedRideDetails = await cancelPendingBooking(token, passId);
+      setRide(updatedRideDetails.rideDetails);
+      setConfirmLoading(false);
+    } catch (error) {
+      console.error("Could not fetch Ride Details", error);
+    }
+  };
 
-  //     if (confirmDelete.isConfirmed) {
-  //       dispatch(cancelConfirmedBooking(token));
-  //     }
-  //   } catch (error) {
-  //     console.log("ERROR MESSAGE - ", error.message);
-  //   }
-  // }
+  // Cancelling the passengers confirmed booking
+  const handleCancelConfirmedPassenger = async (passId) => {
+    try {
+      const confirmCancel = await Swal.fire({
+        title: "Are you sure?",
+        text: "You are going to cancel a passenger reservation.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Confirm",
+        focusCancel: true, // Set the default focus to Cancel button
+      });
 
-  // async function handleCancelPendingPassenger() {
-  //   try {
-  //     dispatch(cancelPendingBooking(token));
-  //   } catch (error) {
-  //     console.log("ERROR MESSAGE - ", error.message);
-  //   }
-  // }
+      if (confirmCancel.isConfirmed) {
+        setConfirmLoading(true);
+        const updatedRideDetails = await cancelConfirmedBooking(token, passId);
+        setRide(updatedRideDetails.rideDetails);
+        setConfirmLoading(false);
+      }
+    } catch (error) {
+      console.log("ERROR MESSAGE - ", error.message);
+    }
+  };
 
   return (
     <div className="container mx-auto mb-10">
@@ -405,7 +421,7 @@ export default function YourRides() {
                   {/*============== PRICE, SEATS, DELETE =========== */}
                   <div className="bg-light-color py-3 mb-10 max-w-[600px] mx-auto flex items-center justify-evenly gap-5 sm:mx-3 sm:mb-7 sm2xl:flex-col sm2xl:gap-3">
                     <div className="text-dark-color font-semibold text-lg sm:text-sm">
-                      Seats left : {user?.ridePublished?.noOfSeats}
+                      Seats left : {ride?.noOfSeats}
                     </div>
                     <div className="font-bold w-fit flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
                       <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
@@ -425,12 +441,13 @@ export default function YourRides() {
                     <h1 className="text-dark-color text-center underline text-xl my-7 font-semibold sm:text-lg sm:my-6 smxl:my-5">
                       Passengers
                     </h1>
-                    {loading ? (
-                      <div className="grid min-h-[calc(100vh-100px)] place-items-center">
+                    {loading || confirmLoading ? (
+                      <div className="grid min-h-[100px] place-items-center">
                         <div className="spinner"></div>
                       </div>
                     ) : (
                       <div className="flex flex-col gap-5">
+                        {/*===================== CONFIRMED PASSENGERS ====================== */}
                         {ride?.confirmedPassengers?.length !== 0 ? (
                           <div className="flex flex-col gap-5">
                             {ride?.confirmedPassengers?.map(
@@ -454,7 +471,11 @@ export default function YourRides() {
                                     </div>
                                   </div>
                                   <button
-                                  // onClick={handleCancelConfirmedPassenger}
+                                    onClick={() =>
+                                      handleCancelConfirmedPassenger(
+                                        passenger?._id
+                                      )
+                                    }
                                   >
                                     <RxCross2 className="text-base text-dark-color sm:text-sm sm2xl:text-[10px]" />
                                   </button>
@@ -465,6 +486,7 @@ export default function YourRides() {
                         ) : (
                           ""
                         )}
+                        {/*======================= PENDING PASSENGERS ====================== */}
                         {ride?.pendingPassengers?.length !== 0 ? (
                           <div className="flex flex-col gap-5">
                             {ride?.pendingPassengers?.map(
@@ -498,7 +520,11 @@ export default function YourRides() {
                                       </p>
                                     </button>
                                     <button
-                                      // onClick={handleCancelPendingPassenger}
+                                      onClick={() =>
+                                        handleCancelPendingPassenger(
+                                          passenger._id
+                                        )
+                                      }
                                       className="flex gap-1 items-center text-dark-color border border-dark-color py-1 px-2 rounded-sm sm2xl:py-0 sm2xl:px-1"
                                     >
                                       <RxCross2 className="text-base sm:text-sm sm2xl:text-[10px]" />
