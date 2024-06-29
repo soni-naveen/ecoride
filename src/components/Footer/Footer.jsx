@@ -51,27 +51,35 @@ const Footer = () => {
           {/*====== JOIN COMMUNITY ===== */}
           <div className="flex flex-col items-start">
             <div className="heading">
-              <h1 className="font-light text-sm">
-                Join Community
-              </h1>
+              <h1 className="font-light text-sm">Join Community</h1>
             </div>
             <div className="links flex justify-evenly mt-2 gap-5">
-              <a href="https://www.instagram.com/ecoride.in" target="_blank">
+              <a
+                href="https://www.instagram.com/ecoride.in"
+                target="_blank"
+                aria-label="instagram"
+              >
                 <FaInstagram className="text-2xl text-gray-200 hover:text-white" />
               </a>
-              <a href="https://linkedin.com/company/ecoridein" target="_blank">
+              <a
+                href="https://linkedin.com/company/ecoridein"
+                target="_blank"
+                aria-label="linkedin"
+              >
                 <FaLinkedin className="text-2xl text-gray-200 hover:text-white" />
               </a>
-              <a href="https://twitter.com/ecoride_in" target="_blank">
+              <a
+                href="https://twitter.com/ecoride_in"
+                target="_blank"
+                aria-label="twitter"
+              >
                 <FaXTwitter className="text-2xl text-gray-200 hover:text-white" />
               </a>
             </div>
           </div>
           {/*====== GET IN TOUCH ===== */}
           <div className="text-start lg:text-center">
-            <h1 className="font-light text-sm">
-              Get In Touch
-            </h1>
+            <h1 className="font-light text-sm">Get In Touch</h1>
             <a
               href="mailto:ecoride.in@gmail.com"
               className="font-light pt-2 flex items-end gap-1.5 text-gray-200 text-sm hover:text-white smxl:pt-1 smxl:gap-1"

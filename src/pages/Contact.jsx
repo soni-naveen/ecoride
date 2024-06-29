@@ -18,7 +18,7 @@ const Contact = () => {
   } = useForm();
 
   const submitContactForm = async (data) => {
-    const toastId = toast.loading("Sending...");
+    const toastId = toast.loading("Loading...");
     try {
       setLoading(true);
       const res = await apiConnector(
@@ -27,7 +27,7 @@ const Contact = () => {
         data
       );
       setLoading(false);
-      toast.success("Sent Successfully");
+      toast.success("Submitted Successfully!");
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message);
       setLoading(false);

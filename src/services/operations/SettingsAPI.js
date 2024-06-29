@@ -28,7 +28,7 @@ export function verifyProfile(token, formData, navigate) {
         throw new Error(response.data.message);
       }
       dispatch(setUser(response.data.updatedProfile));
-      navigate("/dashboard/myprofile");
+      navigate("/dashboard/myprofile?profile=about");
       toast.success("Govt. Id Uploaded Successfully");
     } catch (error) {
       console.log("VERIFY_ID_API API ERROR............", error);
@@ -58,7 +58,7 @@ export function updateDisplayPicture(token, formData, navigate) {
         throw new Error(response.data.message);
       }
       dispatch(setUser(response.data.data));
-      navigate("/dashboard/myprofile");
+      navigate("/dashboard/myprofile?profile=about");
       toast.success("Profile Picture Updated");
     } catch (error) {
       console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error);
@@ -158,7 +158,7 @@ export async function changePassword(token, formData, navigate) {
       throw new Error(response.data.message);
     }
     toast.success("Password Changed Successfully");
-    navigate("/dashboard/myprofile");
+    navigate("/dashboard/myprofile?profile=account");
   } catch (error) {
     console.log("CHANGE_PASSWORD_API API ERROR............", error);
     toast.error("Failed to Change Password");

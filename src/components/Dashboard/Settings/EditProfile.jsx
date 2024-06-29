@@ -161,6 +161,7 @@ function Editdetails() {
         {/*================= MODAL ============== */}
         <Modal
           isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
           handleSave={handleOnSubmit}
           handleChange={handleOnChange}
           fieldName={editField}

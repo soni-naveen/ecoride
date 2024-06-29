@@ -24,7 +24,10 @@ function Myprofile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [activeTab, setActiveTab] = useState("about");
+  const urlParams = new URLSearchParams(window.location.search);
+  const profileTabType = urlParams.get("profile");
+
+  const [activeTab, setActiveTab] = useState(`${profileTabType}`);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editField, setEditField] = useState("");
   const [about, setAbout] = useState(user?.additionalDetails?.about || "");
@@ -34,6 +37,7 @@ function Myprofile() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    navigate(`/dashboard/myprofile?profile=${tab}`);
   };
 
   const handleEditClick = (field) => {
@@ -408,6 +412,7 @@ function Myprofile() {
         {/*======= MODAL ======== */}
         <Modal
           isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
           handleSave={handleOnSubmit}
           handleChange={handleOnChange}
           fieldName={editField}

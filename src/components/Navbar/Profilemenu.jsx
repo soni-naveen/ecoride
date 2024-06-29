@@ -32,6 +32,7 @@ export default function ProfileDropdown() {
       <div className="flex items-center gap-x-1">
         <img
           src={user?.additionalDetails?.image}
+          alt="User profile"
           className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[35px] rounded-full object-cover md:w-[30px]"
         />
         <AiOutlineCaretDown className="text-sm text-dark-color" />
@@ -44,7 +45,7 @@ export default function ProfileDropdown() {
             ref={ref}
           >
             <Link
-              to="/dashboard/myprofile"
+              to="/dashboard/myprofile?profile=about"
               onClick={() => {
                 setOpen(false), handleClickPageTop();
               }}

@@ -66,7 +66,7 @@ function ChangePassword() {
         ) : (
           <div className="text-white flex flex-col">
             <Link
-              to={"/dashboard/myprofile"}
+              to={"/dashboard/myprofile?profile=account"}
               ref={button}
               className="place-self-end mb-4 sm2xl:place-self-center"
             >
@@ -75,11 +75,11 @@ function ChangePassword() {
               </button>
             </Link>
             <div className="w-[450px] bg-dark-color p-12 rounded-xl sm:w-[400px] sm:p-11 smxl:w-[330px] smxl:p-9 sm2xl:p-8 sm2xl:w-[300px]">
-              <h1 className="text-[1.875rem] font-semibold text-white mb-5 leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
+              <h1 className="text-3xl text-center font-semibold text-white leading-[2.375rem] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
                 Change your password
               </h1>
-              <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px]">
-                First enter your old password.
+              <p className="mb-9 mt-5 text-center font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px] sm:mb-7 sm:mt-3">
+                Create a new strong password.
               </p>
               <form onSubmit={submitPasswordForm}>
                 <label className="relative">

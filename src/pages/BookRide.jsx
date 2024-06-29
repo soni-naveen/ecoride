@@ -61,6 +61,10 @@ function BookRide() {
       toast.error("You cannot book your own ride");
       return;
     }
+    if (user?.rideBooked?.ride !== null) {
+      toast.error("You already booked a ride!");
+      return;
+    }
 
     dispatch(sendBookRequest(token, rideId));
     setSentLoading(true);

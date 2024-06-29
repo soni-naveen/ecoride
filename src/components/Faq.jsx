@@ -48,8 +48,8 @@ export default function AccordionUsage() {
               sx={{ fontSize: { xs: 28, sm: 35 }, color: "#07b2a4" }}
             />
           }
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="panel2-content"
+          id="panel2-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           What if I need to cancel a ride?
@@ -73,8 +73,8 @@ export default function AccordionUsage() {
               sx={{ fontSize: { xs: 28, sm: 35 }, color: "#07b2a4" }}
             />
           }
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="panel3-content"
+          id="panel3-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           How do I publish a ride?
@@ -108,8 +108,8 @@ export default function AccordionUsage() {
               sx={{ fontSize: { xs: 28, sm: 35 }, color: "#07b2a4" }}
             />
           }
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="panel4-content"
+          id="panel4-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           How much does a ride cost?
@@ -134,8 +134,8 @@ export default function AccordionUsage() {
               sx={{ fontSize: { xs: 28, sm: 35 }, color: "#07b2a4" }}
             />
           }
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="panel5-content"
+          id="panel5-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           How can I verify my account?
@@ -143,7 +143,7 @@ export default function AccordionUsage() {
         <AccordionDetails className="text-sm sm2xl:text-xs">
           Go to{" "}
           <Link
-            to="/dashboard/myprofile"
+            to="/dashboard/myprofile?profile=about"
             className="underline"
             onClick={handleClickPageTop}
           >
@@ -167,8 +167,8 @@ export default function AccordionUsage() {
               sx={{ fontSize: { xs: 28, sm: 35 }, color: "#07b2a4" }}
             />
           }
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="panel6-content"
+          id="panel6-header"
           className="text-base font-normal sm2xl:text-xs smxl:text-sm"
         >
           Where do I report an issue?
