@@ -45,7 +45,7 @@ export default function YourRides() {
   const rideId = user?.ridePublished._id;
   const bookedRideId = user?.rideBooked._id;
 
-  // Fetching ride and bookedRide details 
+  // Fetching ride and bookedRide details
   useEffect(() => {
     (async () => {
       try {
@@ -80,7 +80,7 @@ export default function YourRides() {
       }
     };
     checkAndDeleteRide();
-  }, [user, dispatch, token]);
+  }, [user, token]);
 
   // Cancelling the ride user booked
   async function handleCancelBookedRide() {

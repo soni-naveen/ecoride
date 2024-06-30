@@ -17,6 +17,7 @@ import "animate.css";
 import {
   getRideDetails,
   sendBookRequest,
+  getBookedRideDetails,
 } from "../services/operations/RideAPI";
 import DateFormatter from "../components/Dateformatter";
 
@@ -31,19 +32,24 @@ function BookRide() {
 
   const [loading, setLoading] = useState(true);
   const [sentLoading, setSentLoading] = useState(false);
+  const [bookedRide, setBookedRide] = useState(null);
+
+  const bookedRideId = user?.rideBooked._id;
 
   useEffect(() => {
     (async () => {
       try {
         const rideDetails = await getRideDetails(rideId);
+        const bookedRideDetails = await getBookedRideDetails(bookedRideId);
         setRide(rideDetails.data);
+        setBookedRide(bookedRideDetails.data);
       } catch (error) {
         console.error("Could not fetch Ride Details", error);
       } finally {
         setLoading(false);
       }
     })();
-  }, [rideId]);
+  }, [rideId, bookedRide]);
 
   const checkRideSendRequest = () => {
     const currTime = dayjs().format("HH:mm");
@@ -61,7 +67,7 @@ function BookRide() {
       toast.error("You cannot book your own ride");
       return;
     }
-    if (user?.rideBooked?.ride !== null) {
+    if (bookedRide?.ride !== null) {
       toast.error("You already booked a ride!");
       return;
     }
