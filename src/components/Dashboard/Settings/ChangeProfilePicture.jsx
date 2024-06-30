@@ -61,10 +61,10 @@ export default function ChangeProfilePicture() {
   return (
     <>
       <div className="upper flex justify-center items-center gap-5 h-36 w-full bg-light-color sm:h-32">
-        <h1 className="text-2xl w-[70%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[90%] smxl:text-[15px]">
+        <h1 className="text-2xl w-[73%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[85%] smxl:text-[15px]">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}
-            className="text-3xl mt-1 text-dark-color hover:cursor-pointer sm:text-3xl sm2xl:text-4xl"
+            className="text-3xl mt-1 text-dark-color hover:cursor-pointer sm:mt-0"
           />
           Don't wear sunglasses, look straight ahead and make sure you're alone
         </h1>
@@ -74,7 +74,7 @@ export default function ChangeProfilePicture() {
           <img
             src={previewSource || user?.additionalDetails?.image}
             alt={`profile-${user?.firstName}`}
-            className="rounded-full mx-auto h-24 w-24 sm:h-20 sm:w-20 smxl:w-16 smxl:h-16 object-cover"
+            className="rounded-full mx-auto h-32 w-32 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-cover"
           />
           <div className="space-y-2">
             <p className="text-center mb-5">Change Profile Picture</p>

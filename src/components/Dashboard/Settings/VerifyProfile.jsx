@@ -60,10 +60,10 @@ export default function verifyYourProfile() {
   return (
     <>
       <div className="upper flex justify-center items-center gap-5 h-36 w-full bg-light-color sm:h-32">
-        <h1 className="text-2xl w-[70%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[90%] smxl:text-[15px]">
+        <h1 className="text-2xl w-[70%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[85%] smxl:text-[15px]">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}
-            className="text-3xl mt-1 text-dark-color hover:cursor-pointer sm:text-3xl sm2xl:text-4xl"
+            className="text-3xl mt-1 text-dark-color hover:cursor-pointer sm:mt-0"
           />
           Upload your govt. ID, & within 24 hrs, your profile will be verified.
         </h1>
@@ -72,7 +72,7 @@ export default function verifyYourProfile() {
         <div className="flex flex-col items-center gap-y-10">
           <img
             src={previewSource || idcard}
-            className="rounded-md mx-auto h-40 w-40 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-contain"
+            className="rounded-md mx-auto h-40 w-40 sm:h-36 sm:w-36 smxl:w-32 smxl:h-32 object-contain"
           />
           <div className="space-y-2">
             <p className="text-center mb-5">Upload your Govt. Id</p>
