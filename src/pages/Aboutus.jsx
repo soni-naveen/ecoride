@@ -34,6 +34,7 @@ const Aboutus = () => {
             </div>
             <div className="order-1 flex items-center justify-center">
               <img
+                draggable="false"
                 src={aboutuscar}
                 alt="About Us"
                 className="object-cover h-auto rounded-lg xl:h-80 md:h-72 sm:h-auto sm:min-h-60 "

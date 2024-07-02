@@ -22,10 +22,11 @@ function Howitworks() {
           <div className="my-10 sm:mt-12 lg:mt-16 grid grid-cols-2 gap-8 sm:grid-cols-1 lg:grid-cols-2">
             <div className="bg-white shadow-md rounded-lg overflow-hidden relative p-6">
               <img
+                draggable="false"
                 src={Signup}
                 alt="Signup"
                 className="object-cover h-auto rounded-lg md1:h-60 md:h-52 sm:h-60 smxl:h-48 sm2xl:h-40"
-              ></img>
+              />
               <div className="p-6">
                 <span className="absolute top-0 left-0 mt-4 ml-4 bg-medium-color text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                   1
@@ -42,10 +43,11 @@ function Howitworks() {
 
             <div className="bg-white shadow-md rounded-lg overflow-hidden relative p-6">
               <img
+                draggable="false"
                 src={Completeprofile}
                 alt="Complete your profile"
                 className="object-cover h-auto border border-gray-200 rounded-lg md1:h-60 md:h-52 sm:h-60 smxl:h-48 sm2xl:h-40"
-              ></img>
+              />
               <div className="p-6">
                 <span className="absolute top-0 left-0 mt-4 ml-4 bg-medium-color text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                   2
@@ -62,10 +64,11 @@ function Howitworks() {
 
             <div className="bg-white shadow-md rounded-lg overflow-hidden relative p-6">
               <img
+                draggable="false"
                 src={Findride}
                 alt="Find a ride"
                 className="object-cover h-auto border border-gray-200 rounded-lg md1:h-60 md:h-52 sm:h-60 smxl:h-48 sm2xl:h-40"
-              ></img>
+              />
               <div className="p-6">
                 <span className="absolute top-0 left-0 mt-4 ml-4 bg-medium-color text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                   3
@@ -84,10 +87,11 @@ function Howitworks() {
 
             <div className="bg-white shadow-md rounded-lg overflow-hidden relative p-6">
               <img
+                draggable="false"
                 src={Offerride}
                 alt="Offer a ride"
                 className="object-cover h-auto border border-gray-200 rounded-lg md1:h-60 md:h-52 sm:h-60 smxl:h-48 sm2xl:h-40"
-              ></img>
+              />
               <div className="p-6">
                 <span className="absolute top-0 left-0 mt-4 ml-4 bg-medium-color text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                   4

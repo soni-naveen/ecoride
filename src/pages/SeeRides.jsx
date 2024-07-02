@@ -153,6 +153,7 @@ function Seerides() {
         <div className="grid min-h-[calc(100vh-100px)] place-items-center">
           <div className="flex items-center flex-col text-slate-400 text-3xl sm:text-2xl smxl:text-xl sm2xl:text-base">
             <img
+              draggable="false"
               src={seeridesimage}
               className="opacity-40 max-w-xl sm:max-w-md smxl:max-w-xs sm2xl:max-w-60"
             />

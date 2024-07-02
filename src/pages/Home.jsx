@@ -76,6 +76,7 @@ const Home = () => {
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
           <img
             src={Banner}
+            draggable="false"
             alt="Sharing rides building connections"
             className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
           />
@@ -247,7 +248,7 @@ const Home = () => {
         ******************************************************************************************************** */}
         <div id="faq" className="faqs bg-dark-color flex items-center">
           <div className="left min-w-[30%] w-[100%] max-w-1 mx-20 lg:hidden">
-            <img src={faqLogo} alt="FAQ's" />
+            <img draggable="false" src={faqLogo} alt="FAQ's" />
           </div>
           <div className="right flex flex-col pt-10 items-center gap-10 sm:pt-7">
             <div className="heading text-white text-5xl font-semibold smxl:text-2xl md1:text-4xl sm:text-3xl">

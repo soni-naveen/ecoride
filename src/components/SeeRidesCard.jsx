@@ -68,6 +68,7 @@ export default function Seeridecard({
             <div className="img">
               <img
                 src={image}
+                draggable="false"
                 className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
               />
             </div>

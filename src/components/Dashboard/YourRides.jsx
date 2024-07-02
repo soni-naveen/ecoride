@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import dayjs from "dayjs";
 import DateFormatter from "../Dateformatter";
+import { toast } from "react-hot-toast";
 import {
   deleteRide,
   autoDeleteRide,
@@ -27,7 +28,6 @@ export default function YourRides() {
   const dispatch = useDispatch();
 
   const urlParams = new URLSearchParams(window.location.search);
-
   const yourRidesType = urlParams.get("type");
 
   const [activeTab, setActiveTab] = useState(`${yourRidesType}`);
@@ -39,6 +39,9 @@ export default function YourRides() {
 
   const [loading, setLoading] = useState(true);
   const [confirmLoading, setConfirmLoading] = useState(null);
+  const [cancelPendingLoading, setCancelPendingLoading] = useState(null);
+  const [cancelConfirmLoading, setCancelConfirmLoading] = useState(null);
+  const [cancelBookedLoading, setCancelBookedLoading] = useState(null);
   const [ride, setRide] = useState(null);
   const [bookedRide, setBookedRide] = useState(null);
 
@@ -97,10 +100,18 @@ export default function YourRides() {
       });
 
       if (confirmDelete.isConfirmed) {
-        cancelBookedRide(token, user?.rideBooked?.ride?._id, navigate);
+        setCancelBookedLoading(true);
+        const cancelledRide = cancelBookedRide(
+          token,
+          user?.rideBooked?.ride?._id
+        );
+        setBookedRide(cancelledRide.updatedBookedRideDetails);
+        toast.success("Ride Cancelled Successfully");
       }
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message);
+    } finally {
+      setCancelBookedLoading(false);
     }
   }
 
@@ -132,21 +143,23 @@ export default function YourRides() {
       setConfirmLoading(true);
       const updatedRideDetails = await confirmBooking(token, passId);
       setRide(updatedRideDetails.rideDetails);
-      setConfirmLoading(false);
     } catch (error) {
       console.error("Could not fetch Ride Details", error);
+    } finally {
+      setConfirmLoading(false);
     }
   };
 
   // Cancelling the passengers booking request
   const handleCancelPendingPassenger = async (passId) => {
     try {
-      setConfirmLoading(true);
+      setCancelPendingLoading(true);
       const updatedRideDetails = await cancelPendingBooking(token, passId);
       setRide(updatedRideDetails.rideDetails);
-      setConfirmLoading(false);
     } catch (error) {
       console.error("Could not fetch Ride Details", error);
+    } finally {
+      setCancelPendingLoading(false);
     }
   };
 
@@ -165,13 +178,14 @@ export default function YourRides() {
       });
 
       if (confirmCancel.isConfirmed) {
-        setConfirmLoading(true);
+        setCancelConfirmLoading(true);
         const updatedRideDetails = await cancelConfirmedBooking(token, passId);
         setRide(updatedRideDetails.rideDetails);
-        setConfirmLoading(false);
       }
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message);
+    } finally {
+      setCancelConfirmLoading(false);
     }
   };
 
@@ -204,7 +218,7 @@ export default function YourRides() {
         <div>
           {activeTab === "booked" && (
             <div>
-              {loading ? (
+              {loading || cancelBookedLoading ? (
                 <div className="grid min-h-[calc(100vh-100px)] place-items-center">
                   <div className="spinner"></div>
                 </div>
@@ -306,6 +320,7 @@ export default function YourRides() {
                           className="flex items-center gap-2 text-base sm:text-xs sm:gap-1"
                         >
                           <img
+                            draggable="false"
                             src={bookedRide?.profile?.image}
                             alt="pic"
                             className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[25px] rounded-full object-cover sm:w-[17px]"
@@ -441,7 +456,10 @@ export default function YourRides() {
                     <h1 className="text-dark-color text-center underline text-xl my-7 font-semibold sm:text-lg sm:my-6 smxl:my-5">
                       Passengers
                     </h1>
-                    {loading || confirmLoading ? (
+                    {loading ||
+                    confirmLoading ||
+                    cancelPendingLoading ||
+                    cancelConfirmLoading ? (
                       <div className="grid min-h-[100px] place-items-center">
                         <div className="spinner"></div>
                       </div>

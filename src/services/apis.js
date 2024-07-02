@@ -15,6 +15,8 @@ export const endpoints = {
 export const profileEndpoints = {
   FULL_PROFILE_API: BASE_URL + "/profile/fullProfile",
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
+  GET_INBOX_MESSAGES_API : BASE_URL + "/profile/getInboxMessages",
+  DELETE_INBOX_MESSAGE_API : BASE_URL + "/profile/deleteInboxMessage"
 };
 
 // RIDE ENDPOINTS

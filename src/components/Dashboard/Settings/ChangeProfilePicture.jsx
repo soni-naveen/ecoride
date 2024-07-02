@@ -72,6 +72,7 @@ export default function ChangeProfilePicture() {
       <div className="my-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">
           <img
+            draggable="false"
             src={previewSource || user?.additionalDetails?.image}
             alt={`profile-${user?.firstName}`}
             className="rounded-full mx-auto h-32 w-32 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-cover"

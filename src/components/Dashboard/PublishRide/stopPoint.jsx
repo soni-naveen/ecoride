@@ -13,10 +13,6 @@ export default function stopPoint() {
   const { token } = useSelector((state) => state.auth);
   const { publishRideData, loading } = useSelector((state) => state.ride);
 
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
-
   const [stopPoints, setStopPoints] = useState([]);
   const maxStopPoints = 3;
 

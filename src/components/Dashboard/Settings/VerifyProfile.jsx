@@ -71,6 +71,7 @@ export default function verifyYourProfile() {
       <div className="my-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">
           <img
+            draggable="false"
             src={previewSource || idcard}
             className="rounded-md mx-auto h-40 w-40 sm:h-36 sm:w-36 smxl:w-32 smxl:h-32 object-contain"
           />

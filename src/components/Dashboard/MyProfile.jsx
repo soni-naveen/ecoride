@@ -140,6 +140,7 @@ function Myprofile() {
                       {/*======= IMAGE ======== */}
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
                         <img
+                          draggable="false"
                           src={user?.additionalDetails?.image}
                           className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:w-10 smxl:h-12 smxl:w-12 sm2xl:h-10 sm2xl:w-10 object-cover"
                         />

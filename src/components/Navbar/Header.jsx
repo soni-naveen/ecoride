@@ -20,12 +20,14 @@ const Header = () => {
         <div className="logo smxl:ml-0 md:ml-2 md1:ml-6">
           <Link to="/" onClick={handleClickPageTop}>
             <img
+              draggable="false"
               src={Logo}
               alt="Logo"
               className="cursor-pointer sm2xl:hidden min-w-[6.5rem] w-[200px] smxl:w-[140px] sm:w-[150px] md:w-[170px] md1:w-[170px]"
             />
             <div className="border ml-5 p-1.5 sm2xl:flex hidden rounded-md border-light-color bg-light-color">
               <img
+                draggable="false"
                 src={SmallLogo}
                 alt="Logo"
                 className="cursor-pointer w-6 sm2xl:flex hidden mix-blend-multiply"
@@ -62,9 +64,7 @@ const Header = () => {
             {token !== null && (
               <Link to="/dashboard/publishride">
                 <button className="text-dark-color text-lg flex items-center mr-7 md1:mr-3 smxl:mr-2">
-                  <IoMdAddCircleOutline
-                    className="text-2xl mr-2 sm:mr-1.5 md1:text-xl smxl:text-[28px]"
-                  />
+                  <IoMdAddCircleOutline className="text-2xl mr-2 sm:mr-1.5 md1:text-xl smxl:text-[28px]" />
                   <div className="hover:font-bold font-medium smxl:hidden md1:text-base">
                     Publish <span className="md:hidden">Ride</span>
                   </div>

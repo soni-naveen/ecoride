@@ -76,8 +76,8 @@ export function deleteRide(token, navigate) {
 }
 
 //cancel booked ride
-export const cancelBookedRide = async (token, rideId, navigate) => {
-  const toastId = toast.loading("Loading...");
+export const cancelBookedRide = async (token, rideId) => {
+  let result = null;
   try {
     const response = await apiConnector(
       "PUT",
@@ -92,15 +92,12 @@ export const cancelBookedRide = async (token, rideId, navigate) => {
     if (!response.data.success) {
       throw new Error(response.data.message);
     }
-    setTimeout(() => {
-      navigate(0);
-    }, 500);
-    toast.success("Ride Cancelled Successfully");
+    result = response.data;
   } catch (error) {
-    // console.log("CANCEL_BOOKED_RIDE_API API ERROR............", error);
-    toast.error(error.message);
+    console.log("CANCEL_BOOKED_RIDE_API API ERROR............", error);
+    result = error.response.data;
   }
-  toast.dismiss(toastId);
+  return result;
 };
 
 //automatically delete ride

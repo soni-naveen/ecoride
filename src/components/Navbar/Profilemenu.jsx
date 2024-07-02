@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { BiMessageDetail } from "react-icons/bi";
@@ -7,7 +7,6 @@ import { MdHelpOutline } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { logout } from "../../services/operations/AuthAPI";
 
@@ -29,10 +28,18 @@ export default function ProfileDropdown() {
 
   return (
     <button className="relative" onClick={() => setOpen(true)}>
+      {user?.inbox?.message?.length !== 0 &&
+      user?.inbox?.message?.length !== undefined ? (
+        <div className="w-3 h-3 border rounded-full bg-red-600 absolute md:w-2 md:h-2"></div>
+      ) : (
+        ""
+      )}
+
       <div className="flex items-center gap-x-1">
         <img
           src={user?.additionalDetails?.image}
-          alt="User profile"
+          alt="profile"
+          draggable="false"
           className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[35px] rounded-full object-cover md:w-[30px]"
         />
         <AiOutlineCaretDown className="text-sm text-dark-color" />
@@ -62,6 +69,11 @@ export default function ProfileDropdown() {
               }}
             >
               <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
+                {user?.inbox?.message?.length !== 0 ? (
+                  <div className="w-3 h-3 border rounded-full bg-red-600 absolute top-[65px] md:w-2 md:h-2"></div>
+                ) : (
+                  ""
+                )}
                 <BiMessageDetail className="text-2xl" />
                 Inbox
               </div>

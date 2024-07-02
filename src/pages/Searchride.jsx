@@ -104,6 +104,7 @@ function Searchride() {
               </div>
             </form>
             <img
+              draggable="false"
               src={carpooling}
               alt="Carpooling"
               className="h-[380px] w-[470px] object-contain bg-white rounded-md xl:w-[400px] lg:hidden"

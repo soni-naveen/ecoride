@@ -36,6 +36,7 @@ function BookRide() {
 
   const bookedRideId = user?.rideBooked._id;
 
+  // Fetching rideDetails and bookedRidesDetails of uesr
   useEffect(() => {
     (async () => {
       try {
@@ -51,18 +52,21 @@ function BookRide() {
     })();
   }, [rideId, bookedRide]);
 
+  // Checking ride info before sending request
   const checkRideSendRequest = () => {
     const currTime = dayjs().format("HH:mm");
     const currDate = dayjs().format("YYYY-MM-DD");
+
+    if (!token || token === null || token === undefined) {
+      navigate("/login");
+      return;
+    }
 
     if (ride?.reachingTime <= currTime && ride?.date <= currDate) {
       toast.error("This ride is already arrived!");
       return;
     }
-    if (!token || token === null || token === undefined) {
-      navigate("/login");
-      return;
-    }
+
     if (ride?.profile?._id === user?.additionalDetails?._id) {
       toast.error("You cannot book your own ride");
       return;
@@ -114,6 +118,7 @@ function BookRide() {
                     onClick={() => navigate(-1)}
                     className="hover:cursor-pointer"
                   />
+                  {/*============== DATE ============= */}
                   <div className="text-center w-full">
                     <DateFormatter inputDateString={ride?.date} />
                   </div>
@@ -193,6 +198,7 @@ function BookRide() {
                     {/*====== IMAGE ====== */}
                     <div className="img">
                       <img
+                        draggable="false"
                         src={ride?.profile?.image}
                         className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
                       />
@@ -253,7 +259,7 @@ function BookRide() {
                 >
                   <PiChatsFill className="text-2xl sm:text-xl sm2xl:text-lg" />
                   <div className="sm:text-sm sm2xl:text-xs text-start">
-                    Contact {ride?.profile?.firstName} for ride related question
+                    Message {ride?.profile?.firstName} for ride related question
                   </div>
                 </button>
                 <hr className="w-full max-w-[600px]" />
