@@ -220,7 +220,7 @@ function BookRide() {
                           <div></div>
                         ) : (
                           <div>
-                            <MdVerified className="text-blue-500 text-base sm:text-base smxl:text-sm" />
+                            <MdVerified className="text-medium-color text-base sm:text-base smxl:text-sm" />
                           </div>
                         )}
                       </div>

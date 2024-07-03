@@ -88,7 +88,7 @@ export default function Seeridecard({
                   ""
                 ) : (
                   <div>
-                    <MdVerified className="text-blue-500 text-base sm:text-base smxl:text-sm" />
+                    <MdVerified className="text-medium-color text-base sm:text-base smxl:text-sm" />
                   </div>
                 )}
               </button>
