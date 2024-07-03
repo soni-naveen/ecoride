@@ -196,15 +196,15 @@ function BookRide() {
                 >
                   <div className="flex items-center gap-3 smxl:gap-2">
                     {/*====== IMAGE ====== */}
-                    <div className="img">
+                    <div className="img mt-0.5 smxl:mt-0">
                       <img
                         draggable="false"
                         src={ride?.profile?.image}
-                        className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
+                        className="rounded-full h-10 w-10 object-cover smxl:h-9 smxl:w-9 sm2xl:h-8 sm2xl:w-8"
                       />
                     </div>
                     {/*====== NAME ====== */}
-                    <div className="name flex flex-col gap-1 smxl:gap-0">
+                    <div className="name flex flex-col gap-0.5">
                       <div className="flex text-dark-color items-center gap-1">
                         <div className="sm:text-sm sm2xl:text-xs">
                           {ride?.profile?.firstName}
@@ -220,7 +220,7 @@ function BookRide() {
                           <div></div>
                         ) : (
                           <div>
-                            <MdVerified className="text-medium-color text-base sm:text-base smxl:text-sm" />
+                            <MdVerified className="text-blue-500 text-base sm:text-base smxl:text-sm" />
                           </div>
                         )}
                       </div>
@@ -231,7 +231,7 @@ function BookRide() {
                         </div>
                         <div className="ratingRecived text-dark-color sm:text-sm sm2xl:text-xs">
                           {ride?.profile?.overallRating === 0 ? (
-                            <div className="text-[10px] sm2xl:text-[8px]">
+                            <div className="text-[10px] sm2xl:text-[9px]">
                               No ratings yet
                             </div>
                           ) : (

@@ -69,11 +69,11 @@ export default function Seeridecard({
               <img
                 src={image}
                 draggable="false"
-                className="rounded-full h-10 w-10 object-cover sm:h-8 sm:w-8 smxl:w-7 smxl:h-7 sm2xl:w-6 sm2xl:h-6"
+                className="rounded-full h-10 w-10 object-cover sm:h-9 sm:w-9 sm2xl:h-8 sm2xl:w-8"
               />
             </div>
             {/*========== NAME , VERIFIED OR NOT , RATING ========== */}
-            <div className="name flex flex-col gap-1 smxl:gap-0.5">
+            <div className="name flex flex-col gap-0.5">
               <button
                 onClick={() => navigate(`/profile/${profile._id}`)}
                 className="flex text-dark-color items-center gap-1 hover:underline"
@@ -85,10 +85,10 @@ export default function Seeridecard({
                 govtId === "" ||
                 govtId === "Pending" ||
                 govtId === undefined ? (
-                  <div></div>
+                  ""
                 ) : (
                   <div>
-                    <MdVerified className="text-medium-color text-base sm:text-base smxl:text-sm" />
+                    <MdVerified className="text-blue-500 text-base sm:text-base smxl:text-sm" />
                   </div>
                 )}
               </button>
@@ -99,7 +99,7 @@ export default function Seeridecard({
                 </div>
                 <div className="ratingRecived text-dark-color sm:text-sm smxl:text-xs">
                   {overallRating === 0 ? (
-                    <div className="text-[10px] sm2xl:text-[8px]">
+                    <div className="text-[10px] sm2xl:text-[9px]">
                       No ratings yet
                     </div>
                   ) : (
@@ -113,7 +113,7 @@ export default function Seeridecard({
           <div className="right mr-2 sm2xl:mr-0">
             <button
               onClick={() => alert("Chat feature coming soon....")}
-              className="flex justify-evenly items-center rounded-full gap-2 px-3 py-1 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2 sm:py-0 sm:gap-1 duration-200 hover:scale-105"
+              className="flex justify-evenly items-center rounded-full gap-2 px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2.5 sm:py-0.5 sm:gap-1 duration-200 hover:scale-105"
             >
               <div className="icon">
                 <PiChatsFill className="text-slate-500 text-base sm:text-xs" />

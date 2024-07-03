@@ -129,10 +129,39 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  //------> need to change!
   const handleSeeYourRides = () => {
     const botmsg = createChatBotMessage(
-      "This feature is not available yet...."
+      "In the dropdown menu, you can find your booked/published ride."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
+  const handleNoOfSeats = () => {
+    const botmsg = createChatBotMessage(
+      "Ask the driver to reserve more than one seat for you by sending him a message."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
+  const handleCancelBookedRide = () => {
+    const botmsg = createChatBotMessage(
+      "On the 'Your Rides' page, you have the option to cancel your booked ride."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
+  const handleVerify = () => {
+    const botmsg = createChatBotMessage(
+      "Upload your any govt.Id (on Profile page) and your profile will be verified within 24 hours."
     );
     setState((prev) => ({
       ...prev,
@@ -168,6 +197,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleDeleteAccount,
             handleSeeYourRides,
             handleContactUs,
+            handleNoOfSeats,
+            handleCancelBookedRide,
+            handleVerify,
             handleBye,
             handleDefault,
           },
