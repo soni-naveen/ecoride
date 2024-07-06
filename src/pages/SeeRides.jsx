@@ -362,6 +362,7 @@ function Seerides() {
                   key={ride._id}
                   rideId={ride._id}
                   profile={ride.profile}
+                  profileId={ride.profile._id}
                   fromWhere={ride.fromWhere}
                   toWhere={ride.toWhere}
                   leaving={ride.leavingTime}

@@ -3,11 +3,14 @@ import { PiChatsFill } from "react-icons/pi";
 import { MdVerified } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Seeridecard({
   rideId,
   profile,
+  profileId,
   fromWhere,
   toWhere,
   price,
@@ -20,6 +23,7 @@ export default function Seeridecard({
   govtId,
 }) {
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.profile);
   return (
     <>
       <div className="rideCard flex flex-col justify-between shadow-lg bg-white rounded-2xl border w-fit px-6 pt-6 pb-4 z-0 sm:px-5 sm:pt-5 sm:pb-2 smxl:px-3.5 sm:pb-3">
@@ -112,7 +116,13 @@ export default function Seeridecard({
           {/*========== RIGHT PART ========== */}
           <div className="right mr-2 sm2xl:mr-0">
             <button
-              onClick={() => alert("Chat feature coming soon....")}
+              onClick={() => {
+                profileId === user?.additionalDetails?._id
+                  ? toast.error("You cannot message yourself!")
+                  : navigate(
+                      `/chat/${profileId}/${user?.additionalDetails?._id}`
+                    );
+              }}
               className="flex justify-evenly items-center rounded-full gap-2 px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 border-slate-500 sm:px-2.5 sm:py-0.5 sm:gap-1 duration-200 hover:scale-105"
             >
               <div className="icon">

@@ -226,7 +226,7 @@ function Myprofile() {
                       <p className="mr-2">
                         <FaCheckCircle className="text-xl smxl:text-sm" />
                       </p>
-                      <p className="truncate">{user?.email}</p>
+                      <p className="break-all">{user?.email}</p>
                     </div>
 
                     {/*======= MOBILE NUMBER ======== */}
@@ -273,7 +273,7 @@ function Myprofile() {
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
                           <RiEdit2Fill className="text-xl smxl:text-sm" />
-                          <span>{user?.additionalDetails?.about}</span>
+                          <span className="break-all">{user?.additionalDetails?.about}</span>
                         </div>
                       )}
                     </button>
@@ -293,7 +293,7 @@ function Myprofile() {
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
                           <RiEdit2Fill className="text-xl smxl:text-sm" />
-                          <span>{user?.additionalDetails?.vehicle}</span>
+                          <span className="break-all">{user?.additionalDetails?.vehicle}</span>
                         </div>
                       )}
                     </button>

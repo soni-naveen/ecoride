@@ -254,7 +254,13 @@ function BookRide() {
 
                 {/*============ CONTACT ========== */}
                 <button
-                  onClick={() => alert("Chat feature coming soon....")}
+                  onClick={() => {
+                    ride?.profile?._id === user?.additionalDetails?._id
+                      ? toast.error("You cannot message yourself!")
+                      : navigate(
+                          `/chat/${ride?.profile?._id}/${user?.additionalDetails?._id}`
+                        );
+                  }}
                   className="w-full max-w-[600px] font-semibold px-5 py-4 flex gap-3 text-dark-color hover:bg-gray-200 duration-200"
                 >
                   <PiChatsFill className="text-2xl sm:text-xl sm2xl:text-lg" />

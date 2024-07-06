@@ -37,6 +37,7 @@ import YourRides from "./components/Dashboard/YourRides";
 import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 import BookRide from "./pages/BookRide";
+import Chat from "./pages/Chat";
 
 function App() {
   const dispatch = useDispatch();
@@ -125,6 +126,7 @@ function App() {
           />
           <Route path="dashboard/inbox" element={<Inbox />} />
           <Route path="/dashboard/yourRides" element={<YourRides />} />
+          <Route path="/chat/:driverId/:passengerId" element={<Chat />} />
         </Route>
 
         {/* 404 Page */}
