@@ -116,7 +116,7 @@ function Fullprofile() {
                     <img
                       draggable="false"
                       src={profile?.image}
-                      className="rounded-full bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] h-16 w-16 sm:h-14 sm:w-14 smxl:h-12 smxl:w-12 sm2xl:h-10 sm2xl:w-10 object-cover"
+                      className="rounded-full bg-cover bg-center bg-profile-img h-16 w-16 sm:h-14 sm:w-14 smxl:h-12 smxl:w-12 sm2xl:h-10 sm2xl:w-10 object-cover"
                     />
                   </div>
                 </div>

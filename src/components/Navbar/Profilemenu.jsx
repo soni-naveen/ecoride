@@ -38,9 +38,9 @@ export default function ProfileDropdown() {
       <div className="flex items-center gap-x-1">
         <img
           src={user?.additionalDetails?.image}
-          alt="profile"
+          alt="U"
           draggable="false"
-          className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[35px] rounded-full object-cover md:w-[30px]"
+          className="aspect-square bg-cover bg-center bg-profile-img w-[35px] rounded-full object-cover md:w-[30px]"
         />
         <AiOutlineCaretDown className="text-sm text-dark-color" />
       </div>

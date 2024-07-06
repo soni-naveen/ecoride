@@ -323,7 +323,7 @@ export default function YourRides() {
                             draggable="false"
                             src={bookedRide?.profile?.image}
                             alt="pic"
-                            className="aspect-square bg-cover bg-center bg-[url('https://cdn-icons-png.flaticon.com/512/9385/9385289.png')] w-[25px] rounded-full object-cover sm:w-[17px]"
+                            className="aspect-square bg-cover bg-center bg-profile-img w-[25px] rounded-full object-cover sm:w-[17px]"
                           />
                           <p>{bookedRide?.profile?.firstName}</p>
                         </button>
