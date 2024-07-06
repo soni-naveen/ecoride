@@ -75,7 +75,11 @@ function ChatPage() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get(`${ENDPOINT}/messages/${roomId}`);
+        const response = await axios.get(`${ENDPOINT}/messages/${roomId}`, {
+          headers: {
+            Authorization: `Bearer ${yourToken}`,
+          },
+        });
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
