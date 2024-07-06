@@ -75,7 +75,7 @@ function ChatPage() {
     const fetchMessages = async () => {
       try {
         const response = await axios.get(
-          `${ENDPOINT}/api/v1/messages/${roomId}`
+          `${ENDPOINT}/messages/${roomId}`
         );
         setMessages(response.data);
       } catch (error) {
