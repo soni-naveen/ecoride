@@ -12,7 +12,7 @@ const ENDPOINT = import.meta.env.VITE_REACT_BASE_URL;
 function ChatPage() {
   const { driverId, passengerId } = useParams();
   const { user } = useSelector((state) => state.profile);
-  const { token } = useSelector((state) => state.token);
+  const { token } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
