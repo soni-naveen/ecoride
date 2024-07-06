@@ -12,6 +12,7 @@ const ENDPOINT = import.meta.env.VITE_REACT_BASE_URL;
 function ChatPage() {
   const { driverId, passengerId } = useParams();
   const { user } = useSelector((state) => state.profile);
+  const { token } = useSelector((state) => state.token);
 
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
@@ -77,7 +78,7 @@ function ChatPage() {
       try {
         const response = await axios.get(`${ENDPOINT}/messages/${roomId}`, {
           headers: {
-            Authorization: `Bearer ${yourToken}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setMessages(response.data);
