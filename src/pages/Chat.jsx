@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import axios from "axios";
@@ -17,6 +17,7 @@ function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [socket, setSocket] = useState(null);
+  const messagesEndRef = useRef(null);
 
   const roomId = `${driverId}_${passengerId}`;
 
@@ -74,9 +75,7 @@ function ChatPage() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get(
-          `${ENDPOINT}/messages/${roomId}`
-        );
+        const response = await axios.get(`${ENDPOINT}/messages/${roomId}`);
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -85,6 +84,10 @@ function ChatPage() {
 
     fetchMessages();
   }, [roomId]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -132,7 +135,7 @@ function ChatPage() {
             </div>
           </div>
         ))}
-        <div />
+        <div ref={messagesEndRef} />
       </div>
       <form onSubmit={sendMessage} className="bg-white p-4">
         <div className="flex gap-3">
