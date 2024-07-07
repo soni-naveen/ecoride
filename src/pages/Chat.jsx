@@ -47,7 +47,7 @@ function ChatPage() {
   }, [driverId, passengerId]);
 
   useEffect(() => {
-    const newSocket = io("https://theecoride.in", {
+    const newSocket = io(ENDPOINT, {
       transports: ["websocket", "polling"],
       withCredentials: true,
     });
