@@ -61,8 +61,6 @@ function ChatPage() {
     newSocket.on("connect_error", (error) => {
       console.error("Connection error:", error);
     });
-
-    return () => newSocket.close();
   }, [roomId]);
 
   useEffect(() => {
