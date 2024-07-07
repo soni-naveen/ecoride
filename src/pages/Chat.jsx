@@ -23,15 +23,30 @@ function ChatPage() {
   const roomId = `${driverId}_${passengerId}`;
 
   const isDriver = driverId === user?.additionalDetails?._id ? true : false;
-  if (
-    driverId !== user?.additionalDetails?._id &&
-    passengerId !== user?.additionalDetails?._id
-  ) {
-    navigate("/home");
-  }
 
   const [driver, setDriver] = useState(null);
   const [passenger, setPassenger] = useState(null);
+
+  const [isAuthorized, setIsAuthorized] = useState(null);
+
+  useEffect(() => {
+    if (user && user.additionalDetails) {
+      const isDriver = driverId === user.additionalDetails._id;
+      const isPassenger = passengerId === user.additionalDetails._id;
+
+      if (!isDriver && !isPassenger) {
+        setIsAuthorized(false);
+      } else {
+        setIsAuthorized(true);
+      }
+    }
+  }, [user, driverId, passengerId]);
+
+  useEffect(() => {
+    if (isAuthorized === false) {
+      navigate("/home");
+    }
+  }, [isAuthorized, navigate]);
 
   useEffect(() => {
     (async () => {
@@ -61,24 +76,30 @@ function ChatPage() {
     newSocket.on("connect_error", (error) => {
       console.error("Connection error:", error);
     });
-  }, [roomId]);
-
-  useEffect(() => {
-    if (socket) {
-      socket.on("message", (message) => {
-        setMessages((prevMessages) => [...prevMessages, message]);
+    
+    newSocket.on("message", (message) => {
+      setMessages((prevMessages) => {
+        // Check if the message is already in the array
+        if (!prevMessages.some((m) => m._id === message._id)) {
+          return [...prevMessages, message];
+        }
+        return prevMessages;
       });
-    }
-  }, [socket]);
+    });
+
+  }, [roomId]);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get(`${ENDPOINT}/messages/${roomId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `${ENDPOINT}/api/v1/messages/${roomId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -147,7 +168,7 @@ function ChatPage() {
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             placeholder="Type a message"
-            className="flex-1 px-5 border rounded-full outline-none sm:text-sm"
+            className="flex-1 px-5 border border-slate-300 rounded-full outline-none sm:text-sm"
           />
           <button
             type="submit"

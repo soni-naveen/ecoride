@@ -1,5 +1,5 @@
 //BACKEND BASE URL
-const BASE_URL = import.meta.env.VITE_REACT_BASE_URL;
+const BASE_URL = `${import.meta.env.VITE_REACT_BASE_URL}/api/v1`;
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -15,8 +15,8 @@ export const endpoints = {
 export const profileEndpoints = {
   FULL_PROFILE_API: BASE_URL + "/profile/fullProfile",
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
-  GET_INBOX_MESSAGES_API : BASE_URL + "/profile/getInboxMessages",
-  DELETE_INBOX_MESSAGE_API : BASE_URL + "/profile/deleteInboxMessage"
+  GET_INBOX_MESSAGES_API: BASE_URL + "/profile/getInboxMessages",
+  DELETE_INBOX_MESSAGE_API: BASE_URL + "/profile/deleteInboxMessage",
 };
 
 // RIDE ENDPOINTS
