@@ -143,12 +143,13 @@ export default function Inbox() {
                       {chats?.map((chat) => (
                         <div
                           key={chat._id}
-                          className="flex items-center w-full max-w-[800px] justify-between gap-2 border-b border-slate-300 text-gray-600 rounded-sm"
+                          className="flex  w-full max-w-[800px] justify-between gap-2 border-b border-slate-300 text-gray-600 rounded-sm"
                         >
-                          <a href={`${chat.chatLink}`}>
-                            <button className="p-5 sm:p-4 sm:text-sm smxl:text-xs">
-                              Chat
-                            </button>
+                          <a
+                            className="p-5 w-full sm:p-4 sm:text-sm smxl:text-xs"
+                            href={`${chat.chatLink}`}
+                          >
+                            <button>Chat</button>
                           </a>
                         </div>
                       ))}
