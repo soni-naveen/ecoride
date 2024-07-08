@@ -45,8 +45,6 @@ export default function Inbox() {
     })();
   }, [inboxId]);
 
-  console.log(chats);
-
   const deleteMessage = (msg) => {
     setDeleteLoading(true);
     dispatch(deleteInboxMessage(token, msg));
@@ -130,7 +128,7 @@ export default function Inbox() {
               </div>
             ) : (
               <div>
-                {chats?.length === 0 ? (
+                {!chats || chats?.length === 0 ? (
                   <div className="text-center mt-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
                     All new chats will appear here!
                   </div>

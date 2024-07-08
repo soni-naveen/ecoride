@@ -87,7 +87,7 @@ export const getChats = async (token) => {
     }
     result = response.data;
   } catch (error) {
-    console.log("GET_CHATS_API API ERROR............", error);
+    // console.log("GET_CHATS_API API ERROR............", error);
     result = error.response.data;
   }
   return result;

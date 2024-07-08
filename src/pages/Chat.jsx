@@ -133,7 +133,7 @@ function ChatPage() {
     if (inputMessage && socket && inputMessage.trim() !== "") {
       socket.emit("sendMessage", {
         roomId,
-        chatLink: `${ENDPOINT}/chat/${driverId}/${passengerId}`,
+        chatLink: `https://theecoride.in/chat/${driverId}/${passengerId}`,
         sender: isDriver ? driverId : passengerId,
         receiver: isDriver ? passengerId : driverId,
         content: inputMessage,
