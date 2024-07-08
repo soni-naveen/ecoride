@@ -21,13 +21,25 @@ function ChatPage() {
   const messagesEndRef = useRef(null);
 
   const roomId = `${driverId}_${passengerId}`;
-
   const isDriver = driverId === user?.additionalDetails?._id ? true : false;
 
   const [driver, setDriver] = useState(null);
   const [passenger, setPassenger] = useState(null);
-
   const [isAuthorized, setIsAuthorized] = useState(null);
+
+  const istTimeConverter = (time) => {
+    const utcDate = new Date(time);
+
+    // Convert to IST using toLocaleString with the "Asia/Kolkata" time zone
+    const istTimeStr = utcDate.toLocaleString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Asia/Kolkata",
+      hour12: true,
+    });
+
+    return istTimeStr;
+  };
 
   useEffect(() => {
     if (user && user.additionalDetails) {
@@ -76,7 +88,7 @@ function ChatPage() {
     newSocket.on("connect_error", (error) => {
       console.error("Connection error:", error);
     });
-    
+
     newSocket.on("message", (message) => {
       setMessages((prevMessages) => {
         // Check if the message is already in the array
@@ -86,7 +98,6 @@ function ChatPage() {
         return prevMessages;
       });
     });
-
   }, [roomId]);
 
   useEffect(() => {
@@ -118,6 +129,7 @@ function ChatPage() {
     if (inputMessage && socket && inputMessage.trim() !== "") {
       socket.emit("sendMessage", {
         roomId,
+        chatLink: `${ENDPOINT}/chat/${driverId}/${passengerId}`,
         sender: isDriver ? driverId : passengerId,
         receiver: isDriver ? passengerId : driverId,
         content: inputMessage,
@@ -128,17 +140,24 @@ function ChatPage() {
 
   return (
     <div className="flex flex-col h-screen bg-slate-50">
-      <div className="flex items-center gap-5 bg-white p-4 shadow">
-        <button onClick={() => navigate(-1)} className="text-dark-color">
-          <IoMdArrowRoundBack className="text-xl" />
-        </button>
-        <h1 className="text-xl w-full text-left font-semibold text-dark-color md:text-lg">
-          {isDriver
-            ? `${passenger?.firstName} ${passenger?.lastName}`
-            : `${driver?.firstName} ${driver?.lastName}`}
-        </h1>
+      <div className="fixed z-10 top-[70px] left-0 right-0 sm:top-[60px] p-5 shadow bg-white max-w-[1000px] mx-auto sm:p-4">
+        <div className="flex justify-center">
+          <div className="w-full">
+            <div className="flex gap-5">
+              <button onClick={() => navigate(-1)} className="text-dark-color">
+                <IoMdArrowRoundBack className="text-xl" />
+              </button>
+              <h1 className="text-xl w-full text-left font-semibold text-dark-color md:text-lg">
+                {isDriver
+                  ? `${passenger?.firstName} ${passenger?.lastName}`
+                  : `${driver?.firstName} ${driver?.lastName}`}
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="h-[60px]"></div>
+      <div className="flex-1 overflow-y-auto scroll-smooth p-4 mb-[84px] sm:mb-[66px]">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -156,26 +175,36 @@ function ChatPage() {
               }`}
             >
               <p className="break-all sm:text-sm">{message.content}</p>
+              <p className="relative top-1 text-right text-[10px] sm:text-[8px]">
+                {istTimeConverter(message.createdAt)}
+              </p>
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
-      <form onSubmit={sendMessage} className="bg-white p-4">
-        <div className="flex gap-3">
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="Type a message"
-            className="flex-1 px-5 border border-slate-300 rounded-full outline-none sm:text-sm"
-          />
-          <button
-            type="submit"
-            className="bg-medium-color text-white p-4 rounded-full sm:p-3"
-          >
-            <IoSend className="text-xl sm:text-lg" />
-          </button>
+      <form
+        onSubmit={sendMessage}
+        className="fixed bottom-0 left-0 right-0 bg-white py-4 sm:py-3 max-w-[1000px] mx-auto"
+      >
+        <div className="flex justify-center">
+          <div className="w-full">
+            <div className="flex gap-3 px-3">
+              <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                placeholder="Type a message"
+                className="flex-1 px-5 border border-slate-300 rounded-full outline-none sm:text-sm"
+              />
+              <button
+                type="submit"
+                className="bg-medium-color text-white p-4 rounded-full sm:p-3"
+              >
+                <IoSend className="text-xl sm:text-lg" />
+              </button>
+            </div>
+          </div>
         </div>
       </form>
     </div>
