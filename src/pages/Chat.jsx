@@ -25,6 +25,7 @@ function ChatPage() {
 
   const [driver, setDriver] = useState(null);
   const [passenger, setPassenger] = useState(null);
+  const [profileLoading, setProfileLoading] = useState(null);
   const [isAuthorized, setIsAuthorized] = useState(null);
 
   const istTimeConverter = (time) => {
@@ -63,12 +64,15 @@ function ChatPage() {
   useEffect(() => {
     (async () => {
       try {
+        setProfileLoading(true);
         const driverProfile = await getFullProfile(driverId);
         const passengerProfile = await getFullProfile(passengerId);
         setDriver(driverProfile.data);
         setPassenger(passengerProfile.data);
       } catch (error) {
         console.error("Could not fetch User Profile", error);
+      } finally {
+        setProfileLoading(false);
       }
     })();
   }, [driverId, passengerId]);
@@ -139,24 +143,31 @@ function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-50">
-      <div className="fixed z-10 top-[70px] left-0 right-0 sm:top-[60px] p-5 shadow bg-white max-w-[1000px] mx-auto sm:p-4">
-        <div className="flex justify-center">
-          <div className="w-full">
-            <div className="flex gap-5">
-              <button onClick={() => navigate(-1)} className="text-dark-color">
-                <IoMdArrowRoundBack className="text-xl" />
-              </button>
-              <h1 className="text-xl w-full text-left font-semibold text-dark-color md:text-lg">
-                {isDriver
-                  ? `${passenger?.firstName} ${passenger?.lastName}`
-                  : `${driver?.firstName} ${driver?.lastName}`}
-              </h1>
+    <div className="flex flex-col min-h-[calc(100vh-100px)] bg-slate-50">
+      <div className="fixed z-10 top-[70px] left-[38px] right-[38px] md1:left-9 md1:right-9 md:left-0 md:right-0 sm:top-[60px] p-5 shadow bg-white max-w-[1000px] mx-auto sm:p-4">
+        {profileLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className="flex justify-center">
+            <div className="w-full">
+              <div className="flex gap-5">
+                <button
+                  onClick={() => navigate(-1)}
+                  className="text-dark-color"
+                >
+                  <IoMdArrowRoundBack className="text-xl" />
+                </button>
+                <h1 className="text-xl text-left font-semibold text-dark-color md:text-lg">
+                  {isDriver
+                    ? `${passenger?.firstName} ${passenger?.lastName}`
+                    : `${driver?.firstName} ${driver?.lastName}`}
+                </h1>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
-      <div className="h-[60px]"></div>
+      <div className="h-[68px]"></div>
       <div className="flex-1 overflow-y-auto scroll-smooth p-4 mb-[84px] sm:mb-[66px]">
         {messages.map((message, index) => (
           <div
@@ -185,7 +196,7 @@ function ChatPage() {
       </div>
       <form
         onSubmit={sendMessage}
-        className="fixed bottom-0 left-0 right-0 bg-white py-4 sm:py-3 max-w-[1000px] mx-auto"
+        className="fixed bottom-0 left-[38px] right-[38px] md1:left-9 md1:right-9 md:left-0 md:right-0 bg-white py-4 sm:py-3 max-w-[1000px] mx-auto"
       >
         <div className="flex justify-center">
           <div className="w-full">

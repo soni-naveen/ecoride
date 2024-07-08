@@ -63,7 +63,7 @@ export default function ProfileDropdown() {
               </div>
             </Link>
             <Link
-              to="dashboard/inbox"
+              to="dashboard/inbox?type=notifications"
               onClick={() => {
                 setOpen(false), handleClickPageTop();
               }}

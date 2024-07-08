@@ -124,7 +124,7 @@ function App() {
             path="/dashboard/changePassword"
             element={<ChangePassword />}
           />
-          <Route path="dashboard/inbox" element={<Inbox />} />
+          <Route path="/dashboard/inbox" element={<Inbox />} />
           <Route path="/dashboard/yourRides" element={<YourRides />} />
           <Route path="/chat/:driverId/:passengerId" element={<Chat />} />
         </Route>

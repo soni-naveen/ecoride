@@ -9,6 +9,7 @@ const {
   GET_USER_DETAILS_API,
   FULL_PROFILE_API,
   GET_INBOX_MESSAGES_API,
+  GET_CHATS_API,
   DELETE_INBOX_MESSAGE_API,
 } = profileEndpoints;
 
@@ -68,6 +69,25 @@ export const getInboxMessages = async (inboxId) => {
     result = response.data;
   } catch (error) {
     // console.log("GET_INBOX_MESSAGES_API API ERROR............", error);
+    result = error.response.data;
+  }
+  return result;
+};
+
+export const getChats = async (token) => {
+  let result = null;
+  try {
+    const response = await apiConnector("GET", GET_CHATS_API, null, {
+      Authorization: `Bearer ${token}`,
+    });
+    // console.log("GET_CHATS_API API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    result = response.data;
+  } catch (error) {
+    console.log("GET_CHATS_API API ERROR............", error);
     result = error.response.data;
   }
   return result;

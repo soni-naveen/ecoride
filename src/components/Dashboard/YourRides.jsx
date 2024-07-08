@@ -557,7 +557,8 @@ export default function YourRides() {
                           </div>
                         ) : (
                           <div className="text-center my-3 text-slate-300 text-lg smxl:text-sm sm2xl:text-xs">
-                            New booking requests appear here
+                            <p> New booking requests appear here</p>{" "}
+                            <p className="text-[0.8em]">Check Inbox for new messages</p>
                           </div>
                         )}
                       </div>
