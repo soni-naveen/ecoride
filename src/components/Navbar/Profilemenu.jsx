@@ -38,7 +38,7 @@ export default function ProfileDropdown() {
       <div className="flex items-center gap-x-1">
         <img
           src={user?.additionalDetails?.image}
-          alt="U"
+          alt=""
           draggable="false"
           className="aspect-square bg-cover bg-center bg-profile-img w-[35px] rounded-full object-cover md:w-[30px]"
         />

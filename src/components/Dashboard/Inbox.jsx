@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { PiChatsFill } from "react-icons/pi";
 import {
   getInboxMessages,
   getChats,
@@ -135,20 +136,71 @@ export default function Inbox() {
                 ) : (
                   <div>
                     <div className="flex flex-col items-center justify-center mb-5">
-                      <div className="bg-light-color text-center font-medium text-lg text-dark-color w-full p-4 sm:text-base sm:p-3">
-                        EcoRide Chats
+                      <div className="bg-light-color text-center font-medium text-lg text-dark-color w-full p-4 smxl:text-base sm:p-3.5 sm2xl:text-sm">
+                        <div className="flex items-center justify-center gap-2">
+                          <PiChatsFill className="text-2xl smxl:text-lg sm2xl:text-base" />
+                          <span>EcoRide Chats</span>
+                        </div>
                       </div>
                       {chats?.map((chat) => (
                         <div
                           key={chat._id}
-                          className="flex  w-full max-w-[800px] justify-between gap-2 border-b border-slate-300 text-gray-600 rounded-sm"
+                          className="flex w-full max-w-[800px] justify-between gap-2 border-b border-slate-300 text-gray-600 rounded-sm"
                         >
-                          <a
-                            className="p-5 w-full sm:p-4 sm:text-sm smxl:text-xs"
-                            href={`${chat.chatLink}`}
-                          >
-                            <button>Chat</button>
-                          </a>
+                          <div className="w-full text-black text-left sm:text-sm smxl:text-xs">
+                            {chat?.user1?._id ===
+                            user?.additionalDetails?._id ? (
+                              <div className="flex items-center justify-between mx-5">
+                                <button
+                                  onClick={() => navigate(`${chat.chatLink}`)}
+                                  className="p-5 flex-1 font-medium text-lg flex items-center gap-3 sm:p-4 smxl:text-base smxl:gap-2 sm2xl:text-sm"
+                                >
+                                  <img
+                                    src={chat?.user2?.image}
+                                    alt=""
+                                    className="rounded-full h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
+                                  />
+                                  <div>
+                                    {chat?.user2?.firstName}{" "}
+                                    {chat?.user2?.lastName}
+                                  </div>
+                                </button>
+                                <button
+                                  onClick={() =>
+                                    navigate(`/profile/${chat?.user2?._id}`)
+                                  }
+                                  className="p-5 underline sm:p-4"
+                                >
+                                  Profile
+                                </button>
+                              </div>
+                            ) : (
+                              <div className="flex items-center justify-between mx-5">
+                                <button
+                                  onClick={() => navigate(`${chat.chatLink}`)}
+                                  className="p-5 flex-1 font-medium text-lg flex items-center gap-3 sm:p-4 smxl:text-base smxl:gap-2 sm2xl:text-sm"
+                                >
+                                  <img
+                                    src={chat?.user1?.image}
+                                    alt=""
+                                    className="rounded-full h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
+                                  />
+                                  <div>
+                                    {chat?.user1?.firstName}{" "}
+                                    {chat?.user1?.lastName}
+                                  </div>
+                                </button>
+                                <button
+                                  onClick={() =>
+                                    navigate(`/profile/${chat?.user1?._id}`)
+                                  }
+                                  className="p-5 underline sm:p-4"
+                                >
+                                  Profile
+                                </button>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>

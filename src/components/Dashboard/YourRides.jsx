@@ -322,7 +322,7 @@ export default function YourRides() {
                           <img
                             draggable="false"
                             src={bookedRide?.profile?.image}
-                            alt="pic"
+                            alt=""
                             className="aspect-square bg-cover bg-center bg-profile-img w-[25px] rounded-full object-cover sm:w-[17px]"
                           />
                           <p>{bookedRide?.profile?.firstName}</p>

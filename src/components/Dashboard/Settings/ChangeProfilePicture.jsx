@@ -74,7 +74,7 @@ export default function ChangeProfilePicture() {
           <img
             draggable="false"
             src={previewSource || user?.additionalDetails?.image}
-            alt={`profile-${user?.firstName}`}
+            alt=""
             className="rounded-full mx-auto h-32 w-32 sm:h-28 sm:w-28 smxl:w-24 smxl:h-24 object-cover"
           />
           <div className="space-y-2">
