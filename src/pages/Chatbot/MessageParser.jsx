@@ -44,7 +44,8 @@ const MessageParser = ({ children, actions }) => {
     } else if (
       message.toLowerCase().includes("payment") ||
       message.toLowerCase().includes("money") ||
-      message.toLowerCase().includes("charges")
+      message.toLowerCase().includes("charges") ||
+      message.toLowerCase().includes("pay")
     ) {
       actions.handleMoney();
     } else if (
@@ -109,6 +110,11 @@ const MessageParser = ({ children, actions }) => {
       message.toLowerCase().includes("delete profile")
     ) {
       actions.handleDeleteAccount();
+    } else if (
+      message.toLowerCase().includes("contact driver") ||
+      message.toLowerCase().includes("call driver")
+    ) {
+      actions.handleContactDriver();
     } else {
       actions.handleDefault();
     }

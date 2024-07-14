@@ -169,6 +169,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+  const handleContactDriver = () => {
+    const botmsg = createChatBotMessage(
+      "You can message the driver on clicking 'Contact' then chatting with them to get their phone number."
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botmsg],
+    }));
+  };
+
   const handleDefault = () => {
     const botmsg = createChatBotMessage(
       "Sorry! I can't understand. Submit your query to 'Contact us' page."
@@ -201,6 +211,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleCancelBookedRide,
             handleVerify,
             handleBye,
+            handleContactDriver,
             handleDefault,
           },
         });
