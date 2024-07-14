@@ -87,7 +87,7 @@ export default function Inbox() {
             ) : (
               <div>
                 {inboxMessages?.message?.length === 0 ? (
-                  <div className="text-center mt-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                  <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
                     New notifications will appear here!
                   </div>
                 ) : (
@@ -130,7 +130,7 @@ export default function Inbox() {
             ) : (
               <div>
                 {!chats || chats?.length === 0 ? (
-                  <div className="text-center mt-5 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
+                  <div className="text-center mt-10 text-slate-300 text-xl smxl:text-base sm2xl:text-sm">
                     All new chats will appear here!
                   </div>
                 ) : (
@@ -150,15 +150,14 @@ export default function Inbox() {
                           <div className="w-full text-black text-left sm:text-sm smxl:text-xs">
                             {chat?.user1?._id ===
                             user?.additionalDetails?._id ? (
-                              <div className="flex items-center justify-between mx-5">
+                              <div className="flex items-center justify-between mx-5 smxl:mx-2">
                                 <button
                                   onClick={() => navigate(`${chat.chatLink}`)}
                                   className="p-5 flex-1 font-medium text-lg flex items-center gap-3 sm:p-4 smxl:text-base smxl:gap-2 sm2xl:text-sm"
                                 >
                                   <img
                                     src={chat?.user2?.image}
-                                    alt=""
-                                    className="rounded-full h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
+                                    className="rounded-full bg-cover bg-center bg-profile-img h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
                                   />
                                   <div>
                                     {chat?.user2?.firstName}{" "}
@@ -175,7 +174,7 @@ export default function Inbox() {
                                 </button>
                               </div>
                             ) : (
-                              <div className="flex items-center justify-between mx-5">
+                              <div className="flex items-center justify-between mx-5 smxl:mx-2">
                                 <button
                                   onClick={() => navigate(`${chat.chatLink}`)}
                                   className="p-5 flex-1 font-medium text-lg flex items-center gap-3 sm:p-4 smxl:text-base smxl:gap-2 sm2xl:text-sm"
@@ -183,7 +182,7 @@ export default function Inbox() {
                                   <img
                                     src={chat?.user1?.image}
                                     alt=""
-                                    className="rounded-full h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
+                                    className="rounded-full bg-cover bg-center bg-profile-img h-8 w-8 object-cover smxl:h-7 smxl:w-7 sm2xl:w-6 sm2xl:h-6"
                                   />
                                   <div>
                                     {chat?.user1?.firstName}{" "}
