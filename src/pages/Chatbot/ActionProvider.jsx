@@ -61,7 +61,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleBye = () => {
     const botmsg = createChatBotMessage(
-      "I am happy, I was able to help. Fell free to contact me again."
+      "I am happy, I was able to help. Feel free to contact me again."
     );
     setState((prev) => ({
       ...prev,
