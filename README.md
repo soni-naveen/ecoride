@@ -1,7 +1,7 @@
 # Ecoride Frontend
-This is frontend repository for our website ecoride
+This is frontend repository for our website ecoride.
 
-####  [theecoride.in](_https://theecoride.in_)
+[theecoride.in](_https://theecoride.in_)
 
 ## React + Vite
 
@@ -14,3 +14,6 @@ npm i
 ```
 npm run dev
 ```
+### Contributors
+Naveen Soni\
+Mukul Kumar 
