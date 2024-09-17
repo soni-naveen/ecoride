@@ -3,6 +3,23 @@ This is frontend repository for our website ecoride.
 
 https://theecoride.in
 
+## Features
+
+Key features :
+
+• Publish ride\
+• Search ride\
+• Book ride\
+• User dashboard\
+• Verify profile\
+• Forgot password\
+• Change password\
+• Delete account\
+• Chatbot (help center)\
+• Map feature (desktop view)\
+• Chat with driver/passenger\
+• Contact support
+
 ## React + Vite
 
 ### Install dependencies
