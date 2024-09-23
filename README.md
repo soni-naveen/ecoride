@@ -1,6 +1,8 @@
 # Ecoride Frontend
 This is frontend repository for our website ecoride.
 
+Connecting people for eco-friendly ridesharing and reducing traffic congestion. Join our community and be a part of the sustainable transportation movement. Let's drive change together!
+
 https://theecoride.in
 
 ## Features
