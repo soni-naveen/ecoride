@@ -25,8 +25,10 @@ import "animate.css";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  // Scroll to the top of the page
   const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
+    window.scrollTo(0, 0);
   };
   const { hash } = useLocation();
 
