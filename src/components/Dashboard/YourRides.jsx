@@ -348,7 +348,7 @@ export default function YourRides() {
                       <div className="flex justify-center w-full max-w-[600px] mx-auto">
                         <button
                           onClick={handleCancelBookedRide}
-                          className="flex items-center text-red-400 gap-2 px-3 py-1 border border-red-400 rounded-full hover:bg-red-400 hover:border-red-400 hover:text-white sm:text-sm"
+                          className="flex items-center text-red-400 gap-2 px-3 py-1 border border-red-400 rounded-full hover:bg-red-500 hover:border-red-500 hover:text-white sm:text-sm"
                         >
                           <RxCross2 /> Cancel
                         </button>
