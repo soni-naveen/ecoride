@@ -115,7 +115,7 @@ const Footer = () => {
             <h1 className="hover:underline">Help Center</h1>
           </Link>
           <a href="https://e-social.vercel.app" target="_blank">
-            <h1 className="hover:underline cursor-pointer">E-Social</h1>
+            <h1 className="hover:underline cursor-pointer">E-Social</h1> 
           </a>
           <Link to="/#cards" className="hover:underline">
             Safety
