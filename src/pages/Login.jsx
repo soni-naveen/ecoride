@@ -93,6 +93,7 @@ function Login() {
                   type="text"
                   name="email"
                   value={email}
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   onChange={handleOnChange}
                   placeholder="Enter email address"
                   className="w-[300px] px-3 py-3 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
