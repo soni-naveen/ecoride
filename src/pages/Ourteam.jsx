@@ -49,7 +49,7 @@ function Ourteam() {
             }
           }
         `}</style>
-        <div className="container h-full mx-auto px-6 flex flex-col justify-center items-center gap-10 ">
+        <div className="container h-full mx-auto px-6 flex flex-col justify-center items-center gap-10 sm2xl:px-0">
           <div>
             <h1 className=" text-5xl font-bold lg:text-4xl sm:text-3xl text-dark-color mb-8 mt-10">
               Meet Our Team
