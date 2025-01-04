@@ -66,7 +66,7 @@ const Contact = () => {
           {/*========== SUBHEADING ========== */}
           <p className="sm:text-sm smxl:text-xs">
             We're here to Listen! Please fill out this form
-          </p>
+          </p> 
           <div className="my-5">
             <form
               className="flex flex-col gap-7 sm2xl:w-[250px]"
