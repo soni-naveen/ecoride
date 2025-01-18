@@ -10,9 +10,6 @@ import carpooling from "../assets/Carpooling.jpg";
 
 function Searchride() {
   const navigate = useNavigate();
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
   const { register, handleSubmit, setValue } = useForm();
 
   //handle submit
@@ -26,8 +23,6 @@ function Searchride() {
     navigate(
       `/search?st=${data.fromWhere}&dt=${data.toWhere}&date=${data.date}&seats=${data.noOfSeats}`
     );
-
-    handleClickPageTop();
 
     // console.log(formData.get("fromWhere"));
     // for (const [key, value] of formData.entries()) {

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Autocomplete from "../../Autocomplete";
 import { useForm, Controller } from "react-hook-form";
 import { createRide } from "../../../services/operations/RideAPI.js";
+import Spinner from "../../Loader.jsx";
 
 export default function stopPoint() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export default function stopPoint() {
     <div>
       {loading ? (
         <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-          <div className="spinner"></div>
+          <Spinner />
         </div>
       ) : (
         <div className="container h-[calc(100vh-130px)] mb-5">

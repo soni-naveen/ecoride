@@ -20,6 +20,7 @@ import {
   cancelConfirmedBooking,
   cancelPendingBooking,
 } from "../../services/operations/RideAPI";
+import Spinner from "../Loader";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -220,7 +221,7 @@ export default function YourRides() {
             <div>
               {loading || cancelBookedLoading ? (
                 <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-                  <div className="spinner"></div>
+                  <Spinner />
                 </div>
               ) : (
                 <div>
@@ -461,7 +462,7 @@ export default function YourRides() {
                     cancelPendingLoading ||
                     cancelConfirmLoading ? (
                       <div className="grid min-h-[100px] place-items-center">
-                        <div className="spinner"></div>
+                        <Spinner />
                       </div>
                     ) : (
                       <div className="flex flex-col gap-5">
@@ -558,7 +559,9 @@ export default function YourRides() {
                         ) : (
                           <div className="text-center my-3 text-slate-300 text-lg smxl:text-sm sm2xl:text-xs">
                             <p> New booking requests appear here</p>{" "}
-                            <p className="text-[0.8em]">Check Inbox for new messages</p>
+                            <p className="text-[0.8em]">
+                              Check Inbox for new messages
+                            </p>
                           </div>
                         )}
                       </div>

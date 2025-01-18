@@ -7,6 +7,7 @@ import { RxCountdownTimer } from "react-icons/rx";
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../services/operations/AuthAPI";
+import Spinner from "../components/Loader";
 
 function Verification() {
   const [otp, setOtp] = useState("");
@@ -46,11 +47,15 @@ function Verification() {
       >
         {loading ? (
           <div>
-            <div className="spinner"></div>
+            <Spinner />
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-3 text-white">
-            <Link to={"/home"} ref={button} className=" place-self-end sm2xl:place-self-center">
+            <Link
+              to={"/home"}
+              ref={button}
+              className=" place-self-end sm2xl:place-self-center"
+            >
               <button>
                 <ClearIcon />
               </button>

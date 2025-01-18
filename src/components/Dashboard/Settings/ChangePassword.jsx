@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { changePassword } from "../../../services/operations/SettingsAPI";
 import Myprofile from "../MyProfile";
 import { toast } from "react-hot-toast";
+import Spinner from "../../Loader";
 
 function ChangePassword() {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ function ChangePassword() {
         className="fixed inset-0 bg-black overflow-auto bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-50"
       >
         {loading ? (
-          <div className="spinner"></div>
+          <Spinner />
         ) : (
           <div className="text-white flex flex-col">
             <Link

@@ -8,10 +8,6 @@ import { toast } from "react-hot-toast";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
@@ -92,16 +88,16 @@ const Footer = () => {
 
         {/*======================= CENTER LEFT =================== */}
         <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm">
-          <Link to="/aboutus" onClick={scrollToTop}>
+          <Link to="/aboutus">
             <h1 className="hover:underline">About Us</h1>
           </Link>
-          <Link to="/howitworks" onClick={scrollToTop}>
+          <Link to="/howitworks">
             <h1 className="hover:underline">How It Works</h1>
           </Link>
-          <Link to="/contact" onClick={scrollToTop}>
+          <Link to="/contact">
             <h1 className="hover:underline">Contact Us</h1>
           </Link>
-          <Link to="/ourteam" onClick={scrollToTop}>
+          <Link to="/ourteam">
             <h1 className="hover:underline">Our Team</h1>
           </Link>
         </div>
@@ -111,11 +107,11 @@ const Footer = () => {
           <Link to="/#faq" className="hover:underline">
             FAQ
           </Link>
-          <Link to="/helpcenter" onClick={scrollToTop}>
+          <Link to="/helpcenter">
             <h1 className="hover:underline">Help Center</h1>
           </Link>
           <a href="https://e-social.vercel.app" target="_blank">
-            <h1 className="hover:underline cursor-pointer">E-Social</h1> 
+            <h1 className="hover:underline cursor-pointer">E-Social</h1>
           </a>
           <Link to="/#cards" className="hover:underline">
             Safety

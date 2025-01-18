@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-
+import { useState, useEffect } from "react";
 import "./App.css";
-// Redux
 import { useDispatch } from "react-redux";
-// React Router
-import { Route, Routes, useNavigate } from "react-router-dom";
-
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import OpenRoute from "./components/Auth/OpenRoute";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import Login from "./pages/Login";
@@ -38,10 +34,31 @@ import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 import BookRide from "./pages/BookRide";
 import Chat from "./pages/Chat";
+import Spinner from "./components/Loader";
+
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -51,87 +68,102 @@ function App() {
   }, []);
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/aboutus" element={<Aboutus />} />
-        <Route path="/howitworks" element={<Howitworks />} />
-        <Route path="/helpcenter" element={<Helpcenter />} />
-        <Route path="/ourteam" element={<Ourteam />} />
-        <Route path="/searchride" element={<Searchride />} />
-        <Route path="/profile/:profileId" element={<Fullprofile />} />
-        <Route path="/search" element={<SeeRides />} />
-        <Route path="/bookride/:rideId" element={<BookRide />} />
-        <Route path="/verification" element={<Verification />} />
+      {loading ? (
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          <ScrollToTop />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/howitworks" element={<Howitworks />} />
+            <Route path="/helpcenter" element={<Helpcenter />} />
+            <Route path="/ourteam" element={<Ourteam />} />
+            <Route path="/searchride" element={<Searchride />} />
+            <Route path="/profile/:profileId" element={<Fullprofile />} />
+            <Route path="/search" element={<SeeRides />} />
+            <Route path="/bookride/:rideId" element={<BookRide />} />
+            <Route path="/verification" element={<Verification />} />
 
-        {/* Open Route - for Only Non Logged in User */}
-        <Route
-          path="/login"
-          element={
-            <OpenRoute>
-              <Login />
-            </OpenRoute>
-          }
-        />
-        <Route
-          path="/forgot-password"
-          element={
-            <OpenRoute>
-              <ForgotPassword />
-            </OpenRoute>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <OpenRoute>
-              <Signup />
-            </OpenRoute>
-          }
-        />
-        <Route
-          path="/update-password/:id"
-          element={
-            <OpenRoute>
-              <UpdatePassword />
-            </OpenRoute>
-          }
-        />
-        {/* Private Route - for Only Logged in User */}
-        <Route
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        >
-          <Route path="/completeprofile" element={<Completeprofile />} />
-          <Route path="/dashboard/myprofile" element={<MyProfile />} />
-          <Route path="/dashboard/publishride" element={<PublishRide />} />
-          <Route
-            path="/dashboard/publishride/addStopPoint"
-            element={<AddStopPoint />}
-          />
-          <Route path="/dashboard/updateProfile" element={<EditProfile />} />
-          <Route path="/dashboard/verifyProfile" element={<VerifyProfile />} />
-          <Route
-            path="/dashboard/updatePhoto"
-            element={<ChangeProfilePicture />}
-          />
-          <Route
-            path="/dashboard/changePassword"
-            element={<ChangePassword />}
-          />
-          <Route path="/dashboard/inbox" element={<Inbox />} />
-          <Route path="/dashboard/yourRides" element={<YourRides />} />
-          <Route path="/chat/:driverId/:passengerId" element={<Chat />} />
-        </Route>
+            {/* Open Route - for Only Non Logged in User */}
+            <Route
+              path="/login"
+              element={
+                <OpenRoute>
+                  <Login />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/forgot-password"
+              element={
+                <OpenRoute>
+                  <ForgotPassword />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <OpenRoute>
+                  <Signup />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/update-password/:id"
+              element={
+                <OpenRoute>
+                  <UpdatePassword />
+                </OpenRoute>
+              }
+            />
+            {/* Private Route - for Only Logged in User */}
+            <Route
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route path="/completeprofile" element={<Completeprofile />} />
+              <Route path="/dashboard/myprofile" element={<MyProfile />} />
+              <Route path="/dashboard/publishride" element={<PublishRide />} />
+              <Route
+                path="/dashboard/publishride/addStopPoint"
+                element={<AddStopPoint />}
+              />
+              <Route
+                path="/dashboard/updateProfile"
+                element={<EditProfile />}
+              />
+              <Route
+                path="/dashboard/verifyProfile"
+                element={<VerifyProfile />}
+              />
+              <Route
+                path="/dashboard/updatePhoto"
+                element={<ChangeProfilePicture />}
+              />
+              <Route
+                path="/dashboard/changePassword"
+                element={<ChangePassword />}
+              />
+              <Route path="/dashboard/inbox" element={<Inbox />} />
+              <Route path="/dashboard/yourRides" element={<YourRides />} />
+              <Route path="/chat/:driverId/:passengerId" element={<Chat />} />
+            </Route>
 
-        {/* 404 Page */}
-        <Route path="*" element={<Error />} />
-      </Routes>
+            {/* 404 Page */}
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </>
+      )}
     </>
   );
 }

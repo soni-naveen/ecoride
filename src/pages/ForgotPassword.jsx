@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ClearIcon from "@mui/icons-material/Clear";
 import Home from "./Home";
 import { Link } from "react-router-dom";
-
 import { getPasswordResetToken } from "../services/operations/AuthAPI";
+import Spinner from "../components/Loader";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ function ForgotPassword() {
         onClick={closeModel}
       >
         {loading ? (
-          <div className="spinner"></div>
+          <Spinner />
         ) : (
           <div className="text-white flex flex-col">
             <Link

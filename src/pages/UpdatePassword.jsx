@@ -5,8 +5,8 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-
 import { resetPassword } from "../services/operations/AuthAPI";
+import Spinner from "../components/Loader";
 
 function UpdatePassword() {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ function UpdatePassword() {
         className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-20"
       >
         {loading ? (
-          <div className="spinner"></div>
+          <Spinner />
         ) : (
           <div className="text-white flex flex-col">
             <Link

@@ -18,10 +18,6 @@ export default function ProfileDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
-
   useOnClickOutside(ref, () => setOpen(false));
 
   if (!token) return null;
@@ -54,7 +50,7 @@ export default function ProfileDropdown() {
             <Link
               to="/dashboard/myprofile?profile=about"
               onClick={() => {
-                setOpen(false), handleClickPageTop();
+                setOpen(false);
               }}
             >
               <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -65,7 +61,7 @@ export default function ProfileDropdown() {
             <Link
               to="dashboard/inbox?type=notifications"
               onClick={() => {
-                setOpen(false), handleClickPageTop();
+                setOpen(false);
               }}
             >
               <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -81,7 +77,7 @@ export default function ProfileDropdown() {
             <Link
               to="dashboard/yourRides?type=booked"
               onClick={() => {
-                setOpen(false), handleClickPageTop();
+                setOpen(false);
               }}
             >
               <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">
@@ -92,7 +88,7 @@ export default function ProfileDropdown() {
             <Link
               to="/helpcenter"
               onClick={() => {
-                setOpen(false), handleClickPageTop();
+                setOpen(false);
               }}
             >
               <div className="flex w-[200px] bg-white border-b items-center gap-x-5 py-[14px] px-[20px] text-base hover:bg-gray-100 text-dark-color">

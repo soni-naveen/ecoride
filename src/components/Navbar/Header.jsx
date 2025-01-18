@@ -9,16 +9,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
-
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
-
   return (
     <>
       <div className="navBar max-w-[1800px] m-auto bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-8 z-20 w-full smxl:pl-0 sm:h-[60px] smxl:pr-3 sm:pr-4 sm:px-0 md:pl-0 md:pr-4 md1:pl-0 md1:pr-4 lg:pl-2 lg:pr-6">
         <div className="logo smxl:ml-0 md:ml-2 md1:ml-6">
-          <Link to="/" onClick={handleClickPageTop}>
+          <Link to="/">
             <img
               draggable="false"
               src={Logo}
@@ -37,7 +32,7 @@ const Header = () => {
         </div>
         <div className="flex gap-16 items-center smxl:gap-5 md:gap-7 md1:gap-10 lg:gap-14">
           <div>
-            <Link to="/searchride" onClick={handleClickPageTop}>
+            <Link to="/searchride">
               <button className="text-dark-color hover:font-bold font-medium text-lg flex items-center sm:text-sm">
                 <FaSearch className="mr-2 stroke-dark-color md1:text-base sm:mr-1.5 smxl:text-xl" />
                 <div className="smxl:hidden md1:text-base">

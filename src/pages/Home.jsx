@@ -25,21 +25,16 @@ import "animate.css";
 
 const Home = () => {
   const navigate = useNavigate();
-
-  // Scroll to the top of the page
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0);
-  };
-  const { hash } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace("#", ""));
+    if (location.hash) {
+      const element = document.getElementById(location.hash.slice(1));
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [hash]);
+  }, [location]);
 
   const { register, handleSubmit, setValue } = useForm();
 
@@ -54,7 +49,6 @@ const Home = () => {
     navigate(
       `/search?st=${data.fromWhere}&dt=${data.toWhere}&date=${data.date}&seats=${data.noOfSeats}`
     );
-    handleClickPageTop();
 
     // console.log(formData.get("fromWhere"));
     // for (const [key, value] of formData.entries()) {
@@ -71,7 +65,7 @@ const Home = () => {
 
         {/* Help Center */}
         <div className="fixed bottom-[20px] right-[20px] z-10 border border-dark-color bg-light-color rounded-full color-white p-2 smxl:p-1.5">
-          <Link to="/helpcenter" onClick={handleClickPageTop}>
+          <Link to="/helpcenter">
             <BsRobot className="text-3xl p-0.5 text-dark-color smxl:text-2xl" />
           </Link>
         </div>
@@ -248,7 +242,7 @@ const Home = () => {
         {/* *******************************************************************************************************
                                                  FAQ Section
         ******************************************************************************************************** */}
-        <div id="faq" className="faqs bg-dark-color flex items-center">
+        <div id="faq" className="bg-dark-color flex items-center">
           <div className="left min-w-[30%] w-[100%] max-w-1 mx-20 lg:hidden">
             <img draggable="false" src={faqLogo} alt="FAQ's" />
           </div>
@@ -286,12 +280,12 @@ const Home = () => {
             </h1>
           </div>
           <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
-            <Link to="/searchride" onClick={handleClickPageTop}>
+            <Link to="/searchride">
               <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-[#b5e9e4] hover:border-light-color hover:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
                 Find a Ride
               </button>
             </Link>
-            <Link to="/dashboard/publishride" onClick={handleClickPageTop}>
+            <Link to="/dashboard/publishride">
               <button className="w-52 border bg-medium-color transition-all text-white border-medium-color p-3 rounded-full text-lg active:bg-[#05a195] active:duration-50 smxl:w-40 smxl:text-sm ">
                 Offer a Ride
               </button>

@@ -6,9 +6,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Link } from "react-router-dom";
 
 export default function AccordionUsage() {
-  const handleClickPageTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
   return (
     <div className="w-[70%] smxl:w-[85%] sm:w-[80%]">
       <Accordion
@@ -56,8 +53,8 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           We understand that plans can change. Both drivers and passengers have
-          the option to cancel/delete ride, but please do so as early as possible to minimize
-          inconvenience to other users.
+          the option to cancel/delete ride, but please do so as early as
+          possible to minimize inconvenience to other users.
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -82,17 +79,13 @@ export default function AccordionUsage() {
         <AccordionDetails className="text-sm sm2xl:text-xs">
           Offering a ride on EcoRide is easy. To publish your ride login to your
           account (signup in case you don't have account). Click on{" "}
-          <Link
-            to="/dashboard/publishride"
-            className="underline"
-            onClick={handleClickPageTop}
-          >
+          <Link to="/dashboard/publishride" className="underline">
             Publish ride
           </Link>{" "}
-          on top of website. Indicate from where , to where , date ,
-          leaving time, reaching time, how many passengers you can take, and
-          the price per seat. Click on proceed to add stop points, if no stop
-          point tap "Publish" and you're done!
+          on top of website. Indicate from where , to where , date , leaving
+          time, reaching time, how many passengers you can take, and the price
+          per seat. Click on proceed to add stop points, if no stop point tap
+          "Publish" and you're done!
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -142,11 +135,7 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails className="text-sm sm2xl:text-xs">
           Go to{" "}
-          <Link
-            to="/dashboard/myprofile?profile=about"
-            className="underline"
-            onClick={handleClickPageTop}
-          >
+          <Link to="/dashboard/myprofile?profile=about" className="underline">
             Account
           </Link>{" "}
           , Under "Verify your profile" click on "Verify your govt. id" then you
@@ -176,11 +165,7 @@ export default function AccordionUsage() {
         <AccordionDetails className="text-sm sm2xl:text-xs">
           If you encounter any issues or have questions, please feel free to
           contact our team through the{" "}
-          <Link
-            to="/contact"
-            className="underline"
-            onClick={handleClickPageTop}
-          >
+          <Link to="/contact" className="underline">
             Contact Us
           </Link>{" "}
           page.

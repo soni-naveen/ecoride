@@ -8,6 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../components/Loader";
 
 export default function Inbox() {
   const { user } = useSelector((state) => state.profile);
@@ -82,7 +83,7 @@ export default function Inbox() {
           <div>
             {loading ? (
               <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-                <div className="spinner"></div>
+                <Spinner />
               </div>
             ) : (
               <div>
@@ -94,7 +95,7 @@ export default function Inbox() {
                   <div>
                     {deleteLoading ? (
                       <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-                        <div className="spinner"></div>
+                        <Spinner />
                       </div>
                     ) : (
                       <div className="flex flex-col items-center gap-3 mx-4 justify-center my-5">
@@ -125,7 +126,7 @@ export default function Inbox() {
           <div>
             {loading ? (
               <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-                <div className="spinner"></div>
+                <Spinner />
               </div>
             ) : (
               <div>

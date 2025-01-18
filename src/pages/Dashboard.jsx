@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import Spinner from "../components/Loader";
 
 function Dashboard() {
   const { loading: profileLoading } = useSelector((state) => state.profile);
@@ -8,7 +9,7 @@ function Dashboard() {
   if (profileLoading || authLoading) {
     return (
       <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-        <div className="spinner"></div>
+        <Spinner />
       </div>
     );
   }

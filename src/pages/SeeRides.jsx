@@ -7,6 +7,7 @@ import RideFilter from "../components/RideFilter";
 import seeridesimage from "../assets/seeridesimage.jpg";
 import Seeridecard from "../components/SeeRidesCard";
 import DateFormatter from "../components/Dateformatter";
+import Spinner from "../components/Loader";
 
 function Seerides() {
   const navigate = useNavigate();
@@ -147,7 +148,7 @@ function Seerides() {
       {/*=============== BOTTOM PART =================*/}
       {loading ? (
         <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-          <div className="spinner"></div>
+          <Spinner />
         </div>
       ) : rides.length === 0 ? (
         <div className="grid min-h-[calc(100vh-100px)] place-items-center">

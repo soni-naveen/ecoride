@@ -13,6 +13,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate, useParams } from "react-router-dom";
 import { getFullProfile } from "../services/operations/ProfileAPI";
 import Error from "./Error";
+import Spinner from "../components/Loader";
 
 function Fullprofile() {
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ function Fullprofile() {
     <div>
       {loading ? (
         <div className="grid min-h-[calc(100vh-100px)] place-items-center">
-          <div className="spinner"></div>
+          <Spinner />
         </div>
       ) : (
         <div>
