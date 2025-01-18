@@ -1,5 +1,5 @@
 # Ecoride Frontend
-This is frontend repository for our website ecoride.
+This is a frontend repository for EcoRide, built using React.js and TailwindCSS.
 
 Connecting people for eco-friendly ridesharing and reducing traffic congestion. Join our community and be a part of the sustainable transportation movement. Let's drive change together!
 
