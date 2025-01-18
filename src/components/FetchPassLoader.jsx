@@ -1,11 +1,11 @@
 import React from "react";
 import Lottie from "lottie-react";
-import loadingAnimation from "../animations/LoadAnimation.json";
+import FetchPassLoader from "../animations/FetchPassAnimation.json";
 
 const Loader = () => {
   return (
     <Lottie
-      animationData={loadingAnimation}
+      animationData={FetchPassLoader}
       className="md:h-60 md:w-60 h-72 w-72"
     />
   );

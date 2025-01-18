@@ -58,9 +58,7 @@ export default function Inbox() {
       <div className="mt-1 flex justify-evenly items-center border-b shadow border-gray-200">
         <div
           className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
-            activeTab === "notifications"
-              ? "text-dark-color border-b-2  border-b-medium-color"
-              : "text-gray-500"
+            activeTab === "notifications" ? "text-dark-color" : "text-gray-500"
           }`}
           onClick={() => handleTabClick("notifications")}
         >
@@ -69,15 +67,23 @@ export default function Inbox() {
         <div className="py-5 border-x border-slate-200"></div>
         <div
           className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
-            activeTab === "chats"
-              ? "text-dark-color border-b-2  border-b-medium-color"
-              : "text-gray-500"
+            activeTab === "chats" ? "text-dark-color" : "text-gray-500"
           }`}
           onClick={() => handleTabClick("chats")}
         >
           Chats
         </div>
       </div>
+      <div
+        className="relative bottom-[3px] h-[3px] bg-medium-color transition-all duration-300 ease-in-out"
+        style={{
+          width: "50%",
+          transform:
+            activeTab === "notifications"
+              ? "translateX(0%)"
+              : "translateX(100%)",
+        }}
+      ></div>
       <div>
         {activeTab === "notifications" && (
           <div>

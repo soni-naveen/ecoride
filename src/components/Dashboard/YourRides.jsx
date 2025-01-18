@@ -21,6 +21,7 @@ import {
   cancelPendingBooking,
 } from "../../services/operations/RideAPI";
 import Spinner from "../Loader";
+import FetchPassLoader from "../FetchPassLoader";
 
 export default function YourRides() {
   const { user } = useSelector((state) => state.profile);
@@ -196,9 +197,7 @@ export default function YourRides() {
         <div className="mt-1 flex justify-evenly items-center border-b shadow border-gray-200">
           <div
             className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
-              activeTab === "booked"
-                ? "text-dark-color border-b-2  border-b-medium-color"
-                : "text-gray-500"
+              activeTab === "booked" ? "text-dark-color " : "text-gray-500"
             }`}
             onClick={() => handleTabClick("booked")}
           >
@@ -207,15 +206,21 @@ export default function YourRides() {
           <div className="py-5 border-x border-slate-200"></div>
           <div
             className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
-              activeTab === "published"
-                ? "text-dark-color border-b-2  border-b-medium-color"
-                : "text-gray-500"
+              activeTab === "published" ? "text-dark-color " : "text-gray-500"
             }`}
             onClick={() => handleTabClick("published")}
           >
             Published
           </div>
         </div>
+        <div
+          className="relative bottom-[3px] h-[3px] bg-medium-color transition-all duration-300 ease-in-out"
+          style={{
+            width: "50%",
+            transform:
+              activeTab === "booked" ? "translateX(0%)" : "translateX(100%)",
+          }}
+        ></div>
         <div>
           {activeTab === "booked" && (
             <div>
@@ -461,8 +466,8 @@ export default function YourRides() {
                     confirmLoading ||
                     cancelPendingLoading ||
                     cancelConfirmLoading ? (
-                      <div className="grid min-h-[100px] place-items-center">
-                        <Spinner />
+                      <div className="grid min-h-[100px] place-items-center md:-mt-20 -mt-28">
+                        <FetchPassLoader />
                       </div>
                     ) : (
                       <div className="flex flex-col gap-5">

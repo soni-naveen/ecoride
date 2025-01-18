@@ -98,7 +98,7 @@ function Myprofile() {
           <div
             className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "about"
-                ? "text-dark-color border-b-2 border-b-medium-color"
+                ? "text-dark-color"
                 : "text-gray-500"
             }`}
             onClick={() => handleTabClick("about")}
@@ -109,7 +109,7 @@ function Myprofile() {
           <div
             className={`text-lg font-semibold w-full pt-4 pb-3 cursor-pointer text-center sm:text-lg smxl:text-base ${
               activeTab === "account"
-                ? "text-dark-color border-b-2 border-b-medium-color"
+                ? "text-dark-color"
                 : "text-gray-500"
             }`}
             onClick={() => handleTabClick("account")}
@@ -117,6 +117,14 @@ function Myprofile() {
             Account
           </div>
         </div>
+        <div
+          className="relative bottom-[3px] h-[3px] bg-medium-color transition-all duration-300 ease-in-out"
+          style={{
+            width: "50%",
+            transform:
+              activeTab === "about" ? "translateX(0%)" : "translateX(100%)",
+          }}
+        ></div>
         <div>
           {/*====================== ABOUT TAB ====================== */}
           {activeTab === "about" && (
@@ -273,7 +281,9 @@ function Myprofile() {
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
                           <RiEdit2Fill className="text-xl smxl:text-sm" />
-                          <span className="break-all">{user?.additionalDetails?.about}</span>
+                          <span className="break-all">
+                            {user?.additionalDetails?.about}
+                          </span>
                         </div>
                       )}
                     </button>
@@ -293,7 +303,9 @@ function Myprofile() {
                       ) : (
                         <div className="flex items-center text-start gap-2 text-medium-color">
                           <RiEdit2Fill className="text-xl smxl:text-sm" />
-                          <span className="break-all">{user?.additionalDetails?.vehicle}</span>
+                          <span className="break-all">
+                            {user?.additionalDetails?.vehicle}
+                          </span>
                         </div>
                       )}
                     </button>
