@@ -34,7 +34,7 @@ import AddStopPoint from "./components/Dashboard/PublishRide/stopPoint";
 import SeeRides from "./pages/SeeRides";
 import BookRide from "./pages/BookRide";
 import Chat from "./pages/Chat";
-import Spinner from "./components/Loader";
+import StartLoader from "./components/StartLoader";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -70,7 +70,7 @@ function App() {
     <>
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
-          <Spinner />
+          <StartLoader />
         </div>
       ) : (
         <>
