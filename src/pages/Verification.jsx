@@ -43,7 +43,7 @@ function Verification() {
       <div
         ref={modelRef}
         onClick={CloseModel}
-        className="fixed inset-0 bg-black bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-20"
+        className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-20"
       >
         {loading ? (
           <div>
@@ -60,11 +60,11 @@ function Verification() {
                 <ClearIcon />
               </button>
             </Link>
-            <div className="bg-dark-color rounded-xl py-10 flex flex-col gap-5 justify-center items-center sm2xl:w-[300px] smxl:w-[330px]  sm:w-[400px]">
-              <h1 className="font-medium text-center text-[1.875rem] leading-[2.375rem] sm:text-2xl">
+            <div className="bg-slate-200 rounded-xl py-10 flex flex-col gap-5 justify-center items-center w-[500px] smxl:w-[340px] sm:w-[430px] smxl:pt-10 smxl:pb-8">
+              <h1 className="font-medium text-dark-color text-center text-[1.875rem] leading-[2.375rem] sm:text-2xl smxl:text-[22px]">
                 Verify Email
               </h1>
-              <p className="w-[70%] text-lg text-center leading-8 font-light mb-5 text-white sm2xl:leading-6  sm:text-base sm:leading-6 sm:text-[15px] sm:w-[80%]">
+              <p className="w-[70%] text-lg text-center leading-8 font-light mb-5 sm2xl:leading-6 text-black sm:text-base smxl:text-sm sm:leading-6 sm:text-[15px] sm:w-[80%]">
                 A verification code has been sent to you. Enter the code below
               </p>
               <form
@@ -84,7 +84,7 @@ function Verification() {
                           "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                         marginInline: 10,
                       }}
-                      className="w-[43px] text-xl mb-5 border-0 bg-richblack-800 rounded-[0.5rem] text-black aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                      className="w-[43px] text-xl mb-5 border-0 bg-richblack-800 rounded-[0.5rem] text-black aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50 smxl:w-[38px]"
                     />
                   )}
                   containerStyle={{
@@ -94,14 +94,14 @@ function Verification() {
                 />
                 <button
                   type="submit"
-                  className="w-[90%] bg-medium-color py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900 sm:text-sm sm:py-[10px]"
+                  className="w-[90%] bg-medium-color py-[12px] px-[12px] rounded-[5px] mt-5 font-medium sm:text-sm sm:py-[10px] smxl:text-xs"
                 >
                   Verify Email
                 </button>
               </form>
               <div className="mt-3 w-[230px] text-[15px] flex justify-between">
                 <Link to="/signup">
-                  <p className="text-richblack-5 flex items-center gap-x-2 sm:text-[0.9rem]">
+                  <p className="flex text-gray-600 items-center gap-x-2 sm:text-sm smxl:text-xs">
                     <BiArrowBack /> Back
                   </p>
                 </Link>

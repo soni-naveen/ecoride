@@ -69,7 +69,7 @@ function App() {
   return (
     <>
       {loading ? (
-        <div className="grid min-h-[calc(100vh-100px)] place-items-center">
+        <div className="grid min-h-[calc(100vh-50px)] place-items-center">
           <StartLoader />
         </div>
       ) : (

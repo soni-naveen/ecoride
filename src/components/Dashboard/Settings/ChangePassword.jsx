@@ -60,7 +60,7 @@ function ChangePassword() {
       <div
         ref={modelRef}
         onClick={closeModel}
-        className="fixed inset-0 bg-black overflow-auto bg-opacity-85 backdrop-blur-sm flex justify-center items-center z-50"
+        className="fixed inset-0 bg-black overflow-auto bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50"
       >
         {loading ? (
           <Spinner />
@@ -75,16 +75,16 @@ function ChangePassword() {
                 <ClearIcon />
               </button>
             </Link>
-            <div className="w-[450px] bg-dark-color p-12 rounded-xl sm:w-[400px] sm:p-11 smxl:w-[330px] smxl:p-9 sm2xl:p-8 sm2xl:w-[300px]">
-              <h1 className="text-3xl text-center font-semibold text-white leading-[2.375rem] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
+            <div className="w-[450px] bg-slate-200 p-12 rounded-xl sm:w-[400px] sm:p-11 smxl:w-[330px] smxl:p-9 sm2xl:p-8 sm2xl:w-[300px]">
+              <h1 className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
                 Change your password
               </h1>
-              <p className="mb-9 mt-5 text-center font-light text-[1rem] leading-[1.625rem] text-gray-300 sm:text-[14px] sm:mb-7 sm:mt-3">
+              <p className="mt-2 mb-7 font-light text-center text-lg sm:text-base leading-[1.625rem] text-black smxl:text-sm sm2xl:text-xs">
                 Create a new strong password.
               </p>
               <form onSubmit={submitPasswordForm}>
                 <label className="relative">
-                  <p className="mb-1 font-medium text-[0.875rem] leading-[1.375rem] text-white sm2xl:text-xs">
+                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
                     Old Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
@@ -93,24 +93,24 @@ function ChangePassword() {
                     type={showOldPassword ? "text" : "password"}
                     name="oldPassword"
                     id="oldPassword"
-                    placeholder="Enter Password"
+                    placeholder="Enter current password"
                     value={oldPassword}
                     onChange={handleOnChange}
-                    className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
+                    className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowOldPassword((prev) => !prev)}
-                    className="absolute right-3 top-[38px] z-[10] cursor-pointer sm2xl:top-[30px] sm:top-[35px]"
+                    className="absolute right-3 top-[39px] z-[10] cursor-pointer sm:top-[30px]"
                   >
                     {showOldPassword ? (
-                      <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                      <AiOutlineEyeInvisible fontSize={21} fill="#AFB2BF" />
                     ) : (
-                      <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                      <AiOutlineEye fontSize={21} fill="#AFB2BF" />
                     )}
                   </span>
                 </label>
                 <label className="relative mt-3 block">
-                  <p className="mb-1 font-medium text-[0.875rem] leading-[1.375rem] text-white sm2xl:text-xs">
+                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
                     Enter New Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
@@ -119,25 +119,25 @@ function ChangePassword() {
                     type={showNewPassword ? "text" : "password"}
                     name="newPassword"
                     id="newPassword"
-                    placeholder="Confirm Password"
+                    placeholder="Enter new password"
                     value={newPassword}
                     onChange={handleOnChange}
-                    className="w-full mb-5 px-3 py-3.5 text-black rounded-md outline-none text-sm sm:py-2.5"
+                    className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowNewPassword((prev) => !prev)}
-                    className="absolute right-3 top-[38px] z-[10] cursor-pointer sm:top-[35px]"
+                    className="absolute right-3 top-[39px] z-[10] cursor-pointer sm:top-[30px]"
                   >
                     {showNewPassword ? (
-                      <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                      <AiOutlineEyeInvisible fontSize={21} fill="#AFB2BF" />
                     ) : (
-                      <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                      <AiOutlineEye fontSize={21} fill="#AFB2BF" />
                     )}
                   </span>
                 </label>
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-[8px] bg-medium-color text-white py-[10px] px-[12px] font-medium sm:py-[8px] sm2xl:text-sm"
+                  className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] font-medium sm:py-[8px] smxl:text-xs"
                 >
                   Change Password
                 </button>
