@@ -79,13 +79,13 @@ function ChangePassword() {
               <h1 className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
                 Change your password
               </h1>
-              <p className="mt-2 mb-7 font-light text-center text-lg sm:text-base leading-[1.625rem] text-black smxl:text-sm sm2xl:text-xs">
+              <p className="mt-2 mb-7 font-light text-center sm:text-sm leading-[1.625rem] text-black smxl:text-xs sm2xl:text-[11px]">
                 Create a new strong password.
               </p>
               <form onSubmit={submitPasswordForm}>
                 <label className="relative">
                   <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
-                    Old Password <sup className="text-pink-200">*</sup>
+                    Current Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
                     required
@@ -96,7 +96,7 @@ function ChangePassword() {
                     placeholder="Enter current password"
                     value={oldPassword}
                     onChange={handleOnChange}
-                    className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
+                    className="w-full mb-3 px-3 bg-slate-50 py-3.5 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowOldPassword((prev) => !prev)}
@@ -111,7 +111,7 @@ function ChangePassword() {
                 </label>
                 <label className="relative mt-3 block">
                   <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
-                    Enter New Password <sup className="text-pink-200">*</sup>
+                    New Password <sup className="text-pink-200">*</sup>
                   </p>
                   <input
                     required
@@ -122,7 +122,7 @@ function ChangePassword() {
                     placeholder="Enter new password"
                     value={newPassword}
                     onChange={handleOnChange}
-                    className="w-full mb-3 px-3 py-3.5 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
+                    className="w-full mb-3 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowNewPassword((prev) => !prev)}

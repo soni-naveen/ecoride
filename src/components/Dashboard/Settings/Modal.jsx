@@ -40,9 +40,9 @@ function Modal({
           >
             <ClearIcon className="text-white" />
           </button>
-          <div className="modal-content bg-dark-color rounded-xl shadow-lg py-10 text-left px-10 smxl:p-8 sm2xl:px-7">
+          <div className="modal-content bg-slate-200 rounded-xl shadow-lg py-10 text-left px-10 smxl:p-8 sm2xl:px-7">
             <div className="flex justify-between items-center pb-5">
-              <p className="text-xl font-normal text-white sm2xl:text-sm smxl:text-lg">
+              <p className="text-xl font-medium text-dark-color sm2xl:text-sm smxl:text-lg">
                 {fieldName === "vehicle"
                   ? "Add your vehicle model and number *"
                   : `What's your ${fieldName}?`}
@@ -57,14 +57,14 @@ function Modal({
                 value={fieldValue}
                 pattern={patternType}
                 onChange={(e) => handleChange(e, fieldName)}
-                className="w-full p-3 outline-none rounded smxl:text-sm sm2xl:py-1.5"
+                className="w-full p-3 bg-slate-50 outline-none rounded smxl:text-sm sm2xl:py-1.5"
               />
               <div className="flex justify-center pt-8">
                 <button
                   type="submit"
                   className="px-7 py-1.5 font-medium bg-medium-color text-white rounded hover:bg-[#39a198] focus:outline-none smxl:text-sm sm2xl:text-xs"
                 >
-                  SAVE
+                  Save
                 </button>
               </div>
             </form>

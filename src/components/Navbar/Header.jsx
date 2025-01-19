@@ -11,7 +11,7 @@ const Header = () => {
   const { token } = useSelector((state) => state.auth);
   return (
     <>
-      <div className="navBar max-w-[1800px] m-auto bg-white sticky h-[70px] top-0 shadow-md flex justify-between items-center px-8 z-20 w-full smxl:pl-0 sm:h-[60px] smxl:pr-3 sm:pr-4 sm:px-0 md:pl-0 md:pr-4 md1:pl-0 md1:pr-4 lg:pl-2 lg:pr-6">
+      <div className="navBar max-w-[1800px] m-auto sticky bg-white h-[70px] top-0 shadow-md flex justify-between items-center px-8 z-20 w-full smxl:pl-0 sm:h-[60px] smxl:pr-3 sm:pr-4 sm:px-0 md:pl-0 md:pr-4 md1:pl-0 md1:pr-4 lg:pl-2 lg:pr-6">
         <div className="logo smxl:ml-0 md:ml-2 md1:ml-6">
           <Link to="/">
             <img
