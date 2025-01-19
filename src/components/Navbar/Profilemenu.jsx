@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { BiMessageDetail } from "react-icons/bi";
@@ -23,7 +23,7 @@ export default function ProfileDropdown() {
   if (!token) return null;
 
   return (
-    <button className="relative" onClick={() => setOpen(true)}>
+    <button className="relative" ref={ref} onClick={() => setOpen(true)}>
       {user?.inbox?.message?.length !== 0 &&
       user?.inbox?.message?.length !== undefined ? (
         <div className="w-3 h-3 border rounded-full bg-red-600 absolute md:w-2 md:h-2"></div>
@@ -44,8 +44,7 @@ export default function ProfileDropdown() {
         <div className="animate-dropdown-animation absolute top-[130%] right-0">
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute top-[130%] right-0 z-[1000] overflow-hidden rounded-sm shadow-lg triangle-border"
-            ref={ref}
+            className="absolute top-[130%] right-0 z-[1000] overflow-hidden rounded-md shadow-lg triangle-border"
           >
             <Link
               to="/dashboard/myprofile?profile=about"
