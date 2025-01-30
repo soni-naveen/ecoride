@@ -167,6 +167,12 @@ const Contact = () => {
                 )}
               </div>
 
+              {/*========== VERIFY RECAPTCHA ========== */}
+              <ReCAPTCHA
+                className="sm2xl:scale-75 sm2xl:-ml-9 smxl:-ml-8 smxl:scale-[0.8] sm:scale-[0.85] sm:-ml-6"
+                ref={recaptcha}
+                sitekey={import.meta.env.VITE_REACT_APP_SITE_KEY}
+              />
               {/*========== SUBMIT BUTTON ========== */}
               <button
                 disabled={loading}
@@ -178,11 +184,6 @@ const Contact = () => {
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
-              <ReCAPTCHA
-                className="sm2xl:scale-75 sm2xl:-ml-9 smxl:-ml-8 smxl:scale-[0.8] sm:scale-[0.85] sm:-ml-6"
-                ref={recaptcha}
-                sitekey={import.meta.env.VITE_REACT_APP_SITE_KEY}
-              />
             </form>
           </div>
         </div>
