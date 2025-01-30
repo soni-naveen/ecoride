@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { apiConnector } from "../services/apiConnector";
@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 import { contactusEndpoint } from "../services/apis";
 import ContactUs from "../assets/contact_us.png";
 import Footer from "../components/Footer/Footer";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+  const recaptcha = useRef();
   const { user } = useSelector((state) => state.profile);
   const [loading, setLoading] = useState(false);
   const {
@@ -15,11 +17,18 @@ const Contact = () => {
     handleSubmit,
     reset,
     setValue,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm();
 
   const submitContactForm = async (data) => {
-    const toastId = toast.loading("Loading...");
+    const captchaValue = recaptcha.current.getValue();
+
+    if (!captchaValue) {
+      alert("Please verify the reCAPTCHA!");
+      return;
+    }
+
+    // const toastId = toast.loading("Loading...");
     try {
       setLoading(true);
       const res = await apiConnector(
@@ -29,23 +38,18 @@ const Contact = () => {
       );
       setLoading(false);
       toast.success("Submitted Successfully!");
-    } catch (error) {
-      console.log("ERROR MESSAGE - ", error.message);
-      setLoading(false);
-    }
-    toast.dismiss(toastId);
-  };
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
       reset({
         email: "",
         firstname: "",
         lastname: "",
         message: "",
       });
+    } catch (error) {
+      console.log("ERROR MESSAGE - ", error.message);
+      setLoading(false);
     }
-  }, [reset, isSubmitSuccessful]);
+    // toast.dismiss(toastId);
+  };
 
   useEffect(() => {
     if (user) {
@@ -66,7 +70,7 @@ const Contact = () => {
           {/*========== SUBHEADING ========== */}
           <p className="sm:text-sm smxl:text-xs">
             We're here to Listen! Please fill out this form
-          </p> 
+          </p>
           <div className="my-5">
             <form
               className="flex flex-col gap-7 sm2xl:w-[250px]"
@@ -75,7 +79,10 @@ const Contact = () => {
               <div className="flex gap-5 sm:flex-col">
                 {/*========== FIRST NAME ========== */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="firstname" className="text-sm text-gray-700 smxl:text-xs">
+                  <label
+                    htmlFor="firstname"
+                    className="text-sm text-gray-700 smxl:text-xs"
+                  >
                     First Name
                   </label>
                   <input
@@ -95,7 +102,10 @@ const Contact = () => {
                 </div>
                 {/*========== LAST NAME ========== */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="lastname" className="text-sm text-gray-700 smxl:text-xs">
+                  <label
+                    htmlFor="lastname"
+                    className="text-sm text-gray-700 smxl:text-xs"
+                  >
                     Last Name
                   </label>
                   <input
@@ -111,7 +121,10 @@ const Contact = () => {
               </div>
               {/*========== EMAIL ADDRESS ========== */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="email" className="text-sm text-gray-700 smxl:text-xs">
+                <label
+                  htmlFor="email"
+                  className="text-sm text-gray-700 smxl:text-xs"
+                >
                   Email Address
                 </label>
                 <input
@@ -132,7 +145,10 @@ const Contact = () => {
 
               {/*========== YOUR MESSAGE ========== */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="message" className="text-sm text-gray-700 smxl:text-xs">
+                <label
+                  htmlFor="message"
+                  className="text-sm text-gray-700 smxl:text-xs"
+                >
                   Message
                 </label>
                 <textarea
@@ -157,11 +173,16 @@ const Contact = () => {
                 type="submit"
                 className={`rounded bg-medium-color font-normal px-6 py-2.5 text-center text-base font-bold text-white ${
                   !loading &&
-                  "transition-all duration-200 hover:scale-95 hover:shadow-none"
+                  "transition-all duration-200 hover:scale-[0.98] hover:shadow-none"
                 } sm:text-base `}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
+              <ReCAPTCHA
+                className="sm2xl:scale-75 sm2xl:-ml-9 smxl:-ml-8 smxl:scale-[0.8] sm:scale-[0.85] sm:-ml-6"
+                ref={recaptcha}
+                sitekey={import.meta.env.VITE_REACT_APP_SITE_KEY}
+              />
             </form>
           </div>
         </div>
