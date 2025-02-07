@@ -131,11 +131,11 @@ function Signup() {
               <ClearIcon />
             </button>
           </Link>
-          <div className="bg-slate-200 rounded-xl px-16 py-12 flex flex-col gap-5 items-center mx-4 smxl:py-10 smxl:px-10 sm:px-14">
-            <h1 className="text-3xl text-dark-color font-semibold smxl:text-2xl">
+          <div className="bg-slate-200 rounded-xl px-16 py-12 flex flex-col gap-5 items-center mx-4 smxl:px-10 sm:px-14">
+            <h1 className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
               Create Account
             </h1>
-            <p className="text-xs text-black text-center w-60 smxl:text-[10px] smxl:w-52 mb-3">
+            <p className="text-xs text-black text-center w-60 smxl:w-52 mb-3">
               By signup in you are agreeing our{" "}
               <a className="text-blue-500">Terms and privacy policy</a>
             </p>
@@ -159,7 +159,7 @@ function Signup() {
             >
               {/*============ EMAIL ========== */}
               <label className="w-full">
-                <div className="mb-1 text-black text-xs leading-[1.375rem] smxl:text-[10px]">
+                <div className="mb-1 text-black text-xs leading-[1.375rem] leading-snug">
                   Email Address <sup className="text-red-600">*</sup>
                 </div>
                 <input
@@ -171,12 +171,12 @@ function Signup() {
                   value={email}
                   onChange={handleOnChange}
                   placeholder="e.g. jonedoe@example.com"
-                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5 smxl:text-xs"
+                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
               {/*============ PASSWORD ========== */}
               <label className="relative">
-                <div className="mb-1 text-black text-xs leading-[1.375rem] smxl:text-[10px]">
+                <div className="mb-1 text-black text-xs leading-[1.375rem]">
                   Create Password <sup className="text-red-600">*</sup>
                 </div>
                 <input
@@ -187,7 +187,7 @@ function Signup() {
                   value={password}
                   onChange={handleOnChange1}
                   placeholder="Enter password"
-                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5 smxl:text-xs"
+                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
                   onClick={() => setShowPassword((prev) => !prev)}
@@ -203,7 +203,7 @@ function Signup() {
               </label>
               {/*============ CONFIRM PASSWORD ========== */}
               <label className="relative">
-                <p className="mb-1 text-black text-xs leading-[1.375rem] smxl:text-[10px]">
+                <p className="mb-1 text-black text-xs leading-[1.375rem]">
                   Confirm Password <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -214,7 +214,7 @@ function Signup() {
                   value={confirmPassword}
                   onChange={handleOnChange2}
                   placeholder="Confirm password"
-                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5 smxl:text-xs"
+                  className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
                   onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -234,9 +234,9 @@ function Signup() {
               {/*============ SUBMIT BUTTON ========== */}
               <button
                 type="submit"
-                className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm smxl:text-xs hover:scale-[1.02] transition-all ease-in-out duration-200"
+                className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:scale-[1.02] transition-all ease-in-out duration-200"
               >
-                Sign Up
+                SIGN UP
               </button>
               <div className="flex flex-col justify-center items-start">
                 <p className="text-xs text-gray-500 font-normal mt-4">

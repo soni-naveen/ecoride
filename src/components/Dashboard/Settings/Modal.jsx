@@ -62,9 +62,9 @@ function Modal({
               <div className="flex justify-center pt-8">
                 <button
                   type="submit"
-                  className="px-7 py-1.5 font-medium bg-medium-color text-white rounded hover:bg-[#39a198] focus:outline-none smxl:text-sm sm2xl:text-xs"
+                  className="px-7 py-1.5 bg-medium-color text-white rounded hover:bg-[#39a198] focus:outline-none smxl:text-sm sm2xl:text-xs"
                 >
-                  Save
+                  SAVE
                 </button>
               </div>
             </form>

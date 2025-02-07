@@ -37,9 +37,9 @@ const Footer = () => {
 
   return (
     <div className="bg-dark-color text-center pt-14 max-w-[1800px] mx-auto lg:pt-10">
-      <div className="flex justify-evenly items-start text-white flex-wrap smxl:flex-col lg:justify-center lg:items-center lg:gap-10">
+      <div className="flex justify-evenly items-start text-white flex-wrap smxl:flex-col smxl:items-start  sm2xl:pl-6 smxl:pl-10 lg:justify-center lg:items-center lg:gap-10">
         {/*======================= LEFT PART =================== */}
-        <div className="left flex flex-col gap-10 items-start lg:w-full lg:items-center smxl:gap-8">
+        <div className="left flex flex-col gap-10 smxl:items-start lg:w-full lg:items-center items-start smxl:gap-8">
           {/*==== LOGO === */}
           <div className="w-32">
             <img draggable="false" src={Logo} alt="EcoRide" />
@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
           </div>
           {/*====== GET IN TOUCH ===== */}
-          <div className="text-start lg:text-center">
+          <div className="smxl:text-start lg:text-center text-start">
             <h1 className="font-light text-sm">Get In Touch</h1>
             <a
               href="mailto:ecoride.in@gmail.com"
@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
 
         {/*======================= CENTER LEFT =================== */}
-        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm">
+        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
           <Link to="/aboutus">
             <h1 className="hover:underline">About Us</h1>
           </Link>
@@ -103,12 +103,12 @@ const Footer = () => {
         </div>
 
         {/*======================= CENTER RIGHT =================== */}
-        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:items-center smxl:gap-5 text-sm">
-          <Link to="/#faq" className="hover:underline">
-            FAQ
-          </Link>
+        <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
           <Link to="/helpcenter">
             <h1 className="hover:underline">Help Center</h1>
+          </Link>
+          <Link to="/#faq" className="hover:underline">
+            FAQs
           </Link>
           <a href="https://e-social.vercel.app" target="_blank">
             <h1 className="hover:underline cursor-pointer">E-Social</h1>
@@ -119,15 +119,15 @@ const Footer = () => {
         </div>
 
         {/*======================= RIGHT PART =================== */}
-        <div className="right flex flex-col gap-8 lg:w-full">
-          <div>
-            <h1 className="font-light text-sm text-start lg:text-center mb-3">
+        <div className="right flex flex-col smxl:items-start items-center gap-8 lg:w-full">
+          <div className="w-fit">
+            <h1 className="font-light text-sm text-start mb-3">
               Stay upto date :
             </h1>
             <form
               onSubmit={handleSubmit}
               name="submit-to-google-sheet"
-              className="flex flex-col items-start lg:items-center justify-center"
+              className="flex flex-col justify-center"
             >
               <input
                 required
@@ -137,12 +137,12 @@ const Footer = () => {
                 pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#24515f] border-gray-400 border outline-none px-2 py-3.5 rounded-sm w-[240px] text-xs smxl:w-[200px] smxl:py-2.5"
+                className="bg-[#24515f] border-gray-400 border outline-none px-3 py-3.5 rounded-sm w-[240px] text-xs smxl:py-3"
               />
               <input
                 type="submit"
                 value="SUBSCRIBE"
-                className="bg-medium-color py-1.5 px-2 tracking-wider mt-4 text-xs transition-all rounded-sm hover:cursor-pointer smxl:text-[10px]"
+                className="bg-medium-color py-1.5 px-2 tracking-wider mt-4 text-xs transition-all rounded hover:cursor-pointer"
               />
             </form>
           </div>
@@ -150,8 +150,8 @@ const Footer = () => {
       </div>
       {/*======================= BOTTOM =================== */}
       <div className="copyright">
-        <p className="font-light text-gray-300 text-xs sm:text-[10px] pb-5 pt-12 lg:mt-0">
-          Copyright © 2024 EcoRide. All Rights Reserved.
+        <p className="font-light text-gray-300 text-xs smxl:text-start sm2xl:pl-6 smxl:pl-10 pb-5 pt-12 lg:mt-0">
+          Copyright © 2025 EcoRide. All Rights Reserved.
         </p>
       </div>
     </div>

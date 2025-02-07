@@ -94,9 +94,9 @@ function Verification() {
                 />
                 <button
                   type="submit"
-                  className="w-[90%] bg-medium-color py-[12px] px-[12px] rounded-[5px] mt-5 font-medium sm:text-sm sm:py-[10px] smxl:text-xs"
+                  className="w-[90%] bg-medium-color py-[10px] px-[12px] rounded-[5px] mt-5 sm:text-sm sm:py-[9px]"
                 >
-                  Verify Email
+                  VERIFY
                 </button>
               </form>
               <div className="mt-3 w-[230px] text-[15px] flex justify-between">
@@ -106,7 +106,7 @@ function Verification() {
                   </p>
                 </Link>
                 <button
-                  className="flex items-center text-blue-100 gap-x-2 sm:text-[0.9rem]"
+                  className="flex items-center text-gray-600 gap-x-2 sm:text-sm smxl:text-xs"
                   onClick={() => dispatch(sendOtp(signupData.email, navigate))}
                 >
                   <RxCountdownTimer />

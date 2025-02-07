@@ -61,11 +61,11 @@ function Login() {
               <ClearIcon />
             </button>
           </Link>
-          <div className="bg-slate-200 rounded-xl px-16 py-12 flex flex-col gap-5 items-center mx-4 smxl:py-10 smxl:px-10 sm:px-14">
-            <h1 className="text-3xl text-dark-color font-semibold smxl:text-2xl">
+          <div className="bg-slate-200 rounded-xl px-16 py-12 flex flex-col gap-5 items-center mx-4 smxl:px-10 sm:px-14">
+            <h1 className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
               Welcome Back
             </h1>
-            <p className="text-xs text-black text-center w-56 smxl:text-[10px] smxl:w-52 mb-2">
+            <p className="text-xs text-black text-center w-56 smxl:w-48 mb-2">
               Hi, Please enter your details to log in to your account.
             </p>
             {/* <button
@@ -88,7 +88,7 @@ function Login() {
             >
               {/*============ EMAIL ========== */}
               <label className="w-full">
-                <p className="mb-1 text-black text-xs leading-[1.375rem] smxl:text-[10px]">
+                <p className="mb-1 text-black text-xs leading-[1.375rem]">
                   Email Address <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -100,12 +100,12 @@ function Login() {
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   onChange={handleOnChange}
                   placeholder="e.g. jonedoe@example.com"
-                  className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5 smxl:text-xs"
+                  className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
               {/*============ PASSWORD ========== */}
               <label className="relative">
-                <p className="mb-1 text-black text-xs leading-[1.375rem] smxl:text-[10px]">
+                <p className="mb-1 text-black text-xs leading-[1.375rem]">
                   Password <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -116,7 +116,7 @@ function Login() {
                   value={password}
                   onChange={handleOnChange}
                   placeholder="Enter password"
-                  className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5 smxl:text-xs"
+                  className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
                   onClick={() => setShowPassword((prev) => !prev)}
@@ -132,12 +132,12 @@ function Login() {
               {/*============ FORGOT PASSWORD ========== */}
               <Link
                 to="/forgot-password"
-                className="font-light text-blue-600 place-self-end text-xs underline -mt-2 sm:text-[10px]"
+                className="font-light text-blue-600 place-self-end text-xs underline -mt-2 sm:text-[11px]"
               >
                 Forgot Password?
               </Link>
-              <button className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm smxl:text-xs hover:scale-[1.02] transition-all ease-in-out duration-200">
-                Login
+              <button className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:scale-[1.02] transition-all ease-in-out duration-200">
+                LOGIN
               </button>
               <div className="gotosignup flex flex-col justify-center items-start">
                 <p className="text-xs text-gray-500 font-normal mt-4">

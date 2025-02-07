@@ -76,12 +76,12 @@ function UpdatePassword() {
               <h1 className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
                 Choose new password
               </h1>
-              <p className="mt-2 mb-7 font-light text-center text-lg sm:text-base leading-[1.625rem] text-black smxl:text-sm sm2xl:text-xs">
+              <p className="mt-2 mb-7 font-light text-center text-lg sm:text-base leading-[1.625rem] text-black smxl:text-sm">
                 Reset your password
               </p>
               <form onSubmit={handleOnSubmit}>
                 <label className="relative">
-                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
+                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs">
                     New Password <sup className="text-red-600">*</sup>
                   </p>
                   <input
@@ -92,7 +92,7 @@ function UpdatePassword() {
                     value={password}
                     onChange={handleOnChange}
                     placeholder="Enter Password"
-                    className="w-full mb-3 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm smxl:text-xs sm:py-2.5"
+                    className="w-full mb-3 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowPassword((prev) => !prev)}
@@ -106,7 +106,7 @@ function UpdatePassword() {
                   </span>
                 </label>
                 <label className="relative mt-3 block">
-                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs smxl:text-[10px]">
+                  <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs">
                     Confirm New Password <sup className="text-red-600">*</sup>
                   </p>
                   <input
@@ -117,7 +117,7 @@ function UpdatePassword() {
                     value={confirmPassword}
                     onChange={handleOnChange}
                     placeholder="Confirm Password"
-                    className="w-full mb-5 px-3 py-3.5 bg-slate-50 smxl:text-xs text-black rounded-md outline-none text-sm sm:py-2.5"
+                    className="w-full mb-5 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
                     onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -133,7 +133,7 @@ function UpdatePassword() {
 
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] font-medium sm:py-[8px] smxl:text-xs"
+                  className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] sm:py-[8px] smxl:text-sm"
                 >
                   Reset Password
                 </button>

@@ -45,8 +45,8 @@ function ForgotPassword() {
                 <ClearIcon />
               </button>
             </Link>
-            <div className="max-w-[500px] bg-slate-200 p-12 rounded-xl sm:p-10 sm:max-w-[370px] mx-3">
-              <h1 className="text-3xl font-semibold text-dark-color mb-5 sm:text-2xl leading-[2.375rem] smxl:text-xl sm2xl:text-lg">
+            <div className="max-w-[500px] bg-slate-200 p-12 rounded-xl sm2xl:px-8 sm2xl:py-10 sm:p-10 sm:max-w-[370px] mx-3">
+              <h1 className="text-3xl font-semibold text-dark-color mb-5 sm:text-2xl leading-[2.375rem] sm2xl:text-xl">
                 {!emailSent ? "Reset your password" : "Check email"}
               </h1>
               <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-black sm:text-sm smxl:text-xs">
@@ -57,7 +57,7 @@ function ForgotPassword() {
               <form onSubmit={handleOnSubmit}>
                 {!emailSent && (
                   <label className="w-full">
-                    <p className="mb-1 text-xs leading-[1.375rem] text-black smxl:text-[10px]">
+                    <p className="mb-1 text-xs leading-[1.375rem] text-black">
                       Email Address <sup className="text-red-600">*</sup>
                     </p>
                     <input
@@ -68,13 +68,13 @@ function ForgotPassword() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="e.g. jonedoe@example.com"
-                      className="w-full px-3 py-3.5 text-black bg-slate-50 placeholder:text-gray-400 rounded-md outline-none text-sm sm:py-2.5 smxl:text-xs"
+                      className="w-full px-3 py-3.5 text-black bg-slate-50 placeholder:text-gray-400 rounded-md outline-none text-sm sm:py-2.5"
                     />
                   </label>
                 )}
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] font-medium sm:py-[8px] smxl:text-xs"
+                  className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] sm:py-[8px] smxl:text-sm"
                 >
                   {!emailSent ? "Submit" : "Resend Email"}
                 </button>
