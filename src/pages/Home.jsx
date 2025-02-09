@@ -259,7 +259,7 @@ const Home = () => {
         {/* *******************************************************************************************************
                                               Our Service Feedback
         ******************************************************************************************************** */}
-        <div className="feedback w-full h-[500px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[360px] smxl:h-[370px] sm:h-[400px] md:justify-center md1:h-[430px]">
+        <div className="feedback pt-10 w-full h-[600px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[450px] smxl:h-[430px] sm:h-[450px] md:justify-center md1:h-[500px]">
           <div className="heading font-semibold mt-10 smxl:mt-5 md:mt-0">
             <h1 className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 sm:text-3xl md:mt-10 md1:text-4xl">
               Our Service Feedback
