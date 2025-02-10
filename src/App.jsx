@@ -55,7 +55,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -69,7 +69,7 @@ function App() {
   return (
     <>
       {loading ? (
-        <div className="grid min-h-[calc(100vh-50px)] place-items-center">
+        <div className="grid min-h-screen place-items-center">
           <StartLoader />
         </div>
       ) : (
