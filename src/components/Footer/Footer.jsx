@@ -150,7 +150,7 @@ const Footer = () => {
       </div>
       {/*======================= BOTTOM =================== */}
       <div className="copyright">
-        <p className="font-light text-gray-300 text-xs smxl:text-start sm2xl:pl-6 smxl:pl-10 pb-5 pt-12 lg:mt-0">
+        <p className="font-light text-gray-300 text-xs smxl:text-start sm2xl:pl-6 smxl:pl-10 pb-3 pt-12 lg:mt-0">
           Copyright © 2025 EcoRide. All Rights Reserved.
         </p>
       </div>

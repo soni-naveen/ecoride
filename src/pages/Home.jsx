@@ -13,7 +13,6 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Map from "../components/Map.jsx";
 import Calender from "../components/Calender.jsx";
 import Numberinput from "../components/Numberinput.jsx";
-import AnimateBU from "../animations/AnimationBU.jsx";
 import AnimateLR from "../animations/AnimationLR.jsx";
 import Counter from "../animations/Counting.jsx";
 import Autocomplete from "../components/Autocomplete.jsx";
@@ -21,7 +20,8 @@ import { BsRobot } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../components/Footer/Footer.jsx";
-import "animate.css";
+import SplitText from "../animations/SplitText.jsx";
+import AnimateBU from "../animations/AnimationBU.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -76,8 +76,16 @@ const Home = () => {
             alt="Sharing rides building connections"
             className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
           />
-          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] sm2xl:text-[35px] sm2xl:top-[80px] sm2xl:left-[25px] smxl:top-[70px] smxl:left-[30px] smxl:text-4xl smxl:leading-snug sm:top-[110px] sm:left-[40px] sm:text-[40px] sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[130px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%] animate__animated animate__fadeInDown">
-            Sharing rides, building connections
+          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] sm2xl:text-[35px] sm2xl:top-[80px] sm2xl:left-[25px] smxl:top-[70px] smxl:left-[30px] smxl:text-4xl smxl:leading-snug sm:top-[110px] sm:left-[40px] sm:text-[40px] sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[130px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%]">
+            <SplitText
+              text="Sharing rides, building connections"
+              delay={30}
+              animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              easing="easeOutCubic"
+              threshold={0.2}
+              rootMargin="-50px"
+            />
           </div>
 
           <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]   sm2xl:text-base sm2xl:leading-[45px] smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
@@ -206,14 +214,23 @@ const Home = () => {
           className="stickWithUs h-auto w-full p-20 my-10 sm:p-10 sm:mb-7 smxl:mt-5 md1:p-14"
         >
           <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-12 sm:w-4/5 md1:gap-20 m-auto">
-            <div>
-              <h1 className="text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:text-center revealbu">
-                People stick with us because
-                <AnimateBU />
-              </h1>
-            </div>
-
-            <div className="cards revealbu flex gap-14 justify-evenly items-start h-auto lg:flex-col lg:items-center">
+            <AnimateBU
+              distance={150}
+              direction="vertical"
+              reverse={false}
+              config={{ tension: 80, friction: 20 }}
+              initialOpacity={0.2}
+              animateOpacity
+              scale={1.1}
+              threshold={0.2}
+            >
+              <div>
+                <h1 className="text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:text-center">
+                  People stick with us because
+                </h1>
+              </div>
+            </AnimateBU>
+            <div className="cards flex gap-14 justify-evenly items-start h-auto lg:flex-col lg:items-center">
               <Stickingcards
                 icon={
                   <VerifiedUserIcon sx={{ fontSize: { xs: 27, sm: 35 } }} />
@@ -250,7 +267,7 @@ const Home = () => {
             <div className="heading text-white text-5xl font-semibold smxl:text-2xl md1:text-4xl sm:text-3xl">
               FAQ's
             </div>
-            <div className="revealbu mb-8 flex justify-center">
+            <div className="mb-8 flex justify-center">
               <AccordionUsage />
             </div>
           </div>

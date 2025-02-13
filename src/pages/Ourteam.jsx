@@ -60,7 +60,7 @@ function Ourteam() {
               name="Naveen Soni"
               title="Co-Founder"
               image={two}
-              description="Collaborative co-founder at Ecorides, a Full-Stack developer fostering teamwork, creativity, and synergy for project growth and success"
+              description="Collaborative co-founder at Ecorides, a Full-Stack developer fostering teamwork, creativity, and synergy for project growth and success."
               link1="https://www.instagram.com/naveenn.soni/"
               link2="https://www.linkedin.com/in/soni-naveen"
             />
