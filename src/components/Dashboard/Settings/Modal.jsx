@@ -36,7 +36,7 @@ function Modal({
         <div className="modal-container w-96 mx-auto z-50 smxl:w-80 sm2xl:w-64">
           <button
             onClick={handleClose}
-            className="flex justify-end w-full mb-2"
+            className="flex justify-end w-full mb-1"
           >
             <ClearIcon className="text-white" />
           </button>

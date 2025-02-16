@@ -33,13 +33,6 @@ function UpdatePassword() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const token = location.pathname.split("/").at(-1);
-    if (password.length < 8) {
-      toast.error("Password length atleast 8");
-      return;
-    } else if (password !== confirmPassword) {
-      toast.error("Password do not match");
-      return;
-    }
     dispatch(resetPassword(password, confirmPassword, token, navigate));
   };
 
@@ -66,7 +59,7 @@ function UpdatePassword() {
             <Link
               to={"/home"}
               ref={button}
-              className="place-self-end mb-4 sm2xl:place-self-center"
+              className="place-self-end mb-1 sm2xl:place-self-center"
             >
               <button>
                 <ClearIcon />

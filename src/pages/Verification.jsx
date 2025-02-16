@@ -50,7 +50,7 @@ function Verification() {
             <Spinner />
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center gap-3 text-white">
+          <div className="flex flex-col items-center justify-center gap-1 text-white">
             <Link
               to={"/home"}
               ref={button}

@@ -51,7 +51,7 @@ function Login() {
         onClick={closeModel}
         className="fixed inset-0 overflow-auto bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50"
       >
-        <div className="flex flex-col gap-3 text-white">
+        <div className="flex flex-col gap-1 text-white">
           <Link
             to={"/home"}
             ref={button}

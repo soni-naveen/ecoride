@@ -95,7 +95,7 @@ export function login(email, password) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
-      toast.error("Login Failed");
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
@@ -149,7 +149,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       navigate("/login");
     } catch (error) {
       console.log("RESETPASSWORD ERROR............", error);
-      toast.error("Failed To Reset Password");
+      toast.error(error.response.data.message);
     }
     toast.dismiss(toastId);
     dispatch(setLoading(false));

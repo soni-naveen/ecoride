@@ -39,7 +39,7 @@ function ForgotPassword() {
             <Link
               to={"/home"}
               ref={button}
-              className="place-self-end mb-4 sm2xl:place-self-center mr-3"
+              className="place-self-end mb-1 sm2xl:place-self-center mr-3"
             >
               <button>
                 <ClearIcon />
