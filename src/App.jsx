@@ -50,14 +50,18 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
+    const isFirstLoad = sessionStorage.getItem("firstLoad");
 
-    return () => clearTimeout(timer);
+    if (!isFirstLoad) {
+      setLoading(true);
+      sessionStorage.setItem("firstLoad", "true");
+      setTimeout(() => {
+        setLoading(false);
+      }, 2500);
+    }
   }, []);
 
   useEffect(() => {

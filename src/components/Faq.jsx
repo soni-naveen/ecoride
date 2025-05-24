@@ -110,7 +110,7 @@ export default function AccordionUsage() {
             How do I publish a ride?
           </AccordionSummary>
           <AccordionDetails className="text-sm sm2xl:text-xs">
-            Offering a ride on EcoRide is easy. To publish your ride login to
+            Offering a ride on Ecoride is easy. To publish your ride login to
             your account (signup in case you don't have account). Click on{" "}
             <Link to="/dashboard/publishride" className="underline">
               Publish ride

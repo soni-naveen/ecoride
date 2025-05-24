@@ -1,9 +1,9 @@
 import React from "react";
 import Teamcard from "../components/Teamcard";
-import one from "../assets/Team/one.jpg";
-import two from "../assets/Team/two.jpg";
-import three from "../assets/Team/three.jpg";
-import four from "../assets/Team/four.jpg";
+import naveen from "../assets/Team/naveen.jpg";
+import mukul from "../assets/Team/mukul.jpg";
+import muskan from "../assets/Team/muskan.jpg";
+import manav from "../assets/Team/manav.jpg";
 import Footer from "../components/Footer/Footer.jsx";
 
 function Ourteam() {
@@ -59,33 +59,33 @@ function Ourteam() {
             <Teamcard
               name="Naveen Soni"
               title="Co-Founder"
-              image={two}
+              image={naveen}
               description="Collaborative co-founder at Ecoride, a Full-Stack developer fostering teamwork, creativity, and synergy for project growth and success."
-              link1="https://www.instagram.com/naveenn.soni/"
+              link1="mailto:naveen@theecoride.in"
               link2="https://www.linkedin.com/in/soni-naveen"
             />
             <Teamcard
               name="Mukul Kumar"
               title="Co-Founder"
-              image={one}
+              image={mukul}
               description="Collaborative co-founder at Ecoride, a Full-Stack developer focusing on new innovation and guiding strategic vision for the team."
-              link1="https://www.instagram.com/mukulkumar07/"
+              link1="mailto:mukul@theecoride.in"
               link2="https://www.linkedin.com/in/mukulkumar007"
             />
             <Teamcard
               name="Muskan Verma"
               title="CEO"
-              image={three}
+              image={muskan}
               description="Logical and focused spearheading innovation, driving growth, and ensuring team excellence for team success."
-              link1="https://www.instagram.com/_muskan_._verma_/"
+              link1="mailto:muskan0904.be21@chitkara.edu.in"
               link2="https://www.linkedin.com/in/muskan-verma-b485b0240"
             />
             <Teamcard
               name="Manav Gupta"
               title="Managing Director"
-              image={four}
+              image={manav}
               description="Adaptable and versetile team manager, optimizing resources, assets and cultivating collaboration for project advancement."
-              link1="https://www.instagram.com/manav_gupta04/"
+              link1="mailto:manav0844.be21@chitkara.edu.in"
               link2="https://www.linkedin.com/in/manav-gupta2804"
             />
           </div>

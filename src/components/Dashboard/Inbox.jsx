@@ -146,7 +146,7 @@ export default function Inbox() {
                       <div className="bg-light-color text-center font-medium text-lg text-dark-color w-full p-4 smxl:text-base sm:p-3.5 sm2xl:text-sm">
                         <div className="flex items-center justify-center gap-2">
                           <PiChatsFill className="text-2xl smxl:text-lg sm2xl:text-base" />
-                          <span>EcoRide Chats</span>
+                          <span>Ecoride Chats</span>
                         </div>
                       </div>
                       {chats?.map((chat) => (

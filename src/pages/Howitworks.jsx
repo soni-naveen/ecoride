@@ -35,7 +35,7 @@ function Howitworks() {
                   Creating an account
                 </h3>
                 <p className="text-gray-500 smxl:text-sm">
-                  Signing up on EcoRide is completely free! Sign up with your
+                  Signing up on Ecoride is completely free! Sign up with your
                   email and password.
                 </p>
               </div>

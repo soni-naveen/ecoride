@@ -66,7 +66,7 @@ export default function Publishride() {
     <div className="container h-full">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
         <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
-          Become a EcoRide Driver and save on travel costs by sharing your rides
+          Become a Ecoride Driver and save on travel costs by sharing your rides
           with passengers.
         </h1>
       </div>
