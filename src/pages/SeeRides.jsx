@@ -167,9 +167,9 @@ function Seerides() {
             {/*=========== LEFT SIDE ==========*/}
             <div className="leftSide h-fit sticky top-36 left-5 overflow-scroll px-10 py-5 border-r-2 mt-20 gap-4 flex flex-col xl:hidden">
               <div className="filterHeading">
-                <h1 className="font-bold text-lg text-center text-dark-color">
+                <div className="font-bold text-lg text-center text-dark-color">
                   Add Filters
-                </h1>
+                </div>
               </div>
               {/*-------------------------------------- Sort By section */}
               <div className="sortBy flex flex-col items-center justify-between bg-light-color w-[320px] h-[120px] p-4 xl:w-[270px] lg:w-[240px]">

@@ -53,7 +53,7 @@ function Login() {
       >
         <div className="flex flex-col gap-1 text-white">
           <Link
-            to={"/home"}
+            to={"/"}
             ref={button}
             className=" place-self-end mr-4 sm2xl:place-self-center"
           >
@@ -62,9 +62,9 @@ function Login() {
             </button>
           </Link>
           <div className="bg-slate-200 rounded-xl px-16 py-12 flex flex-col gap-5 items-center mx-4 smxl:px-10 sm:px-14">
-            <h1 className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
+            <div className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
               Welcome Back
-            </h1>
+            </div>
             <p className="text-xs text-black text-center w-56 smxl:w-48 mb-2">
               Hi, Please enter your details to log in to your account.
             </p>

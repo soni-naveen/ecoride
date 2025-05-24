@@ -52,7 +52,7 @@ function Verification() {
         ) : (
           <div className="flex flex-col items-center justify-center gap-1 text-white">
             <Link
-              to={"/home"}
+              to={"/"}
               ref={button}
               className=" place-self-end sm2xl:place-self-center"
             >
@@ -61,9 +61,9 @@ function Verification() {
               </button>
             </Link>
             <div className="bg-slate-200 rounded-xl py-10 flex flex-col gap-5 justify-center items-center w-[500px] smxl:w-[340px] sm:w-[430px] smxl:pt-10 smxl:pb-8">
-              <h1 className="font-medium text-dark-color text-center text-[1.875rem] leading-[2.375rem] sm:text-2xl smxl:text-[22px]">
+              <div className="font-medium text-dark-color text-center text-[1.875rem] leading-[2.375rem] sm:text-2xl smxl:text-[22px]">
                 Verify Email
-              </h1>
+              </div>
               <p className="w-[70%] text-lg text-center leading-8 font-light mb-5 sm2xl:leading-6 text-black sm:text-base smxl:text-sm sm:leading-6 sm:text-[15px] sm:w-[80%]">
                 A verification code has been sent to you. Enter the code below
               </p>

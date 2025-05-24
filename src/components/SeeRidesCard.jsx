@@ -31,12 +31,12 @@ export default function Seeridecard({
           <div className="flex gap-4 smxl:gap-2.5">
             {/*========== TIME ========== */}
             <div className="flex flex-col justify-between items-center">
-              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+              <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                 {leaving}
-              </h1>
-              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+              </div>
+              <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                 {reaching}
-              </h1>
+              </div>
             </div>
             <div className="divider py-1">
               <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
@@ -45,16 +45,16 @@ export default function Seeridecard({
             </div>
             {/*========== PLACES ========== */}
             <div className="text-sm w-80 flex flex-col justify-between sm:text-xs sm:leading-4 sm:w-60 sm2xl:w-48 sm2xl:text-[10px]">
-              <h1 className="text-dark-color font-medium">{fromWhere}</h1>
-              <h1 className="text-dark-color font-medium">{toWhere}</h1>
+              <div className="text-dark-color font-medium">{fromWhere}</div>
+              <div className="text-dark-color font-medium">{toWhere}</div>
             </div>
           </div>
           {/*========== PRICE ========== */}
           <div className="price items-center flex flex-col justify-between smxl:flex-row smxl:justify-around">
-            <h1 className="font-bold bg-light-color flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
+            <div className="font-bold bg-light-color flex items-center rounded-sm text-xl text-dark-color py-1 px-3 sm:text-sm sm:px-2 sm:py-0.5">
               <FaRupeeSign className="text-dark-color text-base sm:text-xs" />
               {price}/-
-            </h1>
+            </div>
             {/*========== BOOK ========== */}
             <button
               onClick={() => navigate(`/bookride/${rideId}`)}

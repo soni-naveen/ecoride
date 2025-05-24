@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { useDispatch } from "react-redux";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useNavigate,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import OpenRoute from "./components/Auth/OpenRoute";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import Login from "./pages/Login";
@@ -82,7 +88,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Navigate to="/" />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/howitworks" element={<Howitworks />} />

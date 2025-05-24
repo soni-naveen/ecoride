@@ -34,9 +34,9 @@ function Completeprofile() {
     <div className="fixed overflow-auto inset-0 h-full bg-white z-20">
       <div className="flex justify-center my-14">
         <div className="centerBox flex flex-col gap-10">
-          <h1 className="font-bold text-3xl text-dark-color smxl:text-2xl">
+          <div className="font-bold text-3xl text-dark-color smxl:text-2xl">
             Complete Your Profile
-          </h1>
+          </div>
 
           <form
             onSubmit={handleOnSubmit}

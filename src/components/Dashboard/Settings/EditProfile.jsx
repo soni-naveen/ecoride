@@ -77,15 +77,15 @@ function Editdetails() {
             onClick={() => navigate(-1)}
             className="text-2xl text-dark-color hover:cursor-pointer sm:text-[22px] sm2xl:text-xl"
           />
-          <h1 className="text-2xl font-medium w-full text-center text-dark-color sm:text-[22px] sm2xl:text-xl sm2xl:text-lg">
+          <div className="text-2xl font-medium w-full text-center text-dark-color sm:text-[22px] sm2xl:text-xl sm2xl:text-lg">
             Personal Details
-          </h1>
+          </div>
         </div>
         <div className="editable w-[400px] flex flex-col gap-12 mt-12 sm:w-[300px] sm:mx-auto sm:gap-9 sm2xl:w-[250px]">
           {/*================= FIRST NAME ============== */}
           <div className="firstname flex items-center justify-between">
             <div>
-              <h1 className="text-dark-color font-medium">First name</h1>
+              <div className="text-dark-color font-medium">First name</div>
               <h2 className="text-medium-color">{firstName}</h2>
             </div>
             <div className="edit">
@@ -100,7 +100,7 @@ function Editdetails() {
           {/*================= LAST NAME ============== */}
           <div className="lastname flex items-center justify-between">
             <div>
-              <h1 className="text-dark-color font-medium">Last name</h1>
+              <div className="text-dark-color font-medium">Last name</div>
               <h2 className="text-medium-color">{lastName}</h2>
             </div>
             <div className="edit">
@@ -115,7 +115,7 @@ function Editdetails() {
           {/*================= DATE OF BIRTH ============== */}
           <div className="dateofBirth flex items-center justify-between">
             <div>
-              <h1 className="text-dark-color font-medium">Date of birth</h1>
+              <div className="text-dark-color font-medium">Date of birth</div>
               <h2 className="text-medium-color">{dateOfBirth}</h2>
             </div>
             <div className="edit">
@@ -130,7 +130,7 @@ function Editdetails() {
           {/*================= GENDER ============== */}
           <div className="gender flex items-center justify-between">
             <div>
-              <h1 className="text-dark-color font-medium">Gender</h1>
+              <div className="text-dark-color font-medium">Gender</div>
               <h2 className="text-medium-color">{gender}</h2>
             </div>
             <div className="edit">
@@ -145,7 +145,7 @@ function Editdetails() {
           {/*================= CONTACT NUMBER ============== */}
           <div className="contactNumber flex items-center justify-between">
             <div>
-              <h1 className="text-dark-color font-medium">Contact number</h1>
+              <div className="text-dark-color font-medium">Contact number</div>
               <h2 className="text-medium-color">{contactNumber}</h2>
             </div>
             <div className="edit">

@@ -68,9 +68,9 @@ function ChangePassword() {
               </button>
             </Link>
             <div className="w-[450px] bg-slate-200 px-12 py-14 rounded-xl sm:w-[400px] sm:px-11 sm:py-12 smxl:w-[330px] smxl:px-9 smxl:py-10 sm2xl:p-8 sm2xl:w-[300px]">
-              <h1 className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
+              <div className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
                 Change your Password
-              </h1>
+              </div>
               <p className="mt-2 mb-7 font-light text-center sm:text-sm leading-[1.625rem] text-black sm2xl:text-xs">
                 Create a new strong password.
               </p>

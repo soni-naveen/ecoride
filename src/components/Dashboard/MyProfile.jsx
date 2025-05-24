@@ -139,11 +139,11 @@ function Myprofile() {
                   >
                     <div className="flex w-full justify-between items-center hover:bg-gray-100 px-10 py-5 rounded-md smxl:px-2 smxl:py-2 sm:px-5 sm:py-3">
                       {/*======= NAME ======== */}
-                      <h1 className="text-3xl text-start font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-lg">
+                      <div className="text-3xl text-start font-bold text-dark-color md:text-[28px] sm:text-[26px] smxl:text-2xl sm2xl:text-lg">
                         {user?.additionalDetails?.firstName +
                           " " +
                           user?.additionalDetails?.lastName}
-                      </h1>
+                      </div>
 
                       {/*======= IMAGE ======== */}
                       <div className="flex justify-center items-center gap-5 sm2xl:gap-2 smxl:gap-3 sm:gap-4">
@@ -328,7 +328,7 @@ function Myprofile() {
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
                     <div className="flex items-center rounded-md justify-between">
-                      <h1 className="text-bold">Rating Received</h1>
+                      <div className="text-bold">Rating Received</div>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
@@ -341,7 +341,7 @@ function Myprofile() {
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
                     <div className="flex items-center rounded-md justify-between">
-                      <h1 className="text-bold">Rating Given</h1>
+                      <div className="text-bold">Rating Given</div>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
@@ -356,7 +356,7 @@ function Myprofile() {
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
                     <div className="flex items-center rounded-md justify-between">
-                      <h1 className="text-bold">Change Profile Photo</h1>
+                      <div className="text-bold">Change Profile Photo</div>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
@@ -369,7 +369,7 @@ function Myprofile() {
                     className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4"
                   >
                     <div className="flex items-center rounded-md justify-between">
-                      <h1 className="text-bold">Change Password</h1>
+                      <div className="text-bold">Change Password</div>
                       <GrNext className=" font-bold text-dark-color" />
                     </div>
                   </button>
@@ -378,7 +378,7 @@ function Myprofile() {
                   <Link to="/helpcenter">
                     <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
                       <div className="flex items-center rounded-md justify-between">
-                        <h1 className="text-bold">Help Center</h1>
+                        <div className="text-bold">Help Center</div>
                         <GrNext className=" font-bold text-dark-color" />
                       </div>
                     </button>
@@ -388,7 +388,7 @@ function Myprofile() {
                   <Link to="/contact">
                     <button className="w-full hover:bg-gray-100 p-5 smxl:p-3 sm:p-4">
                       <div className="flex items-center rounded-md justify-between">
-                        <h1 className="text-bold">Report an issue</h1>
+                        <div className="text-bold">Report an issue</div>
                         <GrNext className=" font-bold text-dark-color" />
                       </div>
                     </button>
@@ -404,16 +404,16 @@ function Myprofile() {
                       }}
                       className="flex hover:bg-gray-100 rounded-md w-full p-5 smxl:p-3 sm:p-4"
                     >
-                      <h1 className="text-bold text-medium-color">Logout</h1>
+                      <div className="text-bold text-medium-color">Logout</div>
                     </div>
                   </button>
 
                   {/*======= DELETE MY ACCOUNT ======== */}
                   <button onClick={handleDeleteAccount}>
                     <div className="flex hover:bg-red-100 rounded-md w-full p-5 smxl:p-3 sm:p-4">
-                      <h1 className="text-bold text-rose-700">
+                      <div className="text-bold text-rose-700">
                         Delete My Account
-                      </h1>
+                      </div>
                     </div>
                   </button>
                 </div>

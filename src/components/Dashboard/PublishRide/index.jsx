@@ -65,10 +65,10 @@ export default function Publishride() {
   return (
     <div className="container h-full">
       <div className="upper h-40 w-full bg-light-color flex justify-center items-center">
-        <h1 className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
+        <div className="text-2xl w-2/3 font-medium leading-relaxed text-center text-dark-color md1:text-[20px]  sm:text-[17px] sm:w-[85%] smxl:text-[15px]">
           Become a Ecoride Driver and save on travel costs by sharing your rides
           with passengers.
-        </h1>
+        </div>
       </div>
       <div className="form mt-14 sm:w-[80%] mx-auto">
         <form onSubmit={handleSubmit(onSubmit)}>

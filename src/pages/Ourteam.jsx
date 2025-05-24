@@ -51,9 +51,9 @@ function Ourteam() {
         `}</style>
         <div className="container h-full mx-auto px-6 flex flex-col justify-center items-center gap-10 sm2xl:px-0">
           <div>
-            <h1 className="text-5xl font-bold lg:text-4xl sm:text-3xl text-dark-color mb-8 mt-10">
+            <div className="text-5xl font-bold lg:text-4xl sm:text-3xl text-dark-color mb-8 mt-10">
               Meet Our Team
-            </h1>
+            </div>
           </div>
           <div className="flex flex-wrap mx-auto justify-center items-center gap-10 mb-28">
             <Teamcard

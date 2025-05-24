@@ -38,11 +38,11 @@ export default function Slidecard() {
           <div className="flex justify-center">
             <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md1:text-sm">
+                <div className="sm:text-xs md1:text-sm">
                   "Using Ecoride has saved me both time and money. The
                   convenience of carpooling with like-minded individuals has
                   made my commute enjoyable. Great initiative!"
-                </h1>
+                </div>
               </div>
               <div className="author">
                 <h2 className="font-bold text-sm md:text-xs">Raghav Sharma</h2>
@@ -55,11 +55,11 @@ export default function Slidecard() {
           <div className="flex justify-center">
             <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md1:text-sm">
+                <div className="sm:text-xs md1:text-sm">
                   "I love the concept of Ecoride how it promotes environmental
                   friendly transportation options. The app is intuitive, and the
                   drivers I've ridden with have been courteous & punctual."
-                </h1>
+                </div>
               </div>
               <div className="author">
                 <h2 className="font-bold text-sm md:text-xs">Amrit Singh</h2>
@@ -72,11 +72,11 @@ export default function Slidecard() {
           <div className="flex justify-center">
             <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md1:text-sm">
+                <div className="sm:text-xs md1:text-sm">
                   "Ecoride is not just a carpooling webapp, it's a community. I've
                   met some fantastic people through carpooling & I appreciate
                   ecoride's efforts to promote a sense of unity among its consumers."
-                </h1>
+                </div>
               </div>
               <div className="author">
                 <h2 className="font-bold text-sm md:text-xs">Akshay Garg</h2>
@@ -89,11 +89,11 @@ export default function Slidecard() {
           <div className="flex justify-center">
             <div className="bg-white flex flex-col justify-between shadow-md rounded-xl w-[450px] h-[250px] p-9 sm2xl:w-[200px] sm2xl:h-[220px] smxl:w-[240px] smxl:h-[200px] smxl:p-6 sm:w-[330px] sm:h-[180px] sm:p-7 md1:p-8 md1:h-[220px] md1:w-[400px]">
               <div className="disc">
-                <h1 className="sm:text-xs md1:text-sm">
+                <div className="sm:text-xs md1:text-sm">
                   "I'm impressed by how seamless the experience has been. The
                   app matches me with compatible drivers and passengers
                   effortlessly, making my commute stress-free."
-                </h1>
+                </div>
               </div>
               <div className="author">
                 <h2 className="font-bold text-sm md:text-xs">Shraddha Arora</h2>

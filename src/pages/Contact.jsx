@@ -64,9 +64,9 @@ const Contact = () => {
       <div className="max-w-[1800px] mx-auto bg-slate-100 py-2 flex lg:flex-col-reverse justify-center items-center justify-evenly sm:py-5">
         <div className="rounded-xl p-10 flex gap-5 flex-col items-center sm2xl:p-2 sm:p-4">
           {/*========== HEADING ========== */}
-          <h1 className="text-4xl leading-10 font-semibold text-dark-color sm:text-[26px] smxl:text-[22px]">
+          <div className="text-4xl leading-10 font-semibold text-dark-color sm:text-[26px] smxl:text-[22px]">
             Feedback & Queries
-          </h1>
+          </div>
           {/*========== SUBHEADING ========== */}
           <p className="sm:text-sm smxl:text-xs">
             We're here to Listen! Please fill out this form

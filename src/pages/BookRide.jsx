@@ -130,12 +130,12 @@ function BookRide() {
                     <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
                       <div className="time flex gap-4">
                         <div className="timeContainer flex flex-col justify-between items-center">
-                          <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                          <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                             {ride?.leavingTime}
-                          </h1>
-                          <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                          </div>
+                          <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                             {ride?.reachingTime}
-                          </h1>
+                          </div>
                         </div>
                         <div className="divider py-1">
                           <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
@@ -143,9 +143,9 @@ function BookRide() {
                           <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
                         </div>
                         <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
-                          <h1 className="text-dark-color font-medium">
+                          <div className="text-dark-color font-medium">
                             {ride?.fromWhere}
-                          </h1>
+                          </div>
                           <div>
                             {ride?.stopPoint1 === "" &&
                             ride?.stopPoint2 === "" &&
@@ -171,9 +171,9 @@ function BookRide() {
                               </div>
                             )}
                           </div>
-                          <h1 className="text-dark-color font-medium">
+                          <div className="text-dark-color font-medium">
                             {ride?.toWhere}
-                          </h1>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -281,10 +281,10 @@ function BookRide() {
 
                 {/*============ TRAVELLERS ========== */}
                 <div className="w-full max-w-[600px] px-5">
-                  <h1 className="text-dark-color py-3 font-medium sm:text-sm sm2xl:text-xs">
+                  <div className="text-dark-color py-3 font-medium sm:text-sm sm2xl:text-xs">
                     {" "}
                     Travellers
-                  </h1>
+                  </div>
                   {ride?.confirmedPassengers?.length === 0 ? (
                     <p className="text-gray-300 sm:text-sm sm2xl:text-xs">
                       Not yet!

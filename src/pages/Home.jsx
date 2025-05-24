@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Banner from "../assets/Banner.png";
 import Slidecard from "../components/Slidecard.jsx";
 import AccordionUsage from "../components/Faq.jsx";
@@ -69,15 +69,17 @@ const Home = () => {
           </Link>
         </div>
         <div className="image h-[700px] sm2xl:h-[390px] smxl:h-[390px] sm:h-[480px] md1:h-[570px] lg:h-[600px] xl:h-[650px]">
-          <img
-            src={Banner}
-            draggable="false"
-            alt="Sharing rides building connections"
-            className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
-          />
-          <div className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] sm2xl:text-[35px] sm2xl:top-[80px] sm2xl:left-[25px] smxl:top-[70px] smxl:left-[30px] smxl:text-4xl smxl:leading-snug sm:top-[110px] sm:left-[40px] sm:text-[40px] sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[130px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%]">
-            Sharing rides, building connections
+          <div>
+            <img
+              src={Banner}
+              draggable="false"
+              alt="Sharing rides building connections"
+              className="w-screen h-[550px] object-cover object-center smxl:h-80 sm:h-[400px] md1:h-[30rem] lg:h-[32rem]"
+            />
           </div>
+          <h1 className="text-7xl font-bold text-dark-color leading-snug w-1/3 absolute top-[160px] left-[100px] sm2xl:text-[35px] sm2xl:top-[80px] sm2xl:left-[25px] smxl:top-[70px] smxl:left-[30px] smxl:text-4xl smxl:leading-snug sm:top-[110px] sm:left-[40px] sm:text-[40px] sm:leading-snug md1:leading-snug md1:text-5xl md1:top-[130px] md1:left-[60px] md1:w-1/3 lg:text-6xl lg:leading-snug lg:top-[120px] lg:left-[70px] lg:w-1/3 xl:leading-snug xl:top-[160px] xl:left-[80px] xl:w-[50%] 2xl:w-[50%]">
+            Sharing rides, building connections
+          </h1>
 
           <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]   sm2xl:text-base sm2xl:leading-[45px] smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
             Your pick of rides at low prices
@@ -165,9 +167,9 @@ const Home = () => {
           <div className="left flex flex-row items-center gap-4 md:flex-col md:gap-1 ">
             <PeopleIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
+              <div className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 <Counter target={150} />
-              </h1>
+              </div>
               <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
                 Daily users
               </p>
@@ -176,9 +178,9 @@ const Home = () => {
           <div className="middle flex flex-row items-center gap-4 md:flex-col md:gap-1">
             <SupportAgentIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
+              <div className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 24/7
-              </h1>
+              </div>
               <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
                 Customer support
               </p>
@@ -187,9 +189,9 @@ const Home = () => {
           <div className="right flex flex-row items-center gap-4  md:flex-col md:gap-1">
             <VerifiedIcon sx={{ fontSize: { xs: 30, sm: 40, md: 50 } }} />
             <div>
-              <h1 className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
+              <div className="text-3xl font-semibold text-start smxl:text-xl sm:text-2xl md:text-center">
                 <Counter target={500} />
-              </h1>
+              </div>
               <p className="md1:text-[14px] text-center smxl:text-[10px] sm:text-xs">
                 Verified profiles
               </p>
@@ -200,11 +202,8 @@ const Home = () => {
         {/* *******************************************************************************************************
                                            3 Cards - Why Stick With Us
         ******************************************************************************************************** */}
-        <div
-          id="cards"
-          className="stickWithUs h-auto w-full p-20 my-10 sm:p-10 sm:mb-7 smxl:mt-5 md1:p-14"
-        >
-          <div className="inner flex flex-col justify-center gap-28 sm2xl:w-full sm:gap-12 sm:w-4/5 md1:gap-20 m-auto">
+        <div id="cards" className="h-auto w-full p-20 my-10 sm:p-10 md1:p-14">
+          <div className="flex flex-col justify-center w-full gap-20 mx-auto">
             <AnimateBU
               distance={150}
               direction="vertical"
@@ -216,9 +215,9 @@ const Home = () => {
               threshold={0.2}
             >
               <div>
-                <h1 className="text-5xl font-semibold text-dark-color sm2xl:text-xl sm2xl:leading-[2rem] smxl:text-2xl smxl:leading-[2.5rem] sm:text-3xl sm:leading-[3rem] md1:text-4xl md1:leading-[3.5rem] lg:text-center">
-                  People stick with us because
-                </h1>
+                <div className="text-5xl font-semibold text-dark-color sm2xl:text-xl smxl:text-2xl sm:text-3xl md1:text-4xl lg:text-center smxl:max-w-xs sm:max-w-sm lg:max-w-lg lg:mx-auto leading-normal">
+                  Why Riders Trust and Choose Us
+                </div>
               </div>
             </AnimateBU>
             <div className="cards flex gap-14 justify-evenly items-start h-auto lg:flex-col lg:items-center">
@@ -254,11 +253,11 @@ const Home = () => {
           <div className="left min-w-[30%] w-[100%] max-w-1 mx-20 lg:hidden">
             <img draggable="false" src={faqLogo} alt="FAQ's" />
           </div>
-          <div className="right flex flex-col pt-10 items-center gap-10 sm:pt-7">
-            <div className="heading text-white text-5xl font-semibold smxl:text-2xl md1:text-4xl sm:text-3xl">
-              FAQ's
+          <div className="right flex flex-col pt-16 items-center gap-10 sm:pt-12">
+            <div className="heading text-white font-medium text-3xl xl:text-2xl smxl:text-xl">
+              Frequently Asked Questions
             </div>
-            <div className="mb-8 flex justify-center">
+            <div className="mb-12 flex justify-center">
               <AccordionUsage />
             </div>
           </div>
@@ -267,11 +266,11 @@ const Home = () => {
         {/* *******************************************************************************************************
                                               Our Service Feedback
         ******************************************************************************************************** */}
-        <div className="feedback pt-10 w-full h-[600px] bg-light-color flex flex-col justify-evenly items-center sm2xl:h-[450px] smxl:h-[430px] sm:h-[450px] md:justify-center md1:h-[500px]">
+        <div className="w-full bg-light-color flex flex-col items-center sm2xl:h-[430px] smxl:h-[400px] sm:h-[430px] justify-center md1:h-[500px] h-[550px] sm:gap-0 md1:gap-2 gap-5">
           <div className="heading font-semibold mt-10 smxl:mt-5 md:mt-0">
-            <h1 className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 sm:text-3xl md:mt-10 md1:text-4xl">
-              Our Service Feedback
-            </h1>
+            <div className="text-dark-color mx-auto text-5xl sm2xl:text-center smxl:text-2xl smxl:leading-normal smxl:text-center smxl:mt-0 sm:mt-7 sm:text-3xl md:mt-10 md1:text-4xl">
+              Service Reviews
+            </div>
           </div>
           <div className="w-full">
             <Slidecard />
@@ -283,11 +282,11 @@ const Home = () => {
         ******************************************************************************************************** */}
         <div className="abovefooter w-full py-16 px-36 flex flex-col justify-evenly gap-16 smxl:gap-10 smxl:py-10 sm:gap-12 sm:py-12 lg:px-0 lg:items-center xl:px-28">
           <div className="heading text-start smxl:ml-0">
-            <h1 className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl sm:text-3xl">
+            <div className="text-dark-color font-semibold text-5xl smxl:text-2xl md1:text-4xl sm:text-3xl">
               Get started today !
-            </h1>
+            </div>
           </div>
-          <div className="buttons flex flex-row justify-center gap-14 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
+          <div className="buttons flex flex-row justify-center gap-10 sm:flex-col sm:justify-center items-center sm:gap-6 md:gap-10">
             <Link to="/searchride">
               <button className="w-52 border border-medium-color p-3 rounded-full transition-all text-medium-color text-lg active:bg-[#b5e9e4] hover:border-light-color hover:bg-light-color active:duration-50 smxl:w-40 smxl:text-sm">
                 Find a Ride

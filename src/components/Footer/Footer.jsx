@@ -47,7 +47,7 @@ const Footer = () => {
           {/*====== JOIN COMMUNITY ===== */}
           <div className="flex flex-col items-start">
             <div className="heading">
-              <h1 className="font-light text-sm">Join Community</h1>
+              <div className="font-light text-sm">Join Community</div>
             </div>
             <div className="links flex justify-evenly mt-2 gap-5">
               <a
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
           {/*====== GET IN TOUCH ===== */}
           <div className="smxl:text-start lg:text-center text-start">
-            <h1 className="font-light text-sm">Get In Touch</h1>
+            <div className="font-light text-sm">Get In Touch</div>
             <a
               href="mailto:ecoride.in@gmail.com"
               className="font-light pt-2 flex items-end gap-1.5 text-gray-200 text-sm hover:text-white smxl:pt-1 smxl:gap-1"
@@ -89,29 +89,29 @@ const Footer = () => {
         {/*======================= CENTER LEFT =================== */}
         <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
           <Link to="/aboutus">
-            <h1 className="hover:underline">About Us</h1>
+            <div className="hover:underline">About Us</div>
           </Link>
           <Link to="/howitworks">
-            <h1 className="hover:underline">How It Works</h1>
+            <div className="hover:underline">How It Works</div>
           </Link>
           <Link to="/contact">
-            <h1 className="hover:underline">Contact Us</h1>
+            <div className="hover:underline">Contact Us</div>
           </Link>
           <Link to="/ourteam">
-            <h1 className="hover:underline">Our Team</h1>
+            <div className="hover:underline">Our Team</div>
           </Link>
         </div>
 
         {/*======================= CENTER RIGHT =================== */}
         <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
           <Link to="/helpcenter">
-            <h1 className="hover:underline">Help Center</h1>
+            <div className="hover:underline">Help Center</div>
           </Link>
           <Link to="/#faq" className="hover:underline">
             FAQs
           </Link>
           <a href="https://e-social.vercel.app" target="_blank">
-            <h1 className="hover:underline cursor-pointer">E-Social</h1>
+            <div className="hover:underline cursor-pointer">E-Social</div>
           </a>
           <Link to="/#cards" className="hover:underline">
             Safety
@@ -121,9 +121,9 @@ const Footer = () => {
         {/*======================= RIGHT PART =================== */}
         <div className="right flex flex-col smxl:items-start items-center gap-8 lg:w-full">
           <div className="w-fit">
-            <h1 className="font-light text-sm text-start mb-3">
+            <div className="font-light text-sm text-start mb-3">
               Stay upto date :
-            </h1>
+            </div>
             <form
               onSubmit={handleSubmit}
               name="submit-to-google-sheet"

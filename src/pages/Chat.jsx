@@ -57,7 +57,7 @@ function ChatPage() {
 
   useEffect(() => {
     if (isAuthorized === false) {
-      navigate("/home");
+      navigate("/");
     }
   }, [isAuthorized, navigate]);
 
@@ -157,11 +157,11 @@ function ChatPage() {
                 >
                   <IoMdArrowRoundBack className="text-xl" />
                 </button>
-                <h1 className="text-xl text-left font-semibold text-dark-color md:text-lg">
+                <div className="text-xl text-left font-semibold text-dark-color md:text-lg">
                   {isDriver
                     ? `${passenger?.firstName} ${passenger?.lastName}`
                     : `${driver?.firstName} ${driver?.lastName}`}
-                </h1>
+                </div>
               </div>
             </div>
           </div>

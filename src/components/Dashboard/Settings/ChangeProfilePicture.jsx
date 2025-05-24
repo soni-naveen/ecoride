@@ -61,13 +61,13 @@ export default function ChangeProfilePicture() {
   return (
     <>
       <div className="upper flex justify-center items-center gap-5 h-36 w-full bg-light-color sm:h-32">
-        <h1 className="text-2xl w-[73%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[85%] smxl:text-[15px]">
+        <div className="text-2xl w-[73%] flex justify-center items-start gap-10 font-medium leading-relaxed text-center text-dark-color md1:text-[20px] sm:text-[17px] sm:gap-3 sm:w-[85%] smxl:text-[15px]">
           <IoMdArrowRoundBack
             onClick={() => navigate(-1)}
             className="text-3xl mt-1 text-dark-color hover:cursor-pointer sm:mt-0"
           />
           Don't wear sunglasses, look straight ahead and make sure you're alone
-        </h1>
+        </div>
       </div>
       <div className="my-16 flex items-center justify-center rounded-md">
         <div className="flex flex-col items-center gap-y-10">

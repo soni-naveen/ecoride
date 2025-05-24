@@ -37,7 +37,7 @@ function ForgotPassword() {
         ) : (
           <div className="text-white flex flex-col">
             <Link
-              to={"/home"}
+              to={"/"}
               ref={button}
               className="place-self-end mb-1 sm2xl:place-self-center mr-3"
             >
@@ -46,9 +46,9 @@ function ForgotPassword() {
               </button>
             </Link>
             <div className="max-w-[500px] bg-slate-200 p-12 rounded-xl sm2xl:px-8 sm2xl:py-10 sm:p-10 sm:max-w-[370px] mx-3">
-              <h1 className="text-3xl font-semibold text-dark-color mb-5 sm:text-2xl leading-[2.375rem] sm2xl:text-xl">
+              <div className="text-3xl font-semibold text-dark-color mb-5 sm:text-2xl leading-[2.375rem] sm2xl:text-xl">
                 {!emailSent ? "Reset your password" : "Check email"}
-              </h1>
+              </div>
               <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-black sm:text-sm smxl:text-xs">
                 {!emailSent
                   ? "We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery."

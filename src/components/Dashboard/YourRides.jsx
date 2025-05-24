@@ -255,12 +255,12 @@ export default function YourRides() {
                             <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
                               <div className="time flex gap-4">
                                 <div className="timeContainer flex flex-col justify-between items-center">
-                                  <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                                  <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                                     {bookedRide?.ride?.leavingTime}
-                                  </h1>
-                                  <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                                  </div>
+                                  <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                                     {bookedRide?.ride?.reachingTime}
-                                  </h1>
+                                  </div>
                                 </div>
                                 <div className="divider py-1">
                                   <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
@@ -268,9 +268,9 @@ export default function YourRides() {
                                   <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
                                 </div>
                                 <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
-                                  <h1 className="text-dark-color font-medium">
+                                  <div className="text-dark-color font-medium">
                                     {bookedRide?.ride?.fromWhere}
-                                  </h1>
+                                  </div>
                                   <div>
                                     {bookedRide?.ride?.stopPoint1 === "" &&
                                     bookedRide?.ride?.stopPoint2 === "" &&
@@ -302,9 +302,9 @@ export default function YourRides() {
                                       </div>
                                     )}
                                   </div>
-                                  <h1 className="text-dark-color font-medium">
+                                  <div className="text-dark-color font-medium">
                                     {bookedRide?.ride?.toWhere}
-                                  </h1>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -383,12 +383,12 @@ export default function YourRides() {
                         <div className="flex justify-between gap-10 sm:gap-5 smxl:flex-col smxl:gap-7">
                           <div className="time flex gap-4">
                             <div className="timeContainer flex flex-col justify-between items-center">
-                              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                              <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                                 {user?.ridePublished?.leavingTime}
-                              </h1>
-                              <h1 className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
+                              </div>
+                              <div className="font-bold text-dark-color sm:text-xs sm2xl:text-[10px]">
                                 {user?.ridePublished?.reachingTime}
-                              </h1>
+                              </div>
                             </div>
                             <div className="divider py-1">
                               <div className="firstCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
@@ -396,9 +396,9 @@ export default function YourRides() {
                               <div className="secondCircle w-2.5 h-2.5 bg-dark-color rounded-full"></div>
                             </div>
                             <div className="destination text-sm w-full gap-5 flex flex-col justify-between sm:text-xs sm:leading-4 sm2xl:text-[10px]">
-                              <h1 className="text-dark-color font-medium">
+                              <div className="text-dark-color font-medium">
                                 {user?.ridePublished?.fromWhere}
-                              </h1>
+                              </div>
                               <div>
                                 {user?.ridePublished?.stopPoint1 === "" &&
                                 user?.ridePublished?.stopPoint2 === "" &&
@@ -430,9 +430,9 @@ export default function YourRides() {
                                   </div>
                                 )}
                               </div>
-                              <h1 className="text-dark-color font-medium">
+                              <div className="text-dark-color font-medium">
                                 {user?.ridePublished?.toWhere}
-                              </h1>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -459,9 +459,9 @@ export default function YourRides() {
 
                   {/*============== PASSENGERS =========== */}
                   <div className="w-full max-w-[600px] mx-auto">
-                    <h1 className="text-dark-color text-center underline text-xl my-7 font-semibold sm:text-lg sm:my-6 smxl:my-5">
+                    <div className="text-dark-color text-center underline text-xl my-7 font-semibold sm:text-lg sm:my-6 smxl:my-5">
                       Passengers
-                    </h1>
+                    </div>
                     {loading ||
                     confirmLoading ||
                     cancelPendingLoading ||
