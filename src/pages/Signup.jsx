@@ -136,8 +136,7 @@ function Signup() {
               Create Account
             </div>
             <p className="text-xs text-black text-center w-60 smxl:w-52 mb-3">
-              By signup in you are agreeing our{" "}
-              <a className="text-blue-500">Terms and privacy policy</a>
+              Save money, make friends, help the planet! Sign up to start.
             </p>
             {/* <button
               onClick={() => {

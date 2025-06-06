@@ -66,7 +66,7 @@ function Login() {
               Welcome Back
             </div>
             <p className="text-xs text-black text-center w-56 smxl:w-48 mb-2">
-              Hi, Please enter your details to log in to your account.
+              So good to see you! Sign in to access your account.
             </p>
             {/* <button
               onClick={() => {
