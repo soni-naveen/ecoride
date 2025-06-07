@@ -169,7 +169,7 @@ function Signup() {
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   value={email}
                   onChange={handleOnChange}
-                  placeholder="e.g. jonedoe@example.com"
+                  placeholder="e.g. johndoe@gmail.com"
                   className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>

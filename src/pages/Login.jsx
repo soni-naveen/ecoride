@@ -99,7 +99,7 @@ function Login() {
                   value={email}
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   onChange={handleOnChange}
-                  placeholder="e.g. jonedoe@example.com"
+                  placeholder="e.g. johndoe@gmail.com"
                   className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>

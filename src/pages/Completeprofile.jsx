@@ -59,7 +59,7 @@ function Completeprofile() {
                 value={firstName}
                 pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
-                placeholder="e.g. Naveen"
+                placeholder="e.g. John"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
@@ -76,7 +76,7 @@ function Completeprofile() {
                 value={lastName}
                 pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
-                placeholder="e.g. Soni"
+                placeholder="e.g. Doe"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
