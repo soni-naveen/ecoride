@@ -73,7 +73,7 @@ function Myprofile() {
     try {
       const confirmDelete = await Swal.fire({
         title: "Are You Sure?",
-        text: "DELETE your account is a permanent action.",
+        text: "Deleting your account will permanently remove your profile and all your connections. This action is irreversible.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",
@@ -410,9 +410,9 @@ function Myprofile() {
 
                   {/*======= DELETE MY ACCOUNT ======== */}
                   <button onClick={handleDeleteAccount}>
-                    <div className="flex hover:bg-red-100 rounded-md w-full p-5 smxl:p-3 sm:p-4">
+                    <div className="flex hover:bg-red-50 rounded-md w-full p-5 smxl:p-3 sm:p-4">
                       <div className="text-bold text-rose-700">
-                        Delete My Account
+                        Delete Account
                       </div>
                     </div>
                   </button>
