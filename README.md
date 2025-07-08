@@ -26,8 +26,7 @@ Key features :
 
 ### Install dependencies
 ```
-npm init -y
-npm i
+npm install
 ```
 ### Run app
 ```
