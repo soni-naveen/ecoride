@@ -33,10 +33,9 @@ const Autocomplete = ({
   }, []);
 
   const fetchAutocompleteData = async (query) => {
-    const apiKey = "afa901301d814d4bade02390df862287";
     let url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
       query
-    )}&limit=5&apiKey=${apiKey}`;
+    )}&limit=5&apiKey=${import.meta.env.VITE_LOCATION_API_KEY}`;
 
     const response = await fetch(url);
     if (response.ok) {
