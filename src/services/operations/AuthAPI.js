@@ -95,7 +95,7 @@ export function login(email, password) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
-      toast.error(error.response.data.message);
+      toast.error("Login error, try again later!");
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);

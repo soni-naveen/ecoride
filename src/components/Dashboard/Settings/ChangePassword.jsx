@@ -1,11 +1,10 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { changePassword } from "../../../services/operations/SettingsAPI";
 import Myprofile from "../MyProfile";
-import { toast } from "react-hot-toast";
 import Spinner from "../../Loader";
 
 function ChangePassword() {

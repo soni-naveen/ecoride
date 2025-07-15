@@ -4,7 +4,6 @@ import Home from "./Home";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
 import { resetPassword } from "../services/operations/AuthAPI";
 import Spinner from "../components/Loader";
 

@@ -42,15 +42,15 @@ import BookRide from "./pages/BookRide";
 import Chat from "./pages/Chat";
 import StartLoader from "./components/StartLoader";
 
-function ScrollToTop() {
-  const location = useLocation();
+// function ScrollToTop() {
+//   const location = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location]);
+//   useEffect(() => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   }, [location]);
 
-  return null;
-}
+//   return null;
+// }
 
 function App() {
   const dispatch = useDispatch();
@@ -84,7 +84,7 @@ function App() {
         </div>
       ) : (
         <>
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />

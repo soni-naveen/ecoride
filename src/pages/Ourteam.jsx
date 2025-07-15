@@ -1,4 +1,3 @@
-import React from "react";
 import Teamcard from "../components/Teamcard";
 import naveen from "../assets/Team/naveen.jpg";
 import mukul from "../assets/Team/mukul.jpg";

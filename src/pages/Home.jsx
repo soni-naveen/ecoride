@@ -81,7 +81,7 @@ const Home = () => {
             Sharing rides, building connections
           </h1>
 
-          <div className="text-4xl text-white font-medium bg-[#07b2a480] text-center m-auto leading-[80px]   sm2xl:text-base sm2xl:leading-[45px] smxl:text-lg smxl:font-normal smxl:leading-[45px] sm:leading-[60px] sm:text-2xl sm:font-medium md1:text-3xl md1:leading-[70px]">
+          <div className="text-4xl text-white bg-[#07b2a480] text-center m-auto leading-[80px] sm2xl:text-base sm2xl:leading-[45px] smxl:text-lg smxl:leading-[45px] sm:leading-[60px] sm:text-2xl md1:text-3xl md1:leading-[70px]">
             Your pick of rides at low prices
           </div>
         </div>

@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="left flex flex-col gap-10 smxl:items-start lg:w-full lg:items-center items-start smxl:gap-8">
           {/*==== LOGO === */}
           <div className="w-32">
-            <img draggable="false" src={Logo} alt="EcoRide" />
+            <img draggable="false" src={Logo} alt="Ecoride" />
           </div>
           {/*====== JOIN COMMUNITY ===== */}
           <div className="flex flex-col items-start">

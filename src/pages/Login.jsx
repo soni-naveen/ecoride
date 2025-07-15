@@ -1,7 +1,5 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
-// import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-// import GoogleIcon from "@mui/icons-material/Google";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -68,20 +66,6 @@ function Login() {
             <p className="text-xs text-black text-center w-56 smxl:w-48 mb-2">
               So good to see you! Sign in to access your account.
             </p>
-            {/* <button
-              onClick={() => {
-                alert("This feature is not available yet......");
-              }}
-              className="gap-2 flex items-center justify-center w-full rounded-md px-6 py-2.5 text-white mb-3 bg-[#225260] hover:bg-[#214d5b] sm:w-[250px] sm:mb-1"
-            >
-              Continue with <GoogleIcon fontSize="small" />{" "}
-              <ArrowForwardIcon fontSize="small" />
-            </button>
-            <div className="--or-- flex items-center justify-between my-1">
-              <div className=" bg-white w-[120px] h-[0.5px] sm:w-[90px]"></div>
-              <p className="text-sm px-5">or</p>
-              <div className=" bg-white w-[120px] h-[0.5px] sm:w-[90px]"></div>
-            </div> */}
             <form
               onSubmit={handleOnSubmit}
               className="flex w-full flex-col gap-y-4"

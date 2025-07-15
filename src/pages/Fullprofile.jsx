@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import copy from "copy-to-clipboard";
 import { FaStar } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { PiSteeringWheelFill } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoIosShareAlt } from "react-icons/io";
-import { RiProgress5Line } from "react-icons/ri";
 import { FaCircleMinus } from "react-icons/fa6";
 import { BsChatDotsFill } from "react-icons/bs";
 import { FaCarSide } from "react-icons/fa6";
