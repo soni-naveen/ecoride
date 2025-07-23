@@ -1,9 +1,8 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "../../assets/footer-logo.png";
-import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { MdEmail } from "react-icons/md";
 
@@ -88,34 +87,34 @@ const Footer = () => {
 
         {/*======================= CENTER LEFT =================== */}
         <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
-          <Link to="/aboutus">
+          <a href="/aboutus">
             <div className="hover:underline">About Us</div>
-          </Link>
-          <Link to="/howitworks">
+          </a>
+          <a href="/howitworks">
             <div className="hover:underline">How It Works</div>
-          </Link>
-          <Link to="/contact">
+          </a>
+          <a href="/contact">
             <div className="hover:underline">Contact Us</div>
-          </Link>
-          <Link to="/ourteam">
+          </a>
+          <a href="/ourteam">
             <div className="hover:underline">Our Team</div>
-          </Link>
+          </a>
         </div>
 
         {/*======================= CENTER RIGHT =================== */}
         <div className="links flex flex-col gap-7 font-light items-start lg:my-5 smxl:my-0 smxl:gap-5 text-sm">
-          <Link to="/helpcenter">
+          <a href="/helpcenter">
             <div className="hover:underline">Help Center</div>
-          </Link>
-          <Link to="/#faq" className="hover:underline">
+          </a>
+          <a href="/#faq" className="hover:underline">
             FAQs
-          </Link>
+          </a>
           <a href="https://e-social.vercel.app" target="_blank">
             <div className="hover:underline cursor-pointer">E-Social</div>
           </a>
-          <Link to="/#cards" className="hover:underline">
+          <a href="/#cards" className="hover:underline">
             Safety
-          </Link>
+          </a>
         </div>
 
         {/*======================= RIGHT PART =================== */}
