@@ -46,18 +46,18 @@ function ForgotPassword() {
               </button>
             </Link>
             <div className="max-w-[500px] bg-slate-200 p-12 rounded-xl sm2xl:px-8 sm2xl:py-10 sm:p-10 sm:max-w-[370px] mx-3">
-              <div className="text-3xl font-semibold text-dark-color mb-5 sm:text-2xl leading-[2.375rem] sm2xl:text-xl">
-                {!emailSent ? "Reset your password" : "Check email"}
+              <div className="text-3xl font-semibold text-dark-color mb-3 sm:text-2xl">
+                {!emailSent ? "Forgot Password" : "Check Your Email"}
               </div>
-              <p className="my-5 font-light text-[1rem] leading-[1.625rem] text-black sm:text-sm smxl:text-xs">
+              <p className="mb-7 text-gray-700 text-sm">
                 {!emailSent
-                  ? "We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery."
-                  : `We have sent the reset email to ${email}`}
+                  ? "Enter your email address and we'll send you a link to reset your password"
+                  : `If your email is registered, we’ve sent a reset link to ${email}`}
               </p>
               <form onSubmit={handleOnSubmit}>
                 {!emailSent && (
                   <label className="w-full">
-                    <p className="mb-1 text-xs leading-[1.375rem] text-black">
+                    <p className="mb-1 text-sm leading-[1.375rem] text-black">
                       Email Address <sup className="text-red-600">*</sup>
                     </p>
                     <input
@@ -67,7 +67,7 @@ function ForgotPassword() {
                       name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="e.g. jonedoe@example.com"
+                      placeholder="Enter email address"
                       className="w-full px-3 py-3.5 text-black bg-slate-50 placeholder:text-gray-400 rounded-md outline-none text-sm sm:py-2.5"
                     />
                   </label>
@@ -76,7 +76,7 @@ function ForgotPassword() {
                   type="submit"
                   className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] sm:py-[8px] smxl:text-sm"
                 >
-                  {!emailSent ? "Submit" : "Resend Email"}
+                  {!emailSent ? "Send Reset Link" : "Resend Link"}
                 </button>
               </form>
             </div>

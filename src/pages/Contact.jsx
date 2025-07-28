@@ -90,7 +90,7 @@ const Contact = () => {
                     autoComplete="off"
                     name="firstname"
                     id="firstname"
-                    placeholder="e.g. John"
+                    placeholder="Enter your first name"
                     className="form-style"
                     {...register("firstname", { required: true })}
                   />
@@ -113,7 +113,7 @@ const Contact = () => {
                     autoComplete="off"
                     name="lastname"
                     id="lastname"
-                    placeholder="e.g. Doe"
+                    placeholder="Enter your last name"
                     className="form-style"
                     {...register("lastname")}
                   />
@@ -132,7 +132,7 @@ const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter a valid email address"
+                  placeholder="Enter your email address"
                   className="form-style"
                   {...register("email", { required: true })}
                 />

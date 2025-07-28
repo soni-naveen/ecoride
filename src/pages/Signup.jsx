@@ -133,7 +133,7 @@ function Signup() {
             <div className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
               Create Account
             </div>
-            <p className="text-xs text-black text-center w-60 smxl:w-52 mb-3">
+            <p className="text-sm text-gray-700 text-center w-64 mb-3">
               Save money, make friends, help the planet! Sign up to start.
             </p>
             <form
@@ -142,7 +142,7 @@ function Signup() {
             >
               {/*============ EMAIL ========== */}
               <label className="w-full">
-                <div className="mb-1 text-black text-xs leading-[1.375rem] leading-snug">
+                <div className="mb-1 text-black text-sm leading-[1.375rem] leading-snug">
                   Email Address <sup className="text-red-600">*</sup>
                 </div>
                 <input
@@ -153,13 +153,13 @@ function Signup() {
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   value={email}
                   onChange={handleOnChange}
-                  placeholder="e.g. johndoe@gmail.com"
+                  placeholder="Enter your email"
                   className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
               {/*============ PASSWORD ========== */}
               <label className="relative">
-                <div className="mb-1 text-black text-xs leading-[1.375rem]">
+                <div className="mb-1 text-black text-sm leading-[1.375rem]">
                   Create Password <sup className="text-red-600">*</sup>
                 </div>
                 <input
@@ -169,7 +169,7 @@ function Signup() {
                   name="password"
                   value={password}
                   onChange={handleOnChange1}
-                  placeholder="Enter password"
+                  placeholder="Create a password"
                   className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
@@ -186,7 +186,7 @@ function Signup() {
               </label>
               {/*============ CONFIRM PASSWORD ========== */}
               <label className="relative">
-                <p className="mb-1 text-black text-xs leading-[1.375rem]">
+                <p className="mb-1 text-black text-sm leading-[1.375rem]">
                   Confirm Password <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -196,7 +196,7 @@ function Signup() {
                   name="confirmPassword"
                   value={confirmPassword}
                   onChange={handleOnChange2}
-                  placeholder="Confirm password"
+                  placeholder="Confirm your password"
                   className="w-[300px] px-3 py-3 placeholder:text-gray-400 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span

@@ -95,7 +95,7 @@ export function login(email, password) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
-      toast.error("Login error, try again later!");
+      toast.error("Login error, try again!");
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
@@ -117,7 +117,7 @@ export function getPasswordResetToken(email, setEmailSent) {
         throw new Error(response.data.error);
       }
 
-      toast.success("Reset Email Sent");
+      toast.success("Reset link sent if email exists.");
       setEmailSent(true);
     } catch (error) {
       console.log("RESETPASSTOKEN ERROR............", error);

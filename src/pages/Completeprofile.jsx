@@ -59,7 +59,7 @@ function Completeprofile() {
                 value={firstName}
                 pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
-                placeholder="e.g. John"
+                placeholder="Enter your first name"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
@@ -76,7 +76,7 @@ function Completeprofile() {
                 value={lastName}
                 pattern="^[A-Za-z]{3,16}$"
                 onChange={handleOnChange}
-                placeholder="e.g. Doe"
+                placeholder="Enter your last name"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
@@ -111,7 +111,6 @@ function Completeprofile() {
                 name="gender"
                 value={gender}
                 onChange={handleOnChange}
-                placeholder="e.g. Soni"
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               >
                 <option value="">---- Select ----</option>
@@ -136,11 +135,11 @@ function Completeprofile() {
                 pattern="[6-9]{1}[0-9]{9}"
                 value={contactNumber}
                 onChange={handleOnChange}
-                placeholder="9876543210"
+                placeholder="Enter your phone no."
                 className="outline w-[270px] focus:outline-medium-color outline-1 rounded-sm py-2 px-3 smxl:w-[250px] smxl:py-1.5"
               />
             </div>
-            <button className="bg-dark-color w-[250px] py-2.5 my-4 rounded-full text-white smxl:py-2 smxl:w-[220px]">
+            <button className="bg-dark-color w-full max-w-[270px] py-2.5 my-4 rounded-full text-white smxl:py-2">
               Save and Proceed
             </button>
           </form>

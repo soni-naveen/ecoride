@@ -63,7 +63,7 @@ function Login() {
             <div className="text-3xl text-dark-color font-semibold smxl:text-[26px]">
               Welcome Back
             </div>
-            <p className="text-xs text-black text-center w-56 smxl:w-48 mb-2">
+            <p className="text-sm text-gray-700 text-center w-64 mb-2">
               So good to see you! Sign in to access your account.
             </p>
             <form
@@ -72,7 +72,7 @@ function Login() {
             >
               {/*============ EMAIL ========== */}
               <label className="w-full">
-                <p className="mb-1 text-black text-xs leading-[1.375rem]">
+                <p className="mb-1 text-black text-sm leading-[1.375rem]">
                   Email Address <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -83,13 +83,13 @@ function Login() {
                   value={email}
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   onChange={handleOnChange}
-                  placeholder="e.g. johndoe@gmail.com"
+                  placeholder="Enter your email"
                   className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
               </label>
               {/*============ PASSWORD ========== */}
               <label className="relative">
-                <p className="mb-1 text-black text-xs leading-[1.375rem]">
+                <p className="mb-1 text-black text-sm leading-[1.375rem]">
                   Password <sup className="text-red-600">*</sup>
                 </p>
                 <input
@@ -99,7 +99,7 @@ function Login() {
                   name="password"
                   value={password}
                   onChange={handleOnChange}
-                  placeholder="Enter password"
+                  placeholder="Enter your password"
                   className="w-[300px] placeholder:text-gray-400 px-3 py-3 bg-slate-50 text-black rounded-md outline-none text-sm sm:w-[250px] sm:py-2.5"
                 />
                 <span
@@ -116,7 +116,7 @@ function Login() {
               {/*============ FORGOT PASSWORD ========== */}
               <Link
                 to="/forgot-password"
-                className="font-light text-blue-600 place-self-end text-xs underline -mt-2 sm:text-[11px]"
+                className="text-blue-500 place-self-end text-xs underline -mt-2 sm:text-[11px]"
               >
                 Forgot Password?
               </Link>

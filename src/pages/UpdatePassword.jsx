@@ -65,11 +65,11 @@ function UpdatePassword() {
               </button>
             </Link>
             <div className="w-[450px] bg-slate-200 p-12 rounded-xl sm:w-[400px] sm:p-11 smxl:w-[330px] smxl:p-9 sm2xl:p-8 sm2xl:w-[300px]">
-              <div className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
-                Choose new password
+              <div className="text-3xl font-semibold text-dark-color leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
+                Choose New Password
               </div>
-              <p className="mt-2 mb-7 font-light text-center text-lg sm:text-base leading-[1.625rem] text-black smxl:text-sm">
-                Reset your password
+              <p className="mt-2 mb-7 text-gray-700 smxl:text-sm">
+                Enter a new password for your account
               </p>
               <form onSubmit={handleOnSubmit}>
                 <label className="relative">
@@ -83,7 +83,7 @@ function UpdatePassword() {
                     name="password"
                     value={password}
                     onChange={handleOnChange}
-                    placeholder="Enter Password"
+                    placeholder="Create a password"
                     className="w-full mb-3 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
@@ -108,7 +108,7 @@ function UpdatePassword() {
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={handleOnChange}
-                    placeholder="Confirm Password"
+                    placeholder="Confirm your password"
                     className="w-full mb-5 px-3 py-3.5 bg-slate-50 text-black rounded-md outline-none text-sm sm:py-2.5"
                   />
                   <span
@@ -127,7 +127,7 @@ function UpdatePassword() {
                   type="submit"
                   className="mt-6 w-full rounded-[5px] bg-medium-color text-white py-[10px] px-[12px] sm:py-[8px] smxl:text-sm"
                 >
-                  Reset Password
+                  Update Password
                 </button>
               </form>
             </div>

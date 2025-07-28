@@ -67,16 +67,16 @@ function ChangePassword() {
               </button>
             </Link>
             <div className="w-[450px] bg-slate-200 px-12 py-14 rounded-xl sm:w-[400px] sm:px-11 sm:py-12 smxl:w-[330px] smxl:px-9 smxl:py-10 sm2xl:p-8 sm2xl:w-[300px]">
-              <div className="text-[1.875rem] font-semibold text-dark-color text-center leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
-                Change your Password
+              <div className="text-[1.875rem] font-semibold text-dark-color leading-[2.375rem] md:text-[27px] sm:text-[25px] smxl:text-[22px] sm2xl:text-[19px]">
+                Change Your Password
               </div>
-              <p className="mt-2 mb-7 font-light text-center sm:text-sm leading-[1.625rem] text-black sm2xl:text-xs">
+              <p className="mt-2 mb-7 sm:text-sm leading-[1.625rem] text-gray-600 sm2xl:text-xs">
                 Create a new strong password.
               </p>
               <form onSubmit={submitPasswordForm}>
                 <label className="relative">
                   <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs">
-                    Current Password <sup className="text-pink-200">*</sup>
+                    Current Password <sup className="text-red-500">*</sup>
                   </p>
                   <input
                     required
@@ -102,7 +102,7 @@ function ChangePassword() {
                 </label>
                 <label className="relative mt-3 block">
                   <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black sm:text-xs">
-                    New Password <sup className="text-pink-200">*</sup>
+                    New Password <sup className="text-red-500">*</sup>
                   </p>
                   <input
                     required

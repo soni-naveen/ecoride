@@ -61,10 +61,10 @@ function Verification() {
               </button>
             </Link>
             <div className="bg-slate-200 rounded-xl py-10 flex flex-col gap-5 justify-center items-center w-[500px] smxl:w-[340px] sm:w-[430px] smxl:pt-10 smxl:pb-8">
-              <div className="font-medium text-dark-color text-center text-[1.875rem] leading-[2.375rem] sm:text-2xl smxl:text-[22px]">
-                Verify Email
+              <div className="font-medium text-dark-color text-center text-3xl smxl:text-2xl smxl:text-[22px]">
+                Verify Your Email
               </div>
-              <p className="w-[70%] text-lg text-center leading-8 font-light mb-5 sm2xl:leading-6 text-black sm:text-base smxl:text-sm sm:leading-6 sm:text-[15px] sm:w-[80%]">
+              <p className="w-[70%] text-base text-center mb-5 text-gray-700 sm:text-base smxl:text-sm sm:text-[15px] sm:w-[80%]">
                 A verification code has been sent to you. Enter the code below
               </p>
               <form
