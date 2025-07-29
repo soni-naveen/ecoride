@@ -120,7 +120,7 @@ function Login() {
               >
                 Forgot Password?
               </Link>
-              <button className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:scale-[1.02] transition-all ease-in-out duration-200">
+              <button className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:bg-[#279d93] transition-all ease-in-out duration-200">
                 LOGIN
               </button>
               <div className="gotosignup flex flex-col justify-center items-start">
@@ -128,9 +128,9 @@ function Login() {
                   Not a member yet? &nbsp;
                   <Link
                     to="/signup"
-                    className=" text-medium-color text-xs underline"
+                    className=" text-blue-500 text-xs underline"
                   >
-                    Sign Up
+                    Create account
                   </Link>
                 </p>
               </div>

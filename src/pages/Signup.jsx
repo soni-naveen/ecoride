@@ -217,7 +217,7 @@ function Signup() {
               {/*============ SUBMIT BUTTON ========== */}
               <button
                 type="submit"
-                className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:scale-[1.02] transition-all ease-in-out duration-200"
+                className="w-full place-self-center rounded-md text-white mt-5 py-2 bg-medium-color font-normal sm:mt-5 sm:text-sm hover:bg-[#279d93] transition-all ease-in-out duration-200"
               >
                 SIGN UP
               </button>
@@ -228,7 +228,7 @@ function Signup() {
                     to="/login"
                     className=" text-blue-500 text-xs underline"
                   >
-                    Login
+                    Login here
                   </Link>
                 </p>
               </div>
